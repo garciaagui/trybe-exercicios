@@ -88,7 +88,7 @@ tail -4 skills.txt
 rm *.txt
 ```
 
-## Parte 02 - Parte II - Manipulação & Busca
+## Parte II - Manipulação & Busca
 
 1. Na pasta unix_tests, baixe um arquivo com os nomes de todos os países do mundo utilizando o comando curl:
 ```
