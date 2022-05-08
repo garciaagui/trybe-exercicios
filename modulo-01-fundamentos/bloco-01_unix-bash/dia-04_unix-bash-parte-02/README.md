@@ -66,7 +66,7 @@ One kind word can warm three winter months
 Sticks and stones may break my bones, but words will never hurt me 
 ```
 
-7. Conte o número de linhas que contêm as letras "br".
+7. Conte o número de linhas que contém as letras "br".
 ```
 gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02/unix_tests$ grep -ic 'br' phrases2.txt 
 1
@@ -102,3 +102,77 @@ gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bas
 ```
 *Explicações...*
 - Por conta do tamanho do conteúdo do arquivo criado, inseri somente a linha de código de sua ordenação.
+
+## Parte II - Permissões
+
+1. Navegue até a pasta unix_tests;
+```
+gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02$ cd unix_tests/
+```
+
+2. Rode o comando ls -l e veja quais as permissões dos arquivos;
+```
+gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02/unix_tests$ ls -l
+total 24
+-rw-rw-r-- 1 gui gui 2303 mai  7 21:00 bunch_of_things.txt
+-rw-rw-r-- 1 gui gui 1842 mai  7 20:07 countries.txt
+-rw-rw-r-- 1 gui gui    0 mai  7 20:07 empty.pdf
+-rw-rw-r-- 1 gui gui    0 mai  7 20:07 empty.tbt
+-rw-rw-r-- 1 gui gui  461 mai  7 20:59 phrases2.txt
+-rw-rw-r-- 1 gui gui  333 mai  7 20:07 phrases.txt
+-rw-rw-r-- 1 gui gui   50 mai  7 20:35 skills2.txt
+-rw-rw-r-- 1 gui gui   13 mai  7 20:38 top_skills.txt
+```
+
+3. Mude a permissão do arquivo bunch_of_things.txt para que todos os usuários possam ter acesso à leitura e escrita, e verifique se está correto com o comando ls -l;
+> Resultado esperado: -rw-rw-rw- 1 ana ana 1860 ago 13 11:39 bunch_of_things.txt
+```
+gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02/unix_tests$ chmod 666 bunch_of_things.txt 
+gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02/unix_tests$ ls -l
+total 24
+-rw-rw-rw- 1 gui gui 2303 mai  7 21:00 bunch_of_things.txt
+-rw-rw-r-- 1 gui gui 1842 mai  7 20:07 countries.txt
+-rw-rw-r-- 1 gui gui    0 mai  7 20:07 empty.pdf
+-rw-rw-r-- 1 gui gui    0 mai  7 20:07 empty.tbt
+-rw-rw-r-- 1 gui gui  461 mai  7 20:59 phrases2.txt
+-rw-rw-r-- 1 gui gui  333 mai  7 20:07 phrases.txt
+-rw-rw-r-- 1 gui gui   50 mai  7 20:35 skills2.txt
+-rw-rw-r-- 1 gui gui   13 mai  7 20:38 top_skills.txt
+```
+_Explicações..._
+- Recorri ao modo ocutal para alterar as permissões.
+
+4. Tire a permissão de escrita do arquivo bunch_of_things.txt para todos os usuários, verifique se está correto com o comando ls -l;
+> Resultado esperado: -r--r--r-- 1 ana ana 1860 ago 13 11:39 bunch_of_things.txt
+```
+gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02/unix_tests$ chmod a-w bunch_of_things.txt 
+gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02/unix_tests$ ls -l
+total 24
+-r--r--r-- 1 gui gui 2303 mai  7 21:00 bunch_of_things.txt
+-rw-rw-r-- 1 gui gui 1842 mai  7 20:07 countries.txt
+-rw-rw-r-- 1 gui gui    0 mai  7 20:07 empty.pdf
+-rw-rw-r-- 1 gui gui    0 mai  7 20:07 empty.tbt
+-rw-rw-r-- 1 gui gui  461 mai  7 20:59 phrases2.txt
+-rw-rw-r-- 1 gui gui  333 mai  7 20:07 phrases.txt
+-rw-rw-r-- 1 gui gui   50 mai  7 20:35 skills2.txt
+-rw-rw-r-- 1 gui gui   13 mai  7 20:38 top_skills.txt
+
+```
+_Explicações..._
+- Neste caso, recorri ao método literal.
+
+5. Volte à permissão do arquivo bunch_of_things.txt para a listada inicialmente utilizando o comando chmod 644 bunch_of_things.txt.
+> Resultado esperado: -rw-r--r-- 1 ana ana 1860 ago 13 11:39 bunch_of_things.txt
+```
+gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02/unix_tests$ chmod 644 bunch_of_things.txt 
+gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02/unix_tests$ ls -l
+total 24
+-rw-r--r-- 1 gui gui 2303 mai  7 21:00 bunch_of_things.txt
+-rw-rw-r-- 1 gui gui 1842 mai  7 20:07 countries.txt
+-rw-rw-r-- 1 gui gui    0 mai  7 20:07 empty.pdf
+-rw-rw-r-- 1 gui gui    0 mai  7 20:07 empty.tbt
+-rw-rw-r-- 1 gui gui  461 mai  7 20:59 phrases2.txt
+-rw-rw-r-- 1 gui gui  333 mai  7 20:07 phrases.txt
+-rw-rw-r-- 1 gui gui   50 mai  7 20:35 skills2.txt
+-rw-rw-r-- 1 gui gui   13 mai  7 20:38 top_skills.txt
+```
