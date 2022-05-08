@@ -224,8 +224,8 @@ gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bas
 ```
 _Explicações..._
 - Para suspender a execução do processo, foi necessário utilizar o atalho "CTRL + Z".
-- O número após o "%" pode ser encontrado nos "[]" (podendo ser revisto ao utilizar o comando jobs), e simboliza em qual ordem dos processos executados e/ou suspensos cada processo se encontra.
-- Caso houvesse outro processo em execução ou suspenso, este teria o número 2 em seus [].
+- O número após o "%" pode ser encontrado nos "[ ]" (podendo ser revisto ao utilizar o comando jobs), e simboliza em qual ordem dos processos executados e/ou suspensos cada processo se encontra.
+- Caso houvesse outro processo em execução ou suspenso, este teria o número "2" em seus "[ ]".
 
 5. Crie um processo em background que rode o comando *sleep* por 300 segundos.
 ```
@@ -292,4 +292,4 @@ gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bas
 gui@gui-desktop:~/Trybe/trybe-exercicios/modulo-01-fundamentos/bloco-01_unix-bash/dia-04_unix-bash-parte-02/unix_tests$ 
 ```
 _Explicações..._
-- São processos diferentes (em PID) dos utilizados anteriormente, mas eles são suficientes para concluir a questão.
+- São processos diferentes (em PID) dos utilizados anteriormente, mas eles são suficientes para concluir e entnder a essência da questão.
