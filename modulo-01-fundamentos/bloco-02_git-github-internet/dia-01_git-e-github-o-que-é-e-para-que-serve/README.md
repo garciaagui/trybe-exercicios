@@ -19,7 +19,35 @@ O que eu vou aprender na Trybe:
 - Git
 ```
 
-2. Execute os comando *git add .*, *git commit -m "mensagem"* e *git push*
+2. *Simplificado* - Execute os comandos *git add .*, *git commit -m "mensagem"* e *git push*.
 ```
+gui@gui-desktop:~/Trybe/trybe-exercicios$ git add .
+gui@gui-desktop:~/Trybe/trybe-exercicios$ git status
+No ramo exercicios/2.1
+Your branch is up to date with 'origin/exercicios/2.1'.
+
+Mudanças a serem submetidas:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   "modulo-01-fundamentos/bloco-02_git-github-internet/dia-01_git-e-github-o-que-\303\251-e-para-que-serve/README.md"
+	new file:   "modulo-01-fundamentos/bloco-02_git-github-internet/dia-01_git-e-github-o-que-\303\251-e-para-que-serve/trybe-skills.txt
+
+gui@gui-desktop:~/Trybe/trybe-exercicios$ git commit -m "Realização da Parte 4 + Alterações no README do dia"
+[exercicios/2.1 2f58866] Realização da Parte 4 + Alterações no README do dia
+ 2 files changed, 30 insertions(+), 6 deletions(-)
+ rewrite "modulo-01-fundamentos/bloco-02_git-github-internet/dia-01_git-e-github-o-que-\303\251-e-para-que-serve/README.md" (66%)
+ create mode 100644 "modulo-01-fundamentos/bloco-02_git-github-internet/dia-01_git-e-github-o-que-\303\251-e-para-que-serve/trybe-skills.txt"
+
+gui@gui-desktop:~/Trybe/trybe-exercicios$ git push
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 1.18 KiB | 1.18 MiB/s, done.
+Total 7 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:garciaagui/trybe-exercicios.git
+   b9465a3..2f58866  exercicios/2.1 -> exercicios/2.1
 
 ```
+*Explicações*
+- Esse exercício é uma abordagem inicial do git init ao git push. Por conta disso, simplifiquei alguns pontos e os reuni em uma única questão.
