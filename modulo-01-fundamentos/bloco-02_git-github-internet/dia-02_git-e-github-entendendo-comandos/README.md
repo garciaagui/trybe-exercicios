@@ -35,6 +35,9 @@ gui@gui-desktop:~/Trybe/trybe-exercicios$ git branch
 * exercicios/2.2-trybe-skills-changes
 ```
 
+_Explicações_
+- Para fins de organização do repositório, incluí "exercicios/2.2" no nome da branch. O mesmo será feito para outra branch que será criada nos próximos passos.
+
 4. No arquivo *.txt*, ao final da lista de habilidades, adicione mais duas habilidades que serão desenvolvidas na Trybe:
 > Exemplo:
 > O que eu vou aprender na Trybe:
