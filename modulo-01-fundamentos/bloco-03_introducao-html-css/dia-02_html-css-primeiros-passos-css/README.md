@@ -70,12 +70,30 @@
 
 4. Coloque o tamanho do parágrafo com o tamanho de 3 vezes o padrão do body
 ```
-
+    p {
+        font-size: 3em;
+    }
 ```
+_Explicações..._
+- Como a tag pai do parágrafo é o body, o tamanho será 3x maior que o tamanho da fonte de body: 48px.
+
 
 5. Explore as propriedades font-style, line-height, text-align e text-decoration
 ```
+    <style>
+        h1 {
+            font-style:italic;
+        }
 
+        ul {
+            line-height: 25px;
+        }
+
+        p {
+          text-align: center;
+          text-decoration:underline;
+        }
+    </style>
 ```
 
 6. Troque a cor de fundo de cada item da lista para a cor correspondente ao texto
