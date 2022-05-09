@@ -25,6 +25,23 @@
 
 4. Crie uma classe para modificar a cor de fundo da tag p e da ul ao mesmo tempo
 ```
+    <head>
+        <style>
+            .background {
+                background-color: rgb(201, 201, 230);
+            }
+        </style>
+    </head>
+
+    <body>
+        <p class="background">Qual é a sua cor favorita?</p>
+
+        <ul class="background">
+            <li>Amarelo</li>
+            <li>Vermelho</li>
+            <li>Marrom</li>
+        </ul>
+    </body>
 
 ```
 
