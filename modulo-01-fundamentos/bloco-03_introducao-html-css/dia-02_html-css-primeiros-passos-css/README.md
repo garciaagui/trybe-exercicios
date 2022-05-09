@@ -98,6 +98,29 @@ _Explicações..._
 
 6. Troque a cor de fundo de cada item da lista para a cor correspondente ao texto
 ```
+    <head>
+        <style>
+            #yellow {
+            color: yellow;
+            }
+
+            #red {
+            color: red;
+            }
+
+            #brown {
+            color: brown;
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul class="background">
+            <li id="yellow">Amarelo</li>
+            <li id="red">Vermelho</li>
+            <li id="brown">Marrom</li>
+        </ul>
+    </body>
 
 ```
 
