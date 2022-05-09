@@ -61,5 +61,5 @@
 
 3. Crie um link para a página do Google.
 ```
-
+    <a href="https://www.google.com/" target="_blank">Acessar Google</a>
 ```
