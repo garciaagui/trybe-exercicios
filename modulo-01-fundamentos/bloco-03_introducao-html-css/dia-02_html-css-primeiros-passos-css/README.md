@@ -49,7 +49,9 @@
 
 1. Modifique o família do h1 para sans-serif
 ```
-
+    h1 {
+        font-family: sans-serif;
+    }
 ```
 
 2. Deixe o parágrafo com o font-weight 600
