@@ -1,0 +1,13 @@
+ol li {
+    background-color: yellow;
+}
+
+ol li:nth-child(even) {
+    color: green
+}
+/* even = par */
+
+ol li:nth-child(odd) {
+    text-transform: uppercase; 
+}
+/* odd = ímpar */
