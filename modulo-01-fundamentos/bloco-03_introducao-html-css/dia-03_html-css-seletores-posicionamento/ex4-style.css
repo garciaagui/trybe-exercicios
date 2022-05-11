@@ -38,3 +38,33 @@ h1, h2, h3 > em {
 .java {
     background-color: pink;
 }
+
+#stack:hover {
+    text-decoration: none;
+    color: orange;
+    font-weight: bold;
+}
+
+#w3:hover {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+}
+
+#mdn:hover {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#devdocs:hover {
+    text-decoration: none;
+    color: yellow;
+    font-weight: bold;
+}
+
+#trybe:hover {
+    text-decoration: none;
+    color: rgb(68, 201, 68);
+    font-weight: bold;
+}
