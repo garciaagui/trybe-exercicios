@@ -2,6 +2,24 @@
 
 ## Exercício 1: Box Model - Modelo de caixas no CSS
 
+![Imagem](/ex1-image.jpg)
+
+- Tarefa: reproduzir o esquema de itens acima no browser.
+
+```
+.padding {
+        padding: 20px;
+}
+
+.margin {
+        margin: 30px;
+}
+
+.border {
+        border: 5px solid black;
+}
+```
+
 ## Exercício 2: Posicionamento de Elementos
 > Personagens pertencentes à Nintendo©
 1. Posicione o Mário acima do Goomba.
