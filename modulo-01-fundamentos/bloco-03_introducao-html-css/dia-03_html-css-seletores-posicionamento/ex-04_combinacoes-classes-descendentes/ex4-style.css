@@ -1,0 +1,68 @@
+ol li {
+    background-color: yellow;
+}
+
+ol li:nth-child(even) {
+    color: green
+}
+
+ol li:nth-child(odd) {
+    text-transform: uppercase; 
+}
+
+li {
+    font-size: 20px;
+}
+
+li > em {
+    font-weight: bold;
+}
+
+h1, h2, h3 {
+    color: red;
+}
+
+h1, h2, h3 > em {
+    font-size: 40px;
+    border: 1px black solid;
+}
+
+#lang li:nth-child(1), 
+#lang li:nth-child(2), 
+#lang li:nth-child(3) {
+    color: blue;
+}
+
+#stack:hover {
+    text-decoration: none;
+    color: orange;
+    font-weight: bold;
+}
+
+#w3:hover {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+}
+
+#mdn:hover {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#devdocs:hover {
+    text-decoration: none;
+    color: yellow;
+    font-weight: bold;
+}
+
+#trybe:hover {
+    text-decoration: none;
+    color: rgb(68, 201, 68);
+    font-weight: bold;
+}
+
+.java {
+    background-color: pink;
+}
