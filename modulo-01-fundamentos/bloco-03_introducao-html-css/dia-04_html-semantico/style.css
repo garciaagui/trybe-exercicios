@@ -1,0 +1,12 @@
+table, td {
+    border: 1px solid;
+    background-color: whitesmoke;
+    text-align: center;
+    width: 20%;
+}
+
+thead {
+    background-color: darkslategrey;
+    text-align: center;
+    color: white;
+}
