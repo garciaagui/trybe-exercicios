@@ -28,3 +28,13 @@ h1, h2, h3 > em {
     font-size: 40px;
     border: 1px black solid;
 }
+
+#lang li:nth-child(1), 
+#lang li:nth-child(2), 
+#lang li:nth-child(3) {
+    color: blue;
+}
+
+.java {
+    background-color: pink;
+}
