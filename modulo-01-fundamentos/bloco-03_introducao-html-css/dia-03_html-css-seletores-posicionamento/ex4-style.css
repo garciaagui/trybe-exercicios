@@ -5,12 +5,10 @@ ol li {
 ol li:nth-child(even) {
     color: green
 }
-/* even = par */
 
 ol li:nth-child(odd) {
     text-transform: uppercase; 
 }
-/* odd = ímpar */
 
 li {
     font-size: 20px;
@@ -33,10 +31,6 @@ h1, h2, h3 > em {
 #lang li:nth-child(2), 
 #lang li:nth-child(3) {
     color: blue;
-}
-
-.java {
-    background-color: pink;
 }
 
 #stack:hover {
@@ -67,4 +61,8 @@ h1, h2, h3 > em {
     text-decoration: none;
     color: rgb(68, 201, 68);
     font-weight: bold;
+}
+
+.java {
+    background-color: pink;
 }
