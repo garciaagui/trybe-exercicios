@@ -135,27 +135,70 @@ ol, li {
 
 1. Estilize as divs para que, ao passar o cursor por cima das mesmas, elas ganhem uma borda.
 ```
-
+div:hover {
+    border: 5px solid black;
+}
 ```
 
 2. Faça cada div ter uma cor própria.
 ```
+div:nth-of-type(1) {
+    background-color: red;
+}
 
+div:nth-of-type(2) {
+    background-color: orange;
+}
+
+div:nth-of-type(3) {
+    background-color: green;
+}
+
+div:nth-of-type(4) {
+    background-color: darkblue;
+}
+
+div:nth-of-type(5) {
+    background-color: lightblue;
+}
 ```
 
 3. Estilize cada uma das tags h3.
 ```
+div:nth-of-type(1) h3:nth-child(1) {
+    text-transform: uppercase;
+}
 
+div:nth-of-type(2) h3:nth-child(1) {
+    text-decoration: line-through;
+}
+
+div:nth-of-type(3) h3:nth-child(1) {
+    text-align: center;
+}
+
+div:nth-of-type(4) h3:nth-child(1) {
+    color: white;
+}
+
+div:nth-of-type(5) h3:nth-child(1) {
+    font-weight: bolder;
+}
 ```
 
 4. Faça a terceira div ser maior que as demais.
 ```
-
+div:nth-of-type(3) {
+    background-color: green;
+    font-size: 2em;
+}
 ```
 
 5. Deixe as tags ímpares h3 com o texto em itálico.
 ```
-
+div:nth-of-type(odd) h3:nth-child(1) {
+    font-style: italic;
+}
 ```
 
 ## Exercício 4: Combinações e Classes Descendentes
