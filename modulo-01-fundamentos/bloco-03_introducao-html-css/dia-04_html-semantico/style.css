@@ -35,6 +35,7 @@ nav li a {
 main {
     max-width: 1500px;
     margin: auto;
+    padding-bottom: 50px;
 }
 
 article {
@@ -88,4 +89,10 @@ thead {
 aside {
     display: inline-block;
     vertical-align: top;
+}
+
+footer {
+    padding: 10px 0px 10px 40px;
+    background-color: lightcyan;
+    border-top: 1px solid rgb(150, 210, 230);
 }
