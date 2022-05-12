@@ -1,6 +1,8 @@
-# Exercícios | Bloco 04 - Dia 01
+# Atividades de Fixação & Exercícios | Bloco 04 - Dia 01
 
-## Exercício 1 - Variáveis
+### Obs.: Para os commits 3 e 4, considerar "Atividade de Fixação" ao invés de "Exercício"
+
+## Atividade de Fixação 1 - Variáveis
 
 1. Crie uma constante chamada *myName* e atribua a ela o seu nome (Exemplo: Carolina).
 ```
@@ -37,3 +39,5 @@ console.log(birthCity);
 ```
 _Explicações..._
 - A variável é classificada como constante, portanto, seu valor não pode ser alterado.
+
+## Atividade de Fixação 2 - Tipos Primitivos, Tipagem Dinâmica e Operações Aritméticas

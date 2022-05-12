@@ -1,3 +1,5 @@
+// Atividade de Fixação 1 - Variáveis
+
 const myName = "Guilherme";
 const birthCity = "Porto Feliz";
 let birthYear = 1999;
