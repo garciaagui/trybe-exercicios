@@ -1,6 +1,6 @@
 // Atividade de Fixação 4.1 - Operadores AND (&&)
 
-const currentHour = 10;
+const currentHour = 0;
 let message = ""
 
 if (currentHour >= 22) {
@@ -24,6 +24,6 @@ if (currentHour >= 22) {
     console.log(message);
 
 } else {
-    message = "Dormindo... ZzZzZ";
+    message = "Horário inválido. Por gentileza, insira um horário entre 4h e 24h.";
     console.log(message);
 }
