@@ -1,6 +1,6 @@
 # Atividades de Fixação & Exercícios | Bloco 04 - Dia 01
 
-### Obs.: Para os commits 3 e 4, considerar "Atividade de Fixação" ao invés de "Exercício"
+### Obs.: Para os commits 3 e 4, considerar "Atividade de Fixação" ao invés de "Exercício".
 
 ## Atividade de Fixação 1 - Variáveis
 
@@ -41,3 +41,18 @@ _Explicações..._
 - A variável é classificada como constante, portanto, seu valor não pode ser alterado.
 
 ## Atividade de Fixação 2 - Tipos Primitivos, Tipagem Dinâmica e Operações Aritméticas
+
+1. Crie uma constante chamada *base* e uma variável chamada *height* e atribua os seus respectivos valores: 5 e 8.
+```
+
+```
+
+2. Crie uma constante chamada *area* e atribua a ela o resultado da multiplicação da *base* pela *altura*. Dica: lembre-se de usar sempre o *console.log()* para imprimir as variáveis e checar os resultados das operações!
+```
+
+```
+
+3. Crie uma constante chamada *perimeter* e atribua a ela a soma de todos os lados do retângulo.
+```
+
+```
