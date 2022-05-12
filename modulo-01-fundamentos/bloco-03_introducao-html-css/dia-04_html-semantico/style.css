@@ -33,8 +33,13 @@ nav li a {
 
 
 main {
-    max-width: 1400px;
+    max-width: 1500px;
     margin: auto;
+}
+
+article {
+    display: inline-block;
+    width: 70%;
 }
 
 h2 {
@@ -50,7 +55,7 @@ p {
 }
 
 #info-content {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 
 table, td {
@@ -77,4 +82,10 @@ thead {
 
 .facts-photos {
     width: 300px;
+    padding-bottom: 10px;
+}
+
+aside {
+    display: inline-block;
+    vertical-align: top;
 }
