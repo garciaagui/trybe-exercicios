@@ -35,7 +35,7 @@ nav li a {
 main {
     max-width: 1500px;
     margin: auto;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 article {
@@ -88,7 +88,15 @@ thead {
 
 aside {
     display: inline-block;
+    padding: 20px;
+    margin: 15px 0px 0px 30px;
     vertical-align: top;
+    background-color: darkslategray;
+    color: white;
+}
+
+#yt-video {
+    color: white;
 }
 
 footer {
