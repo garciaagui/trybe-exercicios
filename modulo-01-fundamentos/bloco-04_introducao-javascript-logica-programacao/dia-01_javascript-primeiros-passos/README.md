@@ -1,8 +1,8 @@
-# Atividades de Fixação & Exercícios | Bloco 04 - Dia 01
+# &#9889; Atividades de Fixação & Exercícios | Bloco 04 - Dia 01
 
 ### Obs.: Para os commits 3 e 4, considerar "Atividade de Fixação" ao invés de "Exercício".
 
-## Atividade de Fixação 1 - Variáveis
+## &#9989; Atividade de Fixação 1 - Variáveis
 
 1. Crie uma constante chamada *myName* e atribua a ela o seu nome (Exemplo: Carolina).
 ```
@@ -40,7 +40,7 @@ console.log(birthCity);
 _Explicações..._
 - A variável é classificada como constante, portanto, seu valor não pode ser alterado.
 
-## Atividade de Fixação 2 - Tipos Primitivos, Tipagem Dinâmica e Operações Aritméticas
+## &#9989; Atividade de Fixação 2 - Tipos Primitivos, Tipagem Dinâmica e Operações Aritméticas
 
 1. Crie uma constante chamada *base* e uma variável chamada *height* e atribua os seus respectivos valores: 5 e 8.
 ```
@@ -56,4 +56,28 @@ const area = base * height;
 3. Crie uma constante chamada *perimeter* e atribua a ela a soma de todos os lados do retângulo.
 ```
 const perimeter = base + height + base + height;
+```
+
+## &#9989; Atividade de Fixação 3 - Condições If e Else
+
+1. Crie uma constante que receba a nota de uma pessoa candidata em um desafio técnico, e atribua a ela um valor entre 1 e 100;
+```
+
+```
+
+2. Implemente uma lógica que verifique se a pessoa candidata foi aprovada, reprovada ou se ela está na lista de espera. Para isso, considere as seguintes informações:
+- Se a nota for maior ou igual a 80, imprima "Parabéns, você foi aprovada(o)!"
+- Se a nota for menor que 80 e maior ou igual a 60, imprima "Você está na nossa lista de espera"
+- Se a nota for menor que 60, imprima "Você foi reprovada(o)"
+```
+
+```
+
+3. Crie uma estrutura condicional utilizando o if, else if e else para criar o seu algoritmo, e os operadores lógicos que se aplicam a cada situação.
+```
+
+```
+4. Altere o valor da nota para verificar se as condições que você implementou funcionam;
+```
+
 ```
