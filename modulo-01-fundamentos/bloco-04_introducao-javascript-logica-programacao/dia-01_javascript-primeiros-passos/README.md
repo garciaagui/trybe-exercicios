@@ -11,7 +11,7 @@ const myName = "Guilherme";
 
 2. Crie uma constante chamada birthCity e atribua a ela a sua cidade natal.
 ```
-"Porto Feliz";
+const birthCity = "Porto Feliz";
 ```
 
 3. Crie uma variável chamada birthYear e atribua a ela o ano em que você nasceu.
@@ -70,20 +70,45 @@ const score = 80;
 - Se a nota for menor que 80 e maior ou igual a 60, imprima "Você está na nossa lista de espera"
 - Se a nota for menor que 60, imprima "Você foi reprovada(o)"
 ```
-if (score >= 80) {
+if (score >= 80 && score <= 100) {
     console.log("Parabéns, você foi aprovado(a)!");
+
 } else if (score >= 60 && score < 80) {
     console.log("Você está na nossa lista de espera.");
+
+} else if (score >= 0 && score < 60) {
+    console.log("Você foi reprovado(a).");
+
 } else {
-    console.log("Você foi reprovado(a).")
+    console.log("Nota inválida! Por gentileza, insira um valor entre 0 e 100.");
 }
+
+// Resultado esperado: Parabéns, você foi aprovado(a)!
 ```
 
 3. Crie uma estrutura condicional utilizando o if, else if e else para criar o seu algoritmo, e os operadores lógicos que se aplicam a cada situação.
 ```
+if (score >= 80 && score <= 100) {
+    console.log("Parabéns, você foi aprovado(a)!");
 
+} else if (score >= 60 && score < 80) {
+    console.log("Você está na nossa lista de espera.");
+
+} else if (score >= 0 && score < 60) {
+    console.log("Você foi reprovado(a).");
+
+} else {
+    console.log("Nota inválida! Por gentileza, insira um valor entre 0 e 100.");
+}
+
+// Resultado esperado: Parabéns, você foi aprovado(a)!
 ```
+_Explicações..._
+- Estrutura já montada no passo 2.
+
 4. Altere o valor da nota para verificar se as condições que você implementou funcionam;
 ```
+const score = 50;
 
+// Resultado esperado: Você foi reprovado(a).
 ```
