@@ -14,20 +14,26 @@ const myName = "Guilherme";
 
 3. Crie uma variável chamada birthYear e atribua a ela o ano em que você nasceu.
 ```
-const birthYear = 1999;
+let birthYear = 1999;
 ```
 
 4. Utilize o console.log() para imprimir as constantes e variáveis que você criou.
 ```
-
+console.log(myName);
+console.log(birthCity);
+console.log(birthYear);
 ```
 
 5. Altere o valor atribuído à variável birthYear para 2030. Faça um console.log(birthYear) novamente para ver o que acontece!
 ```
-
+birthYear = 2030;
+console.log(birthYear);
 ```
 
 6. Altere o valor atribuído à constante birthCity. Faça um console.log(birthCity) novamente! Você saberia explicar por que recebemos uma mensagem de erro? 🤔
 ```
-
+birthCity = "São Paulo"
+console.log(birthCity);
 ```
+_Explicações..._
+- A variável é classificada como constante, portanto, seu valor não pode ser alterado.
