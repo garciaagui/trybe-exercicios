@@ -9,7 +9,7 @@ header {
 }
 
 #main-title {
-    padding: 15px 0px 15px 10px;
+    padding: 15px 0px 15px 40px;
     border-bottom: 1px solid rgb(245, 86, 68);
 }
 
@@ -23,8 +23,7 @@ nav li {
     font-size: 18px;
     font-weight: bold;
     display: inline-block;
-    padding: 7px 0px 7px 10px;
-    margin-right: 10px;
+    padding: 10px 0px 10px 40px;
 }
 
 nav li a { 
@@ -32,16 +31,48 @@ nav li a {
     color: black;
 }
 
+
+main {
+    max-width: 1400px;
+    margin: auto;
+}
+
+h2 {
+    padding-top: 15px;
+}
+
+h3 {
+    padding: 20px 0px 10px 0px
+}
+
+p {
+    text-align: justify;
+}
+
+#info-content {
+    padding-bottom: 15px;
+}
+
 table, td {
     border: 1px solid;
     background-color: whitesmoke;
     text-align: center;
+    height: 30px;
+    width: 40%;
+}
+
+td:nth-child(1) {
+    font-weight: bold;
+}
+
+td:nth-child(2) {
+    font-style: italic;
 }
 
 thead {
     background-color: darkslategrey;
-    text-align: center;
     color: white;
+    height: 30px;
 }
 
 .facts-photos {
