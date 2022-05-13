@@ -270,30 +270,51 @@ switch (applicantStatus) {
 
 ## &#9989; Exercícios do Dia
 
-1. Faça cinco programas, um para cada operação aritmética básica. Seu programa deve ter duas *constantes*, *a* e *b*, definidas no começo com os valores que serão operados. Faça programas para:
-- Adição (a + b);
+1. Faça cinco programas, um para cada operação aritmética básica. Seu programa deve ter duas *constantes*, *a* e *b*, definidas no começo com os valores que serão operados. 
+```
+const a = 20;
+const b = 10;
 ```
 
+Faça programas para:
+- Adição (a + b);
+```
+const adicao = a + b;
+console.log(`A soma entre ${a} e ${b} é igual a: ${adicao}.`);
+
+// Resultado esperado: "A soma entre 20 e 10 é igual a: 30."
 ```
 
 - Subtração (a - b);
 ```
+const subtracao = a - b;
+console.log(`A subtração de ${a} e ${b} é igual a: ${subtracao}.`);
 
+// Resultado esperado: "A subtração de 20 e 10 é igual a: 10."
 ```
 
 - Multiplicação (a * b);
 ```
+const multiplicacao = a * b;
+console.log(`A multiplicação entre ${a} e ${b} é igual a: ${multiplicacao}.`);
 
+// Resultado esperado: "A multiplicação entre 20 e 10 é igual a: 200."
 ```
 
 - Divisão (a / b);
 ```
+const divisao = a / b;
+console.log(`A divisão de ${a} por ${b} é igual a: ${divisao}.`);
 
+// Resultado esperado: "A divisão de 20 por 10 é igual a: 2."
 ```
 
 - Módulo (a % b).
 ```
+const modulo = a % b;
+console.log(`O módulo de ${a} por ${b} é igual a: ${modulo}.`);
 
+// Resultado esperado: "O módulo de 20 por 10 é igual a: 0."
 ```
 
 2. Faça um programa que retorne o maior de dois números. Defina no começo do programa duas *constantes* com os valores que serão comparados.
