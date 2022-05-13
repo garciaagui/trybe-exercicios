@@ -200,7 +200,7 @@ _Explicações..._
 ```
 const currentHour = 3;
 
-// Resultado esperado: Horário inválido. Por gentileza, insira um horário entre 4h e 24h.
+// Resultado esperado: "Horário inválido. Por gentileza, insira um horário entre 4h e 24h."
 ```
 
 ## &#9989; Atividade de Fixação 4.2 - Operador OR (||)
@@ -242,10 +242,28 @@ if (weekDay === "segunda-feira" || weekDay === "terça-feira" || weekDay === "qu
 
 1. Crie uma variável para armazenar o estado da pessoa candidata no processo seletivo, que pode ser: 'aprovada', 'lista' ou 'reprovada';
 ```
-
+applicantStatus = 'aprovada';
 ```
 
 2. Crie uma estrutura condicional com o switch/case que irá imprimir as mensagens do exercício anterior se o estado da pessoa candidata for 'aprovada', 'lista' ou 'reprovada'. Como default, imprima a mensagem de 'não se aplica'.
 ```
+switch (applicantStatus) {
 
+    case 'aprovada':
+        console.log("Parabéns! Você foi aprovado(a)!");
+        break;
+
+    case 'lista':
+        console.log("Aguarde nosso retorno, você está na lista de espera.");
+        break;
+
+    case 'reprovada':
+        console.log("Você foi reprovado(a) no processo seletivo, desejamos sorte para as próximas oportunidades.");
+        break;
+    
+    default:
+        console.log("Status não identificado, insira um valor válido.");
+}
+
+// Resultado esperado: "Parabéns! Você foi aprovado(a)!"
 ```
