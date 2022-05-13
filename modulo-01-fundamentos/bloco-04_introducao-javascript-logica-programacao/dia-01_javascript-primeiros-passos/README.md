@@ -319,7 +319,19 @@ console.log(`O módulo de ${a} por ${b} é igual a: ${modulo}.`);
 
 2. Faça um programa que retorne o maior de dois números. Defina no começo do programa duas *constantes* com os valores que serão comparados.
 ```
+const x = 180;
+const y = 75;
 
+console.log(`Constante x = ${x}.`);
+console.log(`Constante y = ${y}.`);
+
+if (x > y) {
+    console.log(`A constante x é maior que a constante y = ${x} > ${y}!`);
+} else {
+    console.log(`A constante y é maior que a constante x = ${y} > ${x}!`);
+}
+
+// Resultado Esperado: "A constante x é maior que a constante y = 180 > 75!"
 ```
 
 3. Faça um programa que retorne o maior de três números. Defina no começo do programa três *constantes* com os valores que serão comparados.

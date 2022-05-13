@@ -1,4 +1,4 @@
-// Exercício 1 - Operadores Aritmétricos
+// Exercício 1 - Operadores Aritméticos
 
 const a = 20;
 const b = 10;
