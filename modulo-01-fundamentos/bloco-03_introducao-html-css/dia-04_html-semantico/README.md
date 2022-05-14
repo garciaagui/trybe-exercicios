@@ -2,9 +2,9 @@
 
 1. Adicione um *cabeçalho* na página contendo o título "Soco a 80km/h: Conheça o Stomatopoda".
 ```
-    <header>
-        <h1 id="main-title">Soco a 80 km/h: Conheça o Stomatopoda</h1>
-    </header>
+<header>
+    <h1 id="main-title">Soco a 80 km/h: Conheça o Stomatopoda</h1>
+</header>
 ```
 
 
@@ -13,20 +13,20 @@
 - Crie um link chamado Sobre.
 - Crie um link chamado Contato.
 ```
-    <header>
-        <h1 id="main-title">Soco a 80 km/h: Conheça o Stomatopoda</h1>
-        <nav>
-          <li>
-            <a href="#">Página Inicial</a>
-          </li>
-          <li>
-            <a href="#">Sobre</a>
-          </li>
-          <li>
-            <a href="#">Contato</a>
-          </li>
-        </nav>
-    </header>
+<header>
+    <h1 id="main-title">Soco a 80 km/h: Conheça o Stomatopoda</h1>
+    <nav>
+        <li>
+        <a href="#">Página Inicial</a>
+        </li>
+        <li>
+        <a href="#">Sobre</a>
+        </li>
+        <li>
+        <a href="#">Contato</a>
+        </li>
+    </nav>
+</header>
 ```
 
 3. Crie um *artigo* que vai conter os fatos interessantes sobre o Stomatopoda. O artigo terá o subtítulo "Fatos sobre o Stomatopoda".
@@ -126,5 +126,21 @@
 ```
 
 5. Adicione um conteúdo adjacente ao artigo, disponibilizando um link para este vídeo, que mostra o animal em ação.
+```
+<aside class="side-content">
+    <section>
+        <h3>Conteúdo Adicional</h3>
+        <a id="yt-video" href="https://www.youtube.com/watch?v=E0Li1k5hGBE">Vídeo do Youtube</a>
+    </section>
+</aside>
+```
 
 6. Adicione um rodapé na página, mostrando algo do gênero:
+> ``` "Conteúdo compilado por <insere seu nome>, <ano atual>". ```
+```
+<footer>
+    <section>
+        <p>Conteúdo compilado por Guilherme Garcia, 2022.</p>
+    </section>
+</footer>
+```
