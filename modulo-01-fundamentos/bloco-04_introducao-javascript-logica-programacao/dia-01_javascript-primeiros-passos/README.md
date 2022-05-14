@@ -511,7 +511,17 @@ if (x%2 === 0 || y%2 === 0 || z%2 === 0) {
 9. Escreva um programa que defina três números em *constantes* e retorne true se pelo menos uma das três for ímpar. Caso contrário, ele retorna false.
 - Bonus: use somente um *if*.
 ```
+const x = 1;
+const y = 7;
+const z = 4;
 
+if (x%2 === 1 || y%2 === 1 || z%2 === 1) {
+    console.log('True! Pelo menos UM dos valores inseridos é ímpar!');
+} else {
+    console.log('False! NENHUM dos números inseridos é ímpar!');
+}
+
+// Resultado: "True! Pelo menos UM dos valores inseridos é ímpar!"
 ```
 
 10. Escreva um programa que se inicie com dois valores em duas *constantes* diferentes: o custo de um produto e seu valor de venda. A partir dos valores, calcule quanto de lucro (valor de venda descontado o custo do produto) a empresa terá ao vender mil desses produtos.
