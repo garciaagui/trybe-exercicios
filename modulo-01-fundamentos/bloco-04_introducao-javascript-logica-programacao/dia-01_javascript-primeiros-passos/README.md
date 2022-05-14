@@ -336,12 +336,43 @@ if (x > y) {
 
 3. Faça um programa que retorne o maior de três números. Defina no começo do programa três *constantes* com os valores que serão comparados.
 ```
+const a = 125;
+const b = 211;
+const c = 79;
 
+console.log (`Constante a = ${a}.`);
+console.log (`Constante b = ${b}.`);
+console.log (`Constante c = ${c}.`);
+
+
+if (a > b && a > c) {
+    console.log (`A constante com maior valor é a "a" = ${a}.`);
+
+} else if (b > a && b > c) {
+    console.log (`A constante com maior valor é a "b" = ${b}.`);
+
+} else {
+    console.log (`A constante com maior valor é a "c" = ${c}.`);
+}
+
+// Resultado esperado: "A constante com maior valor é a "b" = 211."
 ```
 
 4. Faça um programa que, dado um valor definido numa *constante*, retorne "positive" se esse valor for positivo, "negative" se for negativo e "zero" caso contrário.
 ```
+const x = -10.5;
 
+if (x > 0) {
+    console.log("positive");
+
+} else if (x < 0) {
+    console.log("negative");
+
+} else {
+    console.log("zero");
+}
+
+// Resultado esperado: "negative"
 ```
 
 5. Faça um programa que defina três *constantes* com os valores dos três ângulos internos de um triângulo. Retorne "true" se os ângulos representarem os ângulos de um triângulo e "false", caso contrário. Se algum ângulo for inválido o programa deve retornar uma mensagem de erro.
