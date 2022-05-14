@@ -413,18 +413,6 @@ if (a < 0 || b < 0 || c < 0) {
 - Se a peça passada for inválida, o programa deve retornar uma mensagem de erro.
 - Exemplo: *bishop (bispo) -> diagonals (diagonais)*.
 ```
-
-```
-
-7. Escreva um programa que converte uma nota dada em porcentagem (de 0 a 100) em conceitos de A a F. Siga essas regras:
-- Porcentagem >= 90 -> A
-- Porcentagem >= 80 -> B
-- Porcentagem >= 70 -> C
-- Porcentagem >= 60 -> D
-- Porcentagem >= 50 -> E
-- Porcentagem < 50 -> F
-- O programa deve retornar uma mensagem de erro e encerrar se a nota passada for menor que 0 ou maior que 100.
-```
 let chessPiece = "Torre"
 
 chessPiece = chessPiece.toLowerCase()
@@ -460,6 +448,48 @@ switch (chessPiece) {
 }
 
 // Resultado esperado: "A Torre se movimenta para frente e para trás, para a direita e para a esquerda, quantas casas quiser, mas não pode pular nenhuma outra peça."
+```
+
+7. Escreva um programa que converte uma nota dada em porcentagem (de 0 a 100) em conceitos de A a F. Siga essas regras:
+- Porcentagem >= 90 -> A
+- Porcentagem >= 80 -> B
+- Porcentagem >= 70 -> C
+- Porcentagem >= 60 -> D
+- Porcentagem >= 50 -> E
+- Porcentagem < 50 -> F
+- O programa deve retornar uma mensagem de erro e encerrar se a nota passada for menor que 0 ou maior que 100.
+```
+let score = 75;
+
+if (score >= 90 && score <= 100) {
+    score = "A";
+    console.log ("Sua nota é A!");
+
+} else if (score >= 80 && score < 90) {
+    score = "B";
+    console.log ("Sua nota é B!");
+
+} else if (score >= 70 && score < 80) {
+    score = "C";
+    console.log ("Sua nota é C!");
+
+} else if (score >= 60 && score < 70) {
+    score = "D";
+    console.log ("Sua nota é D!");
+
+} else if (score >= 50 && score < 60) {
+    score = "E";
+    console.log ("Sua nota é E!");
+
+} else if (score >= 0 && score < 50) {
+    score = "F";
+    console.log ("Sua nota é F!");
+
+} else {
+    console.log ("Erro: nota inválida! Insira um valor que esteja entre 0 e 100.")
+}
+
+// Resultado esperado: "Sua nota é C!"
 ```
 
 8. Escreva um programa que defina três números em *constantes* e retorne "true" se pelo menos uma das três for par. Caso contrário, ele retorna "false".
