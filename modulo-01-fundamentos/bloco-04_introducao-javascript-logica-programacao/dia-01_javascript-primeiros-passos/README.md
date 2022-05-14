@@ -495,7 +495,17 @@ if (score >= 90 && score <= 100) {
 8. Escreva um programa que defina três números em *constantes* e retorne "true" se pelo menos uma das três for par. Caso contrário, ele retorna "false".
 - Bonus: use somente um *if*.
 ```
+const x = 2;
+const y = 7;
+const z = 4;
 
+if (x%2 === 0 || y%2 === 0 || z%2 === 0) {
+    console.log('True! Pelo menos UM dos valores inseridos é par!');
+} else {
+    console.log('False! NENHUM dos números inseridos é par!');
+}
+
+// Resultado esperado: "True! Pelo menos UM dos valores inseridos é par!"
 ```
 
 9. Escreva um programa que defina três números em *constantes* e retorne true se pelo menos uma das três for ímpar. Caso contrário, ele retorna false.
