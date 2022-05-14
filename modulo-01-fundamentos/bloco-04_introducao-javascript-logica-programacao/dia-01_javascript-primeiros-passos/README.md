@@ -587,13 +587,16 @@ let valorINSS = 0;
 let salarioBase = 0;
 let valorIR = 0;
 
+// Inicialização - Impressão do Salário Bruto
 console.log(`- Salário Bruto: ${salarioBruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}.\n`);
 
+// Bloqueio do programa caso o valor do Salário Bruto seja igual ou menor que zero.
 if (salarioBruto <= 0) {
     console.log("ERRO: Salário Bruto igual ou menor que ZERO.");
 
 } else {
 
+    // Cálculo do INSS
     if (salarioBruto <= 1556.94) {
         valorINSS = salarioBruto*0.08;
         console.log(`- Alíquota do INSS: 8%;`)
@@ -615,9 +618,11 @@ if (salarioBruto <= 0) {
         
         }
     
+    // Cálculo do Salário-base
     salarioBase = salarioBruto - valorINSS;
     console.log(`- Salário-base para cálculo do IR: ${salarioBase.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}.\n`);
     
+    // Cálculo do Imposto de Renda
     if (salarioBase <= 1903.98) {
         valorIR = 0;
         console.log(`- Salário-base é igual ou menor a R$ 1.903,98 - Isento de IR.`);
@@ -647,6 +652,7 @@ if (salarioBruto <= 0) {
             console.log(`- Valor do IR: ${valorIR.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}.\n`);
         }
     
+    // Conclusão - Impressão do Salário Líquido
     console.log(`- Salário Líquido: ${(salarioBase-valorIR).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}.`);
 }
 
@@ -663,4 +669,4 @@ if (salarioBruto <= 0) {
 //- Valor do IR: R$ 265,00.
 //
 //- Salário Líquido: R$ 3.740,01.
-´´´
+```
