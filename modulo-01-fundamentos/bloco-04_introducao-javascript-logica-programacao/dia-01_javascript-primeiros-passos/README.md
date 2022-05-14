@@ -531,7 +531,30 @@ if (x%2 === 1 || y%2 === 1 || z%2 === 1) {
     - valorCustoTotal = valorCusto + impostoSobreOCusto;
     - lucro = valorVenda - valorCustoTotal (lucro de um produto).
 ```
+const custoUnitario = 10;
+const custoFinal = custoUnitario + (custoUnitario*0.2);
+const venda = 20;
+const lucro = venda - custoFinal;
 
+if (custoUnitario < 0 || venda < 0) {
+    console.log("Erro: valor(es) inválido(s). Os valores de custo unitário e de venda precisam ser positivos.");
+
+} else {
+
+    console.log(`- Considerando o imposto, o custo por produto é de ${custoFinal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})};`);
+
+    console.log(`- Esse produto é vendido pelo valor de ${venda.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})};`);
+
+    console.log (`- O lucro por produto vendido é de ${lucro.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})};`);
+    
+    console.log(`- Já o lucro da venda de mil produtos é de ${(lucro*1000).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}.`);
+}
+
+// Resultado esperado:
+//- Considerando o imposto, o custo por produto é de R$ 12,00;
+//- Esse produto é vendido pelo valor de R$ 20,00;
+//- O lucro por produto vendido é de R$ 8,00;
+//- Já o lucro da venda de mil produtos é de R$ 8.000,00.
 ```
 
 11. Uma pessoa que trabalha de carteira assinada no Brasil tem descontados de seu salário bruto o INSS e o IR. Faça um programa que, dado um salário bruto, calcule o líquido a ser recebido.
