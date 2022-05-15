@@ -11,7 +11,7 @@ console.log(`- Ângulo "b" = ${b} graus.`);
 console.log(`- Ângulo "c" = ${c} graus.`);
 
 if (a < 0 || b < 0 || c < 0) {
-    console.log("Os valores dos ângulos precisam ser positivos, verifique os valores inseridos.");
+    console.log("ERRO: Os valores dos ângulos precisam ser positivos, verifique os valores inseridos.");
 
 }  else {
     

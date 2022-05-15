@@ -10,7 +10,7 @@ if (custoUnitario < 0 || venda < 0) {
 
 } else {
 
-    console.log(`- Considerando o imposto, o custo por produto é de ${custoFinal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})};`);
+    console.log(`- Considerando o imposto de 20% incidente sobre o custo unitário, o custo por produto é de ${custoFinal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})};`);
 
     console.log(`- Esse produto é vendido pelo valor de ${venda.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})};`);
 

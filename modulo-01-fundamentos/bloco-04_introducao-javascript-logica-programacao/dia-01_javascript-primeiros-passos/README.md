@@ -395,7 +395,7 @@ console.log(`- Ângulo "b" = ${b} graus.`);
 console.log(`- Ângulo "c" = ${c} graus.`);
 
 if (a < 0 || b < 0 || c < 0) {
-    console.log("Os valores dos ângulos precisam ser positivos, verifique os valores inseridos.");
+    console.log("ERRO: Os valores dos ângulos precisam ser positivos, verifique os valores inseridos.");
 
 }  else {
     
@@ -465,32 +465,36 @@ switch (chessPiece) {
 ```
 let score = 75;
 
-if (score >= 90 && score <= 100) {
-    score = "A";
-    console.log ("Sua nota é A!");
-
-} else if (score >= 80 && score < 90) {
-    score = "B";
-    console.log ("Sua nota é B!");
-
-} else if (score >= 70 && score < 80) {
-    score = "C";
-    console.log ("Sua nota é C!");
-
-} else if (score >= 60 && score < 70) {
-    score = "D";
-    console.log ("Sua nota é D!");
-
-} else if (score >= 50 && score < 60) {
-    score = "E";
-    console.log ("Sua nota é E!");
-
-} else if (score >= 0 && score < 50) {
-    score = "F";
-    console.log ("Sua nota é F!");
+if (score < 0 || score > 100) {
+    console.log("ERRO: nota inválida! Insira um valor que esteja entre 0 e 100")
 
 } else {
-    console.log ("Erro: nota inválida! Insira um valor que esteja entre 0 e 100.")
+
+    if (score >= 90 && score <= 100) {
+        score = "A";
+        console.log ("Sua nota é A!");
+    
+    } else if (score >= 80 && score < 90) {
+        score = "B";
+        console.log ("Sua nota é B!");
+    
+    } else if (score >= 70 && score < 80) {
+        score = "C";
+        console.log ("Sua nota é C!");
+    
+    } else if (score >= 60 && score < 70) {
+        score = "D";
+        console.log ("Sua nota é D!");
+    
+    } else if (score >= 50 && score < 60) {
+        score = "E";
+        console.log ("Sua nota é E!");
+    
+    } else {
+        score = "F";
+        console.log ("Sua nota é F!");
+    
+    }
 }
 
 // Resultado esperado: "Sua nota é C!"
@@ -545,7 +549,7 @@ if (custoUnitario < 0 || venda < 0) {
 
 } else {
 
-    console.log(`- Considerando o imposto, o custo por produto é de ${custoFinal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})};`);
+    console.log(`- Considerando o imposto de 20% incidente sobre o custo unitário, o custo por produto é de ${custoFinal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})};`);
 
     console.log(`- Esse produto é vendido pelo valor de ${venda.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})};`);
 
@@ -555,7 +559,7 @@ if (custoUnitario < 0 || venda < 0) {
 }
 
 // Resultado esperado:
-//- Considerando o imposto, o custo por produto é de R$ 12,00;
+//- Considerando o imposto de 20% incidente sobre o custo unitário, o custo por produto é de R$ 12,00;
 //- Esse produto é vendido pelo valor de R$ 20,00;
 //- O lucro por produto vendido é de R$ 8,00;
 //- Já o lucro da venda de mil produtos é de R$ 8.000,00.
