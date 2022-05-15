@@ -14,4 +14,3 @@ if (score >= 80 && score <= 100) {
 } else {
     console.log("Nota inválida! Por gentileza, insira um valor entre 0 e 100.");
 }
-

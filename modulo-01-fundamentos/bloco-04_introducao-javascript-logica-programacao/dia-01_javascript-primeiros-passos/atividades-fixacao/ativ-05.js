@@ -17,5 +17,5 @@ switch (applicantStatus) {
         break;
     
     default:
-        console.log("Status não identificado, insira um valor válido.");
+        console.log("Não se aplica - Status não identificado, insira um valor válido.");
 }

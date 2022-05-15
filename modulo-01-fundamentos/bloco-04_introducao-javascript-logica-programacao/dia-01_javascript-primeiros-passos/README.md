@@ -87,7 +87,7 @@ if (score >= 80 && score <= 100) {
     console.log("Nota inválida! Por gentileza, insira um valor entre 0 e 100.");
 }
 
-// Resultado esperado: Parabéns, você foi aprovado(a)!
+// Resultado esperado: "Parabéns, você foi aprovado(a)!"
 ```
 
 3. Crie uma estrutura condicional utilizando o if, else if e else para criar o seu algoritmo, e os operadores lógicos que se aplicam a cada situação.
@@ -105,7 +105,7 @@ if (score >= 80 && score <= 100) {
     console.log("Nota inválida! Por gentileza, insira um valor entre 0 e 100.");
 }
 
-// Resultado esperado: Parabéns, você foi aprovado(a)!
+// Resultado esperado: "Parabéns, você foi aprovado(a)!"
 ```
 _Explicações..._
 - Estrutura já montada no passo 2.
@@ -114,7 +114,7 @@ _Explicações..._
 ```
 const score = 50;
 
-// Resultado esperado: Você foi reprovado(a).
+// Resultado esperado: "Você foi reprovado(a)."
 ```
 
 ## &#9989; Atividade de Fixação 4.1 - Operador AND (&&)
@@ -198,7 +198,7 @@ if (currentHour >= 22) {
 }
 ```
 _Explicações..._
-- Inseri uma mensagem caso o horário esteja fora das condições.
+- Inseri uma mensagem caso o horário esteja fora do intervalo definido.
 
 4. Agora imprima a variável *message* fora das suas condições.
 ```
@@ -244,12 +244,12 @@ if (weekDay === "segunda-feira" || weekDay === "terça-feira" || weekDay === "qu
 
 ## &#9989; Atividade de Fixação 5 - Switch e Case
 
-1. Crie uma variável para armazenar o estado da pessoa candidata no processo seletivo, que pode ser: 'aprovada', 'lista' ou 'reprovada';
+1. Crie uma *variável* para armazenar o estado da pessoa candidata no processo seletivo, que pode ser: 'aprovada', 'lista' ou 'reprovada';
 ```
 applicantStatus = 'aprovada';
 ```
 
-2. Crie uma estrutura condicional com o switch/case que irá imprimir as mensagens do exercício anterior se o estado da pessoa candidata for 'aprovada', 'lista' ou 'reprovada'. Como default, imprima a mensagem de 'não se aplica'.
+2. Crie uma estrutura condicional com o *switch/case* que irá imprimir as mensagens do exercício anterior se o estado da pessoa candidata for 'aprovada', 'lista' ou 'reprovada'. Como default, imprima a mensagem de 'não se aplica'.
 ```
 switch (applicantStatus) {
 
@@ -266,7 +266,7 @@ switch (applicantStatus) {
         break;
     
     default:
-        console.log("Status não identificado, insira um valor válido.");
+        console.log("Não se aplica - Status não identificado, insira um valor válido.");
 }
 
 // Resultado esperado: "Parabéns! Você foi aprovado(a)!"
