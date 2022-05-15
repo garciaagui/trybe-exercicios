@@ -2,10 +2,14 @@
 
 ## Atividade de Fixação - Elementos de bloco e elementos inline
 
-#### Obs.: A atividade não define etapas para realização do tarefa. Os passos abaixos representam a ordem que a executei.
+- O objetivo da atividade é modificar o conjunto de códigos proposto para que a página fique semelhante a imagem abaixo.
 
-1. Retirada dos bullet points da primeira unordered list, na qual está o pódio.
-- Primeiro, criei uma classe na lista em questão (class ="podium") e depois retirei os bullet points das list items.
+![Imagem](/atividade-de-fixacao/objetivo-atividade.jpg)
+
+- A atividade não define etapas para realização da tarefa. Os passos abaixos representam a ordem que a executei.
+
+1. Retirada dos *bullet points* da primeira **unordered list**, na qual está o **pódio**.
+- Primeiro, criei uma *classe* na lista em questão (class ="podium") e depois retirei os *bullet points* das **list items**.
 ```
 <style>
     .podium li {
@@ -14,7 +18,7 @@
 </style>
 ```
 
-2. Mudança da propriedade display para inline-block nas posições 2 e 3 do pódio.
+2. Mudança da propriedade *display* para *inline-block* nas **posições 2 e 3** do pódio.
 ```
 <style>
     .second {;
@@ -27,7 +31,7 @@
 </style>
 ```
 
-3. Adição de 200px à propriedade margin-left da posição 1 do pódio.
+3. Adição de *200px* à propriedade *margin-left* da **posição 1** do pódio.
 ```
 <style>
     .first {;
@@ -36,18 +40,29 @@
 </style>
 ```
 
-4. Centralização do texto das tags h3.
+4. Centralização dos **headings - h1 e h3**.
+- Ao inspecionar os elementos da página, observei que algumas estruturas possuem um *padding 40px* - o que não se aplicava aos **headings**. Alterei essa propriedade das tags **h1 e h3** para melhorar a eficácia da centralização;
+- Após isso, limitei o tamanho máximo da largura alterando a propriedade *max-width*. Usei como referência a soma das larguras das posições 2 e 3, que resulta em cerca de 600px;
+- Por fim, alinhei o texto, modificando a propriedade *text-align*.
 ```
 <style>
-    h3 {
+    h1, h3 {
+        padding-left: 40px;
+        max-width: 600px;
         text-align: center;
     }
 </style>
 ```
-5. Mudança da propriedade display para inline nas unordered lists que detalham a premiação
-- Para isso, criei uma classe para todas as ul em questão: class = "prizes".
+5. Centralização dos **list items** das premiações.
+- Para isso, criei uma *classe* para todas as **unorderd lists** que detalham as premiações: class = "prizes";
+- Posteriormente, modifiquei a propriedade *display* das **list items** para *inline*;
+- No final, apliquei a mesma lógica adotada no passo 4 para centralizar o conteúdo.
 ```
 <style>
+    .prizes {
+        max-width: 600px;
+        text-align: center;
+    }
     .prizes li {
         display: inline;
     }
