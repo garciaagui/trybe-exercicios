@@ -1,4 +1,60 @@
-# Exercícios | Bloco 03 - Dia 04
+# Atividade de Fixação & Exercício | Bloco 03 - Dia 04
+
+## Atividade de Fixação - Elementos de bloco e elementos inline
+
+#### Obs.: A atividade não define etapas para realização do tarefa. Os passos abaixos representam a ordem que a executei.
+
+1. Retirada dos bullet points da primeira unordered list, na qual está o pódio.
+- Primeiro, criei uma classe na lista em questão (class ="podium") e depois retirei os bullet points das list items.
+```
+<style>
+    .podium li {
+        list-style: none;
+    }
+</style>
+```
+
+2. Mudança da propriedade display para inline-block nas posições 2 e 3 do pódio.
+```
+<style>
+    .second {;
+        display: inline-block;
+    }
+
+    .third {;
+        display: inline-block;
+    }
+</style>
+```
+
+3. Adição de 200px à propriedade margin-left da posição 1 do pódio.
+```
+<style>
+    .first {;
+        margin-left: 200px;
+    }
+</style>
+```
+
+4. Centralização do texto das tags h3.
+```
+<style>
+    h3 {
+        text-align: center;
+    }
+</style>
+```
+5. Mudança da propriedade display para inline nas unordered lists que detalham a premiação
+- Para isso, criei uma classe para todas as ul em questão: class = "prizes".
+```
+<style>
+    .prizes li {
+        display: inline;
+    }
+</style>
+```
+
+## Exercício do Dia
 
 1. Adicione um *cabeçalho* na página contendo o título "Soco a 80km/h: Conheça o Stomatopoda".
 ```
