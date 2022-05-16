@@ -41,7 +41,7 @@ for (let index = 0; index < groceryList.length; index += 1) {
 
 ## &#9989; Exercícios do Dia
 
-Leia atentamente os enunciados e faça o que se pede! Iremos utilizar esse array para realizar os exercícios do 1 ao 7:
+Leia atentamente os enunciados e faça o que se pede! Iremos utilizar esse *array* para realizar os exercícios do 1 ao 7:
 
 > let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
 
@@ -53,4 +53,18 @@ let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
 for (index = 0; index < numbers.length; index += 1) {
   console.log(numbers[index]);
 }
+```
+
+2. Para o segundo exercício, some todos os valores contidos no *array* e imprima o resultado;
+```
+let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+let sum = 0;
+
+for (index = 0; index < numbers.length; index += 1) {
+  sum += numbers[index];
+}
+
+console.log(`A soma de todos os valores da array numbers é: ${sum}!`);
+
+// Resultado esperado: "A soma de todos os valores da array numbers é: 278!"
 ```
