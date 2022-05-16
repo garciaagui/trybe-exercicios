@@ -109,3 +109,25 @@ if (average > 20) {
 //A média aritmética dos valores do array numbers é igual a: 27.8.
 // valor maior que 20
 ```
+
+5. Utilizando *for*, descubra qual o maior valor contido no *array* e imprima-o;
+```
+let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+let biggerNumber = 0;
+
+for (index = 0; index < numbers.length; index += 1) {
+
+  if (numbers[index] > biggerNumber) {
+    biggerNumber = numbers[index];
+
+  } else {
+    biggerNumber = biggerNumber;
+  
+  }
+
+}
+
+console.log(`O maior valor contido no array numbers é o: ${biggerNumber}.`)
+
+// Resultado esperado: "O maior valor contido no array numbers é o: 100." 
+```
