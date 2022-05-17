@@ -197,3 +197,45 @@ console.log(`Valores contidos no array nums:\n${nums}.`)
 // 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25."
 
 ```
+
+9. Utilizando o *array* criado no exercício anterior imprima o resultado da divisão de cada um dos elementos por 2.
+```
+let nums = [];
+let div = 0;
+
+for (index = 0; index < 25; index += 1) {
+  nums.push(index+1);
+}
+
+for (index = 0; index < nums.length; index += 1) {
+  div = nums[index]/2;
+  console.log(`- ${nums[index]}/2 = ${div}.`);
+}
+
+// Resultado esperado:
+//- 1/2 = 0.5.
+//- 2/2 = 1.
+//- 3/2 = 1.5.
+//- 4/2 = 2.
+//- 5/2 = 2.5.
+//- 6/2 = 3.
+//- 7/2 = 3.5.
+//- 8/2 = 4.
+//- 9/2 = 4.5.
+//- 10/2 = 5.
+//- 11/2 = 5.5.
+//- 12/2 = 6.
+//- 13/2 = 6.5.
+//- 14/2 = 7.
+//- 15/2 = 7.5.
+//- 16/2 = 8.
+//- 17/2 = 8.5.
+//- 18/2 = 9.
+//- 19/2 = 9.5.
+//- 20/2 = 10.
+//- 21/2 = 10.5.
+//- 22/2 = 11.
+//- 23/2 = 11.5.
+//- 24/2 = 12.
+//- 25/2 = 12.5.
+```
