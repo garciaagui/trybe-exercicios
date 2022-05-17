@@ -175,6 +175,29 @@ n = 5
 ****
 *****
 ```
+- Resolução:
+```
+let n = 10;
+let form = '*';
+
+for (index = 0; index <= n; index += 1) {
+
+  console.log(form.repeat(index));
+
+}
+
+// Resultado esperado:
+//*
+//**
+//***
+//****
+//*****
+//******
+//*******
+//********
+//*********
+//**********
+```
 
 3. Agora inverta o lado do triângulo. Por exemplo:
 ```
