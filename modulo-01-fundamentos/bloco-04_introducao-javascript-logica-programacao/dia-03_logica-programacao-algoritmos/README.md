@@ -97,3 +97,33 @@ console.log(`A menor palavra contida no array é: ${shorterString}.`)
 
 // Resultado esperado: "A menor palavra contida no array é: css."
 ```
+
+4. Um número primo é aquele divisível apenas por 1 e por ele mesmo. Sabendo disso, escreva um algoritmo que retorne o maior número primo entre 0 e 50.
+```
+let biggestPrime = 0;
+let divs = 0;
+
+
+for (index = 0; index <= 50; index += 1) {
+
+  divs = 0;
+
+  for (i = 0; i <= index; i += 1) {
+
+    if (index%i === 0) {
+
+      divs += 1;
+    }
+  }
+
+  if (divs === 2) {
+    if (index > biggestPrime) {
+      biggestPrime = index;
+    }
+  }
+}
+
+console.log(`De 0 a 50, o maior número PRIMO é: ${biggestPrime}.`);
+
+// Resultado esperado: "De 0 a 50, o maior número PRIMO é: 47."
+```
