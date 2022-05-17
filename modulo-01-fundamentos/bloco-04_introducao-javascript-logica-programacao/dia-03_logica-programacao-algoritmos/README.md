@@ -28,3 +28,22 @@ console.log(`\n${number}! é igual a : ${fatorial}.`);
 
 //Resultado esperado: "10! é igual a : 3628800."
 ```
+
+2. Agora, desenvolva um algoritmo que é capaz de inverter uma palavra. Por exemplo, a palavra "banana" seria invertida para "ananab". Utilize a string abaixo como exemplo, depois troque por outras para verificar se seu algoritmo está funcionando corretamente.
+```
+let word = 'tryber';
+```
+- Resolução:
+```
+let word = 'tryber';
+let reversedWord = '';
+
+for (index = (word.length-1); index >= 0; index -= 1) {
+  // console.log(word[index]);
+  reversedWord += word[index];
+}
+
+console.log(`O reverso de ${word} é: ${reversedWord}.`);
+
+// Resultado esperado: "O reverso de tryber é: rebyrt."
+```
