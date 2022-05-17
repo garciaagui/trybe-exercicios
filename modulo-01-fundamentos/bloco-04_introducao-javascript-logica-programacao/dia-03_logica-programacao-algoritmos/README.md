@@ -140,6 +140,30 @@ n = 5
 *****
 *****
 ```
+- Resolução:
+```
+let n = 10;
+let form = '*';
+
+for (index = 0; index < n; index += 1) {
+
+  console.log(form.repeat(n));
+
+}
+
+// Resultado esperado:
+//**********
+//**********
+//**********
+//**********
+//**********
+//**********
+//**********
+//**********
+//**********
+//**********
+```
+
 
 2. Para o segundo exercício, faça o mesmo que antes, mas que imprima um triângulo retângulo com 5 asteriscos de base. Por exemplo:
 ```
