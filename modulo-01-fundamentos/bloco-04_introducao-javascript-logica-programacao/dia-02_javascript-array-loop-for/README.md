@@ -113,21 +113,21 @@ if (average > 20) {
 5. Utilizando *for*, descubra qual o maior valor contido no *array* e imprima-o;
 ```
 let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
-let biggerNumber = 0;
+let biggestNumber = 0;
 
 for (index = 0; index < numbers.length; index += 1) {
 
-  if (numbers[index] > biggerNumber) {
-    biggerNumber = numbers[index];
+  if (numbers[index] > biggestNumber) {
+    biggestNumber = numbers[index];
 
   } else {
-    biggerNumber = biggerNumber;
+    biggestNumber = biggestNumber;
   
   }
 
 }
 
-console.log(`O maior valor contido no array numbers é o: ${biggerNumber}.`)
+console.log(`O maior valor contido no array numbers é o: ${biggestNumber}.`)
 
 // Resultado esperado: "O maior valor contido no array numbers é o: 100." 
 ```
@@ -154,4 +154,29 @@ if (odd > 0) {
 }
 
 // Resultado esperado: "Há 6 números ímpares no array numbers."
+```
+
+7. Utilizando *for*, descubra qual o menor valor contido no *array* e imprima-o;
+```
+let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+let leastNumber = 0;
+
+
+for (index = 0; index < numbers.length; index += 1) {
+
+  if (index === 0) {
+    leastNumber = numbers[index];
+  }
+
+  if (leastNumber > numbers[index]) {
+    leastNumber = numbers[index];
+  } else {
+    leastNumber = leastNumber;
+  }
+
+}
+
+console.log (`O menor valor contido no array numbers é o: ${leastNumber}.`);
+
+// Resultado esperado: "O menor valor contido no array numbers é o: 2."
 ```
