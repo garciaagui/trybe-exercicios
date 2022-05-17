@@ -180,3 +180,20 @@ console.log (`O menor valor contido no array numbers é o: ${leastNumber}.`);
 
 // Resultado esperado: "O menor valor contido no array numbers é o: 2."
 ```
+
+8. Utilizando *for*, crie um *array* que vá de 1 até 25 e imprima o resultado.
+```
+let nums = [];
+
+for (index = 0; index < 25; index += 1) {
+  nums.push(index+1);
+  // console.log(`- Valor do índice ${index} do array: ${nums[index]}`);
+}
+
+console.log(`Valores contidos no array nums:\n${nums}.`)
+
+// Resultado esperado:
+// "Valores contidos no array nums:
+// 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25."
+
+```
