@@ -47,3 +47,53 @@ console.log(`O reverso de ${word} é: ${reversedWord}.`);
 
 // Resultado esperado: "O reverso de tryber é: rebyrt."
 ```
+
+3. Considere o array de strings abaixo:
+```
+let array = ['java', 'javascript', 'python', 'html', 'css'];
+```
+Escreva dois algoritmos: um que retorne a maior palavra deste array e outro que retorne a menor. Considere o número de caracteres de cada palavra.
+- Agoritmo 1 - Maior palavra do array:
+```
+let array = ['java', 'javascript', 'python', 'html', 'css'];
+let longerLength = 0;
+let longerString = '';
+
+for (index = 0; index < array.length; index += 1) {
+
+  if (array[index].length > longerLength) {
+    longerLength = array[index].length;
+    longerString = array[index];
+  }
+
+}
+
+console.log(`A maior palavra contida no array é: ${longerString}.`);
+
+// Resultado esperado: "A maior palavra contida no array é: javascript."
+```
+
+- Agoritmo 2 - Menor palavra do array:
+```
+let array = ['java', 'javascript', 'python', 'html', 'css'];
+let shorterLength = 0;
+let shorterString = '';
+
+for (index = 0; index < array.length; index += 1) {
+
+  if (index === 0) {
+    shorterLength = array[index].length;
+    shorterString = array[index];
+  }
+
+  if (array[index].length < shorterLength) {
+    shorterLength = array[index].length;
+    shorterString = array[index];
+  }
+
+}
+
+console.log(`A menor palavra contida no array é: ${shorterString}.`)
+
+// Resultado esperado: "A menor palavra contida no array é: css."
+```
