@@ -209,6 +209,31 @@ n = 5
  ****
 *****
 ```
+- Resolução:
+```
+let n = 10;
+let form = '*';
+let blank = " ";
+
+for (index = 1; index <= n; index += 1) {
+
+  console.log((blank.repeat((n-index)))+(form.repeat(index)));
+
+}
+
+// Resultado esperado:
+//         *
+//        **
+//       ***
+//      ****
+//     *****
+//    ******
+//   *******
+//  ********
+// *********
+//**********
+```
+
 > Atenção! Note que esse exercício é bem mais complexo que o anterior! Não basta, aqui, imprimir somente asteriscos. Você precisará de uma lógica para imprimir espaços também.
 
 4. Depois, faça uma pirâmide com n asteriscos de base:
