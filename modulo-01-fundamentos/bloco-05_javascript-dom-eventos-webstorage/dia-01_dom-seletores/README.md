@@ -38,3 +38,49 @@ document.getElementsByClassName("cParagraph")[0].style.color = "green";
 ```
 document.getElementsByTagName("h4")[0].style.color = "blue";
 ```
+
+## &#9989; Atividade de Fixação 3 - Seletores
+
+![Imagem](/atividades-fixacao/objetivo-ativ-03.png)
+
+- O objetivo da atividade é manipular os códigos fornecidos e chegar aproximadamente ao resultado acima.
+- A atividade não determina os passos para realiza-la. Portanto, os passos abaixo foram os que tomei para completa-la.
+
+1. Modificação da backgroundColor do **header**.
+```
+document.getElementById('header-container').style.backgroundColor = 'green';
+
+```
+
+2. Modificação da backgroundColor dos elementos da classe **emergency-tasks**.
+```
+document.getElementsByClassName('emergency-tasks')[0].style.backgroundColor = 'lightsalmon';
+```
+
+3. Modificação da backgroundColor dos **h3** pertencentes à **emergency-tasks**.
+```
+let urgentTitles = document.querySelectorAll('.emergency-tasks h3');
+
+for (i = 0; i < urgentTitles.length; i += 1) {
+  urgentTitles[i].style.backgroundColor = 'purple';
+}
+```
+
+4. Modificação da backgroundColor dos elementos da classe **no-emergency-tasks**.
+```
+document.getElementsByClassName('no-emergency-tasks')[0].style.backgroundColor = 'yellow';
+```
+
+5. Modificação da backgroundColor dos **h3** pertencentes à **no-emergency-tasks**.
+```
+let nonUrgentTitles = document.querySelectorAll('.no-emergency-tasks h3');
+
+for (i = 0; i < nonUrgentTitles.length; i += 1) {
+  nonUrgentTitles[i].style.backgroundColor = 'black';
+}
+```
+
+6. Modificação da backgroundColor do **footer**.
+```
+document.getElementById('footer-container').style.backgroundColor = 'darkslategray';
+```
