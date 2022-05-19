@@ -1,0 +1,23 @@
+<!-- Atividade de Fixação 1 - getElementById -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <header>
+      <h2 id="page-title">Título</h2>
+      <p id="paragraph">Dê uma cor para este parágrafo!</p>
+      <h4 id="subtitle">Subtítulo</h4>
+      <p id="second-paragraph">Segundo parágrafo!</p>
+    </header>
+    <script>
+      const paragraph = document.getElementById("paragraph");
+      paragraph.style.color = "red";
+      
+      document.getElementById("page-title").innerText = 'Vingadores: Ultimato';
+
+      document.getElementById("second-paragraph").innerText = 'O filme em que nos despedimos do Homem de Ferro e do Capitão América :(';
+
+      document.getElementById("subtitle").innerText = 'A conclusão da Saga do Infinito!';
+    </script>
+  </body>
+</html>
