@@ -107,7 +107,11 @@ changeMainContentBgColor()
 
 3. Crie uma função que mude a cor do quadrado vermelho para branco.
 ```
-
+function changeCenterContentBgColor() {
+  let centerBgColor = document.getElementsByTagName('section')[0]
+  centerBgColor.style.backgroundColor = 'white'
+}
+changeCenterContentBgColor()
 ```
 
 4. Crie uma função que corrija o texto da tag h1.
