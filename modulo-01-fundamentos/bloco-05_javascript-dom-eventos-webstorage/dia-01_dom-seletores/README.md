@@ -99,24 +99,28 @@ changeParagraphText();
 2. Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe (rgb(76,164,109)).
 ```
 function changeMainContentBgColor() {
-  let mainBgColor = document.getElementsByClassName('main-content')[0]
-  mainBgColor.style.backgroundColor = 'rgb(76,164,109)'
+  let mainBgColor = document.getElementsByClassName('main-content')[0];
+  mainBgColor.style.backgroundColor = 'rgb(76,164,109)';
 }
-changeMainContentBgColor()
+changeMainContentBgColor();
 ```
 
 3. Crie uma função que mude a cor do quadrado vermelho para branco.
 ```
 function changeCenterContentBgColor() {
-  let centerBgColor = document.getElementsByTagName('section')[0]
-  centerBgColor.style.backgroundColor = 'white'
+  let centerBgColor = document.getElementsByTagName('section')[0];
+  centerBgColor.style.backgroundColor = 'white';
 }
-changeCenterContentBgColor()
+changeCenterContentBgColor();
 ```
 
 4. Crie uma função que corrija o texto da tag h1.
 ```
-
+function changeTitleText() {
+  let title = document.getElementsByClassName('title')[0];
+  title.innerHTML = 'Exercício 5.1 - JavaScript';
+}
+changeTitleText();
 ```
 
 
