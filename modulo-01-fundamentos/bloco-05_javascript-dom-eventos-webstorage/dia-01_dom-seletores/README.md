@@ -90,7 +90,7 @@ document.getElementById('footer-container').style.backgroundColor = 'darkslategr
 1. Crie uma função que mude o texto na tag p para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício).
 ```
 function changeParagraphText() {
-  let paragraph = document.querySelectorAll('.center-content p')[1];
+  let paragraph = document.getElementsByTagName('p')[1];
   paragraph.innerHTML = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ex.';
 }
 changeParagraphText();
@@ -98,7 +98,11 @@ changeParagraphText();
 
 2. Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe (rgb(76,164,109)).
 ```
-
+function changeMainContentBgColor() {
+  let mainBgColor = document.getElementsByClassName('main-content')[0]
+  mainBgColor.style.backgroundColor = 'rgb(76,164,109)'
+}
+changeMainContentBgColor()
 ```
 
 3. Crie uma função que mude a cor do quadrado vermelho para branco.
