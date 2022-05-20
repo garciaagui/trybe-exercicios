@@ -41,7 +41,7 @@ document.getElementsByTagName("h4")[0].style.color = "blue";
 
 ## &#9989; Atividade de Fixação 3 - Seletores
 
-![Imagem](/atividades-fixacao/objetivo-ativ-03.png)
+![Imagem](/atividades-fixacao/ativ-03_seletores/objetivo-ativ-03.png)
 
 - O objetivo da atividade é manipular os códigos fornecidos e chegar aproximadamente ao resultado acima.
 - A atividade não determina os passos para realiza-la. Portanto, os passos abaixo foram os que tomei para completa-la.
@@ -89,7 +89,11 @@ document.getElementById('footer-container').style.backgroundColor = 'darkslategr
 
 1. Crie uma função que mude o texto na tag p para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício).
 ```
-
+function changeParagraphText() {
+  let paragraph = document.querySelectorAll('.center-content p')[1];
+  paragraph.innerHTML = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ex.';
+}
+changeParagraphText();
 ```
 
 2. Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe (rgb(76,164,109)).
