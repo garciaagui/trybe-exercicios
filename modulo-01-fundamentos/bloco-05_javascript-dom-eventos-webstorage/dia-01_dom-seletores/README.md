@@ -141,5 +141,13 @@ changeParagraphTextToUpperCase();
 
 6. Crie uma função que exiba o conteúdo de todas as tags p no console.
 ```
+function displayParagraphContent () {
 
+let paragraphContent = document.getElementsByTagName('p');
+
+for (i = 0; i < paragraphContent.length; i += 1) {
+  console.log(paragraphsContent[i].innerHTML);
+  }
+}
+displayParagraphContent();
 ```

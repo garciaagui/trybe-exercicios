@@ -71,26 +71,37 @@
       changeCenterContentBgColor();
 
       // 4. Crie uma função que corrija o texto da tag <h1>.
-        function changeTitleText() {
-          let title = document.getElementsByClassName('title')[0];
-          title.innerHTML = 'Exercício 5.1 - JavaScript';
-        }
-        changeTitleText();
+      function changeTitleText() {
+        let title = document.getElementsByClassName('title')[0];
+        title.innerHTML = 'Exercício 5.1 - JavaScript';
+      }
+      changeTitleText();
 
       // 5. Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
 
-        function changeParagraphTextToUpperCase () {
-        
-        let allParagraphs = document.getElementsByTagName('p');
-        
-        for (i = 0; i < allParagraphs.length; i += 1) {
-          let modifyParagraph = allParagraphs[i];
-          modifyParagraph.innerHTML = modifyParagraph.innerHTML.toUpperCase();
-          }
+      function changeParagraphTextToUpperCase () {
+      
+      let allParagraphs = document.getElementsByTagName('p');
+      
+      for (i = 0; i < allParagraphs.length; i += 1) {
+        let modifyParagraph = allParagraphs[i];
+        modifyParagraph.innerHTML = modifyParagraph.innerHTML.toUpperCase();
         }
-        changeParagraphTextToUpperCase();
+      }
+      changeParagraphTextToUpperCase();
 
       // 6. Crie uma função que exiba o conteúdo de todas as tags <p> no console.
+
+      function displayParagraphContent () {
+      
+      let paragraphContent = document.getElementsByTagName('p');
+      
+      for (i = 0; i < paragraphContent.length; i += 1) {
+        console.log(paragraphsContent[i].innerHTML);
+        }
+      }
+      displayParagraphContent();
+
     </script>
   </body>
 </html>
