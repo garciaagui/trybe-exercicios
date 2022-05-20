@@ -126,7 +126,16 @@ changeTitleText();
 
 5. Crie uma função que modifique todo o texto da tag p para maiúsculo.
 ```
+function changeParagraphTextToUpperCase () {
 
+let allParagraphs = document.getElementsByTagName('p');
+
+for (i = 0; i < allParagraphs.length; i += 1) {
+  let modifyParagraph = allParagraphs[i];
+  modifyParagraph.innerHTML = modifyParagraph.innerHTML.toUpperCase();
+  }
+}
+changeParagraphTextToUpperCase();
 ```
 
 
