@@ -125,18 +125,17 @@ console.log(`O maior valor contido no array numbers é o: ${biggestNumber}.`)
 // Resultado esperado: "O maior valor contido no array numbers é o: 100." 
 ```
 
-6. Descubra quantos valores ímpares existem no *array* e imprima o resultado. Caso não exista nenhum, imprima a mensagem: "nenhum valor ímpar encontrado";
+6. Descubra quantos **valores ímpares** existem no *array* e imprima o resultado. Caso não exista nenhum, imprima a mensagem: "nenhum valor ímpar encontrado";
 ```
 let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
 let odd = 0;
 
 for (index = 0; index < numbers.length; index += 1) {
 
-  if (numbers[index]%2 === 1) {
+  if (numbers[index]%2 !== 0) {
     // console.log(`${numbers[index]} é ímpar!`);
     odd += 1;
   }
-
 }
 
 if (odd > 0) {

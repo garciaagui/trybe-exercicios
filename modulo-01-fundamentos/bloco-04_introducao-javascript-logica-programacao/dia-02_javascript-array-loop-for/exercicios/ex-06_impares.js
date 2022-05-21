@@ -5,11 +5,10 @@ let odd = 0;
 
 for (index = 0; index < numbers.length; index += 1) {
 
-  if (numbers[index]%2 === 1) {
+  if (numbers[index]%2 !== 0) {
     // console.log(`${numbers[index]} é ímpar!`);
     odd += 1;
   }
-
 }
 
 if (odd > 0) {
