@@ -19,25 +19,26 @@ document.getElementById('subtitle').innerText = 'A conclusão da Saga do Infinit
 
 ## &#9989; Atividade de Fixação 2 - getElementByClassName + ByTagName
 
-1. Adicione uma classe igual para os dois parágrafos.
+1. Adicione uma **classe igual para os dois parágrafos**.
 ```
-<p id="paragraph" class="cParagraph">Dê uma cor para este parágrafo!</p>
-<p id="second-paragraph" class="cParagraph">Segundo parágrafo!</p>
-```
-
-2. Recupere os seus parágrafos via código JavaScript, usando a função getElementsByClassName;
-```
-document.getElementsByClassName("cParagraph");
+<p class ='classParagraph' id="paragraph">Dê uma cor para este parágrafo!</p>
+<p class ='classParagraph' id="second-paragraph">Segundo parágrafo!</p>
 ```
 
-3. Altere algum estilo do primeiro deles.
+2. Recupere os seus parágrafos via código JavaScript, usando a função *getElementsByClassName*;
 ```
-document.getElementsByClassName("cParagraph")[0].style.color = "green";
+const classParag = document.getElementsByClassName('classParagraph');
+```
+**Observações:** Como vamos chamar o primeiro parágrafo no próximo exercício, é interessante declarar uma variável, pois economizaremos linhas de códigos posteriormente. 
+
+3. Altere algum estilo do **primeiro** deles.
+```
+classParag[0].style.color = 'green';
 ```
 
-4. Recupere o subtítulo e altere a cor dele usando a função getElementsByTagName.
+4. Recupere o **subtítulo** e altere a cor dele usando a função *getElementsByTagName*.
 ```
-document.getElementsByTagName("h4")[0].style.color = "blue";
+document.getElementsByTagName("h4")[0].style.color = 'blue';
 ```
 
 ## &#9989; Atividade de Fixação 3 - Seletores
