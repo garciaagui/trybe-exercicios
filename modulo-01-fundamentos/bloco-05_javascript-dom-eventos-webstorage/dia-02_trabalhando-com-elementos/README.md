@@ -43,3 +43,35 @@ whereYouAre.nextElementSibling;
 ```
 dad.children[2];
 ```
+
+## &#9989; Atividade de Fixação 02 - Criando Elementos
+
+1. Crie um *irmão* para **elementoOndeVoceEsta**.
+```
+const dad = document.getElementById('pai');
+const newBrother = document.createElement('section');
+newBrother.setAttribute('id', 'irmaoDoElementoOndeVoceEsta');
+dad.appendChild(newBrother);
+```
+
+2. Crie um *filho* para **elementoOndeVoceEsta**.
+```
+const firstSon = document.getElementById('primeiroFilho');
+const whereYouAre = firstSon.nextElementSibling;
+const whereYouAreNewSon = document.createElement('section');
+whereYouAreNewSon.setAttribute('id','novoFilhoDeElementoOndeVoceEsta');
+whereYouAre.appendChild(whereYouAreNewSon);
+```
+
+3. Crie um *filho* para **primeiroFilhoDoFilho**.
+```
+const firstSonOfWhereYouAre = whereYouAre.firstElementChild
+const firstSonOfFirstSon = document.createElement('section');
+firstSonOfFirstSon.setAttribute('id', 'primeiroFilhoDePrimeiroFilho');
+firstSonOfWhereYouAre.appendChild(firstSonOfFirstSon);
+```
+
+4. A partir desse **filho criado**, acesse **terceiroFilho**.
+```
+const thirdSon = firstSonOfFirstSon.parentElement.parentElement.nextElementSibling;
+```
