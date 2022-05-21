@@ -165,7 +165,7 @@ console.log (`O menor valor contido no array numbers é o: ${leastNumber}.`);
 // Resultado esperado: "O menor valor contido no array numbers é o: 2."
 ```
 
-8. Utilizando *for*, crie um *array* que vá de 1 até 25 e imprima o resultado.
+8. Utilizando *for*, crie um *array* que vá de **1 até 25** e imprima o resultado.
 ```
 let nums = [];
 
@@ -182,46 +182,19 @@ console.log(`Valores contidos no array nums:\n${nums}.`)
 
 ```
 
-9. Utilizando o *array* criado no exercício anterior imprima o resultado da divisão de cada um dos elementos por 2.
+9. Utilizando o *array* criado no exercício anterior imprima o resultado da **divisão de cada um dos elementos por 2**.
 ```
 let nums = [];
-let div = 0;
 
 for (index = 0; index < 25; index += 1) {
-  nums.push(index+1);
+  nums.push((index+1)/2);
 }
 
-for (index = 0; index < nums.length; index += 1) {
-  div = nums[index]/2;
-  console.log(`- ${nums[index]}/2 = ${div}.`);
-}
+console.log(`Valores contidos no array nums divididos por 2:\n${nums}.`)
 
 // Resultado esperado:
-//- 1/2 = 0.5.
-//- 2/2 = 1.
-//- 3/2 = 1.5.
-//- 4/2 = 2.
-//- 5/2 = 2.5.
-//- 6/2 = 3.
-//- 7/2 = 3.5.
-//- 8/2 = 4.
-//- 9/2 = 4.5.
-//- 10/2 = 5.
-//- 11/2 = 5.5.
-//- 12/2 = 6.
-//- 13/2 = 6.5.
-//- 14/2 = 7.
-//- 15/2 = 7.5.
-//- 16/2 = 8.
-//- 17/2 = 8.5.
-//- 18/2 = 9.
-//- 19/2 = 9.5.
-//- 20/2 = 10.
-//- 21/2 = 10.5.
-//- 22/2 = 11.
-//- 23/2 = 11.5.
-//- 24/2 = 12.
-//- 25/2 = 12.5.
+// "Valores contidos no array nums divididos por 2:
+// 0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5."
 ```
 
 ## &#9989; Exercícios Bônus - Bubble Sort
