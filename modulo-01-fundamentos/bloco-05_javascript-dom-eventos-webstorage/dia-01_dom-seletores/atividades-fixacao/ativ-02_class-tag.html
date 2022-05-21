@@ -1,0 +1,28 @@
+<!-- Atividade de Fixação 2 - getElementByClassName + ByTagName -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <header>
+      <h2 id="page-title">Título</h2>
+      <!-- Passo 1 -->
+      <p class ='classParagraph' id="paragraph">Dê uma cor para este parágrafo!</p>
+      <h4 id="subtitle">Subtítulo</h4>
+      <!-- Passo 1 -->
+      <p class ='classParagraph' id="second-paragraph">Segundo parágrafo!</p>
+    </header>
+    <script>
+      const paragraph = document.getElementById("paragraph");
+      paragraph.style.color = "red";
+
+      // Passo 2
+      const classParag = document.getElementsByClassName('classParagraph');
+
+      // Passo 3
+      classParag[0].style.color = 'green';
+
+      // Passo 4
+      document.getElementsByTagName("h4")[0].style.color = 'blue';
+    </script>
+  </body>
+</html>
