@@ -1,0 +1,67 @@
+<!-- Atividade de Fixação 03 - Removendo Elementos -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade de Fixação 03</title>
+</head>
+<body>
+  <main id="paiDoPai">
+    <section id="pai">
+      <section id="primeiroFilho"></section>
+      <section id="elementoOndeVoceEsta">
+        <section id="primeiroFilhoDoFilho"></section>
+        <section id="segundoEUltimoFilhoDoFilho"></section>
+      </section>
+      Atenção!
+      <section id="terceiroFilho"></section>
+      <section id="quartoEUltimoFilho"></section>
+    </section>
+  </main>
+  <script>
+
+    // Elementos criados na Atividade anterior...
+    const dad = document.getElementById('pai');
+    const firstSon = document.getElementById('primeiroFilho');
+    const whereYouAre = firstSon.nextElementSibling;
+    const firstSonOfWhereYouAre = whereYouAre.firstElementChild
+
+    const newBrother = document.createElement('section');
+    newBrother.setAttribute('id', 'irmaoDoElementoOndeVoceEsta');
+    dad.appendChild(newBrother);
+
+    const whereYouAreNewSon = document.createElement('section');
+    whereYouAreNewSon.setAttribute('id','novoFilhoDeElementoOndeVoceEsta');
+    whereYouAre.appendChild(whereYouAreNewSon);
+
+    const firstSonOfFirstSon = document.createElement('section');
+    firstSonOfFirstSon.setAttribute('id', 'primeiroFilhoDePrimeiroFilho');
+    firstSonOfWhereYouAre.appendChild(firstSonOfFirstSon);
+
+    // 1. Removendo elementos filhos de "paiDoPai"
+    const godfather = document.getElementById('paiDoPai');
+
+    for (let i = 0; i < godfather.childNodes.length; i += 1) {
+      if (godfather.childNodes[i] !== dad) {
+        godfather.removeChild(godfather.childNodes[i])
+      }
+    }
+
+    // Removendo os elementos filhos de "primeiroFilhoDoFilho"
+    const whereYouAreFirstSon = whereYouAre.firstElementChild;
+
+    while (whereYouAreFirstSon.firstElementChild) {
+      whereYouAreFirstSon.removeChild(whereYouAreFirstSon.firstElementChild);
+    }
+
+    // Removendo os elementos filhos de "elementoOndeVoceEsta"
+    while (whereYouAre.firstElementChild) {
+      whereYouAre.removeChild(whereYouAre.firstElementChild);
+    }
+
+  </script>
+</body>
+</html>

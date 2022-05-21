@@ -75,3 +75,34 @@ firstSonOfWhereYouAre.appendChild(firstSonOfFirstSon);
 ```
 const thirdSon = firstSonOfFirstSon.parentElement.parentElement.nextElementSibling;
 ```
+
+## &#9989; Atividade de Fixação 03 - Removendo Elementos
+- Remova todos os elementos *filhos* de **paiDoPai** *exceto pai*, **elementoOndeVoceEsta** e **primeiroFilhoDoFilho**
+- **Observação**: Os elementos criados e variáveis declaradas na Atividade anterior foram mantidas para realização desta Atvidade.
+
+1. Removendo elementos *filhos* de **paiDoPai** - exceto **pai**.
+```
+const godfather = document.getElementById('paiDoPai');
+
+for (let i = 0; i < godfather.childNodes.length; i += 1) {
+  if (godfather.childNodes[i] !== dad) {
+    godfather.removeChild(godfather.childNodes[i])
+  }
+}
+```
+
+2. Removendo os elementos *filhos* de **primeiroFilhoDoFilho**.
+```
+const whereYouAreFirstSon = whereYouAre.firstElementChild;
+
+while (whereYouAreFirstSon.firstElementChild) {
+  whereYouAreFirstSon.removeChild(whereYouAreFirstSon.firstElementChild);
+}
+```
+
+3. Removendo os elementos *filhos* de **elementoOndeVoceEsta**.
+```
+while (whereYouAre.firstElementChild) {
+  whereYouAre.removeChild(whereYouAre.firstElementChild);
+}
+```
