@@ -29,7 +29,7 @@ document.getElementById('subtitle').innerText = 'A conclusão da Saga do Infinit
 ```
 const classParag = document.getElementsByClassName('classParagraph');
 ```
-**Observações:** Como vamos chamar o primeiro parágrafo no próximo exercício, é interessante declarar uma variável, pois economizaremos linhas de códigos posteriormente. 
+**Observação:** Como vamos chamar o primeiro parágrafo no próximo exercício, é interessante declarar uma variável, pois economizaremos linhas de códigos posteriormente. 
 
 3. Altere algum estilo do **primeiro** deles.
 ```
@@ -48,18 +48,18 @@ document.getElementsByTagName("h4")[0].style.color = 'blue';
 - O objetivo da atividade é manipular os códigos fornecidos e chegar aproximadamente ao resultado acima.
 - A atividade não determina os passos para realiza-la. Portanto, os passos abaixo foram os que tomei para completa-la.
 
-1. Modificação da backgroundColor do **header**.
+1. Modificação da *backgroundColor* do **header**.
 ```
 document.getElementById('header-container').style.backgroundColor = 'green';
 
 ```
 
-2. Modificação da backgroundColor dos elementos da classe **emergency-tasks**.
+2. Modificação da *backgroundColor* dos elementos da classe **emergency-tasks**.
 ```
 document.getElementsByClassName('emergency-tasks')[0].style.backgroundColor = 'lightsalmon';
 ```
 
-3. Modificação da backgroundColor dos **h3** pertencentes à **emergency-tasks**.
+3. Modificação da *backgroundColor* dos **h3** pertencentes à **emergency-tasks**.
 ```
 let urgentTitles = document.querySelectorAll('.emergency-tasks h3');
 
@@ -68,12 +68,12 @@ for (i = 0; i < urgentTitles.length; i += 1) {
 }
 ```
 
-4. Modificação da backgroundColor dos elementos da classe **no-emergency-tasks**.
+4. Modificação da *backgroundColor* dos elementos da classe **no-emergency-tasks**.
 ```
-document.getElementsByClassName('no-emergency-tasks')[0].style.backgroundColor = 'yellow';
+document.querySelector('.no-emergency-tasks').style.backgroundColor = 'yellow';
 ```
 
-5. Modificação da backgroundColor dos **h3** pertencentes à **no-emergency-tasks**.
+5. Modificação da *backgroundColor* dos **h3** pertencentes à **no-emergency-tasks**.
 ```
 let nonUrgentTitles = document.querySelectorAll('.no-emergency-tasks h3');
 
@@ -82,7 +82,7 @@ for (i = 0; i < nonUrgentTitles.length; i += 1) {
 }
 ```
 
-6. Modificação da backgroundColor do **footer**.
+6. Modificação da *backgroundColor* do **footer**.
 ```
 document.getElementById('footer-container').style.backgroundColor = 'darkslategray';
 ```
