@@ -80,12 +80,38 @@
       centerSection.appendChild(firstParagraph);
 
       // Adição - Passo 5
+      const leftSection = document.createElement('section');
+      leftSection.setAttribute('class','left-content');
+      mainTag.appendChild(leftSection);
 
       // Adição - Passo 6
+      const rightSection = document.createElement('section');
+      rightSection.setAttribute('class','right-content');
+      mainTag.appendChild(rightSection);
 
       // Adição - Passo 7
+      const image = document.createElement('img');
+      image.setAttribute('src','https://picsum.photos/200');
+      image.setAttribute('class','small-image');
+      leftSection.appendChild(image);
 
       // Adição - Passo 8
+      const list = document.createElement('ul');
+      rightSection.appendChild(list);
+
+      let listItems = ['um','dois','três','quatro','cinco','seis','sete','oito','nove','dez'];
+
+      for (i = 0; i < listItems.length; i += 1){
+        let item = document.createElement('li');
+        item.innerHTML = listItems[i];
+        list.appendChild(item);
+      }
+
+      // Adição - Passo 9
+      for(i = 1; i <= 3; i += 1) {
+        let heading = document.createElement('h3');
+        mainTag.appendChild(heading);
+      }
 
     </script>
   </body>
