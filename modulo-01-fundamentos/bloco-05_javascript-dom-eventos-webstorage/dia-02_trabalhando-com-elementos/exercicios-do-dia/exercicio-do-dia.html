@@ -113,6 +113,31 @@
         mainTag.appendChild(heading);
       }
 
+      // Alteração e Remoção - Passo 1
+      mainTitle.setAttribute('class', 'title');
+
+      // Alteração e Remoção - Passo 2
+      const descriptionTitles = document.getElementsByTagName('h3')
+
+      for(let i = 0; i < descriptionTitles.length; i += 1) {
+        descriptionTitles[i].setAttribute('class', 'description');
+      }
+
+      // Alteração e Remoção - Passo 3
+      mainTag.removeChild(mainTag.childNodes[1]);
+
+      // Alteração e Remoção - Passo 4
+      rightSection.style.marginRight = 'auto';
+
+      // Alteração e Remoção - Passo 5
+      centerSection.parentElement.style.backgroundColor = 'green';
+
+      // Alteração e Remoção - Passo 6
+      for (i = (list.childNodes.length - 1); i > 0; i -= 1) {
+        if (i === 8 || i === 9) {
+          list.removeChild(list.childNodes[i]);
+        }
+      }
     </script>
   </body>
 </html>
