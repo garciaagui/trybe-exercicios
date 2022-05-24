@@ -45,3 +45,33 @@ function changeTitleColor (event) {
 }
 title.addEventListener('mouseover', changeTitleColor);
 ```
+
+## &#9989; Exercícios do Dia
+
+1. O array dezDaysList contém os dois últimos dias de novembro e os dias do mês de dezembro. Desenvolva uma função que crie dinamicamente cada dia do calendário e os adicione como filhos/filhas da tag ul com ID "days". Note que os dias 29 e 30 de novembro estão no array pois representam respectivamente Domingo e Segunda-feira.
+```
+const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+```
+- Os dias devem estar contidos em uma tag li, e todos devem ter a classe day.
+- Os dias 24, 25 e 31 são feriados e, além da classe day, devem conter também a classe holiday.
+- Os dias 4, 11, 18 e 25 são Sexta-feira. Eles devem conter a classe day e a classe friday.
+```
+function applyDaysOfDecember() {
+  const calendar = document.getElementById('days');
+  const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+
+  for (let i = 0; i < dezDaysList.length; i += 1) {
+    const decDay = dezDaysList[i];
+    const decDayListItem = document.createElement('li');
+    decDayListItem.innerHTML = decDay;
+    decDayListItem.classList.add('day');
+    if (i === 25 || i === 26 || i === 32) {
+      decDayListItem.classList.add('holiday');
+    }
+    if (i === 5 || i === 12 || i === 18 || i === 26) {
+      decDayListItem.classList.add('friday');
+    }
+    calendar.appendChild(decDayListItem);
+  };
+};
+```
