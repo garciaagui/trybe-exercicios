@@ -37,3 +37,12 @@ function applyDaysOfDecember() {
 applyDaysOfDecember();
 
 // Exercício 2
+function createHolidayButton(buttonName) {
+  const containerButtons = document.getElementsByClassName('buttons-container')[0];
+  const holidayButton = document.createElement('button');
+  holidayButton.innerHTML = buttonName;
+  holidayButton.setAttribute('id', 'btn-holiday');
+
+  containerButtons.appendChild(holidayButton);
+}
+createHolidayButton('Feriados');
