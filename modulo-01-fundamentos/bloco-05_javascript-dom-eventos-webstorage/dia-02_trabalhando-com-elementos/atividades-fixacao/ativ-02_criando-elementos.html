@@ -23,27 +23,32 @@
   </main>
   <script>
 
+    // Variáveis definidas na Atividade anterior
+    const whereYouAre = document.getElementById('primeiroFilho').nextElementSibling;
+    const dad = whereYouAre.parentNode;
+    const firstChildOfSon = document.getElementById('primeiroFilhoDoFilho');
+    const firstSon = dad.firstElementChild;
+    const thirdSon = whereYouAre.nextElementSibling;
+
     // Passo 1
-    const dad = document.getElementById('pai');
     const newBrother = document.createElement('section');
     newBrother.setAttribute('id', 'irmaoDoElementoOndeVoceEsta');
     dad.appendChild(newBrother);
     
     // Passo 2
-    const firstSon = document.getElementById('primeiroFilho');
-    const whereYouAre = firstSon.nextElementSibling;
     const whereYouAreNewSon = document.createElement('section');
     whereYouAreNewSon.setAttribute('id','novoFilhoDeElementoOndeVoceEsta');
     whereYouAre.appendChild(whereYouAreNewSon);
 
     // Passo 3
-    const firstSonOfWhereYouAre = whereYouAre.firstElementChild
-    const firstSonOfFirstSon = document.createElement('section');
-    firstSonOfFirstSon.setAttribute('id', 'primeiroFilhoDePrimeiroFilho');
-    firstSonOfWhereYouAre.appendChild(firstSonOfFirstSon);
+    const ChildOfFirstChildOfSon = document.createElement('section');
+    ChildOfFirstChildOfSon.setAttribute('id', 'FilhoDePrimeiroFilhoDoFilho');
+    firstChildOfSon.appendChild(ChildOfFirstChildOfSon);
 
     // Passo 4
-    const thirdSon = firstSonOfFirstSon.parentElement.parentElement.nextElementSibling;
+    ChildOfFirstChildOfSon.parentElement
+    .parentElement
+    .nextElementSibling;
 
   </script>
 </body>

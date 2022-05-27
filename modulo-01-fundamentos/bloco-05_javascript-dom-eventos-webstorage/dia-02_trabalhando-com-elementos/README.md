@@ -48,7 +48,6 @@ dad.children[2];
 
 1. Crie um *irmão* para **elementoOndeVoceEsta**.
 ```
-const dad = document.getElementById('pai');
 const newBrother = document.createElement('section');
 newBrother.setAttribute('id', 'irmaoDoElementoOndeVoceEsta');
 dad.appendChild(newBrother);
@@ -56,8 +55,6 @@ dad.appendChild(newBrother);
 
 2. Crie um *filho* para **elementoOndeVoceEsta**.
 ```
-const firstSon = document.getElementById('primeiroFilho');
-const whereYouAre = firstSon.nextElementSibling;
 const whereYouAreNewSon = document.createElement('section');
 whereYouAreNewSon.setAttribute('id','novoFilhoDeElementoOndeVoceEsta');
 whereYouAre.appendChild(whereYouAreNewSon);
@@ -65,15 +62,16 @@ whereYouAre.appendChild(whereYouAreNewSon);
 
 3. Crie um *filho* para **primeiroFilhoDoFilho**.
 ```
-const firstSonOfWhereYouAre = whereYouAre.firstElementChild
-const firstSonOfFirstSon = document.createElement('section');
-firstSonOfFirstSon.setAttribute('id', 'primeiroFilhoDePrimeiroFilho');
-firstSonOfWhereYouAre.appendChild(firstSonOfFirstSon);
+const ChildOfFirstChildOfSon = document.createElement('section');
+ChildOfFirstChildOfSon.setAttribute('id', 'FilhoDePrimeiroFilhoDoFilho');
+firstChildOfSon.appendChild(ChildOfFirstChildOfSon);
 ```
 
 4. A partir desse **filho criado**, acesse **terceiroFilho**.
 ```
-const thirdSon = firstSonOfFirstSon.parentElement.parentElement.nextElementSibling;
+ChildOfFirstChildOfSon.parentElement
+.parentElement
+.nextElementSibling;
 ```
 
 ## &#9989; Atividade de Fixação 03 - Removendo Elementos
