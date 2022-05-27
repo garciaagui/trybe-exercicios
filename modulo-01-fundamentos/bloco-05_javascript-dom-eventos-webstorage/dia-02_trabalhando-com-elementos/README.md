@@ -84,17 +84,15 @@ const godfather = document.getElementById('paiDoPai');
 
 for (let i = 0; i < godfather.childNodes.length; i += 1) {
   if (godfather.childNodes[i] !== dad) {
-    godfather.removeChild(godfather.childNodes[i])
+    godfather.removeChild(godfather.childNodes[i]);
   }
 }
 ```
 
 2. Removendo os elementos *filhos* de **primeiroFilhoDoFilho**.
 ```
-const whereYouAreFirstSon = whereYouAre.firstElementChild;
-
-while (whereYouAreFirstSon.firstElementChild) {
-  whereYouAreFirstSon.removeChild(whereYouAreFirstSon.firstElementChild);
+while (firstChildOfSon.firstElementChild) {
+  firstChildOfSon.removeChild(firstChildOfSon.firstElementChild);
 }
 ```
 

@@ -23,11 +23,12 @@
   </main>
   <script>
 
-    // Elementos criados na Atividade anterior...
-    const dad = document.getElementById('pai');
-    const firstSon = document.getElementById('primeiroFilho');
-    const whereYouAre = firstSon.nextElementSibling;
-    const firstSonOfWhereYouAre = whereYouAre.firstElementChild
+    // Variáveis definidas e Elementos criados nas Atividades anteriores...
+    const whereYouAre = document.getElementById('primeiroFilho').nextElementSibling;
+    const dad = whereYouAre.parentNode;
+    const firstChildOfSon = document.getElementById('primeiroFilhoDoFilho');
+    const firstSon = dad.firstElementChild;
+    const thirdSon = whereYouAre.nextElementSibling;
 
     const newBrother = document.createElement('section');
     newBrother.setAttribute('id', 'irmaoDoElementoOndeVoceEsta');
@@ -37,27 +38,25 @@
     whereYouAreNewSon.setAttribute('id','novoFilhoDeElementoOndeVoceEsta');
     whereYouAre.appendChild(whereYouAreNewSon);
 
-    const firstSonOfFirstSon = document.createElement('section');
-    firstSonOfFirstSon.setAttribute('id', 'primeiroFilhoDePrimeiroFilho');
-    firstSonOfWhereYouAre.appendChild(firstSonOfFirstSon);
+    const ChildOfFirstChildOfSon = document.createElement('section');
+    ChildOfFirstChildOfSon.setAttribute('id', 'FilhoDePrimeiroFilhoDoFilho');
+    firstChildOfSon.appendChild(ChildOfFirstChildOfSon);
 
     // 1. Removendo elementos filhos de "paiDoPai"
     const godfather = document.getElementById('paiDoPai');
 
     for (let i = 0; i < godfather.childNodes.length; i += 1) {
       if (godfather.childNodes[i] !== dad) {
-        godfather.removeChild(godfather.childNodes[i])
+        godfather.removeChild(godfather.childNodes[i]);
       }
     }
 
-    // Removendo os elementos filhos de "primeiroFilhoDoFilho"
-    const whereYouAreFirstSon = whereYouAre.firstElementChild;
-
-    while (whereYouAreFirstSon.firstElementChild) {
-      whereYouAreFirstSon.removeChild(whereYouAreFirstSon.firstElementChild);
+    // 2. Removendo os elementos filhos de "primeiroFilhoDoFilho"
+    while (firstChildOfSon.firstElementChild) {
+      firstChildOfSon.removeChild(firstChildOfSon.firstElementChild);
     }
 
-    // Removendo os elementos filhos de "elementoOndeVoceEsta"
+    // 3. Removendo os elementos filhos de "elementoOndeVoceEsta"
     while (whereYouAre.firstElementChild) {
       whereYouAre.removeChild(whereYouAre.firstElementChild);
     }
