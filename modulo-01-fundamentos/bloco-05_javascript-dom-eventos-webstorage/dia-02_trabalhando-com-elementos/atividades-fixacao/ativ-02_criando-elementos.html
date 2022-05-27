@@ -1,0 +1,55 @@
+<!-- Atividade de Fixação 02 - Criando Elementos -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade de Fixação 02</title>
+</head>
+<body>
+  <main id="paiDoPai">
+    <section id="pai">
+      <section id="primeiroFilho"></section>
+      <section id="elementoOndeVoceEsta">
+        <section id="primeiroFilhoDoFilho"></section>
+        <section id="segundoEUltimoFilhoDoFilho"></section>
+      </section>
+      Atenção!
+      <section id="terceiroFilho"></section>
+      <section id="quartoEUltimoFilho"></section>
+    </section>
+  </main>
+  <script>
+
+    // Variáveis definidas na Atividade anterior
+    const whereYouAre = document.getElementById('primeiroFilho').nextElementSibling;
+    const dad = whereYouAre.parentNode;
+    const firstChildOfSon = document.getElementById('primeiroFilhoDoFilho');
+    const firstSon = dad.firstElementChild;
+    const thirdSon = whereYouAre.nextElementSibling;
+
+    // Passo 1
+    const newBrother = document.createElement('section');
+    newBrother.setAttribute('id', 'irmaoDoElementoOndeVoceEsta');
+    dad.appendChild(newBrother);
+    
+    // Passo 2
+    const whereYouAreNewSon = document.createElement('section');
+    whereYouAreNewSon.setAttribute('id','novoFilhoDeElementoOndeVoceEsta');
+    whereYouAre.appendChild(whereYouAreNewSon);
+
+    // Passo 3
+    const ChildOfFirstChildOfSon = document.createElement('section');
+    ChildOfFirstChildOfSon.setAttribute('id', 'FilhoDePrimeiroFilhoDoFilho');
+    firstChildOfSon.appendChild(ChildOfFirstChildOfSon);
+
+    // Passo 4
+    ChildOfFirstChildOfSon.parentElement
+    .parentElement
+    .nextElementSibling;
+
+  </script>
+</body>
+</html>

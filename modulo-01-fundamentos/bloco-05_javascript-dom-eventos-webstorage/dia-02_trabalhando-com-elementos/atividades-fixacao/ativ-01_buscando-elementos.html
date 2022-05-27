@@ -1,0 +1,54 @@
+<!-- Atividade de Fixação 01 - Buscando Elementos -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade de Fixação 01</title>
+</head>
+<body>
+  <main id="paiDoPai">
+    <section id="pai">
+      <section id="primeiroFilho"></section>
+      <section id="elementoOndeVoceEsta">
+        <section id="primeiroFilhoDoFilho"></section>
+        <section id="segundoEUltimoFilhoDoFilho"></section>
+      </section>
+      Atenção!
+      <section id="terceiroFilho"></section>
+      <section id="quartoEUltimoFilho"></section>
+    </section>
+  </main>
+  <script>
+
+    // Passo 1
+    const whereYouAre = document.getElementById('primeiroFilho').nextElementSibling;
+    
+    // Passo 2
+    const dad = whereYouAre.parentNode;
+    dad.style.color = 'blue'
+
+    // Passo 3
+    const firstChildOfSon = document.getElementById('primeiroFilhoDoFilho');
+    firstChildOfSon.innerHTML = 'Lorem ipsum dolor';
+
+    // Passo 4
+    const firstSon = dad.firstElementChild;
+
+    // Passo 5
+    whereYouAre.previousElementSibling;
+
+    // Passo 6
+    whereYouAre.nextSibling;
+
+    // Passo 7
+    const thirdSon = whereYouAre.nextElementSibling;
+
+    // Passo 8
+    dad.children[2];
+
+  </script>
+</body>
+</html>
