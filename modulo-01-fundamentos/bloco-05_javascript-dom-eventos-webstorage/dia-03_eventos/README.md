@@ -187,3 +187,21 @@ for (i = 0; i < calendarDays.length; i += 1) {
   calendarDays[i].addEventListener('mouseout', zoomOutText)
 }
 ```
+
+7. Implemente uma função que adiciona uma tarefa personalizada ao calendário. A função deve receber como parâmetro a string com o nome da tarefa (ex: "cozinhar") e criar dinamicamente um elemento com a tag span contendo a tarefa.
+- O elemento criado deverá ser adicionado como filho/filha da tag div que possui a classe "my-tasks".
+```
+const tasksContainer = document.querySelector('.my-tasks');
+const newTaskButton = document.getElementById('btn-new-task');
+const inputNewTask = document.getElementById('input-new-add');
+
+function addNewTask() {
+  const newTask = document.createElement('span');
+  newTask.innerText = inputNewTask.value;
+  newTask.style.display = 'block'
+  newTask.style.textAlign = 'center'
+  tasksContainer.appendChild(newTask);
+  inputNewTask.value = '';
+}
+newTaskButton.addEventListener('click', addNewTask);
+```

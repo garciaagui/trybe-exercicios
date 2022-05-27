@@ -128,6 +128,21 @@ function zoomOutText(event) {
 }
 
 for (i = 0; i < calendarDays.length; i += 1) {
-  calendarDays[i].addEventListener('mouseover', zoomOverText)
-  calendarDays[i].addEventListener('mouseout', zoomOutText)
+  calendarDays[i].addEventListener('mouseover', zoomOverText);
+  calendarDays[i].addEventListener('mouseout', zoomOutText);
 }
+
+// Exercício 7
+const tasksContainer = document.querySelector('.my-tasks');
+const newTaskButton = document.getElementById('btn-new-task');
+const inputNewTask = document.getElementById('input-new-add');
+
+function addNewTask() {
+  const newTask = document.createElement('span');
+  newTask.innerText = inputNewTask.value;
+  newTask.style.display = 'block'
+  newTask.style.textAlign = 'center'
+  tasksContainer.appendChild(newTask);
+  inputNewTask.value = '';
+}
+newTaskButton.addEventListener('click', addNewTask);
