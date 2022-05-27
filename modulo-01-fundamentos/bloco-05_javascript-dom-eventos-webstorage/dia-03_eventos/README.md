@@ -169,3 +169,21 @@ fridayButton.addEventListener('click', function() {
   }
 })
 ```
+
+6. Implemente duas funções que criem um efeito de "zoom". Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
+```
+const calendarDays = document.getElementsByClassName('day');
+
+function zoomOverText(event) {
+  event.target.style.transform = 'scale(1.5)';
+}
+
+function zoomOutText(event) {
+  event.target.style.transform = 'scale(1)';
+}
+
+for (i = 0; i < calendarDays.length; i += 1) {
+  calendarDays[i].addEventListener('mouseover', zoomOverText)
+  calendarDays[i].addEventListener('mouseout', zoomOutText)
+}
+```

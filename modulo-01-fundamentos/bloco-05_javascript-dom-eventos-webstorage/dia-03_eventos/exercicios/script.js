@@ -115,3 +115,19 @@ fridayButton.addEventListener('click', function() {
     resetFridaysColor();
   }
 })
+
+// Exercício 6
+const calendarDays = document.getElementsByClassName('day');
+
+function zoomOverText(event) {
+  event.target.style.transform = 'scale(1.5)';
+}
+
+function zoomOutText(event) {
+  event.target.style.transform = 'scale(1)';
+}
+
+for (i = 0; i < calendarDays.length; i += 1) {
+  calendarDays[i].addEventListener('mouseover', zoomOverText)
+  calendarDays[i].addEventListener('mouseout', zoomOutText)
+}
