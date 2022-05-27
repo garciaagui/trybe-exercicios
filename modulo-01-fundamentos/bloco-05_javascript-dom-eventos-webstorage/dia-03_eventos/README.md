@@ -122,3 +122,16 @@ holidayButton.addEventListener('click', function() {
   }
 })
 ```
+
+4. Implemente uma função que receba como parâmetro a string "Sexta-feira" e crie dinamicamente um botão com o nome "Sexta-feira".
+- Adicione a este botão o ID "btn-friday".
+- Adicione este botão como filho/filha da tag div com classe "buttons-container".
+```
+function createFridayButton(buttonName) {
+  const fridayButton = document.createElement('button');
+  fridayButton.innerHTML = buttonName;
+  fridayButton.setAttribute('id', 'btn-friday');
+  containerButtons.appendChild(fridayButton);
+}
+createFridayButton('Sexta-feira');
+```

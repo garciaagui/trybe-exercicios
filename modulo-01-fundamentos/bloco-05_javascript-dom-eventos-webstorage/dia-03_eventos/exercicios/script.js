@@ -75,3 +75,12 @@ holidayButton.addEventListener('click', function() {
     resetHolidaysColor();
   }
 })
+
+// Exercício 4
+function createFridayButton(buttonName) {
+  const fridayButton = document.createElement('button');
+  fridayButton.innerHTML = buttonName;
+  fridayButton.setAttribute('id', 'btn-friday');
+  containerButtons.appendChild(fridayButton);
+}
+createFridayButton('Sexta-feira');
