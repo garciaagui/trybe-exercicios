@@ -30,7 +30,7 @@ function applyDaysOfDecember() {
     if (i === 25 || i === 26 || i === 32) {
       decDayListItem.classList.add('holiday');
     }
-    if (i === 5 || i === 12 || i === 18 || i === 26) {
+    if (i === 5 || i === 12 || i === 19 || i === 26) {
       decDayListItem.classList.add('friday');
     }
     calendar.appendChild(decDayListItem);
@@ -64,11 +64,11 @@ function resetHolidaysColor() {
   }
 }
 
-let buttonClicks = 0;
+let buttonClicks1 = 0;
 
 holidayButton.addEventListener('click', function() {
-  buttonClicks += 1;
-  if (buttonClicks % 2 !== 0) {
+  buttonClicks1 += 1;
+  if (buttonClicks1 % 2 !== 0) {
     changeHolidaysColorToGreen();
   }
   else {
@@ -84,3 +84,34 @@ function createFridayButton(buttonName) {
   containerButtons.appendChild(fridayButton);
 }
 createFridayButton('Sexta-feira');
+
+// Exercício 5
+const fridayButton = document.getElementById('btn-friday');
+
+function changeFridaysColor() {
+  const friday = document.getElementsByClassName('friday');
+  for (let i = 0; i < friday.length; i += 1) {
+    friday[i].style.backgroundColor = 'blue'
+    friday[i].style.color = 'white'
+  }
+}
+
+function resetFridaysColor() {
+  const friday = document.getElementsByClassName('friday');
+  for (let i = 0; i < friday.length; i += 1) {
+    friday[i].style.backgroundColor = 'rgb(238,238,238)'
+    friday[i].style.color = '#777'
+  }
+}
+
+let buttonClicks2 = 0;
+
+fridayButton.addEventListener('click', function() {
+  buttonClicks2 += 1;
+  if (buttonClicks2 % 2 !== 0) {
+    changeFridaysColor();
+  }
+  else {
+    resetFridaysColor();
+  }
+})
