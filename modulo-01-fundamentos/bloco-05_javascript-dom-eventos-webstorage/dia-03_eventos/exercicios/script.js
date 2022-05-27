@@ -141,8 +141,18 @@ function addNewTask() {
   const newTask = document.createElement('span');
   newTask.innerText = inputNewTask.value;
   newTask.style.display = 'block'
-  newTask.style.textAlign = 'center'
   tasksContainer.appendChild(newTask);
   inputNewTask.value = '';
 }
 newTaskButton.addEventListener('click', addNewTask);
+
+// Exercício 8
+function addCaptionForTask(color) {
+  const newCaption = document.createElement('div');
+  newCaption.setAttribute('class', 'task');
+  newCaption.style.backgroundColor = color;
+  tasksContainer.appendChild(newCaption)
+}
+newTaskButton.addEventListener('click', function() {
+  addCaptionForTask('red')
+})
