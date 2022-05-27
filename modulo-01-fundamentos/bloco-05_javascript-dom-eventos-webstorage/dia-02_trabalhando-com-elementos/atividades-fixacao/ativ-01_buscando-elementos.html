@@ -27,15 +27,15 @@
     const whereYouAre = document.getElementById('primeiroFilho').nextElementSibling;
     
     // Passo 2
-    whereYouAre.parentNode;
+    const dad = whereYouAre.parentNode;
+    dad.style.color = 'blue'
 
     // Passo 3
-    const firstChild = document.getElementById('primeiroFilho');
-    firstChild.innerHTML = 'Lorem ipsum dolor';
+    const firstChildOfSon = document.getElementById('primeiroFilhoDoFilho');
+    firstChildOfSon.innerHTML = 'Lorem ipsum dolor';
 
     // Passo 4
-    const dad = document.getElementById('pai');
-    dad.firstElementChild;
+    const firstSon = dad.firstElementChild;
 
     // Passo 5
     whereYouAre.previousElementSibling;
@@ -44,7 +44,7 @@
     whereYouAre.nextSibling;
 
     // Passo 7
-    whereYouAre.nextElementSibling;
+    const thirdSon = whereYouAre.nextElementSibling;
 
     // Passo 8
     dad.children[2];
