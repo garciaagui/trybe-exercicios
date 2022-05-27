@@ -61,7 +61,7 @@
       // Adição - Passo 1
       const bodyTag = document.querySelector('body');
       const mainTitle = document.createElement('h1');
-      mainTitle.innerHTML = 'Exercício 5.2 - JavaScript DOM';
+      mainTitle.innerText = 'Exercício 5.2 - JavaScript DOM';
       bodyTag.appendChild(mainTitle);
 
       // Adição - Passo 2
@@ -124,7 +124,7 @@
       }
 
       // Alteração e Remoção - Passo 3
-      mainTag.removeChild(mainTag.childNodes[1]);
+      mainTag.removeChild(leftSection);
 
       // Alteração e Remoção - Passo 4
       rightSection.style.marginRight = 'auto';
@@ -133,11 +133,8 @@
       centerSection.parentElement.style.backgroundColor = 'green';
 
       // Alteração e Remoção - Passo 6
-      for (i = (list.childNodes.length - 1); i > 0; i -= 1) {
-        if (i === 8 || i === 9) {
-          list.removeChild(list.childNodes[i]);
-        }
-      }
+      list.lastChild.remove(); // Remove o item dez
+      list.lastChild.remove(); // Remove o item nove
     </script>
   </body>
 </html>

@@ -104,12 +104,12 @@ while (whereYouAre.firstElementChild) {
 ```
 
 ## &#9989; Exercícios do Dia
-### - Adição de elementos
+### Parte I: Adição de elementos
 1. Adicione a tag **h1** com o texto "Exercício 5.2 - JavaScript DOM" como **filho** da tag **body**;
 ```
 const bodyTag = document.querySelector('body');
 const mainTitle = document.createElement('h1');
-mainTitle.innerHTML = 'Exercício 5.2 - JavaScript DOM';
+mainTitle.innerText = 'Exercício 5.2 - JavaScript DOM';
 bodyTag.appendChild(mainTitle);
 ```
 
@@ -178,7 +178,7 @@ for(i = 1; i <= 3; i += 1) {
 }
 ```
 
-### - Alteração e remoção de elementos
+### Parte II: Alteração e remoção de elementos
 1. Adicione a *classe title* na tag **h1** criada;
 ```
 mainTitle.setAttribute('class', 'title');
@@ -195,7 +195,7 @@ for(let i = 0; i < descriptionTitles.length; i += 1) {
 
 3. Remova a **section** criado no passo 5 (aquele que possui a *classe left-content*). Utilize a função *.removeChild()*;
 ```
-mainTag.removeChild(mainTag.childNodes[1]);
+mainTag.removeChild(leftSection);
 ```
 
 4. Centralize a **section** criado no passo 6 (aquele que possui a *classe right-content*). Dica: para centralizar, basta configurar o *margin-right: auto* da **section**;
@@ -210,9 +210,6 @@ centerSection.parentElement.style.backgroundColor = 'green';
 
 6. Remova os **dois últimos elementos** (nove e dez) da **lista** criada no passo 8.
 ```
-for (i = (list.childNodes.length - 1); i > 0; i -= 1) {
-  if (i === 8 || i === 9) {
-    list.removeChild(list.childNodes[i]);
-  }
-}
+  list.lastChild.remove(); // Remove o item dez
+  list.lastChild.remove(); // Remove o item nove
 ```
