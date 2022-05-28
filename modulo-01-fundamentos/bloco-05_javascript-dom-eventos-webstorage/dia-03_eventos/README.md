@@ -192,23 +192,49 @@ for (i = 0; i < calendarDays.length; i += 1) {
 - O elemento criado deverá ser adicionado como filho/filha da tag div que possui a classe "my-tasks".
 ```
 const tasksContainer = document.querySelector('.my-tasks');
-const newTaskButton = document.getElementById('btn-new-task');
-const inputNewTask = document.getElementById('input-new-add');
 
-function addNewTask() {
+function addNewTask(taskName) {
   const newTask = document.createElement('span');
-  newTask.innerText = inputNewTask.value;
-  newTask.style.display = 'block'
-  newTask.style.textAlign = 'center'
+  newTask.innerText = taskName;
   tasksContainer.appendChild(newTask);
-  inputNewTask.value = '';
 }
-newTaskButton.addEventListener('click', addNewTask);
+addNewTask('Cozinhar');
 ```
 
 8. Implemente uma função que adiciona uma legenda com cor para a tarefa criada no exercício anterior. Esta função deverá receber como parâmetro uma string ("cor") e criar dinamicamente um elemento de tag div com a classe task.
 - O parâmetro cor deverá ser utilizado como cor de fundo da div criada.
 - O elemento criado deverá ser adicionado como filho/filha da tag div que possui a classe "my-tasks".
 ```
+function addCaptionForTask(color) {
+  const newCaption = document.createElement('div');
+  newCaption.setAttribute('class', 'task');
+  newCaption.style.backgroundColor = color;
+  tasksContainer.appendChild(newCaption)
+}
+addCaptionForTask('red');
+```
 
+9. Implemente uma função que adiciona um evento que, ao clicar no elemento com a tag div referente a cor da sua tarefa, atribua a este elemento a classe task selected, ou seja, quando sua tarefa possuir a classe task selected, ela estará selecionada.
+- Ao clicar novamente no elemento, a sua classe deverá voltar a ser somente task, ou seja, esta tarefa está deixando de ser uma tarefa selecionada.
+```
+const taskCaption = document.querySelector('.task');
+
+function selectTask() {
+  taskCaption.classList.add('selected');
+}
+
+function deselectTask() {
+  taskCaption.classList.remove('selected');
+}
+
+let buttonClicks3 = 0;
+
+taskCaption.addEventListener('click', function(){
+  buttonClicks3 += 1;
+  if (buttonClicks3 % 2 !== 0) {
+    selectTask();
+  } else {
+    deselectTask();
+  }
+})
 ```

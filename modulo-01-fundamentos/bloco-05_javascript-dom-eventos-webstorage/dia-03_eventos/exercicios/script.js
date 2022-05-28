@@ -134,17 +134,13 @@ for (i = 0; i < calendarDays.length; i += 1) {
 
 // Exercício 7
 const tasksContainer = document.querySelector('.my-tasks');
-const newTaskButton = document.getElementById('btn-new-task');
-const inputNewTask = document.getElementById('input-new-add');
 
-function addNewTask() {
+function addNewTask(taskName) {
   const newTask = document.createElement('span');
-  newTask.innerText = inputNewTask.value;
-  newTask.style.display = 'block'
+  newTask.innerText = taskName;
   tasksContainer.appendChild(newTask);
-  inputNewTask.value = '';
 }
-newTaskButton.addEventListener('click', addNewTask);
+addNewTask('Cozinhar');
 
 // Exercício 8
 function addCaptionForTask(color) {
@@ -153,6 +149,26 @@ function addCaptionForTask(color) {
   newCaption.style.backgroundColor = color;
   tasksContainer.appendChild(newCaption)
 }
-newTaskButton.addEventListener('click', function() {
-  addCaptionForTask('red')
+addCaptionForTask('red');
+
+// Exercício 9
+const taskCaption = document.querySelector('.task');
+
+function selectTask() {
+  taskCaption.classList.add('selected');
+}
+
+function deselectTask() {
+  taskCaption.classList.remove('selected');
+}
+
+let buttonClicks3 = 0;
+
+taskCaption.addEventListener('click', function(){
+  buttonClicks3 += 1;
+  if (buttonClicks3 % 2 !== 0) {
+    selectTask();
+  } else {
+    deselectTask();
+  }
 })
