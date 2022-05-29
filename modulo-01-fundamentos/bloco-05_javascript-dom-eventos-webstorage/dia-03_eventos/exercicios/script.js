@@ -202,3 +202,34 @@ for (let i = 0; i < calendarDays.length; i += 1) {
     }
   })
 }
+
+// Exercício 11 - BÔNUS
+const commitmentContainer = document.querySelector('.input-container');
+const commitmentInput = document.getElementById('task-input');
+const commitmentAddBtn = document.getElementById('btn-add');
+
+function addNewCommitment() {
+  const newCommitment = document.createElement('span');
+  newCommitment.innerText = commitmentInput.value;
+  newCommitment.style.display = 'block';
+  commitmentContainer.appendChild(newCommitment);
+  commitmentInput.value = '';
+}
+
+commitmentAddBtn.addEventListener('click', function(){
+  if (commitmentInput.value === '') {
+    window.alert('Alerta! Nenhum caractere inserido.');
+  } else {
+    addNewCommitment();
+  }
+});
+
+commitmentInput.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    if (commitmentInput.value === '') {
+      window.alert('Alerta! Nenhum caractere inserido.');
+    } else {
+      addNewCommitment()
+    }
+  }
+})
