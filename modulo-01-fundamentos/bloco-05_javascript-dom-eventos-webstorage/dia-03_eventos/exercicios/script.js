@@ -16,13 +16,11 @@ createDaysOfTheWeek();
 // Escreva seu código abaixo.
 const calendar = document.getElementById('days');
 const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-const containerButtons = document.getElementsByClassName('buttons-container')[0];
-const holidayButton = document.createElement('button');
-
+const containerButtons = document.querySelector('.buttons-container');
 
 // Exercício 1
-function applyDaysOfDecember() {
-  for (let i = 0; i < dezDaysList.length; i += 1) {
+function createMonthDays() {
+  for (let i = 0; i < dezDaysList.length; i += 1) { 
     const decDay = dezDaysList[i];
     const decDayListItem = document.createElement('li');
     decDayListItem.innerHTML = decDay;
@@ -36,45 +34,37 @@ function applyDaysOfDecember() {
     calendar.appendChild(decDayListItem);
   };
 };
-applyDaysOfDecember();
+createMonthDays();
 
 // Exercício 2
 function createHolidayButton(buttonName) {
+  const holidayButton = document.createElement('button');
   holidayButton.innerHTML = buttonName;
   holidayButton.setAttribute('id', 'btn-holiday');
-
   containerButtons.appendChild(holidayButton);
 }
 createHolidayButton('Feriados');
 
 // Exercício 3
-function changeHolidaysColorToGreen() {
+const holidayButton = document.querySelector('#btn-holiday');
+
+function changeHolidaysColor() {
   const holidays = document.getElementsByClassName('holiday');
+  const newBgColor = 'green';
+  const originalBgColor = 'rgb(238,238,238)';
+
   for (let i = 0; i < holidays.length; i += 1) {
-    holidays[i].style.backgroundColor = 'green'
-    holidays[i].style.color = 'white'
+    if (holidays[i].style.backgroundColor === newBgColor) {
+      holidays[i].style.backgroundColor = originalBgColor;
+      holidays[i].style.color = '#777';
+    } else {
+      holidays[i].style.backgroundColor = newBgColor;
+      holidays[i].style.color = 'white';
+    }
   }
 }
 
-function resetHolidaysColor() {
-  const holidays = document.getElementsByClassName('holiday');
-  for (let i = 0; i < holidays.length; i += 1) {
-    holidays[i].style.backgroundColor = 'rgb(238,238,238)'
-    holidays[i].style.color = '#777'
-  }
-}
-
-let buttonClicks1 = 0;
-
-holidayButton.addEventListener('click', function() {
-  buttonClicks1 += 1;
-  if (buttonClicks1 % 2 !== 0) {
-    changeHolidaysColorToGreen();
-  }
-  else {
-    resetHolidaysColor();
-  }
-})
+holidayButton.addEventListener('click', changeHolidaysColor);
 
 // Exercício 4
 function createFridayButton(buttonName) {
@@ -86,35 +76,25 @@ function createFridayButton(buttonName) {
 createFridayButton('Sexta-feira');
 
 // Exercício 5
-const fridayButton = document.getElementById('btn-friday');
+const fridayButton = document.querySelector('#btn-friday');
+const fridayArray = [4,11,18,25];
 
-function changeFridaysColor() {
-  const friday = document.getElementsByClassName('friday');
-  for (let i = 0; i < friday.length; i += 1) {
-    friday[i].style.backgroundColor = 'blue'
-    friday[i].style.color = 'white'
+function changeFridaysColor(fridayArray) {
+  const fridays = document.getElementsByClassName('friday');
+  const newText = 'HABEMUS SEXTA!';
+
+  for (let i = 0; i < fridays.length; i += 1) {
+    if (fridays[i].innerHTML !== newText) {
+      fridays[i].innerHTML = newText;
+    } else {
+      fridays[i].innerHTML = fridayArray[i];
+    }
   }
 }
 
-function resetFridaysColor() {
-  const friday = document.getElementsByClassName('friday');
-  for (let i = 0; i < friday.length; i += 1) {
-    friday[i].style.backgroundColor = 'rgb(238,238,238)'
-    friday[i].style.color = '#777'
-  }
-}
-
-let buttonClicks2 = 0;
-
-fridayButton.addEventListener('click', function() {
-  buttonClicks2 += 1;
-  if (buttonClicks2 % 2 !== 0) {
-    changeFridaysColor();
-  }
-  else {
-    resetFridaysColor();
-  }
-})
+fridayButton.addEventListener('click', function () {
+  changeFridaysColor(fridayArray);
+});
 
 // Exercício 6
 const calendarDays = document.getElementsByClassName('day');
@@ -137,7 +117,7 @@ const tasksContainer = document.querySelector('.my-tasks');
 
 function addNewTask(taskName) {
   const newTask = document.createElement('span');
-  newTask.innerText = taskName;
+  newTask.innerHTML = taskName;
   tasksContainer.appendChild(newTask);
 }
 addNewTask('Cozinhar');
@@ -147,7 +127,7 @@ function addCaptionForTask(color) {
   const newCaption = document.createElement('div');
   newCaption.setAttribute('class', 'task');
   newCaption.style.backgroundColor = color;
-  tasksContainer.appendChild(newCaption)
+  tasksContainer.appendChild(newCaption);
 }
 addCaptionForTask('red');
 
