@@ -20,17 +20,14 @@ firstLi.addEventListener('click', changeClassName);
 secondLi.addEventListener('click', changeClassName);
 thirdLi.addEventListener('click', changeClassName);
 
-// 3. Crie uma função que, ao digitar na caixa de texto, altere o texto do elemento
-// com a classe 'tech';
+// 3. Crie uma função que, ao digitar na caixa de texto, altere o texto do elemento com a classe 'tech';
 function changeContent() {
   const techClass = document.querySelector('.tech');
-  techClass.innerHTML = input.value;
+  techClass.innerText = input.value;
 }
-input.addEventListener('keyup', changeContent)
+input.addEventListener('keyup', changeContent);
 
-
-// 4. Crie uma função que, ao clicar duas vezes em 'Meu top 3 do Spotrybefy', ele
-// redirecione para alguma página;
+// 4. Crie uma função que, ao clicar duas vezes em 'Meu top 3 do Spotrybefy', ele redirecione para alguma página;
 // 4.1. Que tal redirecionar para seu portfólio?
 function redirectPage() {
   window.open('https://garciaagui.github.io/', '_blank');
@@ -39,11 +36,10 @@ myWebpage.addEventListener('dblclick', redirectPage);
 
 // 5. Crie uma função que, ao passar o mouse sobre 'Meu top 3 do Spotrybefy', altere
 // a cor do mesmo;
-const title = document.getElementsByTagName('h1')[0];
 function changeTitleColor (event) {
   event.target.style.color = 'rgb(0, 109, 251)';
 }
-title.addEventListener('mouseover', changeTitleColor);
+myWebpage.addEventListener('mouseover', changeTitleColor);
 
 // Segue abaixo um exemplo do uso de event.target:
 
