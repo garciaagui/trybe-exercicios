@@ -194,65 +194,43 @@ function addCaptionForTask(color) {
 addCaptionForTask('red');
 ```
 
-9. Implemente uma função que adiciona um evento que, ao clicar no elemento com a tag div referente a cor da sua tarefa, atribua a este elemento a classe task selected, ou seja, quando sua tarefa possuir a classe task selected, ela estará selecionada.
+9. Implemente uma função que adiciona um evento que, ao clicar no elemento com a tag div referente a cor da sua tarefa, **atribua a este elemento a classe task selected**, ou seja, quando sua tarefa possuir a classe task selected, ela estará selecionada.
 - Ao clicar novamente no elemento, a sua classe deverá voltar a ser somente task, ou seja, esta tarefa está deixando de ser uma tarefa selecionada.
 ```
 const taskCaption = document.querySelector('.task');
 
 function selectTask() {
-  taskCaption.classList.add('selected');
-}
-
-function deselectTask() {
-  taskCaption.classList.remove('selected');
-}
-
-let buttonClicks3 = 0;
-
-taskCaption.addEventListener('click', function(){
-  buttonClicks3 += 1;
-  if (buttonClicks3 % 2 !== 0) {
-    selectTask();
+  if (!taskCaption.classList.contains('task-selected')) {
+    taskCaption.setAttribute('class','task-selected');
   } else {
-    deselectTask();
-  }
-})
-```
-
-10. Implemente uma função que adiciona um evento que, ao clicar em um dia do mês no calendário, atribua a este dia a cor da legenda da sua tarefa selecionada.
-- Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119).
-```
-function flagDay(event) {
-  if (buttonClicks3 % 2 !== 0) {
-    const selectedTask = document.querySelector('.task-selected')
-    event.style.backgroundColor = selectedTask.style.backgroundColor
-    event.style.color = 'white';
+    taskCaption.setAttribute('class','task');
   }
 }
 
-function unflagDay(event) {
-  event.style.backgroundColor = 'rgb(238,238,238)';
-  event.style.color = '#777';
-}
+taskCaption.addEventListener('click', selectTask);
+```
 
-let buttonClicks4 = 0;
+10. Implemente uma função que adiciona um evento que, ao clicar em um dia do mês no calendário, **atribua a este dia a cor da legenda da sua tarefa selecionada**.
+- Ao clicar novamente no dia com a cor da legenda, a sua cor deverá **voltar à configuração inicial** rgb(119,119,119).
+```
+function flagDay(event){
+  const selectedTask = document.querySelector('.task-selected') 
+  let eventColor = event.target.style.color;
+  if (!selectedTask || eventColor === selectedTask.style.backgroundColor) {
+    event.target.style.color = 'rgb(119,119,119)';
+  } else if (eventColor !== selectedTask.style.backgroundColor) {
+    event.target.style.color = selectedTask.style.backgroundColor;
+  }
+}
 
 for (let i = 0; i < calendarDays.length; i += 1) {
-  calendarDays[i].addEventListener('click', function() {
-    buttonClicks4 += 1;
-    if (buttonClicks4 % 2 !== 0) {
-      flagDay(calendarDays[i]);
-    }
-    else {
-      unflagDay(calendarDays[i])
-    }
-  })
+  calendarDays[i].addEventListener('click', flagDay);
 }
 ```
 
-11. BÔNUS - Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto "COMPROMISSOS", adiciona o item à lista "MEUS COMPROMISSOS" ao clicar no botão "ADICIONAR".
-- Se nenhum caractere for inserido no campo input, a função deve retornar um alert com uma mensagem de erro ao clicar em "ADICIONAR".
-- Ao pressionar a tecla "enter" o evento também deverá ser disparado.
+11. BÔNUS - Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto "COMPROMISSOS", **adiciona o item à lista "MEUS COMPROMISSOS" ao clicar no botão "ADICIONAR"**.
+- Se nenhum caractere for inserido no campo input, a função deve **retornar um alert com uma mensagem de erro** ao clicar em "ADICIONAR".
+- Ao **pressionar a tecla "enter"** o evento também deverá ser disparado.
 ```
 const commitmentContainer = document.querySelector('.input-container');
 const commitmentInput = document.getElementById('task-input');

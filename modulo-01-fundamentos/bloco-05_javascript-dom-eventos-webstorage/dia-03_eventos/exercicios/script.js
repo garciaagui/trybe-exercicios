@@ -135,52 +135,28 @@ addCaptionForTask('red');
 const taskCaption = document.querySelector('.task');
 
 function selectTask() {
-  taskCaption.classList.remove('task')
-  taskCaption.classList.add('task-selected');
-}
-
-function deselectTask() {
-  taskCaption.classList.remove('task-selected');
-  taskCaption.classList.add('task');
-}
-
-let buttonClicks3 = 0;
-
-taskCaption.addEventListener('click', function(){
-  buttonClicks3 += 1;
-  if (buttonClicks3 % 2 !== 0) {
-    selectTask();
+  if (!taskCaption.classList.contains('task-selected')) {
+    taskCaption.setAttribute('class','task-selected');
   } else {
-    deselectTask();
+    taskCaption.setAttribute('class','task');
   }
-})
+}
+
+taskCaption.addEventListener('click', selectTask);
 
 // Exercício 10
-function flagDay(event) {
-  if (buttonClicks3 % 2 !== 0) {
-    const selectedTask = document.querySelector('.task-selected')
-    event.style.backgroundColor = selectedTask.style.backgroundColor
-    event.style.color = 'white';
+function flagDay(event){
+  const selectedTask = document.querySelector('.task-selected') 
+  let eventColor = event.target.style.color;
+  if (!selectedTask || eventColor === selectedTask.style.backgroundColor) {
+    event.target.style.color = 'rgb(119,119,119)';
+  } else if (eventColor !== selectedTask.style.backgroundColor) {
+    event.target.style.color = selectedTask.style.backgroundColor;
   }
 }
 
-function unflagDay(event) {
-  event.style.backgroundColor = 'rgb(238,238,238)';
-  event.style.color = '#777';
-}
-
-let buttonClicks4 = 0;
-
 for (let i = 0; i < calendarDays.length; i += 1) {
-  calendarDays[i].addEventListener('click', function() {
-    buttonClicks4 += 1;
-    if (buttonClicks4 % 2 !== 0) {
-      flagDay(calendarDays[i]);
-    }
-    else {
-      unflagDay(calendarDays[i])
-    }
-  })
+  calendarDays[i].addEventListener('click', flagDay);
 }
 
 // Exercício 11 - BÔNUS
