@@ -53,3 +53,27 @@
 ```
 <input type="email" name="user-email" id="input-email" placeholder="Digite seu email" autocomplete="off" autofocus required>
 ```
+
+## &#9989; Atividade de Fixação 2 - prevent default
+1. Adicione um evento **click** no elemento a que possui o **id href**. Na função do evento, implemente o método **.preventDefault()** para previnir o comportamento padrão do elemento. Ou seja, ao clicar no link, nada deve acontecer.
+```
+function prevent (event) {
+  event.preventDefault();
+}
+
+HREF_LINK.addEventListener('click', prevent);
+```
+
+2. Adicione um evento **click** no elemento checkbox que possui o **id input-checkbox**. Na função do evento, implemente o método **.preventDefault()** para previnir o comportamento padrão do elemento. Ou seja, ao clicar na caixinha, nada deve acontecer.
+```
+INPUT_CHECKBOX.addEventListener('click', prevent);
+```
+
+3. Adicione um evento **keypress** no elemento input type="text" que possui o **id input-text**. Na função do evento, implemente o método **.preventDefault()** de forma que **somente o caractere a (letra 'a' minúscula) possa ser digitado na caixinha**.
+```
+INPUT_TEXT.addEventListener('keypress', (event) => {
+  if (event.key !== 'a') {
+    event.preventDefault();
+  }
+});
+```
