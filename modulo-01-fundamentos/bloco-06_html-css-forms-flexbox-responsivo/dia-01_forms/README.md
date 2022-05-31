@@ -2,7 +2,7 @@
 
 ## &#9989; Atividade de Fixação 1 - input tag, types e attributes
 
-1. Adicione os campos de entrada para email e senha.
+1. Adicione os campos de entrada para **email** e **senha**.
 ```
 <p>E-mail:</p>
 <label for="input-email">
@@ -15,7 +15,7 @@
 </label>
 ```
 
-2. Adicione um checkbox com o texto Lembre-me.
+2. Adicione um **checkbox** com o texto "Lembre-me".
 ```
 <label for="input-remind">
   Lembre-me
@@ -23,12 +23,33 @@
 </label>
 ```
 
-3. Adicione um botão com o texto Entrar.
+3. Adicione um **botão** com o texto "Entrar".
 ```
 <button type="submit" id="submit-button">Entrar</button>
 ```
 
-4. Adicione os placeholder Digite seu email e Digite sua senha para os campos de email e senha.
-5. Adicione o atributo required para os campos de email e senha.
-6. Adicione o atributo autocomplete="off" para o campo de email.
-7. Adicione o atributo autofocus para o campo de email.
+4. Adicione os **placeholder** "Digite seu email" e "Digite sua senha" para os campos de **email** e **senha**.
+```
+<input type="email" name="user-email" id="input-email" placeholder="Digite seu email" required>
+
+<input type="password" name="user-password" id="input-password" placeholder="Digite sua senha" required>
+```
+- Observação: já incluídos no passo 1, apenas modifiquei os conteúdos dos **placeholders**.
+
+5. Adicione o atributo **required** para os campos de **email** e **senha**.
+```
+<input type="email" name="user-email" id="input-email" placeholder="Digite seu email" required>
+
+<input type="password" name="user-password" id="input-password" placeholder="Digite sua senha" required>
+```
+- Observação: já incluídos no passo 1.
+
+6. Adicione o atributo **autocomplete="off"** para o campo de **email**.
+```
+<input type="email" name="user-email" id="input-email" placeholder="Digite seu email" autocomplete="off" required>
+```
+
+7. Adicione o atributo **autofocus** para o campo de **email**.
+```
+<input type="email" name="user-email" id="input-email" placeholder="Digite seu email" autocomplete="off" autofocus required>
+```
