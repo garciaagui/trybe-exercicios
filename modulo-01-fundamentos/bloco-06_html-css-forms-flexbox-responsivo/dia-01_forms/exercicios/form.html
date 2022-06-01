@@ -16,7 +16,7 @@
       
         <div id="container-name">
           <label for="user-name">Nome:</label>
-          <input type="text" name="user-name" id="user-name" minlength="10" maxlength="40" required>
+          <input type="text" name="user-name" id="user-name" minlength="10" maxlength="40" autocomplete='off' required>
         </div>
 
         <div id="container-email">
@@ -51,20 +51,30 @@
         </div>
 
         <div id="container-checkbox1">
-
-        </div>
           <label for="">
             Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
         </label>
         <input type="checkbox" name="" id="checkbox1">
+        </div>
+
         <div id="container-checkbox2">
           <label for="">
             Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
           </label>
           <input type="checkbox" name="" id="checkbox2">
+        </div>
 
+        <div id="container-buttons">
+          <button type="submit" id="submit-btn">Enviar</button>
+          <button type="reset" id="reset-btn">Apagar</button>
         </div>
     </form>
   </main>
+  <script>
+    const submitBtn = document.querySelector('#submit-btn');
+    submitBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+    })
+  </script>
 </body>
 </html>
