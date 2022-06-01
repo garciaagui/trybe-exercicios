@@ -79,3 +79,136 @@ INPUT_TEXT.addEventListener('keypress', (event) => {
 ```
 
 ## &#9989; Exercício do Dia - Formulário de Sorteio de Viagem
+1. O formulário deverá permitir que a pessoa usuária insira os seguintes campos:
+- Nome Completo:
+```
+<div id="container-name">
+  <label for="user-name">Nome:</label>
+  <input type="text" name="user-name" id="user-name" autocomplete='off' required>
+</div>
+```
+
+- E-mail:
+```
+<div id="container-email">
+  <label for="user-email">Email:</label>
+  <input type="email" name="user-email" id="user-email" required>
+</div>
+```
+
+- Destino Preferido:
+```
+<div id="container-destination">
+  <p>Destino Preferido:</p>
+    <input type="radio" name="destination" id="destination-1" value="city">
+    <label for="destination-1">Cidade</label>
+
+    <input type="radio" name="destination" id="destination-2" value="countryside">
+    <label for="destination-2">Campo</label>
+
+    <input type="radio" name="destination" id="destination-3" value="beach">
+    <label for="destination-3">Praia</label>
+
+    <input type="radio" name="destination" id="destination-4" value="mountains">
+    <label for="destination-4">Montanhas</label>
+</div>
+```
+
+- Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?
+```
+
+<div id="container-question">
+    <label for="question">Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?
+    </label>
+    <textarea name="question" id="question" cols="30" rows="10" placeholder="Insira sua resposta aqui :)"></textarea>
+</div>
+```
+
+- Qual a melhor data para realizar sua viagem?
+```
+<div id="container-travel-date">
+  <label for="travel-date">Qual é a melhor data para a viagem?</label>
+  <input type="date" name="travel-date" id="travel-date">
+</div>
+```
+
+- Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
+```
+<div id="container-checkbox1">
+  <label for="">
+    Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
+</label>
+<input type="checkbox" name="" id="checkbox1">
+</div>
+```
+
+- Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
+```
+<div id="container-checkbox2">
+  <label for="">
+    Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
+  </label>
+  <input type="checkbox" name="" id="checkbox2">
+</div>
+```
+
+2. Crie um botão para enviar as informações preenchidas.
+```
+<div id="container-buttons">
+  <button type="submit" id="submit-btn">Enviar</button>
+</div>
+```
+
+3. Interrompa o comportamento padrão do botão submit utilizando o método preventDefault().
+```
+const submitBtn = document.querySelector('#submit-btn');
+
+submitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+}
+```
+
+4. Crie um botão que limpe as informações contidas nos campos;
+```
+<div id="container-buttons">
+  <button type="reset" id="reset-btn">Apagar</button>
+</div>
+```
+
+5. (BÔNUS 1) A TrybeTrip precisa muito de fotos para divulgar seus concursos. Tendo isso em mente, faça com que somente quem autorizar o uso de imagens possa enviar suas informações.
+```
+const checkboxImage = document.querySelector('#checkbox2');
+const imageInput = document.querySelector('#images');
+
+window.addEventListener('load', () => {
+  imageInput.disabled = true;
+})
+
+checkboxImage.addEventListener('click', () => {
+  if(checkboxImage.checked == false) {
+    imageInput.disabled = true;
+  } else {
+    imageInput.disabled = false;
+  }
+})
+```
+
+6. (BÔNUS 2) Faça a validação dos campos com limite de caracteres. Caso não estejam dentro do esperado ao clicar no botão de submit, um alerta deve ser mostrado com a mensagem: 'Dados Inválidos'. Caso contrário, a mensagem 'Dados enviados com sucesso! Obrigado por participar do concurso TrybeTrip.' deverá aparecer na tela.
+```
+const userNameInput = document.querySelector('#user-name');
+const emailInput = document.querySelector('#user-email');
+const questionInput = document.querySelector('#question');
+
+submitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  username = userNameInput.value;
+  email = emailInput.value;
+  question = questionInput.value;
+  if (username.length < 10 || username.length > 40 || email.length < 10 || email.length > 50 || question.length > 500) {
+    window.alert('Dados Inválidos');
+  } else {
+    window.alert('Dados enviados com sucesso! Obrigado por participar do concurso TrybeTrip.');
+  }
+})
+```
+- Observação: Reaproveitei a função criada no passo 3.
