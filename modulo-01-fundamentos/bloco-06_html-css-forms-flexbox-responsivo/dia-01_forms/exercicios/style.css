@@ -4,7 +4,58 @@
   box-sizing: border-box;
 }
 
-#question {
+body {
+  margin-left: 20px;
+  color: rgb(117, 115, 115);
+}
+
+#container-header {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+#container-form-structure {
+  border:4px solid black;
+  padding: 20px;
+  font-size: 24px;
+  width: 75%;
+  margin-bottom: 20px;
+}
+
+#container-email {
+  margin: 5px 0 15px 0;
+}
+
+#container-destination {
+  margin-bottom: 15px;
+}
+
+#container-destination p {
+  font-weight: bold;
+}
+
+#container-question{
+  width: 50%;
+  margin-bottom: 15px;
+}
+
+#container-question textarea {
+  margin-top: 5px;
   width: 100%;
   resize: none;
+  padding: 5px;
+}
+
+#container-travel-date {
+  margin-bottom: 15px;
+}
+
+#container-buttons button {
+  font-size: 20px;
+  width: 150px;
+  height: 40px;
+  color: rgb(117, 115, 115);
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 10px;
 }

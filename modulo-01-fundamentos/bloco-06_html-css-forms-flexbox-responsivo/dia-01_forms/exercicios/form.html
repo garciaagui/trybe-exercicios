@@ -14,6 +14,8 @@
   <main>
     <form action="" method="get">
       
+      <div id="container-form-structure">
+
         <div id="container-name">
           <label for="user-name">Nome:</label>
           <input type="text" name="user-name" id="user-name" minlength="10" maxlength="40" autocomplete='off' required>
@@ -26,23 +28,23 @@
 
         <div id="container-destination">
           <p>Destino Preferido:</p>
-            <label for="destination-1">Cidade</label>
             <input type="radio" name="destination" id="destination-1" value="city">
-            
-            <label for="destination-2">Campo</label>
+            <label for="destination-1">Cidade</label>
+
             <input type="radio" name="destination" id="destination-2" value="countryside">
+            <label for="destination-2">Campo</label>
 
-            <label for="destination-3">Praia</label>
             <input type="radio" name="destination" id="destination-3" value="beach">
+            <label for="destination-3">Praia</label>
 
-            <label for="destination-4">Montanhas</label>
             <input type="radio" name="destination" id="destination-4" value="mountains">
+            <label for="destination-4">Montanhas</label>
         </div>
 
         <div id="container-question">
             <label for="question">Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?
             </label>
-            <textarea name="question" id="question" cols="30" rows="5" maxlength="500" placeholder="Insira sua resposta aqui :)"></textarea>
+            <textarea name="question" id="question" cols="30" rows="10" maxlength="500" placeholder="Insira sua resposta aqui :)"></textarea>
         </div>
 
         <div id="container-travel-date">
@@ -63,11 +65,13 @@
           </label>
           <input type="checkbox" name="" id="checkbox2">
         </div>
+      </div>
 
-        <div id="container-buttons">
-          <button type="submit" id="submit-btn">Enviar</button>
-          <button type="reset" id="reset-btn">Apagar</button>
-        </div>
+      <div id="container-buttons">
+        <button type="submit" id="submit-btn">Enviar</button>
+        <button type="reset" id="reset-btn">Apagar</button>
+      </div>
+
     </form>
   </main>
   <script>
