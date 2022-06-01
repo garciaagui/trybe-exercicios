@@ -2,8 +2,8 @@
 const bodyTag = document.getElementsByTagName('body')[0];
 const bgColorInput = document.getElementById('bg-color-input');
 const bgColorBtn = document.getElementById('bg-color-btn');
-const textColorInput = document.getElementById('text-color-input')
-const textColorBtn = document.getElementById('text-color-btn')
+const textColorInput = document.getElementById('text-color-input');
+const textColorBtn = document.getElementById('text-color-btn');
 const fontSizeInput = document.getElementById('font-size-input');
 const fontSizeBtn = document.getElementById('font-size-btn');
 const lineHeightInput = document.getElementById('line-height-input');
@@ -42,7 +42,7 @@ function changeFontFamily() {
   fontFamilyInput.value = '';
 }
 
-function applyPreferences () {
+function applyPreferences() {
   bodyTag.style.backgroundColor = localStorage.getItem('backgroundColor');
   bodyTag.style.color = localStorage.getItem('textColor');
   bodyTag.style.fontSize = localStorage.getItem('fontSize');
