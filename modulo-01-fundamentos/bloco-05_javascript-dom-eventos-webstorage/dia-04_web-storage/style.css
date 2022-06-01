@@ -1,3 +1,33 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  margin-left: 20px;
+}
+
+#container-header {
+  margin: 40px 0;
+}
+
+main {
+  width: 80%;
+}
+
+#container-preferences {
+  margin-bottom: 40px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+#bg-color-container {
+  margin-top: 20px;
+}
+
 label {
   display: block;
   margin-bottom: 2px;
@@ -5,4 +35,15 @@ label {
 
 input {
   margin-bottom: 10px;
+  width: 200px;
+  height: 25px;
+}
+
+button {
+  width: 60px;
+  height: 25px;
+}
+
+article p {
+  text-align: justify ;
 }

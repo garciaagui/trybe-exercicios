@@ -42,16 +42,18 @@ function changeFontFamily() {
   fontFamilyInput.value = '';
 }
 
+function applyPreferences () {
+  bodyTag.style.backgroundColor = localStorage.getItem('backgroundColor');
+  bodyTag.style.color = localStorage.getItem('textColor');
+  bodyTag.style.fontSize = localStorage.getItem('fontSize');
+  bodyTag.style.lineHeight = localStorage.getItem('lineHeight');
+  bodyTag.style.fontFamily = localStorage.getItem('fontFamily');
+}
+
 // Ativando Funções
 bgColorBtn.addEventListener('click', changeBackgroundColor);
 textColorBtn.addEventListener('click', changeTextColor);
 fontSizeBtn.addEventListener('click', changeFontSize);
 lineHeightBtn.addEventListener('click', changeLineHeight);
 fontFamilyBtn.addEventListener('click', changeFontFamily);
-
-// Preferências do usuário
-bodyTag.style.backgroundColor = localStorage.getItem('backgroundColor');
-bodyTag.style.color = localStorage.getItem('textColor');
-bodyTag.style.fontSize = localStorage.getItem('fontSize');
-bodyTag.style.lineHeight = localStorage.getItem('lineHeight');
-bodyTag.style.fontFamily = localStorage.getItem('fontFamily');
+applyPreferences();
