@@ -83,8 +83,8 @@ INPUT_TEXT.addEventListener('keypress', (event) => {
 - Nome Completo:
 ```
 <div id="container-name">
-  <label for="user-name">Nome:</label>
-  <input type="text" name="user-name" id="user-name" autocomplete='off' required>
+  <label for="user-name">Nome Completo:</label>
+  <input type="text" name="user-name" id="user-name" minlength="10" maxlength="40" autocomplete='off' required>
 </div>
 ```
 
@@ -92,7 +92,7 @@ INPUT_TEXT.addEventListener('keypress', (event) => {
 ```
 <div id="container-email">
   <label for="user-email">Email:</label>
-  <input type="email" name="user-email" id="user-email" required>
+  <input type="email" name="user-email" id="user-email" minlength="10" maxlength="50" required>
 </div>
 ```
 
@@ -116,11 +116,10 @@ INPUT_TEXT.addEventListener('keypress', (event) => {
 
 - Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?
 ```
-
 <div id="container-question">
     <label for="question">Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?
     </label>
-    <textarea name="question" id="question" cols="30" rows="10" placeholder="Insira sua resposta aqui :)"></textarea>
+    <textarea name="question" id="question" cols="30" rows="10" maxlength="500" placeholder="Insira sua resposta aqui :)"></textarea>
 </div>
 ```
 
@@ -134,32 +133,32 @@ INPUT_TEXT.addEventListener('keypress', (event) => {
 
 - Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
 ```
-<div id="container-checkbox1">
+<div id="container-checkbox-promo">
   <label for="">
     Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
 </label>
-<input type="checkbox" name="" id="checkbox1">
+<input type="checkbox" name="checkbox-promo" id="checkbox-promo">
 </div>
 ```
 
 - Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
 ```
-<div id="container-checkbox2">
+<div id="container-checkbox-permission">
   <label for="">
     Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
   </label>
-  <input type="checkbox" name="" id="checkbox2">
+  <input type="checkbox" name="checkbox-permission" id="checkbox-permission">
 </div>
 ```
 
-2. Crie um botão para enviar as informações preenchidas.
+2. Crie um **botão** para **enviar** as informações preenchidas.
 ```
 <div id="container-buttons">
   <button type="submit" id="submit-btn">Enviar</button>
 </div>
 ```
 
-3. Interrompa o comportamento padrão do botão submit utilizando o método preventDefault().
+3. **Interrompa o comportamento** padrão do **botão submit** utilizando o método `preventDefault()`.
 ```
 const submitBtn = document.querySelector('#submit-btn');
 
@@ -168,24 +167,24 @@ submitBtn.addEventListener('click', (event) => {
 }
 ```
 
-4. Crie um botão que limpe as informações contidas nos campos;
+4. Crie um **botão** que **limpe** as informações contidas nos campos;
 ```
 <div id="container-buttons">
   <button type="reset" id="reset-btn">Apagar</button>
 </div>
 ```
 
-5. (BÔNUS 1) A TrybeTrip precisa muito de fotos para divulgar seus concursos. Tendo isso em mente, faça com que somente quem autorizar o uso de imagens possa enviar suas informações.
+5. (BÔNUS 1) A TrybeTrip precisa muito de **fotos** para divulgar seus concursos. Tendo isso em mente, faça com que **somente quem autorizar o uso de imagens** possa enviar suas informações.
 ```
-const checkboxImage = document.querySelector('#checkbox2');
+const checkboxPermission = document.querySelector('#checkbox-permission');
 const imageInput = document.querySelector('#images');
 
 window.addEventListener('load', () => {
   imageInput.disabled = true;
 })
 
-checkboxImage.addEventListener('click', () => {
-  if(checkboxImage.checked == false) {
+checkboxPermission.addEventListener('click', () => {
+  if(checkboxPermission.checked == false) {
     imageInput.disabled = true;
   } else {
     imageInput.disabled = false;
@@ -193,22 +192,32 @@ checkboxImage.addEventListener('click', () => {
 })
 ```
 
-6. (BÔNUS 2) Faça a validação dos campos com limite de caracteres. Caso não estejam dentro do esperado ao clicar no botão de submit, um alerta deve ser mostrado com a mensagem: 'Dados Inválidos'. Caso contrário, a mensagem 'Dados enviados com sucesso! Obrigado por participar do concurso TrybeTrip.' deverá aparecer na tela.
+6. (BÔNUS 2) Faça a **validação dos campos com limite de caracteres**. Caso não estejam dentro do esperado ao clicar no botão de submit, um **alerta** deve ser mostrado com a mensagem: 'Dados Inválidos'. Caso contrário, a mensagem 'Dados enviados com sucesso! Obrigado por participar do concurso TrybeTrip.' deverá aparecer na tela.
 ```
 const userNameInput = document.querySelector('#user-name');
 const emailInput = document.querySelector('#user-email');
 const questionInput = document.querySelector('#question');
 
-submitBtn.addEventListener('click', (event) => {
-  event.preventDefault();
+function validateInputValues() {
   username = userNameInput.value;
+  invalidUsername = username < 10 || username > 40;
+
   email = emailInput.value;
-  question = questionInput.value;
-  if (username.length < 10 || username.length > 40 || email.length < 10 || email.length > 50 || question.length > 500) {
+  invalidEmail = email < 10 || email > 50;
+
+  answer = questionInput.value;
+  invalidAnswer = answer > 500;
+
+  if (invalidUsername || invalidEmail || invalidAnswer) {
     window.alert('Dados Inválidos');
   } else {
     window.alert('Dados enviados com sucesso! Obrigado por participar do concurso TrybeTrip.');
   }
+}
+
+submitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  validateInputValues();
 })
 ```
-- Observação: Reaproveitei a função criada no passo 3.
+- Observação: Reaproveitei a função criada no passo 3, tendo em vista que o `event` seria o mesmo.

@@ -1,12 +1,12 @@
 * {
+  box-sizing: border-box;
+  color: rgb(99, 99, 99);
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
 }
 
 body {
   margin-left: 20px;
-  color: rgb(117, 115, 115);
 }
 
 #container-header {
@@ -16,10 +16,10 @@ body {
 
 #container-form-structure {
   border:4px solid black;
-  padding: 20px;
   font-size: 24px;
-  width: 75%;
   margin-bottom: 20px;
+  padding: 20px;
+  width: 75%;
 }
 
 #container-email {
@@ -35,15 +35,15 @@ body {
 }
 
 #container-question{
-  width: 50%;
   margin-bottom: 15px;
+  width: 50%;
 }
 
 #container-question textarea {
   margin-top: 5px;
-  width: 100%;
-  resize: none;
   padding: 5px;
+  resize: none;
+  width: 100%;
 }
 
 #container-travel-date {
@@ -51,11 +51,10 @@ body {
 }
 
 #container-buttons button {
-  font-size: 20px;
-  width: 150px;
-  height: 40px;
-  color: rgb(117, 115, 115);
-  display: inline-block;
-  margin-right: 10px;
   border-radius: 10px;
+  display: inline-block;
+  font-size: 20px;
+  height: 40px;
+  margin-right: 10px;
+  width: 150px;
 }
