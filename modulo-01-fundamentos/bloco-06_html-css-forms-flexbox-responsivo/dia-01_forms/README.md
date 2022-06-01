@@ -77,3 +77,5 @@ INPUT_TEXT.addEventListener('keypress', (event) => {
   }
 });
 ```
+
+## &#9989; Exercício do Dia - Formulário de Sorteio de Viagem
