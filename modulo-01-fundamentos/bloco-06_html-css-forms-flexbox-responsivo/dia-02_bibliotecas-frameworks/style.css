@@ -27,6 +27,10 @@ body {
   height: 150px;
 }
 
+#travel-date {
+  padding-left: 10px;
+}
+
 #container-buttons {
   margin-left: 20px;
 }

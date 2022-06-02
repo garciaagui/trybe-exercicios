@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
   <link rel="stylesheet" href="style.css">
   <title>Concurso TrybeTrip</title>
 </head>
@@ -16,7 +17,7 @@
 
   <main>
 
-    <form action="" method="get">
+    <form action="" method="get" id="form">
 
       <div id="container-form-structure">
 
@@ -56,7 +57,7 @@
         </div>
         <div id="container-travel-date" class="mb-3">
           <label for="travel-date">Qual é a melhor data para a viagem?</label>
-          <input type="date" name="travel-date" id="travel-date" class="form-label">
+          <input type="text" name="travel-date" id="travel-date" class="form-label">
         </div>
 
         <div id="container-checkbox-promo" class="form-check">
@@ -89,6 +90,8 @@
 
   </main>
   
+  <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
