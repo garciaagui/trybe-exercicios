@@ -66,7 +66,16 @@
 
 2. Teste as possibilidades para a propriedade `align-items`.
 ```
-
+.box-container {
+  background-color: #0fa36b;
+  display: flex;
+  /* ADICIONE AQUI SEUS TESTES */
+  align-items:stretch;
+  /* align-items:flex-start; */
+  /* align-items:flex-end; */
+  /* align-items:center; */
+  /* align-items:baseline; */
+}
 ```
 
 3. Teste as possibilidades para a propriedade `align-content`.
