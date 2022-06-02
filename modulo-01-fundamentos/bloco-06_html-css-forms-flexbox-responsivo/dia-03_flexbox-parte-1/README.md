@@ -1,7 +1,7 @@
 # &#9889; Atividades de Fixação & Exercícios | Bloco 06 - Dia 03
 
 ## &#9989; Atividade de Fixação 1 - Introdução, estrutura básica, flex-direction, flex-wrap, flex-flow e reverse
-1. Teste as possibilidades (row, column, row-reverse e column-reverse) para a propriedade `flex-direction`.
+1. Teste as possibilidades para a propriedade `flex-direction`.
 ```
 .box-container {
   background-color: #0fa36b;
@@ -14,7 +14,7 @@
 }
 ```
 
-2. Teste as possibilidades (wrap e nowrap) para a propriedade `flex-wrap`.
+2. Teste as possibilidades para a propriedade `flex-wrap`.
 ```
 .box-container {
   background-color: #0fa36b;
@@ -45,4 +45,31 @@
   /* flex-flow: column-reverse nowrap; */
   /* flex-flow: column-reverse wrap-reverse;*/
 }
+```
+
+## &#9989; Atividade de Fixação 2 - justify-content, align-items e align-content
+
+1. Teste as possibilidades para a propriedade `justify-content`.
+```
+.box-container {
+  background-color: #0fa36b;
+  display: flex;
+  /* ADICIONE AQUI SEUS TESTES */
+  justify-content: flex-start;
+  /* justify-content: flex-end; */
+  /* justify-content: center; */
+  /* justify-content: space-between; */
+  /* justify-content: space-around; */
+  /* justify-content: space-evenly; */
+}
+```
+
+2. Teste as possibilidades para a propriedade `align-items`.
+```
+
+```
+
+3. Teste as possibilidades para a propriedade `align-content`.
+```
+
 ```
