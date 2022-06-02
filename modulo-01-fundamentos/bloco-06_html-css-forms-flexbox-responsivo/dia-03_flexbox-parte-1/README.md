@@ -1,6 +1,7 @@
 # &#9889; Atividades de Fixação & Exercícios | Bloco 06 - Dia 03
 
 ## &#9989; Atividade de Fixação 1 - Introdução, estrutura básica, flex-direction, flex-wrap, flex-flow e reverse
+
 1. Teste as possibilidades para a propriedade `flex-direction`.
 ```
 .box-container {
@@ -80,5 +81,18 @@
 
 3. Teste as possibilidades para a propriedade `align-content`.
 ```
-
+.box-container {
+  /* ADICIONE AQUI SEUS TESTES */
+  background-color: #0fa36b;
+  display: flex;
+  flex-wrap: wrap;
+  height: 600px;
+  align-content: stretch;
+  /* align-content: flex-start; */
+  /* align-content: flex-end; */
+  /* align-content: center; */
+  /* align-content: space-between; */
+  /* align-content: space-around; */
+  /* align-content: space-evenly; */
+}
 ```
