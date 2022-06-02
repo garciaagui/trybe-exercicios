@@ -1,4 +1,10 @@
-* {
+
+#container-question textarea {
+  resize: none;
+  height: 150px;
+}
+
+/* * {
   box-sizing: border-box;
   color: rgb(99, 99, 99);
   margin: 0px;
@@ -39,12 +45,6 @@ body {
   width: 50%;
 }
 
-#container-question textarea {
-  margin-top: 5px;
-  padding: 5px;
-  resize: none;
-  width: 100%;
-}
 
 #container-travel-date {
   margin-bottom: 15px;
@@ -57,4 +57,4 @@ body {
   height: 40px;
   margin-right: 10px;
   width: 150px;
-}
+} */
