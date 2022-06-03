@@ -76,9 +76,9 @@
   display: flex;
   /* Altere a propriedade grow. */
   flex-grow: 1;
-  flex-grow: 32;
-  flex-grow: 13;
-  flex-grow: 39;
+  /* flex-grow: 2; */
+  /* flex-grow: 3; */
+  /* flex-grow: 4; */
   list-style: none;
 }
 
@@ -87,9 +87,9 @@
   display: flex;
   /* Altere a propriedade grow. */
   flex-grow: 1;
-  flex-grow: 29;
-  flex-grow: 22;
-  flex-grow: 50;
+  /* flex-grow: 2; */
+  /* flex-grow: 3; */
+  /* flex-grow: 4; */
   list-style: none;
 }
 
@@ -98,9 +98,9 @@
   display: flex;
   /* Altere a propriedade grow. */
   flex-grow: 1;
-  flex-grow: 8;
-  flex-grow: 47;
-  flex-grow: 12;
+  /* flex-grow: 2; */
+  /* flex-grow: 3; */
+  /* flex-grow: 4; */
   list-style: none;
 }
 
@@ -109,18 +109,61 @@
   display: flex;
   /* Altere a propriedade grow. */
   flex-grow: 1;
-  flex-grow: 17;
-  flex-grow: 5;
-  flex-grow: 30;
+  /* flex-grow: 2; */
+  /* flex-grow: 3; */
+  /* flex-grow: 4; */
   list-style: none;
 }
 ```
-- Observação: utilizei valores aleatórios para demonstrar a abrangência da propriedade `flex-grow`.
+- Observação: a propriedade `flex-grow` aceita valores superiores a 4.
 
 2. Teste as possibilidades para a propriedade `flex-shrink`.
 ```
+.one {
+  background-color: #FBD26A;
+  display: flex;
+  /* Altere a propriedade shrink. */
+  flex-shrink: 1;
+  /* flex-shrink: 2; */
+  /* flex-shrink: 3; */
+  /* flex-shrink: 4; */
+  list-style: none;
+}
 
+.two {
+  background-color: #FAA488;
+  display: flex;
+  /* Altere a propriedade shrink. */
+  flex-shrink: 1;
+  /* flex-shrink: 2; */
+  /* flex-shrink: 3; */
+  /* flex-shrink: 4; */
+  list-style: none;
+}
+
+.three {
+  background-color: #9069EF;
+  display: flex;
+  /* Altere a propriedade shrink. */
+  flex-shrink: 1;
+  /* flex-shrink: 2; */
+  /* flex-shrink: 3; */
+  /* flex-shrink: 4; */
+  list-style: none;
+}
+
+.four {
+  background-color: #006472;
+  display: flex;
+  /* Altere a propriedade shrink. */
+  flex-shrink: 1;
+  /* flex-shrink: 2; */
+  /* flex-shrink: 3; */
+  /* flex-shrink: 4; */
+  list-style: none;
+}
 ```
+- Observação: a propriedade `flex-shrink` aceita valores superiores a 4.
 
 3. Teste as possibilidades para a propriedade `flex-basis`.
 ```
