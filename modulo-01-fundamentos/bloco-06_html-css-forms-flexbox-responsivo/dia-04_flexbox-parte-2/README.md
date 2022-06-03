@@ -167,5 +167,18 @@
 
 3. Teste as possibilidades para a propriedade `flex-basis`.
 ```
-
+.box {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /* Altere a propriedade flex-basis */
+  flex-basis: 500px;
+  /* flex-basis: 350px; */
+  /* flex-basis: 200px; */
+  /* flex-basis: 50px; */
+  flex-grow: 0;
+  flex-shrink: 1;
+}
 ```
+
+## &#9989; Exercícios do Dia
