@@ -21,8 +21,51 @@
 
 ## &#9989; Atividade de Fixação 02 - order
 ```
+.one {
+  background-color: #FBD26A;
+  display: flex;
+  /* Altere a propriedade order. */
+  order: 1;
+  /* order: 2; */
+  /* order: 3; */
+  /* order: 4; */
+  list-style: none;
+}
 
+.two {
+  background-color: #FAA488;
+  display: flex;
+  /* Altere a propriedade order. */
+  order: 2;
+  /* order: 1; */ 
+  /* order: 3; */
+  /* order: 4; */
+  list-style: none;
+}
+
+.three {
+  background-color: #9069EF;
+  display: flex;
+  /* Altere a propriedade order. */
+  order: 3;
+  /* order: 1; */
+  /* order: 2; */
+  /* order: 4; */
+  list-style: none;
+}
+
+.four {
+  background-color: #006472;
+  display: flex;
+  /* Altere a propriedade order. */
+  order: 4;
+  /* order: 1; */
+  /* order: 2; */
+  /* order: 3; */
+  list-style: none;
+}
 ```
+- Observação: A propriedade `order` aceita também números negativos.
 
 ## &#9989; Atividade de Fixação 03 - flex-grow, flex-shrink, flex-basis
 ```
