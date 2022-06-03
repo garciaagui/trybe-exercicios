@@ -39,8 +39,42 @@ header h3 {
   font-size: 24px;
 }
 
+#tecnologies {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  width: 640px;
+}
+
+.tech-img {
+  align-items: center;
+  background-color: rgb(231, 231, 231);
+  border-radius: 20px;
+  box-shadow: 2.5px 3.5px rgb(202, 202, 202);
+  display: flex;
+  flex-direction: column;
+  height: 230px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  padding-top: 20px;
+  width: 200px;
+}
+
+.tech-img h4 {
+  color:  #606160;
+}
+
 .gallery-img {
+  padding-top: 15px;
   width: 150px;
+}
+
+#tecnologies hr {
+  margin-top: 20px;
+  width: 25%;
 }
 
 .social-img {
