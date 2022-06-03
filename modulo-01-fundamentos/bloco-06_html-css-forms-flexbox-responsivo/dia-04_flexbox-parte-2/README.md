@@ -20,6 +20,7 @@
 ```
 
 ## &#9989; Atividade de Fixação 02 - order
+- Teste as possibilidades para a propriedade `order`.
 ```
 .one {
   background-color: #FBD26A;
@@ -68,6 +69,60 @@
 - Observação: A propriedade `order` aceita também números negativos.
 
 ## &#9989; Atividade de Fixação 03 - flex-grow, flex-shrink, flex-basis
+1. Teste as possibilidades para a propriedade `flex-grow`.
+```
+.one {
+  background-color: #FBD26A;
+  display: flex;
+  /* Altere a propriedade grow. */
+  flex-grow: 1;
+  flex-grow: 32;
+  flex-grow: 13;
+  flex-grow: 39;
+  list-style: none;
+}
+
+.two {
+  background-color: #FAA488;
+  display: flex;
+  /* Altere a propriedade grow. */
+  flex-grow: 1;
+  flex-grow: 29;
+  flex-grow: 22;
+  flex-grow: 50;
+  list-style: none;
+}
+
+.three {
+  background-color: #9069EF;
+  display: flex;
+  /* Altere a propriedade grow. */
+  flex-grow: 1;
+  flex-grow: 8;
+  flex-grow: 47;
+  flex-grow: 12;
+  list-style: none;
+}
+
+.four {
+  background-color: #006472;
+  display: flex;
+  /* Altere a propriedade grow. */
+  flex-grow: 1;
+  flex-grow: 17;
+  flex-grow: 5;
+  flex-grow: 30;
+  list-style: none;
+}
+```
+- Observação: utilizei valores aleatórios para demonstrar a abrangência da propriedade `flex-grow`.
+
+2. Teste as possibilidades para a propriedade `flex-shrink`.
+```
+
+```
+
+3. Teste as possibilidades para a propriedade `flex-basis`.
 ```
 
 ```
