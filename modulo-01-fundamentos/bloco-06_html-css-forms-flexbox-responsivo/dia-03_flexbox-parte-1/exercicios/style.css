@@ -81,3 +81,10 @@ header h3 {
   width: 25px;
   margin-left: 10px;
 }
+
+footer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 20px;
+}
