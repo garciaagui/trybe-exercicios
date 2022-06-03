@@ -5,6 +5,24 @@
   font-family: 'Ubuntu';
 }
 
+header {
+  align-items: center;
+  background-color: #323433;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+header h1 {
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+header h3 {
+  color: #C0BFC5;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
 .header-img {
   width: 70px;
 }
