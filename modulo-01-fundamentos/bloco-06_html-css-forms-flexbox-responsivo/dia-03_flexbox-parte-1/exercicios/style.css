@@ -9,7 +9,9 @@ header {
   align-items: center;
   background-color: #323433;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 
 header h1 {
@@ -25,6 +27,16 @@ header h3 {
 
 .header-img {
   width: 70px;
+}
+
+#message {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#message p {
+  font-size: 24px;
 }
 
 .gallery-img {
