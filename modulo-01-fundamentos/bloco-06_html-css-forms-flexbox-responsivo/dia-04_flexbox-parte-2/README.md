@@ -182,7 +182,7 @@
 ```
 
 ## &#9989; Exercícios do Dia - Parte I
-1. Adicione uma propriedade que defina o **tamanho Flexbox base** para o container da imagem 268px e para o container do menu 500px. Após aplicar as propriedades o `header` deverá estar similar a imagem abaixo:
+1. Adicione uma propriedade que defina o **tamanho Flexbox base** para o **container da imagem 268px** e para o **container do menu 500px**. Após aplicar as propriedades o `header` deverá estar similar a imagem abaixo:
 ![img](./exercicios/imagens/parte-1_passo-1.jpeg)
 ```
 .logo-container {
@@ -238,34 +238,76 @@
 ```
 
 ## &#9989; Exercícios do Dia - Parte II
-1. Aplique uma base de 350px para seu container aside. Deverá ficar similar a imagem abaixo:
+1. **Aplique uma base de 350px** para seu **container aside**. Deverá ficar similar a imagem abaixo:
 ![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-1.webp)
 ```
-
+.aside-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  flex-basis: 350px;
+}
 ```
 
-2. Aplique um alinhamento para centralizar e outro para expandir. Seu aside apresentar o seguinte comportamento:
+2. **Aplique um alinhamento para centralizar e outro para expandir**. Seu **aside** apresentar o seguinte comportamento:
 ![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-2.webp)
 ```
-
+.aside-container {
+  display: flex;
+  flex-basis: 350px;
+  flex-direction: column;
+  margin: 20px;
+  align-self: center;
+  flex-grow: 1;
+  align-items: center;
+}
 ```
 
-3. Adicione uma propriedade que faça com que seu container de filmes tenha uma base de 700px e outra base de 16% para as div do container de seu card. Deve ficar similar a imagem abaixo:
+3. Adicione uma propriedade que **faça com que seu container de filmes tenha uma base de 700px** e outra **base de 16% para as div do container de seu card**. Deve ficar similar a imagem abaixo:
 ![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-3.webp)
 ```
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 700px;
 
+.card-container div {
+align-items: center;
+background-color: #5C687C;
+border: black solid 1px;
+display: flex;
+height: 150px;
+justify-content: center;
+margin: 10px;
+flex-basis: 16%;
+}
 ```
 
-4. Aplique uma propriedade com o valor 10 que expanda o container de filmes. Deve ficar similar a imagem abaixo:
+4. Aplique uma propriedade com o **valor 10 que expanda o container de filmes**. Deve ficar similar a imagem abaixo:
 ![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-4.webp)
 ```
-
+.movie-container {
+  display: flex;
+  flex-basis: 700px;
+  flex-direction: column;
+  flex-grow: 10;
+}
 ```
 
-5. Adicione uma propriedade com o valor 1 que faça com que suas div do container de filmes ocupe todo o espaço em branco. Deve ficar similar a imagem abaixo:
+5. Adicione uma propriedade com o **valor 1 que faça com que suas div do container de filmes ocupe todo o espaço em branco**. Deve ficar similar a imagem abaixo:
 ![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-5.webp)
 ```
-
+.card-container div {
+  align-items: center;
+  background-color: #5C687C;
+  border: black solid 1px;
+  display: flex;
+  flex-basis: 16%;
+  height: 150px;
+  justify-content: center;
+  margin: 10px;
+  flex-grow: 10;
+}
 ```
 
 ## &#9989; Exercícios do Dia - Parte III
