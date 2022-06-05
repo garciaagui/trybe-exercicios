@@ -220,8 +220,8 @@
 .menu-container {
   display: flex;
   flex-basis: 500px;
-  flex-grow: 1;
   order: 2;
+  flex-grow: 1;
 }
 ```
 
@@ -229,17 +229,16 @@
 ![img](./exercicios/imagens/parte-1_passo-4.jpeg)
 ```
 .menu-container {
-  align-self: center;
   display: flex;
   flex-basis: 500px;
   flex-grow: 1;
   order: 2;
+  align-self: center;
 }
 ```
 
 ## &#9989; Exercícios do Dia - Parte II
 1. **Aplique uma base de 350px** para seu **container aside**. Deverá ficar similar a imagem abaixo:
-![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-1.jpeg)
 ```
 .aside-container {
   display: flex;
@@ -250,7 +249,6 @@
 ```
 
 2. **Aplique um alinhamento para centralizar e outro para expandir**. Seu **aside** apresentar o seguinte comportamento:
-![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-2.jpeg)
 ```
 .aside-container {
   display: flex;
@@ -264,7 +262,6 @@
 ```
 
 3. Adicione uma propriedade que **faça com que seu container de filmes tenha uma base de 700px** e outra **base de 16% para as div do container de seu card**. Deve ficar similar a imagem abaixo:
-![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-3.jpeg)
 ```
 .movie-container {
   display: flex;
@@ -284,7 +281,6 @@ flex-basis: 16%;
 ```
 
 4. Aplique uma propriedade com o **valor 10 que expanda o container de filmes**. Deve ficar similar a imagem abaixo:
-![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-4.jpeg)
 ```
 .movie-container {
   display: flex;
@@ -295,7 +291,6 @@ flex-basis: 16%;
 ```
 
 5. Adicione uma propriedade com o **valor 1 que faça com que suas div do container de filmes ocupe todo o espaço em branco**. Deve ficar similar a imagem abaixo:
-![img](/dia-04_flexbox-parte-2/exercicios/imagens/parte-2_passo-5.jpeg)
 ```
 .card-container div {
   align-items: center;
