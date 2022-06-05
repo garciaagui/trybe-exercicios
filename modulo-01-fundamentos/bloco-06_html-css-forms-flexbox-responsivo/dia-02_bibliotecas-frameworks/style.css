@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 0px 20px;
+}
+
+#container-header {
+  font-size: 24px;
+  margin: 30px 0 10px 0;
+}
+
+#container-form-structure {
+  padding: 20px;
+}
+
+#container-destination p {
+  font-weight: bold;
+}
+
+
+#container-question textarea {
+  resize: none;
+  height: 150px;
+}
+
+#travel-date {
+  padding-left: 10px;
+}
+
+#container-buttons {
+  margin-left: 20px;
+}
+
+#container-buttons button {
+  margin-right: 20px;
+}

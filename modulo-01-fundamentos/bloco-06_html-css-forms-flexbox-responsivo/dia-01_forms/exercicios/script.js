@@ -8,13 +8,13 @@ const submitBtn = document.querySelector('#submit-btn');
 
 // Funções
 function validateInputValues() {
-  username = userNameInput.value;
+  username = userNameInput.value.length;
   invalidUsername = username < 10 || username > 40;
 
-  email = emailInput.value;
+  email = emailInput.value.length;
   invalidEmail = email < 10 || email > 50;
 
-  answer = questionInput.value;
+  answer = questionInput.value.length;
   invalidAnswer = answer > 500;
 
   if (invalidUsername || invalidEmail || invalidAnswer) {
