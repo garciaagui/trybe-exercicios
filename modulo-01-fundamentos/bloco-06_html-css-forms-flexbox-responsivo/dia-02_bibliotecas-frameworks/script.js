@@ -6,17 +6,15 @@ const checkboxPermission = document.querySelector('#checkbox-permission');
 const imageInput = document.querySelector('#images');
 const submitBtn = document.querySelector('#submit-btn');
 
-const validation = new window.JustValidate('#form');
-
 // Funções
 function validateInputValues() {
-  username = userNameInput.value;
+  username = userNameInput.value.length;
   invalidUsername = username < 10 || username > 40;
 
-  email = emailInput.value;
+  email = emailInput.value.length;
   invalidEmail = email < 10 || email > 50;
 
-  answer = questionInput.value;
+  answer = questionInput.value.length;
   invalidAnswer = answer > 500;
 
   if (invalidUsername || invalidEmail || invalidAnswer) {
@@ -44,7 +42,6 @@ submitBtn.addEventListener('click', (event) => {
 })
 
 // Bônus 1 - Date Picker
-
 const picker = new Pikaday({ 
   field: document.querySelector('#travel-date'),
   format: 'D/M/YYYY',
@@ -64,27 +61,29 @@ parse(dateString, format) {
 });
 
 // Bônus 2 - Just Validate
-
-validation
-  .addField('#user-name', [
-    {
-      rule: 'minLength',
-      value: 10,
-      errorMessage: 'Invalid'
-    },
-    {
-      rule: 'maxLength',
-      value: 40,
-      errorMessage: 'Invalid'
-    },
-  ])
-  // .addField('#user-email', [
-  //   {
-  //     rule: 'required',
-  //     errorMessage: 'Email is required',
-  //   },
-  //   {
-  //     rule: 'email',
-  //     errorMessage: 'Email is invalid!',
-  //   },
-  // ]);
+// const validation = new window.JustValidate('#form');
+// validation
+//   .addField('#user-name', [
+//     {
+//       rule: 'minLength',
+//       value: 10,
+//       errorMessage: 'Insira um nome que tenha entre 10 a 40 caracteres.'
+//     },
+//     {
+//       rule: 'maxLength',
+//       value: 40,
+//       errorMessage: 'Insira um nome que tenha entre 10 a 40 caracteres.'
+//     },
+//   ])
+//   .addField('#user-email', [
+//     {
+//       rule: 'minLength',
+//       value: 10,
+//       errorMessage: 'Insira um e-mail que tenha entre 10 a 50 caracteres.'
+//     },
+//     {
+//       rule: 'maxLength',
+//       value: 50,
+//       errorMessage: 'Insira um nome que tenha entre 10 a 50 caracteres.'
+//     },
+//   ])
