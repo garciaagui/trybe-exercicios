@@ -238,6 +238,7 @@
 ```
 
 ## &#9989; Exercícios do Dia - Parte II
+![img](./exercicios/imagens/parte-2_objetivo.png)
 1. **Aplique uma base de 350px** para seu **container aside**. Deverá ficar similar a imagem abaixo:
 ```
 .aside-container {
