@@ -42,7 +42,7 @@ header h3 {
   text-align: center;
 }
 
-#tecnologies {
+#gallery {
   display: flex;
   flex-wrap: wrap;
   margin-left: auto;
@@ -51,7 +51,7 @@ header h3 {
   width: 640px;
 }
 
-.tech-img {
+.gallery-card {
   align-items: center;
   background-color: rgb(231, 231, 231);
   border-radius: 20px;
@@ -66,26 +66,27 @@ header h3 {
   width: 200px;
 }
 
-.tech-img h4 {
+.gallery-card h4 {
   color:  #606160;
 }
 
 .gallery-img {
-  padding-top: 15px;
+  margin: 15px;
   width: 150px;
 }
 
-#tecnologies hr {
+#gallery hr {
   margin-top: 20px;
   width: 25%;
 }
 
 .social-img {
-  width: 25px;
   margin-left: 10px;
+  width: 25px;
 }
 
 footer {
+  align-items: center;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;

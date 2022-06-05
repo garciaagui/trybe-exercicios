@@ -130,7 +130,7 @@ header h3 {
 }
 ```
 
-2. Reestruturação da primeira `section`, com a `id "main-text"`.
+2. Reestruturação da primeira `section`, com a `id main-text`, a qual possui o texto principal da página.
 ```
 <!-- tech-gallery.html -->
 <section id="main-text">
@@ -148,5 +148,103 @@ header h3 {
 #main-text p {
   font-size: 24px;
   text-align: center;
+}
+```
+
+3. Reestruturação da `section` com a `id gallery`, a qual possui as imagens das stacks.
+```
+<!-- tech-gallery.html -->
+<section id="gallery">
+  <div class="gallery-card">
+    <h4>HTML</h4>
+    <img class="gallery-img" src="./images/html-logo.png" alt="HTML logo" />
+  </div>
+  <div class="gallery-card">
+    <h4>CSS</h4>
+    <img class="gallery-img" src="./images/css-logo.png" alt="CSS logo" />
+  </div>
+  <div class="gallery-card">
+    <h4>JAVASCRIPT</h4>
+    <img class="gallery-img" src="./images/javaScript-logo.png" alt="JavaScript logo" />
+  </div>
+  <div class="gallery-card">
+    <h4>REACT</h4>
+    <img class="gallery-img" src="./images/react-logo.png" alt="React logo" />
+  </div>
+  <div class="gallery-card">
+    <h4>RTL</h4>
+    <img class="gallery-img" src="./images/rtl-logo.png" alt="React Testing Library logo" />
+  </div>
+  <div class="gallery-card">
+    <h4>REDUX</h4>
+    <img class="gallery-img" src="./images/redux-logo.png" alt="Redux logo" />
+  </div>
+  <hr />
+</section>
+
+<!-- style.css -->
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  width: 640px;
+}
+
+.gallery-card {
+  align-items: center;
+  background-color: rgb(231, 231, 231);
+  border-radius: 20px;
+  box-shadow: 2.5px 3.5px rgb(202, 202, 202);
+  display: flex;
+  flex-direction: column;
+  height: 230px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  padding-top: 20px;
+  width: 200px;
+}
+
+.gallery-card h4 {
+  color:  #606160;
+}
+
+.gallery-img {
+  margin: 15px;
+  width: 150px;
+}
+
+#gallery hr {
+  margin-top: 20px;
+  width: 25%;
+}
+```
+
+4. Reestruturação do `footer`.
+```
+<!-- tech-gallery.html -->
+<footer>
+  <a href="https://www.instagram.com/betrybe/" target="_blank">
+    <img class="social-img" src="./images/instagram-logo.png" alt="Instagram logo" />
+  </a>
+  <a href="https://www.linkedin.com/school/betrybe/" target="_blank">
+    <img class="social-img" src="./images/linked-in-logo.png" alt="Linkedin logo" />
+  </a>
+</footer>
+
+<!-- style.css -->
+.social-img {
+  margin-left: 10px;
+  width: 25px;
+}
+
+footer {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 20px;
 }
 ```
