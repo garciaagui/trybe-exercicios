@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu';
+}
+
+header {
+  align-items: center;
+  background-color: #323433;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+header h1 {
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+header h3 {
+  color: #C0BFC5;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.header-img {
+  width: 70px;
+}
+
+#main-text {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#main-text p {
+  font-size: 24px;
+  text-align: center;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  width: 640px;
+}
+
+.gallery-card {
+  align-items: center;
+  background-color: rgb(231, 231, 231);
+  border-radius: 20px;
+  box-shadow: 2.5px 3.5px rgb(202, 202, 202);
+  display: flex;
+  flex-direction: column;
+  height: 230px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  padding-top: 20px;
+  width: 200px;
+}
+
+.gallery-card h4 {
+  color:  #606160;
+}
+
+.gallery-img {
+  margin: 15px;
+  width: 150px;
+}
+
+#gallery hr {
+  margin-top: 20px;
+  width: 25%;
+}
+
+.social-img {
+  margin-left: 10px;
+  width: 25px;
+}
+
+footer {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 20px;
+}
