@@ -8,7 +8,7 @@
   background-color: #0fa36b;
   display: flex;
   /* ADICIONE AQUI SEUS TESTES */
-  flex-direction: row;
+  /* flex-direction: row; */
   /* flex-direction: column; */
   /* flex-direction: row-reverse; */
   /* flex-direction: column-reverse; */
@@ -21,7 +21,7 @@
   background-color: #0fa36b;
   display: flex;
   /* ADICIONE AQUI SEUS TESTES */
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   /* flex-wrap: nowrap; */
   /* flex-wrap: wrap-reverse; */
 }
@@ -34,7 +34,7 @@
   display: flex;
   /* ADICIONE AQUI SEUS TESTES */
   /* flex-flow: row wrap; */
-  flex-flow: row nowrap;
+  /* flex-flow: row nowrap; */
   /* flex-flow: row wrap-reverse; */
   /* flex-flow: column wrap; */
   /* flex-flow: column nowrap; */
@@ -56,7 +56,7 @@
   background-color: #0fa36b;
   display: flex;
   /* ADICIONE AQUI SEUS TESTES */
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   /* justify-content: flex-end; */
   /* justify-content: center; */
   /* justify-content: space-between; */
@@ -71,7 +71,7 @@
   background-color: #0fa36b;
   display: flex;
   /* ADICIONE AQUI SEUS TESTES */
-  align-items:stretch;
+  /* align-items:stretch; */
   /* align-items:flex-start; */
   /* align-items:flex-end; */
   /* align-items:center; */
@@ -87,7 +87,7 @@
   display: flex;
   flex-wrap: wrap;
   height: 600px;
-  align-content: stretch;
+  /* align-content: stretch; */
   /* align-content: flex-start; */
   /* align-content: flex-end; */
   /* align-content: center; */
