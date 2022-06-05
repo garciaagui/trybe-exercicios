@@ -12,7 +12,7 @@
   width: 200px;
   list-style: none;
   /* align-self: stretch; */
-  align-self: center;
+  /* align-self: center; */
   /* align-self: flex-start; */
   /* align-self: flex-end; */
   /* align-self: baseline; */
@@ -26,7 +26,7 @@
   background-color: #FBD26A;
   display: flex;
   /* Altere a propriedade order. */
-  order: 1;
+  /* order: 1; */
   /* order: 2; */
   /* order: 3; */
   /* order: 4; */
@@ -37,7 +37,7 @@
   background-color: #FAA488;
   display: flex;
   /* Altere a propriedade order. */
-  order: 2;
+  /* order: 2; */
   /* order: 1; */ 
   /* order: 3; */
   /* order: 4; */
@@ -48,7 +48,7 @@
   background-color: #9069EF;
   display: flex;
   /* Altere a propriedade order. */
-  order: 3;
+  /* order: 3; */
   /* order: 1; */
   /* order: 2; */
   /* order: 4; */
@@ -59,7 +59,7 @@
   background-color: #006472;
   display: flex;
   /* Altere a propriedade order. */
-  order: 4;
+  /* order: 4; */
   /* order: 1; */
   /* order: 2; */
   /* order: 3; */
@@ -75,7 +75,7 @@
   background-color: #FBD26A;
   display: flex;
   /* Altere a propriedade grow. */
-  flex-grow: 1;
+  /* flex-grow: 1; */
   /* flex-grow: 2; */
   /* flex-grow: 3; */
   /* flex-grow: 4; */
@@ -86,7 +86,7 @@
   background-color: #FAA488;
   display: flex;
   /* Altere a propriedade grow. */
-  flex-grow: 1;
+  /* flex-grow: 1; */
   /* flex-grow: 2; */
   /* flex-grow: 3; */
   /* flex-grow: 4; */
@@ -97,7 +97,7 @@
   background-color: #9069EF;
   display: flex;
   /* Altere a propriedade grow. */
-  flex-grow: 1;
+  /* flex-grow: 1; */
   /* flex-grow: 2; */
   /* flex-grow: 3; */
   /* flex-grow: 4; */
@@ -108,7 +108,7 @@
   background-color: #006472;
   display: flex;
   /* Altere a propriedade grow. */
-  flex-grow: 1;
+  /* flex-grow: 1; */
   /* flex-grow: 2; */
   /* flex-grow: 3; */
   /* flex-grow: 4; */
@@ -123,7 +123,7 @@
   background-color: #FBD26A;
   display: flex;
   /* Altere a propriedade shrink. */
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
   /* flex-shrink: 2; */
   /* flex-shrink: 3; */
   /* flex-shrink: 4; */
@@ -134,7 +134,7 @@
   background-color: #FAA488;
   display: flex;
   /* Altere a propriedade shrink. */
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
   /* flex-shrink: 2; */
   /* flex-shrink: 3; */
   /* flex-shrink: 4; */
@@ -145,7 +145,7 @@
   background-color: #9069EF;
   display: flex;
   /* Altere a propriedade shrink. */
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
   /* flex-shrink: 2; */
   /* flex-shrink: 3; */
   /* flex-shrink: 4; */
@@ -156,7 +156,7 @@
   background-color: #006472;
   display: flex;
   /* Altere a propriedade shrink. */
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
   /* flex-shrink: 2; */
   /* flex-shrink: 3; */
   /* flex-shrink: 4; */
