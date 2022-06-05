@@ -197,7 +197,7 @@
 }
 ```
 
-2. Adicione uma propriedade Flexbox que **modifique a ordem** em que a logomarca e os itens do menu aparecem na tela. Após aplicar a propriedade o header deverá estar similar a imagem abaixo:
+2. Adicione uma propriedade Flexbox que **modifique a ordem** em que a logomarca e os itens do menu aparecem na tela. Após aplicar a propriedade o `header` deverá estar similar a imagem abaixo:
 ![img](./exercicios/imagens/parte-1_passo-2.jpeg)
 ```
 .logo-container {
@@ -214,7 +214,7 @@
 }
 ```
 
-3. Adicione uma propriedade Flexbox que **faça o container do menu crescer**, quando houver espaço disponível. Após aplicar a propriedade o header deverá estar similar a imagem abaixo:
+3. Adicione uma propriedade Flexbox que **faça o container do menu crescer**, quando houver espaço disponível. Após aplicar a propriedade o `header` deverá estar similar a imagem abaixo:
 ![img](./exercicios/imagens/parte-1_passo-3.jpeg)
 ```
 .menu-container {
@@ -225,7 +225,7 @@
 }
 ```
 
-4. Utilize a propriedade `align-self` no elemento correto para que o header da página tenha o seguinte comportamento:
+4. Utilize a propriedade `align-self` no elemento correto para que o `header` da página tenha o seguinte comportamento:
 ![img](./exercicios/imagens/parte-1_passo-4.jpeg)
 ```
 .menu-container {
@@ -269,14 +269,14 @@
   flex-basis: 700px;
 
 .card-container div {
-align-items: center;
-background-color: #5C687C;
-border: black solid 1px;
-display: flex;
-height: 150px;
-justify-content: center;
-margin: 10px;
-flex-basis: 16%;
+  align-items: center;
+  background-color: #5C687C;
+  border: black solid 1px;
+  display: flex;
+  height: 150px;
+  justify-content: center;
+  margin: 10px;
+  flex-basis: 16%;
 }
 ```
 
@@ -301,7 +301,7 @@ flex-basis: 16%;
   height: 150px;
   justify-content: center;
   margin: 10px;
-  flex-grow: 10;
+  flex-grow: 1;
 }
 ```
 
