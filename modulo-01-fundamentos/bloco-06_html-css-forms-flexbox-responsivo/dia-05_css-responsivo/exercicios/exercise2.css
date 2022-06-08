@@ -1,0 +1,44 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@media screen and (max-width: 400px) and (min-width:219px) {
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  header nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  header nav ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  header nav ul li {
+    list-style: none;
+  }
+
+  body {
+  }
+}
