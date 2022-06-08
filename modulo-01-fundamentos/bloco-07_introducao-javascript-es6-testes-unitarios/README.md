@@ -1,6 +1,6 @@
 # &#9889; Atividades de Fixação & Exercícios | Bloco 07 - Dia 01
 
-## &#9989; Exercício 1 - Parte I
+## &#9989; Exercícios - Parte I
 1. Faça as modificações necessárias na função abaixo para que o seu comportamento respeite o escopo no qual cada variável foi declarada.
 ```
 function testingScope(escopo) {
@@ -32,4 +32,36 @@ const testingScope = (escopo) => {
 }
 
 console.log(testingScope(true));
+```
+
+2. Copie o código abaixo e faça uma função que retorne o `array` **oddsAndEvens** em ordem crescente.
+```
+const oddsAndEvens = [13, 3, 4, 10, 7, 2];
+
+// Seu código aqui.
+
+console.log(oddsAndEvens); // será necessário alterar essa linha 😉
+```
+- Utilize `template literals` para que a chamada `console.log(<seu código>oddsAndEvens<seu código>)`; retorne "Os números 2,3,4,7,10,13 se encontram ordenados de forma crescente!".
+```
+const oddsAndEvens = [13, 3, 4, 10, 7, 2];
+
+const sortArray = (array) => {
+  for (let i1 = 0; i1 < array.length; i1 += 1) {
+    for (let i2 = 0; i2 < i1; i2 += 1) {
+      if (array[i1] < array[i2]) {
+        let actualPosition = array[i1];
+        array[i1] = array[i2];
+        array[i2] = actualPosition;
+      }
+    }
+  }
+  return array;
+}
+
+console.log(`Os números ${sortArray(oddsAndEvens)} se encontram ordenados de forma crescente!`);
+```
+- Bônus (opcional): tente fazer o mesmo exercício utilizando o método `array.sort()`.
+```
+console.log(`Os números ${(oddsAndEvens.sort((a, b) => a - b))} se encontram ordenados de forma crescente!`);
 ```
