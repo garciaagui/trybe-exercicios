@@ -15,33 +15,32 @@
   <button id='button'>Somar</button>
   <p id='result'></p>
   <script>
-    function verifyEmptyInputs(v1, v2) {
+    function verifyInputsValues(v1, v2) {
       if (v1 === '' || v2 === '') {
         throw new Error('Por favor, verifique se os campos Valor 1 e Valor 2 foram preenchidos.');
       }
-    }
-    
-    function verifyTypeof(v1, v2) {
-      if (typeof v1 !== 'number' || typeof v2 !== 'number') {
+      else if (isNaN(v1+v2)) {
         throw new Error('Por favor, verifique se os campos Valor 1 e Valor 2 foram preenchidos com NÚMEROS.');
       }
     }
-
+   
     function sum() {
       const value1 = document.getElementById('value1').value;
       const value2 = document.getElementById('value2').value;
       try {
-        verifyEmptyInputs(value1, value2);
-        verifyTypeof (parseInt(value1), parseInt(value2))
+        verifyInputsValues(value1, value2);
         const result = parseInt(value1) + parseInt(value2);
         document.getElementById('result').innerHTML = `Resultado: ${result}`;
-        document.getElementById('value1').value = '';
-        document.getElementById('value2').value = '';
       } catch (error) {
         const result = error.message;
         document.getElementById('result').innerHTML = `${result}`;
       }
+      finally {
+        document.getElementById('value1').value = '';
+        document.getElementById('value2').value = '';
+      }
     }
+    
     window.onload = () => {
       const button = document.getElementById('button');
       button.addEventListener('click', sum);
