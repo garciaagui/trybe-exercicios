@@ -176,3 +176,97 @@ html {
     padding: 5px 20px;
   }
 }
+
+@media screen and (min-width:900px) {
+
+  *, *:before, *:after {
+    font-size: 21px;
+  }
+
+  header {
+    background-color: rgb(219, 216, 216);
+    display: flex;
+    align-items: center;
+    height: 90px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  header p {
+    display: flex;
+    font-weight: 800;
+    justify-content: center;
+    width: 50%;
+  }
+
+  header nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+  }
+
+  header nav ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    width: 100%;
+  }
+
+  header nav ul li {
+    list-style: none;
+  }
+
+  #asides {
+    float: right; 
+  }
+
+  .container {
+    clear: none;
+    float: left;
+  }
+
+  /* .container {
+    display: flex;
+    margin: 0 40px;
+  }
+
+  #asides {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    margin: 0;
+    width: 30%;
+    height: 100px;
+  }
+
+  #asides h2 {
+    text-align: center;
+    font-size: 1.3em;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+
+  .main-content h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .main-content p {
+    text-align: justify;
+  }
+
+  footer {
+    background-color: black;
+    color: whitesmoke;
+    text-align: justify;
+    padding: 5px 20px;
+  } */
+
+}
