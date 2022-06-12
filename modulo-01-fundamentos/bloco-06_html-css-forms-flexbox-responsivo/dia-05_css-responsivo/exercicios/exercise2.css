@@ -6,10 +6,9 @@ html {
   box-sizing: inherit;
 }
 
-@media screen and (min-width:322px) and (max-width:600px) {
-
+@media screen and (min-width:322px) and (max-width:599px) {
   *, *:before, *:after {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   header {
@@ -77,6 +76,88 @@ html {
 
   .main-content h1 {
     font-size: 1.4em;
+    text-align: center;
+  }
+
+  .main-content p {
+    text-align: justify;
+  }
+
+  footer {
+    background-color: black;
+    color: whitesmoke;
+    text-align: justify;
+    padding: 5px 20px;
+  }
+}
+
+@media screen and (min-width:600px) and (max-width:899px) {
+
+  *, *:before, *:after {
+    font-size: 20px;
+  }
+
+  header {
+    background-color: rgb(219, 216, 216);
+    display: flex;
+    align-items: center;
+    height: 90px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  header p {
+    display: flex;
+    font-weight: 800;
+    justify-content: center;
+    width: 50%;
+  }
+
+  header nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+  }
+
+  header nav ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    width: 100%;
+  }
+
+  header nav ul li {
+    list-style: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #asides {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+  }
+
+  #asides h2 {
+    text-align: center;
+    font-size: 1.3em;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 40px;
+  }
+
+  .main-content h1 {
+    font-size: 1.5em;
     text-align: center;
   }
 
