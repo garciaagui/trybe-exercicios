@@ -8,12 +8,8 @@ html {
 
 @media screen and (min-width:322px) and (max-width:600px) {
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  *, *:before, *:after {
     font-size: 20px;
-    margin: 0 20px;
   }
 
   header {
@@ -24,7 +20,7 @@ html {
     height: 90px;
     justify-content: center;
     left: 0;
-    padding: 50px 0;
+    padding-top: 10px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -55,12 +51,22 @@ html {
     list-style: none;
   }
 
-  .aside-one {
-    margin-top: 110px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 20px;
   }
 
-  h2 {
+  #asides {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+
+  #asides h2 {
     text-align: center;
+    font-size: 1.2em;
   }
   
   .main-content {
@@ -70,7 +76,7 @@ html {
   }
 
   .main-content h1 {
-    font-size: 1.7em;
+    font-size: 1.4em;
     text-align: center;
   }
 
@@ -79,7 +85,9 @@ html {
   }
 
   footer {
+    background-color: black;
+    color: whitesmoke;
     text-align: justify;
+    padding: 5px 20px;
   }
-
 }
