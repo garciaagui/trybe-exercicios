@@ -65,3 +65,85 @@ console.log(`Os números ${sortArray(oddsAndEvens)} se encontram ordenados de fo
 ```
 console.log(`Os números ${(oddsAndEvens.sort((a, b) => a - b))} se encontram ordenados de forma crescente!`);
 ```
+
+## &#9989; Exercícios - Parte II
+1. Crie uma função que receba um número e retorne seu fatorial.
+```
+const number = 10;
+
+const factorial = (n) => {
+  let total = 1;
+  if (n === 0) return `Factorial -> ${n}! = ${total}.`;
+  else {
+    for (let i = 1; i <= n; i += 1) {
+      total *= i;
+    }
+  return `Factorial -> ${n}! = ${total}.`;
+  }
+}
+
+console.log(factorial(number));
+```
+- Bônus (opcional): tente fazer o mesmo exercício de forma recursiva.
+```
+const recursiveFactorial = (n) => n > 1 ? n * recursiveFactorial(n - 1) : 1;
+
+console.log(`Recursive Factorial -> ${number}! = ${recursiveFactorial(number)}.`);
+```
+
+2. Crie uma função que receba uma frase e retorne a maior palavra.
+```
+const phrase = "I can't get no satisfaction";
+
+const getLongestWord = (phrase) => {
+  const splitPhrase = phrase.split(' ')
+  let longestWord = splitPhrase[0];
+  for (let word in splitPhrase) {
+    (splitPhrase[word].length > longestWord.length) ? longestWord = splitPhrase[word] : longestWord;
+  }
+  return `A maior palavra da frase é: '${longestWord}'.`;
+}
+
+console.log(getLongestWord(phrase));
+```
+
+3. Crie uma página com um contador de cliques. Sua página deve conter:
+- Um `button` ao qual será associado um `event listener`;
+- Uma variável `clickCount` no arquivo JavaScript que acumule o número de clicks no botão;
+- Um campo no HTML que vá atualizando a quantidade de clicks no botão conforme a variável `clickCount` é atualizada.
+```
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 03 - Parte II</title>
+</head>
+<body>
+  <header>
+    <h1>Contador de Cliques &#128433;&#65039;</h1>
+  </header>
+  <main>
+    <button id="click-btn">Clique!!!</button>
+    <p id="click-score"></p>
+  </main>
+
+  <script>
+    const clickButton = document.querySelector('#click-btn');
+    const clickScore = document.querySelector('#click-score');
+    let clickCount = 0;
+
+    window.addEventListener('load', () => {
+      clickScore.innerText = `Número de cliques: ${clickCount}.`;
+    })
+
+    clickButton.addEventListener('click', () => {
+      clickCount += 1;
+      clickScore.innerText = `Número de cliques: ${clickCount}.`;
+    })
+
+  </script>
+</body>
+</html>
+```
