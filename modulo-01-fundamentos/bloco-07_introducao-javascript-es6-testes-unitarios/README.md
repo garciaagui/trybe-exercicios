@@ -147,3 +147,46 @@ console.log(getLongestWord(phrase));
 </body>
 </html>
 ```
+
+4. Crie duas funções JavaScript com as seguintes especificações:
+- **Função 1**: Escreva uma função que substitua a letra 'x' em uma frase.
+  - A função deverá receber um nome por parâmetro;
+  - Declare dentro da função uma variável com o nome frase, do tipo `const` e com o valor igual a 'Tryber x aqui!';
+  - A função deverá retornar uma nova frase onde o x da frase 'Tryber x aqui!' seja substituído pelo nome passado por parâmetro.
+```
+const nome = 'Guilherme';
+
+const replaceX = (name) => {
+  const frase = 'Tryber x aqui!';
+  const fraseAlterada = frase.replace('x', name);
+  return fraseAlterada;
+}
+
+console.log(replaceX(nome));
+```
+
+- **Função 2**: Escreva uma função que irá receber o retorno da Função 1 por parâmetro e retornará uma nova string.
+  - A função deverá receber o retorno da Função 1 por parâmetro;
+  - Declare dentro da função uma variável com o nome skills, do tipo `const`;
+    - A variável skills deverá ser um `array` contendo três `strings` com tecnologias que você já aprendeu.
+  - Concatene o valor retornado da Função 1, a frase 'Minhas três principais habilidades são:' e o valor da variável skills.
+```
+const nome = 'Guilherme';
+
+const replaceX = (name) => {
+  const frase = 'Tryber x aqui!';
+  const fraseAlterada = frase.replace('x', name);
+  return fraseAlterada;
+}
+
+const skillsTrybe = (tryber) => {
+  const skills = ['HTML', 'CSS', 'JavaScript'];
+  return `${tryber}
+  Minhas três principais habilidades são:
+  - ${skills[0]};
+  - ${skills[1]};
+  - ${skills[2]}.`
+}
+
+console.log(skillsTrybe(replaceX(nome)));
+```
