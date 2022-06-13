@@ -96,7 +96,7 @@ html {
 @media screen and (min-width:600px) and (max-width:899px) {
 
   *, *:before, *:after {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   header {
@@ -177,10 +177,10 @@ html {
   }
 }
 
-@media screen and (min-width:900px) {
+@media screen and (min-width:900px) and (max-width:1299px) {
 
   *, *:before, *:after {
-    font-size: 21px;
+    font-size: 18px;
   }
 
   header {
@@ -218,18 +218,9 @@ html {
     list-style: none;
   }
 
-  #asides {
-    float: right; 
-  }
-
   .container {
-    clear: none;
-    float: left;
-  }
-
-  /* .container {
     display: flex;
-    margin: 0 40px;
+    margin: 0 40px 30px;
   }
 
   #asides {
@@ -237,20 +228,25 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: baseline;
-    margin: 0;
-    width: 30%;
-    height: 100px;
+    top: 0;
+    height: 100%;
+    position: sticky;
+    width: 25%;
   }
 
   #asides h2 {
     text-align: center;
-    font-size: 1.3em;
+    font-size: 1.1em;
+  }
+
+  #asides ul li{
+    font-size: 0.9em;
   }
   
   .main-content {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 75%;
   }
 
   .main-content h1 {
@@ -267,6 +263,6 @@ html {
     color: whitesmoke;
     text-align: justify;
     padding: 5px 20px;
-  } */
-
+  }
 }
+
