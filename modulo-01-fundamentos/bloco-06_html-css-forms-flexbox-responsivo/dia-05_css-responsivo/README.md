@@ -641,7 +641,15 @@ figure {
 
 ![img](./exercicios/images/exercise3_passo-1.png)
 ```
+@media print {
+  #header , #navigation , #footer {
+    display: none;
+  }
 
+  #content , #aside{
+    padding: 0;
+  }
+}
 ```
 
 2. Adicione uma `media query` no arquivo CSS e as regras necessárias para que a página se pareça com as imagens abaixo quando a tela for redimensionada para **larguras menores**. Especificamente:
