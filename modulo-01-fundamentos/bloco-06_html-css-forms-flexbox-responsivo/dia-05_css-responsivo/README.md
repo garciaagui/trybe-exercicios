@@ -662,5 +662,75 @@ figure {
 ![img](./exercicios/images/exercise3_passo-2-1.png)
 ![img](./exercicios/images/exercise3_passo-2-2.png)
 ```
+@media screen and (width:240px) and (height:320px) {
+  #header {
+    position: sticky;
+    top: 0;
+  }
 
+  #navigation ul {
+    flex-direction: column;
+  }
+  
+  #navigation ul li {
+    border-bottom: white 1px solid;
+    justify-content: center;
+  }
+  
+  #navigation ul li:hover {
+    background: #383;
+  }
+  
+  #navigation li a {
+    border: none;
+  }
+
+  body {
+    padding: 0px;
+  }
+
+  img {
+    max-width: 90vw;
+  }
+
+  #aside {
+    display: none;
+  }
+}
+
+@media screen and (width:360px) and (height:640px) {
+  #header {
+    position: sticky;
+    top: 0;
+  }
+
+  #navigation ul {
+    flex-direction: column;
+  }
+  
+  #navigation ul li {
+    border-bottom: white 1px solid;
+    justify-content: center;
+  }
+  
+  #navigation ul li:hover {
+    background: #383;
+  }
+  
+  #navigation li a {
+    border: none;
+  }
+
+  body {
+    padding: 0px;
+  }
+
+  img {
+    max-width: 90vw;
+  }
+
+  #aside {
+    display: none;
+  }
+}
 ```
