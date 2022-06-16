@@ -15,4 +15,4 @@ const skillsTrybe = (tryber) => {
   - ${skills[2]}.`
 }
 
-console.log(skillsTrybe(replaceX(nome)));
+// console.log(skillsTrybe(replaceX(nome)));

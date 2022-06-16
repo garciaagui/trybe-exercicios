@@ -136,12 +136,11 @@ console.log(getLongestWord(phrase));
 
     window.addEventListener('load', () => {
       clickScore.innerText = `Número de cliques: ${clickCount}.`;
-    })
+    });
 
     clickButton.addEventListener('click', () => {
-      clickCount += 1;
-      clickScore.innerText = `Número de cliques: ${clickCount}.`;
-    })
+      clickScore.innerText = `Número de cliques: ${clickCount += 1}.`;
+    });
 
   </script>
 </body>
