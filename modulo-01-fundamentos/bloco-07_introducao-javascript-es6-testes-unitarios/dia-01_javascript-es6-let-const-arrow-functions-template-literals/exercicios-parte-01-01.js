@@ -4,7 +4,7 @@ const testingScope = (escopo) => {
     ifScope = `${ifScope}, ótimo, fui utilizada no escopo !`;
     return ifScope;
   } else {
-    let elseScope = 'Não devo ser utilizada fora meu escopo (else)';
+    const elseScope = 'Não devo ser utilizada fora meu escopo (else)';
     return elseScope;
   }
 }
