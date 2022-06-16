@@ -37,12 +37,12 @@ const order = {
 const customerInfo = (order) => {
   const entries = Object.entries(order);
   const deliveryPerson = entries[3][1].delivery.deliveryPerson;
-  const name = entries[0][1];
-  const phoneNumber = entries[1][1];
-  const adressStreet = entries[2][1].street;
-  const adressNumber = entries[2][1].number;
-  const adressApartment = entries[2][1].apartment;
-  return `Olá ${deliveryPerson}, entrega para: ${name}, Telefone: ${phoneNumber}, R. ${adressStreet}, Nº: ${adressNumber}, AP: ${adressApartment}.`;
+  const customerName = entries[0][1];
+  const customerPhoneNumber = entries[1][1];
+  const customerAdressStreet = entries[2][1].street;
+  const customerAdressNumber = entries[2][1].number;
+  const customerAdressApartment = entries[2][1].apartment;
+  return `Olá ${deliveryPerson}, entrega para: ${customerName}, Telefone: ${customerPhoneNumber}, R. ${customerAdressStreet}, Nº: ${customerAdressNumber}, AP: ${customerAdressApartment}.`;
 }
 
 console.log(customerInfo(order));
@@ -50,9 +50,14 @@ console.log(customerInfo(order));
 const orderModifier = (order) => {
   const oldOrder = order;
   const newOrder = Object.assign({}, oldOrder);
-  newOrder.name = 'Luiz Silva';
-  newOrder.payment.total = 50;
-  return newOrder;
+  const customerName = newOrder.name = 'Luiz Silva';
+  const pizzas = Object.keys(newOrder.order.pizza);
+  const pizza1 = pizzas[0];
+  const pizza2 = pizzas[1];
+  const drink = Object.values(newOrder.order.drinks.coke);
+  const drink1 = drink[0];
+  const totalPrice = newOrder.payment.total = 50;
+  return `Olá ${customerName}, o total do seu pedido de ${pizza1}, ${pizza2} e ${drink1} é R$ ${totalPrice},00.`;
 }
 
 console.log(orderModifier(order));
