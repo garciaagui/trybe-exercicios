@@ -35,14 +35,24 @@ const order = {
 };
 
 const customerInfo = (order) => {
-  // Adicione abaixo as informações necessárias.
+  const entries = Object.entries(order);
+  const deliveryPerson = entries[3][1].delivery.deliveryPerson;
+  const name = entries[0][1];
+  const phoneNumber = entries[1][1];
+  const adressStreet = entries[2][1].street;
+  const adressNumber = entries[2][1].number;
+  const adressApartment = entries[2][1].apartment;
+  return `Olá ${deliveryPerson}, entrega para: ${name}, Telefone: ${phoneNumber}, R. ${adressStreet}, Nº: ${adressNumber}, AP: ${adressApartment}.`;
 }
 
-customerInfo(order);
+console.log(customerInfo(order));
 
 const orderModifier = (order) => {
-  // Adicione abaixo as informações necessárias.
-
+  const oldOrder = order;
+  const newOrder = Object.assign({}, oldOrder);
+  newOrder.name = 'Luiz Silva';
+  newOrder.payment.total = 50;
+  return newOrder;
 }
 
-// orderModifier(order);
+console.log(orderModifier(order));

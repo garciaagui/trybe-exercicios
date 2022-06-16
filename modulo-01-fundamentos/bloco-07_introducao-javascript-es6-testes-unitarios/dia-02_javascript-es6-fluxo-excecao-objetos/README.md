@@ -82,12 +82,31 @@ function sum() {
 ## &#9989; Exercícios - Parte II
 1. Complete a função `customerInfo()` para que seu retorno seja similar a "Olá Ana Silveira, entrega para: Rafael Andrade, Telefone: 11-98763-1416, R. Rua das Flores, Nº: 389, AP: 701".
 ```
+const customerInfo = (order) => {
+  const entries = Object.entries(order);
+  const deliveryPerson = entries[3][1].delivery.deliveryPerson;
+  const name = entries[0][1];
+  const phoneNumber = entries[1][1];
+  const adressStreet = entries[2][1].street;
+  const adressNumber = entries[2][1].number;
+  const adressApartment = entries[2][1].apartment;
+  return `Olá ${deliveryPerson}, entrega para: ${name}, Telefone: ${phoneNumber}, R. ${adressStreet}, Nº: ${adressNumber}, AP: ${adressApartment}.`;
+}
 
+console.log(customerInfo(order));
 ```
 
 2. Complete a função `orderModifier()` para que seu retorno seja similar a "Olá Luiz Silva, o total do seu pedido de marguerita, pepperoni e Coca-Cola Zero é R$ 50,00."
 - Modifique o nome da **pessoa compradora**.
 - Modifique o **valor total da compra** para R$ 50,00.
 ```
+const orderModifier = (order) => {
+  const oldOrder = order;
+  const newOrder = Object.assign({}, oldOrder);
+  newOrder.name = 'Luiz Silva';
+  newOrder.payment.total = 50;
+  return newOrder;
+}
 
+console.log(orderModifier(order));
 ```
