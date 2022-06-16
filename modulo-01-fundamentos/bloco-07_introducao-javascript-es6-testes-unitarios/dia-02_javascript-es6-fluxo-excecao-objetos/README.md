@@ -31,10 +31,10 @@
 ```
 <script>
 function verifyInputsValues(v1, v2) {
-  if (v1 === '' || v2 === '') {
+  if (!v1 || !v2) {
     throw new Error('Por favor, verifique se os campos Valor 1 e Valor 2 foram preenchidos.');
   }
-  else if (isNaN(v1+v2)) {
+  else if (isNaN(v1) || isNaN(v2)) {
     throw new Error('Por favor, verifique se os campos Valor 1 e Valor 2 foram preenchidos com NÚMEROS.');
   }
 }
@@ -61,15 +61,15 @@ function sum() {
 ```
 <script>
 function sum() {
-  const value1 = document.getElementById('value1').value;
-  const value2 = document.getElementById('value2').value;
   try {
+    const value1 = document.getElementById('value1').value;
+    const value2 = document.getElementById('value2').value;
     verifyInputsValues(value1, value2);
     const result = parseInt(value1) + parseInt(value2);
     document.getElementById('result').innerHTML = `Resultado: ${result}`;
   } catch (error) {
     const result = error.message;
-    document.getElementById('result').innerHTML = `${result}`;
+    document.getElementById('result').innerHTML = `ERRO: ${result}`;
   }
   finally {
     document.getElementById('value1').value = '';
