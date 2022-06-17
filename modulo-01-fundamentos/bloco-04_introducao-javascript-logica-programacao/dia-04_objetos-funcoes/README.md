@@ -236,41 +236,98 @@ console.log(`${leitor.nome} tem ${leitor.livrosFavoritos.length} livros favorito
 ## &#9989; Exercícios do Dia Parte II - Funções
 
 1. Crie uma função que receba uma string e retorne true se for um palíndromo, ou false, se não for.
-- Exemplo de palíndromo: arara.
-- verificaPalindrome('arara');
-- Retorno esperado: true
-- verificaPalindrome('desenvolvimento');
-- Retorno esperado: false
 ```
+const word = 'arara';
 
+function checkPalindrome(word) {
+  const reversedWord = word.split('').reverse().join('');
+  if (word === reversedWord) {
+    return true;
+  } else {
+    return false;
+  }
+}
 ```
 
 2. Crie uma função que receba um array de inteiros e retorne o índice do maior valor.
-- Array de teste: [2, 3, 6, 7, 10, 1];.
-- Valor esperado no retorno da função: 4.
 ```
+const numbers = [2, 3, 6, 7, 10, 1];
 
+function checkHighestValueIndex (array) {
+  let highestValue = array[0];
+  let highestValueIndex = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i] > highestValue) {
+      highestValue = array[i];
+      highestValueIndex = i;
+    }
+  }
+  return highestValueIndex;
+}
+
+console.log(checkHighestValueIndex(numbers));
 ```
 
 3. Crie uma função que receba um array de inteiros e retorne o índice do menor valor.
-- Array de teste: [2, 4, 6, 7, 10, 0, -3];.
-- Valor esperado no retorno da função: 6.
 ```
+const numbers = [2, 4, 6, 7, 10, 0, -3];
 
+function checkLowestValueIndex (array) {
+  let lowestValue = array[0];
+  let lowestValueIndex = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i] < lowestValue) {
+      lowestValue = array[i];
+      lowestValueIndex = i;
+    }
+  }
+  return lowestValueIndex;
+}
+
+console.log(checkLowestValueIndex(numbers));
 ```
 
 4. Crie uma função que receba um array de nomes e retorne o nome com a maior quantidade de caracteres.
-- Array de teste: ['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana'];.
-- Valor esperado no retorno da função: Fernanda.
 ```
+const names = ['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana'];
 
+function checkLongestName(names) {
+  let longestName = names[0];
+  for (let i = 0; i < names.length; i += 1) {
+    if (names[i].length > longestName.length) {
+      longestName = names[i]
+    }
+  }
+  return longestName;
+}
+
+console.log(checkLongestName(names));
 ```
 
 5. Crie uma função que receba um array de inteiros e retorne o inteiro que mais se repete.
-- Array de teste: [2, 3, 2, 5, 8, 2, 3];.
-- Valor esperado no retorno da função: 2.
 ```
+const numbers = [2, 3, 2, 5, 8, 2, 3];
 
+function checkRepeats(array) {
+  let repeats = 0;
+  let mostRepeated = 0;
+  let repeatedNumber = 0;
+  for (let index = 0; index < array.length; index += 1) {
+    repeats = 0;
+    for (let i = 0; i < array.length; i += 1) {
+      if (array[index] === array[i]) {
+        repeats += 1;
+      }
+    }
+    if (repeats > mostRepeated) {
+      mostRepeated = repeats;
+      repeatedNumber = array[index];
+    }
+  }
+  return repeatedNumber;
+}
+
+console.log(checkRepeats(numbers));
 ```
 
 6. Crie uma função que receba um número natural (número inteiro não negativo) N e retorne o somatório de todos os números de 1 até N.
