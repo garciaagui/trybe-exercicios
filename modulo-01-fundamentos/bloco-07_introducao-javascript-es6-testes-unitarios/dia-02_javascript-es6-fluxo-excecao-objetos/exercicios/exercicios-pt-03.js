@@ -68,7 +68,7 @@ console.log(getValueByNumber(lesson1, 0));
 
 // // Tarefa 08
 const verifyPair = (object, key, value) => {
-  if (object[key] == value) return true
-  else return false
+  if (object[key] == value) return `Par Chave / Valor existe no Objeto!`;
+  else return `Par Chave / Valor NÃO existe no Objeto!`;
 }
 console.log(verifyPair(lesson1, 'materia', 'Matemática'));
