@@ -207,21 +207,26 @@ console.log(getNumberOfStudentsPerSubject(allLessons, 'História'));
 
 2. Crie uma função que deverá retornar um objeto que representa o **relatório do professor ou professora**, as aulas que ele ou ela ministrou e o número total de estudantes. Use o objeto criado no exercício 5 (Parte III).
 ```
+const generateReport = (teacherName, totalSubjects, totalStudents) => {
+  const report = {
+    professor: teacherName,
+    aulas: totalSubjects,
+    estudantes: totalStudents
+  }
+  return report;
+}
+
 const generateTeacherReport = (object, teacher) => {
   const objectValues = Object.values(object);
-  let numberOfStudents = 0;
   let subjectsTaught = [];
+  let numberOfStudents = 0;
   for (let i = 0; i < objectValues.length; i += 1) {
     if (objectValues[i].professor === teacher) {
-      numberOfStudents += objectValues[i].numeroEstudantes;
       subjectsTaught.push(objectValues[i].materia);
+      numberOfStudents += objectValues[i].numeroEstudantes;
     }
   }
-  const teacherReport = {
-    professor: teacher,
-    aulas: subjectsTaught,
-    estudantes: numberOfStudents
-  }
+  const teacherReport = generateReport(teacher, subjectsTaught, numberOfStudents);
   return teacherReport;
 }
 
