@@ -1,0 +1,102 @@
+/*
+ * @see http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * apply a natural box layout model to all elements, but allowing components to change
+ */
+ html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 15px 7px 0;
+}
+
+body {
+  font-size: 1.4em;
+}
+
+h1 {
+  font-size: 1.7em;
+}
+
+img {
+	width: 100%;
+}
+
+figure {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+	margin-bottom: 30px;
+}
+
+figcaption {
+  font-size: .7em;
+  margin: 1%;
+}
+
+@media screen and (min-width: 522px) {
+  *, *:before, *:after {
+    box-sizing: inherit;
+    margin: 16px 8px 0;
+  }
+  
+  body {
+    background-color: wheat;
+    font-size: 1.5em;
+  }
+
+  h1 {
+    font-size: 1.75em;
+  }
+  
+  section {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+  }
+  figure {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 45%;
+  } 
+}
+
+@media screen and (min-width: 1054px) {
+  *, *:before, *:after {
+    box-sizing: inherit;
+    margin: 17px 9px 0;
+  }
+  
+  body {
+    background-color: orangered;
+    font-size: 1.6em;
+    max-width: 1522px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  section {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  figure {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 30%;
+  } 
+}
