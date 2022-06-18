@@ -11,21 +11,21 @@ function sum(a, b) {
   return a + b;
 }
 ```
-1. Teste se o retorno de `sum(4, 5)` é **9**.
+1. Teste se o retorno de `sum(4, 5)` é **9**;
 ```
 test('returns 9 when sum(4,5)', () => {
   expect(sum(4,5)).toEqual(9);
 })
 ```
 
-2. Teste se o retorno de `sum(0, 0)` é **0**.
+2. Teste se o retorno de `sum(0, 0)` é **0**;
 ```
 test('returns 0 when sum(0,0)', () => {
   expect(sum(0,0)).toEqual(0);
 })
 ```
 
-3. Teste se a função `sum` lança um **erro** quando os **parâmetros são 4 e "5"**(string 5).
+3. Teste se a função `sum` lança um **erro** quando os **parâmetros são 4 e "5"**(string 5);
 ```
 test('throws an error when a string is as a parameter', () => {
   expect(() => sum(4,'5')).toThrow(Error);
@@ -52,7 +52,7 @@ function myRemove(arr, item) {
   return newArr;
 }
 ```
-1. Verifique se a chamada `myRemove([1, 2, 3, 4], 3)` retorna o array esperado.
+1. Verifique se a chamada `myRemove([1, 2, 3, 4], 3)` retorna o array esperado;
 ```
 test('returns the array [1, 2, 3, 4] without the item 3', () => {
   const array = [1,2,3,4];
@@ -61,7 +61,7 @@ test('returns the array [1, 2, 3, 4] without the item 3', () => {
 });
 ```
 
-2. Verifique se a chamada `myRemove([1, 2, 3, 4], 3)` **não** retorna o array [1, 2, 3, 4].
+2. Verifique se a chamada `myRemove([1, 2, 3, 4], 3)` **não** retorna o array [1, 2, 3, 4];
 ```
 test('does not return the array [1, 2, 3, 4] with the item 3', () => {
   const array = [1,2,3,4];
@@ -80,7 +80,7 @@ test('returns the array [1, 2, 3, 4] when the item is 5', () => {
 ```
 
 ## &#9989; Exercício 03
-- A função `myFizzBuzz(num)` recebe um número `num` e retorna "fizzbuzz" se o número for divisível por 3 e 5, retorna "fizz" se for divisível apenas por 3, retorna "buzz" se divisível apenas por 5, retorna o próprio número caso não seja divisível por 3 ou 5 e retorna false caso `num` não seja um número
+- A função `myFizzBuzz(num)` recebe um número `num` e retorna "fizzbuzz" se o número for divisível por 3 e 5, retorna "fizz" se for divisível apenas por 3, retorna "buzz" se divisível apenas por 5, retorna o próprio número caso não seja divisível por 3 ou 5 e retorna false caso `num` não seja um número.
 ```
 function myFizzBuzz(num) {
   if (typeof num !== 'number') return false;
@@ -90,7 +90,7 @@ function myFizzBuzz(num) {
   return num;
 }
 ```
-1. Faça uma chamada com um **número divisível por 3 e 5** e verifique se o retorno é o esperado.
+1. Faça uma chamada com um **número divisível por 3 e 5** e verifique se o retorno é o esperado;
 ```
 test('when num is divisible by 3 and 5, returns "fizzbuzz"', () => {
   const num = 15;
@@ -98,7 +98,7 @@ test('when num is divisible by 3 and 5, returns "fizzbuzz"', () => {
 });
 ```
 
-2. Faça uma chamada com um **número divisível por 3** e verifique se o retorno é o esperado.
+2. Faça uma chamada com um **número divisível por 3** e verifique se o retorno é o esperado;
 ```
 test('when num is only divisible by 3, returns "fizz"', () => {
   const num = 3;
@@ -106,7 +106,7 @@ test('when num is only divisible by 3, returns "fizz"', () => {
 });
 ```
 
-3. Faça uma chamada com um **número divisível por 5** e verifique se o retorno é o esperado.
+3. Faça uma chamada com um **número divisível por 5** e verifique se o retorno é o esperado;
 ```
 test('when num is only divisible by 5, returns "buzz"', () => {
   const num = 5;
@@ -114,7 +114,7 @@ test('when num is only divisible by 5, returns "buzz"', () => {
 });
 ```
 
-4. Faça uma chamada com um **número que não é divisível por 3 ou 5** e verifique se o retorno é o esperado.
+4. Faça uma chamada com um **número que não é divisível por 3 ou 5** e verifique se o retorno é o esperado;
 ```
 test('when num is not divisible by 3 nor 5, returns num', () => {
   const num = 2;
@@ -127,5 +127,141 @@ test('when num is not divisible by 3 nor 5, returns num', () => {
 test('when num is not a number, returns false', () => {
   const num = 'not a number';
   expect (myFizzBuzz(num)).toBeFalsy();
+});
+```
+
+## &#9989; Exercício 04
+- Para as funções encode e decode (abaixo) crie os testes em Jest a seguir.
+```
+function encode(decodedPhrase) {
+  let coded = '';
+  for (let i = 0; i < decodedPhrase.length; i += 1) {
+    let auxiliar = decodedPhrase[i];
+    switch (auxiliar) {
+    case 'a': auxiliar = 1; break;
+    case 'e': auxiliar = 2; break;
+    case 'i': auxiliar = 3; break;
+    case 'o': auxiliar = 4; break;
+    case 'u': auxiliar = 5; break;
+    default:
+    }
+    coded += auxiliar;
+  }
+  return coded;
+}
+
+function decode(codedPhrase) {
+  let decoded = '';
+  for (let i = 0; i < codedPhrase.length; i += 1) {
+    let auxiliar = codedPhrase[i];
+    switch (auxiliar) {
+    case '1': auxiliar = 'a'; break;
+    case '2': auxiliar = 'e'; break;
+    case '3': auxiliar = 'i'; break;
+    case '4': auxiliar = 'o'; break;
+    case '5': auxiliar = 'u'; break;
+    default:
+    }
+    decoded += auxiliar;
+  }
+  return decoded;
+}
+```
+1. Teste se encode e decode são funções;
+```
+describe('The encode function' , () => {
+  test('encode is a function' , () => {
+    expect(typeof encode).toBe('function');
+  });
+});
+
+describe('The decode function' , () => {
+  test('decode is a function' , () => {
+    expect(typeof decode).toBe('function');
+  });
+});
+```
+2. Para a função encode teste se as vogais a, e, i, o, u são convertidas em 1, 2, 3, 4 e 5, respectivamente;
+```
+describe('The encode function' , () => {
+  test('converts vowel "a" to number 1 in the phrase' , () => {
+    const phrase = 'How are you today?';
+    expect(encode(phrase)).toBe('H4w 1r2 y45 t4d1y?');
+  });
+  test('converts vowel "e" to number 2 in the phrase' , () => {
+    const phrase = 'How are you today?';
+    expect(encode(phrase)).toBe('H4w 1r2 y45 t4d1y?');
+  });
+  test('converts vowel "i" to number 3 in the phrase' , () => {
+    const phrase = 'hi there!';
+    expect(encode(phrase)).toBe('h3 th2r2!');
+  });
+  test('converts vowel "o" to number 4 in the phrase' , () => {
+    const phrase = 'hello';
+    expect(encode(phrase)).toBe('h2ll4');
+  });
+  test('converts vowel "u" to number 5 in the phrase' , () => {
+    const phrase = 'How are you today?';
+    expect(encode(phrase)).toBe('H4w 1r2 y45 t4d1y?');
+  });
+});
+```
+3. Para a função decode teste se os números 1, 2, 3, 4 e 5 são convertidos nas vogais a, e, i, o, u, respectivamente;
+```
+describe('The decode function' , () => {
+  test('converts number 1 to vowel "a" in the phrase' , () => {
+    const phrase = 'H4w 1r2 y45 t4d1y?';
+    expect(decode(phrase)).toBe('How are you today?');
+  });
+  test('converts number 2 to vowel "e" in the phrase' , () => {
+    const phrase = 'H4w 1r2 y45 t4d1y?';
+    expect(decode(phrase)).toBe('How are you today?');
+  });
+  test('converts number 3 to vowel "i" in the phrase' , () => {
+    const phrase = 'h3 th2r2!';
+    expect(decode(phrase)).toBe('hi there!');
+  });
+  test('converts number 4 to vowel "o" in the phrase' , () => {
+    const phrase = 'h2ll4';
+    expect(decode(phrase)).toBe('hello');
+  });
+  test('converts number 5 to vowel "u" in the phrase' , () => {
+    const phrase = 'H4w 1r2 y45 t4d1y?';
+    expect(decode(phrase)).toBe('How are you today?');
+  });
+});
+```
+4. Teste se as demais letras/números não são convertidos para cada caso;
+```
+describe('The encode function' , () => {
+  test('does not convert the letter to a number if the letter is a consonant' , () => {
+    const phrase = 'b - c - d - f - g - h - j - k - l - m - n - p - q - r - s - t - v - w - x - y - z'
+    expect(encode(phrase)).toBe('b - c - d - f - g - h - j - k - l - m - n - p - q - r - s - t - v - w - x - y - z');
+  });
+});
+
+describe('The decode function' , () => {
+  test('does not convert the number to a vowel if the number is 0 or greater than 5' , () => {
+    const phrase = '0 2 6 7 1 8 3 5';
+    expect(decode(phrase)).toBe('0 e 6 7 a 8 i u');
+  });
+});
+```
+5. Teste se a string que é retornada pelas funções têm o mesmo número de caracteres que a string passada como parâmetro.
+```
+describe('The encode function' , () => {
+  test('the output has the same number of characters as the input' , () => {
+    const phrase = 'hello'
+    const phraseLength = phrase.length;
+    expect((encode(phrase)).length).toEqual(phraseLength);
+  });
+});
+
+describe('The decode function' , () => {
+  test('the output has the same number of characters as the input' , () => {
+    const phrase = 'h2ll4'
+    const phraseLength = phrase.length;
+    expect((decode(phrase)).length).toEqual(phraseLength);
+  });
 });
 ```
