@@ -327,3 +327,57 @@ function techList(techListArray, personName) {
   return techPerson;
 }
 ```
+
+## &#9989; Exercício 06
+- A função `hydrate` recebe uma string no formato "numero bebida", e retorna a sugestão de quantos copos de água você deve beber para se hidratar. Para cada bebida, deve-se tomar um copo de água para não ter ressaca. Exemplo:
+```
+// string recebida
+'1 cerveja'
+// retorno da função
+'1 copo de água'
+
+// string recebida
+'1 cerveja, 2 shots e 1 catuaba'
+// retorno da função
+'4 copos de água'
+
+// string recebida
+'2 caipirinhas'
+// retorno da função
+'2 copos de água'
+```
+- Implemente a função `hydrate` a partir dos testes abaixo. É importante nunca alterar os testes ou as variáveis já escritas no código.
+```
+describe('Testa a função hydrate', () => {
+  it('Testa se a função hydrate é definida', () => {
+    expect(hydrate).toBeDefined();
+  });
+  it('Testa se hydrate é uma função', () => {
+    expect(typeof hydrate).toBe('function');
+  });
+  it('Ao receber uma string retorne a sugestão de quantos copos de água deve-se beber', () => {
+    expect(hydrate('1 cerveja')).toBe('1 copo de água');
+    expect(hydrate('1 cachaça, 5 cervejas e 1 copo de vinho')).toBe('7 copos de água');
+    expect(hydrate('2 shots de tequila, 2 cervejas e 1 corote')).toBe('5 copos de água');
+    expect(hydrate('1 copo de catuaba, 1 cervejas e 1 copo de vinho')).toBe('3 copos de água');
+    expect(hydrate('4 caipirinhas e 2 cervejas')).toBe('6 copos de água');
+  });
+});
+```
+- Resposta:
+```
+function hydrate(drinksDrunk) {
+  let extractNumbers = drinksDrunk.match(/\d+/g).map(Number);
+  let drinksNumber = 0;
+  let glassesWater = 0;
+  for (let i = 0; i < extractNumbers.length; i += 1) {
+    drinksNumber += extractNumbers[i];
+  }
+  if (drinksNumber === 1) {
+    glassesWater = `${drinksNumber} copo de água`;
+  } else {
+    glassesWater = `${drinksNumber} copos de água`;
+  }
+  return glassesWater;
+}
+```
