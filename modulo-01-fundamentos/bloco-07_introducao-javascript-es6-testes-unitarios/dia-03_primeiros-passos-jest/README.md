@@ -381,3 +381,5 @@ function hydrate(drinksDrunk) {
   return glassesWater;
 }
 ```
+
+## &#9989; Exercício Bônus
