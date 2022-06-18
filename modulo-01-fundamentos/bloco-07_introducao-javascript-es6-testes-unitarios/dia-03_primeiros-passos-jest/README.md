@@ -131,7 +131,7 @@ test('when num is not a number, returns false', () => {
 ```
 
 ## &#9989; Exercício 04
-- Para as funções encode e decode (abaixo) crie os testes em Jest a seguir.
+- Para as funções `encode` e `decode` (abaixo) crie os testes em Jest a seguir.
 ```
 function encode(decodedPhrase) {
   let coded = '';
@@ -167,7 +167,7 @@ function decode(codedPhrase) {
   return decoded;
 }
 ```
-1. Teste se encode e decode são funções;
+1. Teste se `encode` e `decode` são **funções**;
 ```
 describe('The encode function' , () => {
   test('encode is a function' , () => {
@@ -181,7 +181,7 @@ describe('The decode function' , () => {
   });
 });
 ```
-2. Para a função encode teste se as vogais a, e, i, o, u são convertidas em 1, 2, 3, 4 e 5, respectivamente;
+2. Para a função `encode` teste se as vogais a, e, i, o, u são convertidas em 1, 2, 3, 4 e 5, respectivamente;
 ```
 describe('The encode function' , () => {
   test('converts vowel "a" to number 1 in the phrase' , () => {
@@ -206,7 +206,7 @@ describe('The encode function' , () => {
   });
 });
 ```
-3. Para a função decode teste se os números 1, 2, 3, 4 e 5 são convertidos nas vogais a, e, i, o, u, respectivamente;
+3. Para a função `decode` teste se os números 1, 2, 3, 4 e 5 são convertidos nas vogais a, e, i, o, u, respectivamente;
 ```
 describe('The decode function' , () => {
   test('converts number 1 to vowel "a" in the phrase' , () => {
@@ -264,4 +264,66 @@ describe('The decode function' , () => {
     expect((decode(phrase)).length).toEqual(phraseLength);
   });
 });
+```
+
+## &#9989; Exercício 05
+- A função `techList` recebe como parâmetros um array contendo uma lista de tecnologias e uma string com um nome. Para cada tecnologia no array a função cria, em ordem alfabética, um objeto com a seguinte estrutura:
+```
+{
+  tech: 'nomeTecnologia',
+  name: name,
+}
+```
+- Implemente a função `techList` a partir dos testes abaixo. É importante nunca alterar os testes ou as variáveis já escritas no código.
+```
+describe('Testa a função techList', () => {
+  it('Testa se a função techList é definida', () => {
+    expect(techList).toBeDefined();
+  });
+  it('Testa se techList é uma função', () => {
+    expect(typeof techList).toBe('function');
+  });
+  it('Lista com 5 tecnologias deve retornar uma lista de objetos ordenados', () => {
+    expect(techList(['React', 'Jest', 'HTML', 'CSS', 'JavaScript'], 'Lucas')).toEqual([
+      {
+        tech: 'CSS',
+        name: 'Lucas'
+      },
+      {
+        tech: 'HTML',
+        name: 'Lucas'
+      },
+      {
+        tech: 'JavaScript',
+        name: 'Lucas'
+      },
+      {
+        tech: 'Jest',
+        name: 'Lucas'
+      },
+      {
+        tech: 'React',
+        name: 'Lucas'
+      }
+    ]);
+  });
+  it('Lista com 0 tecnologias deve retornar uma mensagem de erro "Vazio!"', () => {
+    expect(techList([], 'Lucas')).toBe('Vazio!');
+  });
+});
+```
+- Resposta:
+```
+function techList(techListArray, personName) {
+  if (techListArray.length === 0 || personName === 0) return 'Vazio!';
+  techListArray = techListArray.sort();
+  let techPerson = [];
+  for (let i = 0; i < techListArray.length; i += 1) {
+    techPerson.push({
+      tech: techListArray[i],
+      name: personName,
+    });
+  }
+  return techPerson;
+}
 ```
