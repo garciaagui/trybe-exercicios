@@ -235,8 +235,6 @@ figure {
   #asides {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-    order: 0;
   }
 
   #asides h2 {
@@ -248,7 +246,7 @@ figure {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    order: 1;
+    margin-top: 100px;
   }
 
   .main-content h1 {
@@ -316,13 +314,13 @@ figure {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0 40px;
   }
 
   #asides {
     display: flex;
-    justify-content: space-evenly;
-    order: 0;
-    margin: 0 20px 30px;
+    justify-content: center;
+    margin-bottom: 30px;
   }
 
   #asides h2 {
@@ -334,8 +332,6 @@ figure {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 40px 30px;
-    order: 1;
   }
 
   .main-content h1 {
@@ -506,8 +502,6 @@ figure {
   #asides {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-    order: 0;
   }
 
   #asides h2 {
@@ -519,7 +513,7 @@ figure {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    order: 1;
+    margin-top: 80px;
   }
 
   .main-content h1 {
