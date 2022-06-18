@@ -15,36 +15,26 @@ body {
   font-size: 1.4em;
 }
 
-/* article {
-
-} */
-
 h1 {
   font-size: 1.7em;
 }
 
-/* h2 {
-
-} */
-
 img {
-	max-width: 100%;
+	width: 100%;
 }
-
-/* main {
-
-}
-
-section {
-
-} */
 
 figure {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
 	margin-bottom: 30px;
 }
 
 figcaption {
-  font-size: .8em;
+  font-size: .7em;
+  margin: 1%;
 }
 
 @media screen and (min-width: 522px) {
