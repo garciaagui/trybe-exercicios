@@ -4,6 +4,8 @@ const takeBreakfast = () => { return 'Bora tomar café!!' };
 
 const goToBed = () => { return 'Partiu dormir!!' };
 
-const doingThings = (func) => { return func };
+const doingThings = (func) => { return console.log(func) };
 
-console.log(doingThings(wakeUp()));
+doingThings(wakeUp());
+doingThings(takeBreakfast());
+doingThings(goToBed());
