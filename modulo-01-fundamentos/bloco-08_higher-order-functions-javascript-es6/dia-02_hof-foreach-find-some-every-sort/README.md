@@ -65,7 +65,7 @@ console.log((findMusic(musicas, '31031685')).title);
 ```
 
 ## &#9989; Atividades de Fixação - Parte III: Array.some e Array.every
-1. Escreva uma função que dado um array de nomes e um nome retorne true se ele estiver contido e caso contrário, retorne false, use `some`.
+1. Escreva uma função que dado um array de nomes e um nome **retorne true se ele estiver contido** e caso contrário, retorne false, use `some`.
 ```
 const names = ['Mateus', 'José', 'Ana', 'Cláudia', 'Bruna'];
 ```
@@ -78,7 +78,7 @@ const hasName = (arr, name) => {
 console.log(hasName(names, 'Ana'));
 ```
 
-2. Escreva uma função que dado um array de pessoas e uma idade mínima retorne true se todas tiverem a idade maior ou igual a mínima e caso contrário false, use `every`.
+2. Escreva uma função que dado um array de pessoas e uma idade mínima **retorne true se todas tiverem a idade maior ou igual a mínima** e caso contrário false, use `every`.
 ```
 const people = [
   { name: 'Mateus', age: 18 },
@@ -95,4 +95,33 @@ const verifyAges = (arr, minimumAge) => {
 }
 
 console.log(verifyAges(people, 18));
+```
+
+## &#9989; Atividades de Fixação - Parte IV: Array.sort
+1. Utilize a `sort` para **ordenar o array pela idade** das pessoas em **ordem crescente**.
+```
+const people = [
+  { name: 'Mateus', age: 18 },
+  { name: 'José', age: 16 },
+  { name: 'Ana', age: 23 },
+  { name: 'Cláudia', age: 20 },
+  { name: 'Bruna', age: 19 },
+];
+```
+- Resposta:
+```
+const orderByGrowingAge = (array) => {
+  return array.sort((elementA, elementB) => elementA.age > elementB.age ? 1 : -1 );
+};
+
+console.log(orderByGrowingAge(people));
+```
+
+2. Modifique o `sort` do exercício anterior para que **ordene o array pela idade** das pessoas em **ordem decrescente**.
+```
+const orderByDecreasingAge = (array) => {
+  return array.sort((elementA, elementB) => elementA.age < elementB.age ? 1 : -1 );
+};
+
+console.log(orderByDecreasingAge(people));
 ```
