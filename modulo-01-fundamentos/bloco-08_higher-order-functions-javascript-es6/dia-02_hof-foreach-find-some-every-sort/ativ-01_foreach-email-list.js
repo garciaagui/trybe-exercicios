@@ -1,8 +1,3 @@
-# &#9889; Atividades de Fixação & Exercícios | Bloco 08 - Dia 02
-
-## &#9989; Atividades de Fixação - Parte I: Array.forEach
-1. Use o método `forEach` chamando a callback `showEmailList` para apresentar os emails.
-```
 const emailListInData = [
   'roberta@email.com',
   'paulo@email.com',
@@ -13,8 +8,5 @@ const emailListInData = [
 const showEmailList = (email) => {
   console.log(`O email ${email} esta cadastrado em nosso banco de dados!`);
 };
-```
-- Resposta:
-```
+
 emailListInData.forEach(showEmailList);
-```
