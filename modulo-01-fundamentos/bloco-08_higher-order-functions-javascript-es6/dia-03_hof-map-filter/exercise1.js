@@ -1,7 +1,3 @@
-# &#9889; Atividades de Fixação & Exercícios | Bloco 08 - Dia 03
-
-- Para os exercícios a seguir, considerar o código abaixo. 
-```
 const books = [
   {
     id: 1,
@@ -64,12 +60,7 @@ const books = [
     releaseYear: 1928,
   },
 ];
-```
 
-## &#9989; Exercício 01
-- Crie um array com strings no formato `NOME_DO_LIVRO - GÊNERO_DO_LIVRO - NOME_DA_PESSOA_AUTORA`.
-```
 const bookList = books.map((book) => `${book.name} - ${book.genre} - ${book.author.name}`);
 
 console.log(bookList);
-```
