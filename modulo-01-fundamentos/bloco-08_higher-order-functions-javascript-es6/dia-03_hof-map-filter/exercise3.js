@@ -61,3 +61,6 @@ const books = [
   },
 ];
 
+const fantasyAndSciFiList = books.filter((book) => book.genre === 'Fantasia' || book.genre === 'Ficção Científica');
+
+console.log(fantasyAndSciFiList);

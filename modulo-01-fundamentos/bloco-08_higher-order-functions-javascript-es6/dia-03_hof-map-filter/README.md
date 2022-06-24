@@ -88,3 +88,11 @@ authorList.sort((a, b) => a.age - b.age);
 
 console.log(authorList);
 ```
+
+## &#9989; Exercício 03
+- Crie um array com todos os objetos que possuem **gênero ficção científica ou fantasia**.
+```
+const fantasyAndSciFiList = books.filter((book) => book.genre === 'Fantasia' || book.genre === 'Ficção Científica');
+
+console.log(fantasyAndSciFiList);
+```
