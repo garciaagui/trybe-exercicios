@@ -106,3 +106,11 @@ const sixtyYearsOldBookList = books.filter((book) => (currentYear - book.release
 
 console.log(sixtyYearsOldBookList);
 ```
+
+## &#9989; Exercício 05
+- Crie um array em **ordem alfabética** apenas com os nomes de todas as pessoas **autoras de ficção científica ou fantasia**.
+```
+const fantasyOrSciFiAuthorsList = books.filter((book) => (book.genre === 'Fantasia' || book.genre === 'Ficção Científica')).map((book) => book.author.name).sort();
+
+console.log(fantasyOrSciFiAuthorsList);
+```
