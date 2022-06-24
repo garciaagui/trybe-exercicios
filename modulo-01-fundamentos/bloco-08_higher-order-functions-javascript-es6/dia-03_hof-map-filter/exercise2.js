@@ -61,3 +61,13 @@ const books = [
   },
 ];
 
+const authorList = books.map((book) => {
+  return {
+    age: (book.releaseYear - book.author.birthYear),
+    author: book.author.name
+  }
+});
+
+authorList.sort((a, b) => a.age - b.age);
+
+console.log(authorList);
