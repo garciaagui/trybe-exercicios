@@ -61,3 +61,8 @@ const books = [
   },
 ];
 
+const currentYear = new Date ().getFullYear();
+
+const sixtyYearsOldBookList = books.filter((book) => (currentYear - book.releaseYear) >= 60).map((book) => book.name);
+
+console.log(sixtyYearsOldBookList);
