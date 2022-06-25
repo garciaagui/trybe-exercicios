@@ -61,3 +61,6 @@ const books = [
   },
 ];
 
+const bookWroteByAuthorWith3DotsOnName = books.find((book) => (book.author.name.split('.').length - 1) === 3).name;
+
+console.log(bookWroteByAuthorWith3DotsOnName);

@@ -124,3 +124,11 @@ const sixtyYearsOldBookList = books.filter((book) => (currentYear - book.release
 
 console.log(sixtyYearsOldBookList);
 ```
+
+## &#9989; Exercício 07
+- Encontre o nome do **livro escrito pela pessoa** cujo **nome** registrado começa com **três iniciais**.
+```
+const bookWroteByAuthorWith3DotsOnName = books.find((book) => (book.author.name.split('.').length - 1) === 3).name;
+
+console.log(bookWroteByAuthorWith3DotsOnName);
+```
