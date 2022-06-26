@@ -81,22 +81,19 @@ console.log(prizeDrawResult(5,checkNumbers));
 - Crie uma HOF que receberá três parâmetros. O primeiro será um array de respostas corretas (Gabarito), o segundo será um array de respostas a serem verificadas (respostas da pessoa estudante) e o terceiro é uma função que checa se as respostas estão corretas e faz a contagem da pontuação final recebida pela pessoa estudante. Ao final a HOF deve retornar o total da contagem de respostas certas.
 - Quando a resposta for correta a contagem sobe 1 ponto, quando for incorreta desce 0.5 pontos, e quando não houver resposta ("N.A") não altera-se a contagem.
 ```
-const checkAnswers = (rightAnswersList, studentAnswersList) => {
-  let score = 0;
-  let hits = 0;
-  for (let i = 0; i < rightAnswersList.length; i += 1) {
-    if (studentAnswersList[i] === 'N.A') { score = score }
-    else if (studentAnswersList[i] === rightAnswersList[i]) { score += 1; hits += 1 }
-    else if (studentAnswersList[i] !== rightAnswersList[i]) { score -= 0.5 }
-  }
-  return {
-    finalScore: `${score} points`,
-    finalHits: `${hits} right answers`
-  };
-}
+const checkAnswers = (rightAnswer, studentAnswer) => {
+  if (rightAnswer === studentAnswer) return 1;
+  if (studentAnswer === 'N.A') return 0;
+  return -0.5;
+;}
 
 const determineFinalResult = (rightAnswersList, studentAnswersList, callback) => {
-  return callback(rightAnswersList, studentAnswersList);
+  let score = 0;
+  for (let i = 0; i < rightAnswersList.length; i += 1) {
+    const check = callback(rightAnswersList[i], studentAnswersList[i]);
+    score += check;
+  }
+  return `Resultado final: ${score} pontos.`;
 }
 
 const rightAnswers = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
@@ -147,7 +144,7 @@ const setDragonAttackDamage = () => {
 ```
 const setWarriorAttackDamage = () => {
   const minDamage = warrior.strength;
-  const maxDamage = warrior.strength * warrior.weaponDmg
+  const maxDamage = warrior.strength * warrior.weaponDmg;
   const warriorDamage = Math.floor(Math.random() * (maxDamage - minDamage + 1) + minDamage);
   return warriorDamage;
 }
@@ -157,17 +154,19 @@ const setWarriorAttackDamage = () => {
 - O dano será um número aleatório entre o valor do atributo `intelligence` (dano mínimo) e o valor de `intelligence` * 2 (dano máximo).
 - A mana consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
 ```
-const setMageAttackDamage = () => {
-  let mageDamage = 0;
+const setMageAttackDamage = (mage) => {
+  const minDamage = mage.intelligence;
+  const maxDamage = mage.intelligence * 2;
+  const mageStats = {
+    manaSpent: 0,
+    attack: 'Não possui mana suficiente'
+  }
   if (mage.mana < 15) {
-    mageDamage = 0;
-    return 'Não possui mana suficiente';
+    return mageStats;
   } else {
-    mage.mana -= 15;
-    const minDamage = mage.intelligence;
-    const maxDamage = mage.intelligence * 2;
-    mageDamage = Math.floor(Math.random() * (maxDamage - minDamage + 1) + minDamage);
-    return mageDamage;
+    mageStats.attack = Math.floor(Math.random() * (maxDamage - minDamage + 1) + minDamage);
+    mageStats.manaSpent = 15;
+    return mageStats;
   }
 }
 ```
@@ -182,8 +181,10 @@ const gameActions = {
 ```
 const gameActions = {
   warriorTurn: (callback1) => {
-    warrior.damage = callback1();
-    dragon.healthPoints -= warrior.damage;
+    const warriorDamage = callback1(warrior);
+    warrior.damage = warriorDamage;
+    dragon.healthPoints -= warriorDamage;
+  },
 }
 ```
 
@@ -191,12 +192,17 @@ const gameActions = {
 ```
 const gameActions = {
   warriorTurn: (callback1) => {
-    warrior.damage = callback1();
-    dragon.healthPoints -= warrior.damage;
+    const warriorDamage = callback1(warrior);
+    warrior.damage = warriorDamage;
+    dragon.healthPoints -= warriorDamage;
   },
   mageTurn: (callback2) => {
-    mage.damage = callback2();
-    dragon.healthPoints -= mage.damage;
+    const mageStats = callback2(mage);
+    const mageDamage = mageStats.attack;
+    const mageMana = mageStats.manaSpent;
+    mage.damage = mageDamage;
+    mage.mana -= mageMana;
+    dragon.healthPoints -= mageDamage;
   },
 }
 ```
@@ -205,17 +211,23 @@ const gameActions = {
 ```
 const gameActions = {
   warriorTurn: (callback1) => {
-    warrior.damage = callback1();
-    dragon.healthPoints -= warrior.damage;
+    const warriorDamage = callback1(warrior);
+    warrior.damage = warriorDamage;
+    dragon.healthPoints -= warriorDamage;
   },
   mageTurn: (callback2) => {
-    mage.damage = callback2();
-    dragon.healthPoints -= mage.damage;
+    const mageStats = callback2(mage);
+    const mageDamage = mageStats.attack;
+    const mageMana = mageStats.manaSpent;
+    mage.damage = mageDamage;
+    mage.mana -= mageMana;
+    dragon.healthPoints -= mageDamage;
   },
   dragonTurn: (callback3) => {
-    dragon.damage = callback3();
-    warrior.healthPoints -= dragon.damage;
-    mage.healthPoints -= dragon.damage;
+    const dragonDamage = callback3(dragon);
+    dragon.damage = dragonDamage;
+    warrior.healthPoints -= dragonDamage;
+    mage.healthPoints -= dragonDamage;
   },
 }
 ```
@@ -224,17 +236,23 @@ const gameActions = {
 ```
 const gameActions = {
   warriorTurn: (callback1) => {
-    warrior.damage = callback1();
-    dragon.healthPoints -= warrior.damage;
+    const warriorDamage = callback1(warrior);
+    warrior.damage = warriorDamage;
+    dragon.healthPoints -= warriorDamage;
   },
   mageTurn: (callback2) => {
-    mage.damage = callback2();
-    dragon.healthPoints -= mage.damage;
+    const mageStats = callback2(mage);
+    const mageDamage = mageStats.attack;
+    const mageMana = mageStats.manaSpent;
+    mage.damage = mageDamage;
+    mage.mana -= mageMana;
+    dragon.healthPoints -= mageDamage;
   },
   dragonTurn: (callback3) => {
-    dragon.damage = callback3();
-    warrior.healthPoints -= dragon.damage;
-    mage.healthPoints -= dragon.damage;
+    const dragonDamage = callback3(dragon);
+    dragon.damage = dragonDamage;
+    warrior.healthPoints -= dragonDamage;
+    mage.healthPoints -= dragonDamage;
   },
   showStats: () => console.log(battleMembers),
 }

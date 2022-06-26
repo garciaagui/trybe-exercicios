@@ -20,47 +20,55 @@ const dragon = {
 
 const battleMembers = { mage, warrior, dragon };
 
-const setDragonAttackDamage = () => {
+const setDragonAttackDamage = (dragon) => {
   const minDamage = 15;
   const maxDamage = dragon.strength;
   const dragonDamage = Math.floor(Math.random() * (maxDamage - minDamage + 1) + minDamage);
   return dragonDamage;
 }
 
-const setWarriorAttackDamage = () => {
+const setWarriorAttackDamage = (warrior) => {
   const minDamage = warrior.strength;
-  const maxDamage = warrior.strength * warrior.weaponDmg
+  const maxDamage = warrior.strength * warrior.weaponDmg;
   const warriorDamage = Math.floor(Math.random() * (maxDamage - minDamage + 1) + minDamage);
   return warriorDamage;
 }
 
-const setMageAttackDamage = () => {
-  let mageDamage = 0;
+const setMageAttackDamage = (mage) => {
+  const minDamage = mage.intelligence;
+  const maxDamage = mage.intelligence * 2;
+  const mageStats = {
+    manaSpent: 0,
+    attack: 'Não possui mana suficiente'
+  }
   if (mage.mana < 15) {
-    mageDamage = 0;
-    return 'Não possui mana suficiente';
+    return mageStats;
   } else {
-    mage.mana -= 15;
-    const minDamage = mage.intelligence;
-    const maxDamage = mage.intelligence * 2;
-    mageDamage = Math.floor(Math.random() * (maxDamage - minDamage + 1) + minDamage);
-    return mageDamage;
+    mageStats.attack = Math.floor(Math.random() * (maxDamage - minDamage + 1) + minDamage);
+    mageStats.manaSpent = 15;
+    return mageStats;
   }
 }
 
 const gameActions = {
   warriorTurn: (callback1) => {
-    warrior.damage = callback1();
-    dragon.healthPoints -= warrior.damage;
+    const warriorDamage = callback1(warrior);
+    warrior.damage = warriorDamage;
+    dragon.healthPoints -= warriorDamage;
   },
   mageTurn: (callback2) => {
-    mage.damage = callback2();
-    dragon.healthPoints -= mage.damage;
+    const mageStats = callback2(mage);
+    const mageDamage = mageStats.attack;
+    const mageMana = mageStats.manaSpent;
+    mage.damage = mageDamage;
+    mage.mana -= mageMana;
+    dragon.healthPoints -= mageDamage;
   },
   dragonTurn: (callback3) => {
-    dragon.damage = callback3();
-    warrior.healthPoints -= dragon.damage;
-    mage.healthPoints -= dragon.damage;
+    const dragonDamage = callback3(dragon);
+    dragon.damage = dragonDamage;
+    warrior.healthPoints -= dragonDamage;
+    mage.healthPoints -= dragonDamage;
   },
   showStats: () => console.log(battleMembers),
 }
