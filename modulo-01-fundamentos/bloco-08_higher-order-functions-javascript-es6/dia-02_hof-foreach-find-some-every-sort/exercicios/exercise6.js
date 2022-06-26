@@ -61,6 +61,8 @@ const books = [
   },
 ];
 
-const anyBookWasReleasedOn80s = books.some((book) => book.releaseYear >= 1980 && book.releaseYear <= 1989);
+const anyBookWasReleasedOn80s = () => {
+  return books.some((book) => book.releaseYear >= 1980 && book.releaseYear <= 1989);
+}
 
-console.log(anyBookWasReleasedOn80s);
+console.log(anyBookWasReleasedOn80s());

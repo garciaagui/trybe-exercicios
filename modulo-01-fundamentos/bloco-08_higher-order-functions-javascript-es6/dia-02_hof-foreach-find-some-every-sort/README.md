@@ -204,7 +204,7 @@ console.log(firstAuthorBornIn1947);
 ## &#9989; Exercício 02
 - Retorne o nome do **livro de menor nome**.
 ```
-const smallestBookName = books.sort((a,b) => a.name.length - b.name.length)[0].name;
+const smallestBookName = books.sort((bookA, bookB) => bookA.name.length - bookB.name.length)[0].name;
 
 console.log(smallestBookName);
 ```
@@ -220,7 +220,7 @@ console.log(firstBookWith26Characters);
 ## &#9989; Exercício 04
 - Ordene os livros por **data de lançamento** em ordem **decrescente**.
 ```
-const booksByDecreasingReleaseDate = books.sort((a,b) => b.releaseYear - a.releaseYear);
+const booksByDecreasingReleaseDate = books.sort((bookA, bookB) => bookB.releaseYear - bookA.releaseYear);
 
 console.log(booksByDecreasingReleaseDate);
 ```
@@ -228,17 +228,21 @@ console.log(booksByDecreasingReleaseDate);
 ## &#9989; Exercício 05
 - Faça uma função que retorne true, se **todas as pessoas autoras nasceram no século XX**, ou false, caso contrário.
 ```
-const wasEveryAuthorBornOn20thCentury = books.every((book) => book.author.birthYear >= 1901 && book.author.birthYear <= 2000);
+const wasEveryAuthorBornOn20thCentury = () => {
+  return books.every((book) => book.author.birthYear >= 1901 && book.author.birthYear <= 2000);
+}
 
-console.log(wasEveryAuthorBornOn20thCentury);
+console.log(wasEveryAuthorBornOn20thCentury());
 ```
 
 ## &#9989; Exercício 06
 - Faça uma função que retorne true, se **algum livro foi lançado na década de 80**, e false, caso contrário.
 ```
-const anyBookWasReleasedOn80s = books.some((book) => book.releaseYear >= 1980 && book.releaseYear <= 1989);
+const anyBookWasReleasedOn80s = () => {
+  return books.some((book) => book.releaseYear >= 1980 && book.releaseYear <= 1989);
+}
 
-console.log(anyBookWasReleasedOn80s);
+console.log(anyBookWasReleasedOn80s());
 ```
 
 ## &#9989; Exercício 07
