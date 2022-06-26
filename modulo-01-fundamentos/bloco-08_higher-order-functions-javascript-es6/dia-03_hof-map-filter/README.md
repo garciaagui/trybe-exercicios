@@ -82,9 +82,7 @@ const authorList = books.map((book) => {
     age: (book.releaseYear - book.author.birthYear),
     author: book.author.name
   }
-});
-
-authorList.sort((a, b) => a.age - b.age);
+}).sort((authorA, authorB) => authorA.age - authorB.age);
 
 console.log(authorList);
 ```
@@ -102,7 +100,9 @@ console.log(fantasyAndSciFiList);
 ```
 const currentYear = new Date ().getFullYear();
 
-const sixtyYearsOldBookList = books.filter((book) => (currentYear - book.releaseYear) >= 60).sort((a, b) => a.releaseYear - b.releaseYear);
+const sixtyYearsOldBookList = books.filter((book) => (
+  currentYear - book.releaseYear) >= 60
+  ).sort((bookA, bookB) => bookA.releaseYear - bookB.releaseYear);
 
 console.log(sixtyYearsOldBookList);
 ```
@@ -110,7 +110,9 @@ console.log(sixtyYearsOldBookList);
 ## &#9989; Exercício 05
 - Crie um array em **ordem alfabética** apenas com os nomes de todas as pessoas **autoras de ficção científica ou fantasia**.
 ```
-const fantasyOrSciFiAuthorsList = books.filter((book) => (book.genre === 'Fantasia' || book.genre === 'Ficção Científica')).map((book) => book.author.name).sort();
+const fantasyOrSciFiAuthorsList = books.filter((book) => (
+  book.genre === 'Fantasia' || book.genre === 'Ficção Científica'
+  )).map((book) => book.author.name).sort();
 
 console.log(fantasyOrSciFiAuthorsList);
 ```
@@ -120,7 +122,9 @@ console.log(fantasyOrSciFiAuthorsList);
 ```
 const currentYear = new Date ().getFullYear();
 
-const sixtyYearsOldBookList = books.filter((book) => (currentYear - book.releaseYear) >= 60).map((book) => book.name);
+const sixtyYearsOldBookList = books.filter((book) => (
+  currentYear - book.releaseYear) >= 60
+  ).map((book) => book.name);
 
 console.log(sixtyYearsOldBookList);
 ```
