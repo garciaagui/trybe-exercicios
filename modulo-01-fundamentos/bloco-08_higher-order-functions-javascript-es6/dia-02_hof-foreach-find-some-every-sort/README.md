@@ -236,7 +236,9 @@ console.log(wasEveryAuthorBornOn20thCentury);
 ## &#9989; Exercício 06
 - Faça uma função que retorne true, se **algum livro foi lançado na década de 80**, e false, caso contrário.
 ```
+const anyBookWasReleasedOn80s = books.some((book) => book.releaseYear >= 1980 && book.releaseYear <= 1989);
 
+console.log(anyBookWasReleasedOn80s);
 ```
 
 ## &#9989; Exercício 07
