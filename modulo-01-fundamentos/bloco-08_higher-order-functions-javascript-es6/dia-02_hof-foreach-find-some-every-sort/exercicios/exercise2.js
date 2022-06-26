@@ -61,4 +61,6 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+const smallestBookName = books.sort((a,b) => a.name.length - b.name.length)[0].name;
+
+console.log(smallestBookName);

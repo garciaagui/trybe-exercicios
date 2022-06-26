@@ -204,7 +204,9 @@ console.log(firstAuthorBornIn1947);
 ## &#9989; Exercício 02
 - Retorne o nome do **livro de menor nome**.
 ```
+const smallestBookName = books.sort((a,b) => a.name.length - b.name.length)[0].name;
 
+console.log(smallestBookName);
 ```
 
 ## &#9989; Exercício 03
