@@ -212,7 +212,9 @@ console.log(smallestBookName);
 ## &#9989; Exercício 03
 - Encontre o **primeiro livro** cujo **nome possui 26 caracteres**.
 ```
+const firstBookWith26Characters = books.find((book) => book.name.length === 26).name;
 
+console.log(firstBookWith26Characters);
 ```
 
 ## &#9989; Exercício 04

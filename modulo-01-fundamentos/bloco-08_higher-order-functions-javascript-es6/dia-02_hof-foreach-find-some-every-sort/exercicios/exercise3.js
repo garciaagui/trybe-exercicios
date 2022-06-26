@@ -61,4 +61,6 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+const firstBookWith26Characters = books.find((book) => book.name.length === 26).name;
+
+console.log(firstBookWith26Characters);
