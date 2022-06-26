@@ -220,7 +220,9 @@ console.log(firstBookWith26Characters);
 ## &#9989; Exercício 04
 - Ordene os livros por **data de lançamento** em ordem **decrescente**.
 ```
+const booksByDecreasingReleaseDate = books.sort((a,b) => b.releaseYear - a.releaseYear);
 
+console.log(booksByDecreasingReleaseDate);
 ```
 
 ## &#9989; Exercício 05

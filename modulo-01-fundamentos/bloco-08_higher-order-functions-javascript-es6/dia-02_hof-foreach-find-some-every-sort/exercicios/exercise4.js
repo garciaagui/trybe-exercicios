@@ -61,4 +61,6 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+const booksByDecreasingReleaseDate = books.sort((a,b) => b.releaseYear - a.releaseYear);
+
+console.log(booksByDecreasingReleaseDate);
