@@ -38,27 +38,40 @@ const professionalBoard = [
   },
 ];
 
-console.log(Object.keys(professionalBoard[0]));
-
-const checkIdValidaty = (seekedId) => {
-  const professionalBoardValues = Object.values(professionalBoard);
-
-  for (let i = 0; i < professionalBoardValues.length; i += 1) {
-    if (professionalBoardValues[i].id === seekedId) return i;
+// Checagem da validade da ID
+const checkIdValidity = (id, dataBase) => {
+  for (i = 0; i < dataBase.length; i += 1) {
+    if (id === dataBase[i].id) {
+      return i;
+    }
   }
-  return 'id not found';
-}
+  return undefined;
+};
 
-const checkDetailValidaty = (seekedDetail) => {
-  const details = Object.keys(professionalBoard[0]);
-}
-
-// const checkDetailValidaty = (nestedObject, seekedDetail) => {
-//   const professionalBoardValues = Object.values(professionalBoard);
-//   const id = professionalBoardValues[nestedObject].id;
-// }
+// Checagem da disponibilidade da Informação/Detalhe
+const checkDetailAvailability = (detail, dataBase) => {
+  const dataBaseDetails = Object.keys(dataBase[0]);
+  for (i = 0; i < dataBaseDetails.length; i += 1) {
+    if (detail === dataBaseDetails[i]) {
+      return true;
+    }
+  }
+  return undefined;
+};
 
 // Pesquisa
-// const searchEmployee = (id, detail) => {
+const searchEmployee = (id, detail) => {
 
-// };
+  const IdValidity = checkIdValidity(id, professionalBoard);
+  if (IdValidity === undefined) return 'ID não identificada';
+
+  const position = IdValidity;
+  
+  const detailAvailability = checkDetailAvailability(detail, professionalBoard);
+  if (detailAvailability === undefined) return 'Informação indisponível'
+  
+  return professionalBoard[position][detail];
+
+};
+
+console.log(searchEmployee('9852-2-2', 'specialities'));
