@@ -61,4 +61,10 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+function longestNamedBook(array) {
+  return array.reduce((acc, curr) => {
+    return (acc.name.length > curr.name.length) ? acc : curr;
+  }, array[0]);
+};
+
+console.log(longestNamedBook(books));
