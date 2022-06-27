@@ -61,4 +61,10 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+function averageAge(acc, book) {
+  return (acc + (book.releaseYear - book.author.birthYear));
+} 
+
+const averageAuthorsAge = books.reduce(averageAge, 0)/books.length;
+
+console.log(averageAuthorsAge);
