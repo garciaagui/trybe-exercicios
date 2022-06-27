@@ -61,4 +61,13 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+function reduceNames(acc, book, index) {
+  if (index === (books.length - 1)) {
+    return `${acc} ${book.author.name}.`;
+  }
+  return `${acc} ${book.author.name},`;
+}
+
+const authorNames = books.reduce(reduceNames, '');
+
+console.log(authorNames);
