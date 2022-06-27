@@ -12,7 +12,13 @@ const arrays = [
 ```
 - Resposta:
 ```
+function flatten(acc, value) {
+  return acc.concat(value);
+}
 
+const newArray = arrays.reduce(flatten, [])
+
+console.log(newArray);
 ```
 
 ### - Para os Exercícios 02, 03 e 04 considere o seguinte array.
