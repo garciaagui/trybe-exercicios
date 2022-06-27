@@ -126,3 +126,23 @@ function longestNamedBook(array) {
 
 console.log(longestNamedBook(books));
 ```
+
+## &#9989; Exercício 05
+- Dada o array de nomes (abaixo), retorne a quantidade de vezes em que aparecem a letra a maiúscula ou minúscula.
+```
+const names = [
+  'Aanemarie', 'Adervandes', 'Akifusa',
+  'Abegildo', 'Adicellia', 'Aladonata',
+  'Abeladerco', 'Adieidy', 'Alarucha',
+];
+```
+- Resposta:
+```
+function containsA(array) {
+  return array.reduce((acc, curr) => {
+    return acc + (curr.toUpperCase().split('A').length - 1);
+  }, 0);
+}
+
+console.log(containsA(names));
+```

@@ -4,6 +4,10 @@ const names = [
   'Abeladerco', 'Adieidy', 'Alarucha',
 ];
 
-function containsA() {
-  // escreva seu código aqui
+function containsA(array) {
+  return array.reduce((acc, curr) => {
+    return acc + (curr.toUpperCase().split('A').length - 1);
+  }, 0);
 }
+
+console.log(containsA(names));
