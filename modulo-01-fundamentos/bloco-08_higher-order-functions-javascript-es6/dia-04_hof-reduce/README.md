@@ -1,5 +1,7 @@
 # &#9889; Atividades de Fixação & Exercícios | Bloco 08 - Dia 04
 
+### Todos os exercícios devem ser realizados utilizando `reduce`, e se necessário outra HOF, a informação será citada no enunciado.
+
 ## &#9989; Exercício 01
 - Dada a matriz abaixo, transforme em um array.
 ```
@@ -12,16 +14,16 @@ const arrays = [
 ```
 - Resposta:
 ```
-function flatten(acc, value) {
-  return acc.concat(value);
+function flatten(acc, curr) {
+  return acc.concat(curr);
 }
 
-const newArray = arrays.reduce(flatten, [])
+const flattenedArray = arrays.reduce(flatten, []);
 
-console.log(newArray);
+console.log(flattenedArray);
 ```
 
-### - Para os Exercícios 02, 03 e 04 considere o seguinte array.
+### Para os Exercícios 02, 03 e 04 considere o seguinte array.
 ```
 const books = [
   {
@@ -91,28 +93,28 @@ const books = [
 ## &#9989; Exercício 02
 - Crie uma string com os nomes de todas as pessoas autoras.
 ```
-function reduceNames(acc, book, index) {
-  if (index === (books.length - 1)) {
-    return `${acc} ${book.author.name}.`;
+function reduceNames(acc, curr, index, array) {
+  if (index === (array.length - 1)) {
+    return `${acc} ${curr.author.name}.`;
   }
-  return `${acc} ${book.author.name},`;
-}
+  return `${acc} ${curr.author.name},`;
+};
 
-const authorNames = books.reduce(reduceNames, '');
+const authorsNames = books.reduce(reduceNames, '').trim();
 
-console.log(authorNames);
+console.log(authorsNames);
 ```
 
 ## &#9989; Exercício 03
 - Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados.
 ```
-function averageAge(acc, book) {
-  return (acc + (book.releaseYear - book.author.birthYear));
+function sumAges(acc, curr) {
+  return (acc + (curr.releaseYear - curr.author.birthYear));
 } 
 
-const averageAuthorsAge = books.reduce(averageAge, 0)/books.length;
+const averageAge = books.reduce(sumAges, 0)/books.length;
 
-console.log(averageAuthorsAge);
+console.log(averageAge);
 ```
 
 ## &#9989; Exercício 04

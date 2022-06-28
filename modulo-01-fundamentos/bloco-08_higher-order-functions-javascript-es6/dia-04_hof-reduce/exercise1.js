@@ -4,10 +4,10 @@ const arrays = [
   [4, 5, 6],
 ];
 
-function flatten(acc, value) {
-  return acc.concat(value);
+function flatten(acc, curr) {
+  return acc.concat(curr);
 }
 
-const newArray = arrays.reduce(flatten, [])
+const flattenedArray = arrays.reduce(flatten, []);
 
-console.log(newArray);
+console.log(flattenedArray);

@@ -61,13 +61,13 @@ const books = [
   },
 ];
 
-function reduceNames(acc, book, index) {
-  if (index === (books.length - 1)) {
-    return `${acc} ${book.author.name}.`;
+function reduceNames(acc, curr, index, array) {
+  if (index === (array.length - 1)) {
+    return `${acc} ${curr.author.name}.`;
   }
-  return `${acc} ${book.author.name},`;
-}
+  return `${acc} ${curr.author.name},`;
+};
 
-const authorNames = books.reduce(reduceNames, '');
+const authorsNames = books.reduce(reduceNames, '').trim();
 
-console.log(authorNames);
+console.log(authorsNames);

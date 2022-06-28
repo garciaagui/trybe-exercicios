@@ -61,10 +61,10 @@ const books = [
   },
 ];
 
-function averageAge(acc, book) {
-  return (acc + (book.releaseYear - book.author.birthYear));
+function sumAges(acc, curr) {
+  return (acc + (curr.releaseYear - curr.author.birthYear));
 } 
 
-const averageAuthorsAge = books.reduce(averageAge, 0)/books.length;
+const averageAge = books.reduce(sumAges, 0)/books.length;
 
-console.log(averageAuthorsAge);
+console.log(averageAge);
