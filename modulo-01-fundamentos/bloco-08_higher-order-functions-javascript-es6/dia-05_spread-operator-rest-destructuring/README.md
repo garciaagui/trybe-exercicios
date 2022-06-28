@@ -30,13 +30,15 @@ const jobInfos = {
   squadInitials: 'RLL',
 };
 ```
-1. Precisamos criar um terceiro objeto, que terá os dados pessoais e os dados de cargo juntos. Para isso, utilize o `spread operator`.
+1. Precisamos criar um **terceiro objeto**, que terá os dados pessoais e os dados de cargo juntos. Para isso, utilize o `spread operator`.
 ```
+const fullProfile = {...user, ...jobInfos};
+```
+2. Com o objeto em mãos, imprima no console uma frase utilizando os dados do objeto criado anteriormente. Para isso, utilize a **desestruturação de objetos** em conjunto com `template literals`.
+```
+const { name, age, nationality, profession, squad, squadInitials } = fullProfile;
 
-```
-2. Com o objeto em mãos, imprima no console uma frase utilizando os dados do objeto criado anteriormente. Para isso, utilize a desestruturação de objetos em conjunto com `template literals`.
-```
-
+console.log(`Hello there! My name is ${name} and I'm ${age} years old. I'm ${nationality} and I work for ${squad} (${squadInitials}) as a ${profession}.`);
 ```
 
 ## &#9989; Atividades de Fixação - Parte III: Array Destructuring
