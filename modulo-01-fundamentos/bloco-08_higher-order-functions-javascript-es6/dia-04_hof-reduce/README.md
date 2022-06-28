@@ -146,3 +146,29 @@ function containsA(array) {
 
 console.log(containsA(names));
 ```
+
+## &#9989; Exercício 06
+- Agora vamos criar um novo array de objetos a partir das informações abaixo, onde cada objeto terá o formato `{ name: nome do aluno, average: media das notas }`. Para isso vamos assumir que a posição 0 de `notas` refere-se ao aluno na posição 0 de `alunos`, aqui além de `reduce` será necessário utilizar também a função `map`.
+```
+const students = ['Pedro Henrique', 'Miguel', 'Maria Clara'];
+const grades = [[9, 8, 10, 7, 5], [10, 9, 9, 10, 8], [10, 7, 10, 8, 9]];
+```
+- Resposta:
+```
+const averages = grades.map((grade) => {
+  return grade.reduce((acc, curr) => {
+    return acc + curr;
+  })/grade.length;
+});
+
+function studentAverage() {
+  return students.map((student, index) => {
+    return {
+      name: student,
+      average: averages[index]
+    };
+  });
+};
+
+console.log(studentAverage());
+```
