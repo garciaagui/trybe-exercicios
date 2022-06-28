@@ -3,7 +3,16 @@
 ## &#9989; Atividades de Fixação - Parte I: Spread Operator
 - Faça uma função chamada `fruitSalad` passando como parâmetro `specialFruit` e `additionalItens`, faça a função retornar uma lista única contendo todos os itens da nossa salada de frutas usando o `spread`.
 ```
+const specialFruit = ['maracujá', 'melancia', 'mexirica'];
 
+const additionalItens = ['chocolate', 'sorvete', 'leite condensado'];
+
+const fruitSalad = (fruit, additional) => {
+  const mixedItems = [...fruit, ...additional];
+  return mixedItems;
+};
+
+console.log(fruitSalad(specialFruit, additionalItens));
 ```
 
 ## &#9989; Atividades de Fixação - Parte II: Object Destructuring
