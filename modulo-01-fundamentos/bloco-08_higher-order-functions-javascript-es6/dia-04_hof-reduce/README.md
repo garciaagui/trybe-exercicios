@@ -10,7 +10,6 @@ const arrays = [
   [true],
   [4, 5, 6],
 ];
-
 ```
 - Resposta:
 ```
