@@ -42,7 +42,7 @@ console.log(`Hello there! My name is ${name} and I'm ${age} years old. I'm ${nat
 ```
 
 ## &#9989; Atividades de Fixação - Parte III: Array Destructuring
-1. Produza o mesmo resultado do código, porém utilizando o **array destructuring** para recolher a função e a saudação.
+1. Produza o mesmo resultado do código abaixo, porém utilizando o **array destructuring** para recolher a função e a saudação.
 ```
 const saudacoes = ['Olá', (saudacao) => console.log(saudacao)];
 
@@ -50,7 +50,9 @@ saudacoes[1](saudacoes[0]);
 ```
 - Resposta:
 ```
+const [greeting , print] = saudacoes;
 
+print(greeting);
 ```
 
 2. A seguir, temos alguns valores que estão descritos em variáveis incoerentes. Através da **desestruturação de arrays**, corrija os valores das variáveis.
@@ -61,7 +63,11 @@ let bebida = 'arroz';
 ```
 - Resposta:
 ```
+[comida, animal, bebida] = [bebida, comida, animal];
 
+console.log(`Variável comida: ${comida};
+Variável animal: ${animal};
+Variável bebida: ${bebida}.`);
 ```
 
 3. A array abaixo possui alguns números que não condizem com o conteúdo que ele deveria possuir. Através de **array destructuring**, faça com que existam apenas números pares na variável `numerosPares`.
@@ -70,7 +76,9 @@ let numerosPares = [1, 3, 5, 6, 8, 10, 12];
 ```
 - Resposta:
 ```
+const [odd1, odd2, odd3, ...restEvens] = numerosPares;
 
+console.log(restEvens);
 ```
 
 ## &#9989; Atividades de Fixação - Parte IV: Default Destructuring
