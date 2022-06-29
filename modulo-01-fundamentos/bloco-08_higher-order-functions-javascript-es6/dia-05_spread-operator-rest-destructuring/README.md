@@ -149,7 +149,9 @@ rectangles.forEach((rectangle) => {
 
 2. Crie uma função `sum` que dado um número variável de elementos retorna a soma desses elementos.
 ```
-
+const sum = (...args) => {
+  return args.reduce((acc, curr) => acc + curr, 0);
+};
 ```
 
 3. Escreva a função `personLikes`, que dado um objeto de parâmetro que representa uma pessoa, retorna todos os gostos daquela pessoa, conforme mostrado abaixo:
