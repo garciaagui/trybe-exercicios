@@ -122,7 +122,7 @@ const getPosition = (latitude, longitude) => ({
 ## &#9989; Atividades de Fixação - Parte VI: Default Parameters
 - Escreva uma função `multiply` que multiplique dois números passados como argumentos. Atribua como `default` o valor 1 caso não seja passado nenhum valor como segundo parâmetro.
 ```
-
+const multiply = (number1, number2 = 1) => number1 * number2;
 ```
 
 ## &#9989; Exercícios do Dia
