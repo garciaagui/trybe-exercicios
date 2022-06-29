@@ -100,8 +100,6 @@ const otherPerson = {
 - Resposta:
 ```
 const getNationality = ({ firstName, nationality = 'Brazilian'}) => `${firstName} is ${nationality}`;
-
-console.log(getNationality(person));
 ```
 
 ## &#9989; Atividades de Fixação - Parte V: Object Property Shorthand
@@ -115,7 +113,10 @@ console.log(getPosition(-19.8157, -43.9542));
 ```
 - Resposta:
 ```
-
+const getPosition = (latitude, longitude) => ({
+  latitude,
+  longitude,
+});
 ```
 
 ## &#9989; Atividades de Fixação - Parte VI: Default Parameters
