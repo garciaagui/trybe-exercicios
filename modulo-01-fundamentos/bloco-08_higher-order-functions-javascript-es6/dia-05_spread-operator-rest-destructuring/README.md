@@ -99,7 +99,9 @@ const otherPerson = {
 ```
 - Resposta:
 ```
+const getNationality = ({ firstName, nationality = 'Brazilian'}) => `${firstName} is ${nationality}`;
 
+console.log(getNationality(person));
 ```
 
 ## &#9989; Atividades de Fixação - Parte V: Object Property Shorthand
