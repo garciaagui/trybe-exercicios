@@ -126,7 +126,7 @@ const multiply = (number1, number2 = 1) => number1 * number2;
 ```
 
 ## &#9989; Exercícios do Dia
-1. Dado o código abaixo, complete-o de forma que seja impressa a área dos 3 retângulos. O código deve retornar em sequência 2, 15 e 54.
+1. Dado o código abaixo, complete-o de forma que seja impressa a área dos 3 retângulos. O código deve **retornar em sequência 2, 15 e 54**.
 ```
 const rectangleArea = (width, height) => width * height;
 
@@ -142,7 +142,9 @@ rectangles.forEach((rectangle) => {
 ```
 - Resposta:
 ```
-
+rectangles.forEach((rectangle) => {
+  console.log(rectangleArea(...rectangle));
+});
 ```
 
 2. Crie uma função `sum` que dado um número variável de elementos retorna a soma desses elementos.
