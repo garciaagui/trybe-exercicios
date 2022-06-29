@@ -178,7 +178,7 @@ console.log(personLikes(gunnar)); // 'Gunnar is 30 years old and likes hiking, s
 ```
 - Resposta:
 ```
-
+const personLikes = ({name, age, likes = ['to sleep']}) => `${name} is ${age} years old and likes ${likes.join(', ')}.`;
 ```
 
 4. Escreva uma função `filterPeople` que, dada uma lista de pessoas, retorna todas as pessoas australianas que nasceram no século 20:
