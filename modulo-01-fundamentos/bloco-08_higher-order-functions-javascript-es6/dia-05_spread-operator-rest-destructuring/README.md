@@ -294,5 +294,10 @@ const yearSeasons = {
 ```
 - Resposta:
 ```
-
+const yearMonths = () => {
+  const { spring, summer, autumn, winter } = yearSeasons;
+  [december, january, february ] = winter
+  const months = [january, february, ...spring, ...summer, ...autumn, december];
+  return months;
+}
 ```
