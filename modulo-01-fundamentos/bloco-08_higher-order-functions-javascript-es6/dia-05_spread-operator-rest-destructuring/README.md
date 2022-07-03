@@ -237,7 +237,14 @@ const chiron = ['Chiron', 'Bugatti', 2016];
 ```
 - Resposta:
 ```
-
+function toObject(carArray) {
+  const [ model, brand, year ] = carArray;
+  return {
+    model,
+    brand,
+    year,
+  }
+}
 ```
 
 7. Escreva uma função `shipLength` que, dado um objeto representando um navio, retorna o comprimento dele, mostrando também a devida unidade de comprimento:
