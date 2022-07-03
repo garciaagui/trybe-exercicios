@@ -1,6 +1,4 @@
-const greet = (personName, greeting = 'Hello') => {
-  return `${greeting}, ${personName}!`;
-}
+const greet = (personName, greeting = 'Hello') => `${greeting}, ${personName}!`;
 
 console.log(greet('John'));
 console.log(greet('John', 'Good morning'));

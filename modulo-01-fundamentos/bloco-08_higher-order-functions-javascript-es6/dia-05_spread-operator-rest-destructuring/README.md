@@ -214,8 +214,8 @@ const people = [
 - Resposta:
 ```
 const filterPeople = () => {
-  return people.filter(({bornIn}) => {
-    return (bornIn > 1900 && bornIn <= 2000);
+  return people.filter(({bornIn, nationality}) => {
+    return ((bornIn > 1900 && bornIn <= 2000) && (nationality === 'Australian'));
   });
 };
 ```
@@ -226,7 +226,7 @@ const myList = [1, 2, 3];
 ```
 - Resposta:
 ```
-const swap = (array) => [array[0], array[1], array[2]] = [array[2], array[1], array[0]];
+const swap = ([first, second, third]) => [third, second, first];
 ```
 
 6. Suponha que você esteja lidando com carros e, da forma como o problema lhe foi entregue, cada carro é modelado como um array. Porém, essa modelagem está baixo nível. Cria uma função `toObject` que, dada uma lista, retorna um objeto representando o carro:
@@ -269,17 +269,12 @@ const ships = [
 ```
 - Resposta:
 ```
-const shipLength = (shipInfoOject) => {
-  const { name, length, measurementUnit } = shipInfoOject;
-  return `${name} is ${length} ${measurementUnit} long`;
-}
+const shipLength = ({ name, length, measurementUnit }) => `${name} is ${length} ${measurementUnit} long`;
 ```
 
 8. Escreva uma função `greet` que, dado o nome de uma pessoa, retorna uma mensagem de cumprimento:
 ```
-const greet = (personName, greeting = 'Hello') => {
-  return `${greeting}, ${personName}!`;
-}
+const greet = (personName, greeting = 'Hello') => `${greeting}, ${personName}!`;
 ```
 
 9. Existe um objeto `yearSeasons` que representam as estações do ano. Cada estação é uma chave deste objeto e o valor de cada chave é um array de strings, representando os meses daquela estação. A partir deste objeto, desestruture as estações do ano e espalhe-as em um array de meses do ano.

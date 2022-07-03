@@ -16,10 +16,7 @@ const ships = [
   },
 ];
 
-const shipLength = (shipInfoOject) => {
-  const { name, length, measurementUnit } = shipInfoOject;
-  return `${name} is ${length} ${measurementUnit} long`;
-}
+const shipLength = ({ name, length, measurementUnit }) => `${name} is ${length} ${measurementUnit} long`;
 
 console.log(shipLength(ships[0]));
 console.log(shipLength(ships[1]));
