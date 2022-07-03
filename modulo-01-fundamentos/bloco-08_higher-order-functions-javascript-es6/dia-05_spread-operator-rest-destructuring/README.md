@@ -220,13 +220,13 @@ const filterPeople = () => {
 };
 ```
 
-5. Escreva a função `swap`, que dado um array de 3 elementos, retorna um novo array com o primeiro e terceiro elementos trocados. Detalhe: você precisa fazer essa função gastando 1 linha só:
+5. Escreva a função `swap`, que dado um **array de 3 elementos**, retorna um novo array com o primeiro e terceiro elementos trocados. Detalhe: você precisa fazer essa função gastando 1 linha só:
 ```
 const myList = [1, 2, 3];
 ```
 - Resposta:
 ```
-
+const swap = (array) => [array[0], array[1], array[2]] = [array[2], array[1], array[0]];
 ```
 
 6. Suponha que você esteja lidando com carros e, da forma como o problema lhe foi entregue, cada carro é modelado como um array. Porém, essa modelagem está baixo nível. Cria uma função `toObject` que, dada uma lista, retorna um objeto representando o carro:
