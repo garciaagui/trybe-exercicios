@@ -41,11 +41,8 @@ const professionalBoard = [
 // Checagem da validade da ID
 const checkIdValidity = (id) => {
   for (i = 0; i < professionalBoard.length; i += 1) {
-    if (id === professionalBoard[i].id) {
-      return i;
-    }
+    if (id === professionalBoard[i].id) return i;
   }
-  // return undefined;
   throw new Error('ID não identificada');
 };
 
@@ -53,11 +50,8 @@ const checkIdValidity = (id) => {
 const checkDetailAvailability = (detail) => {
   const dataBaseDetails = Object.keys(professionalBoard[0]);
   for (i = 0; i < dataBaseDetails.length; i += 1) {
-    if (detail === dataBaseDetails[i]) {
-      return true;
-    }
+    if (detail === dataBaseDetails[i]) return true;
   }
-  // return undefined;
   throw new Error('Informação indisponível');
 };
 
@@ -65,17 +59,13 @@ const checkDetailAvailability = (detail) => {
 const searchEmployee = (id, detail) => {
   try {
     const IdValidity = checkIdValidity(id, professionalBoard);
-    // if (IdValidity === undefined) return 'ID não identificada';
     const position = IdValidity;
     checkDetailAvailability(detail, professionalBoard);
-    // if (detailAvailability === undefined) return 'Informação indisponível';
     return professionalBoard[position][detail];
   }
   catch (error) {
     return error.message;
   }
 };
-
-console.log(searchEmployee('9852-2-2', 'specialities'));
 
 module.exports = { checkIdValidity, checkDetailAvailability, searchEmployee };
