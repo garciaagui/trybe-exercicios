@@ -77,3 +77,135 @@ const getUser = (callback) => {
 getUser(userFullName);
 getUser(userNationality);
 ```
+
+## &#9989; Exercício 01
+- Dado o código abaixo, qual a **ordem de finalização** de execução das linhas comentadas?
+```
+const planetDistanceFromSun = ({ name, distanceFromSun: { value, measurementUnit } }) =>
+  `${name} is ${value} ${measurementUnit} apart from the Sun`;
+
+const mars = {
+  name: "Mars",
+  distanceFromSun: {
+    value: 227900000,
+    measurementUnit: "kilometers",
+  },
+};
+
+const venus = {
+  name: "Venus",
+  distanceFromSun: {
+    value: 108200000,
+    measurementUnit: "kilometers",
+  },
+};
+
+const jupiter = {
+  name: "Jupiter",
+  distanceFromSun: {
+    value: 778500000,
+    measurementUnit: "kilometers",
+  },
+};
+
+// console.log(planetDistanceFromSun(mars));
+// console.log(planetDistanceFromSun(venus));
+// console.log(planetDistanceFromSun(jupiter));
+
+```
+- Resposta:
+```
+console.log(planetDistanceFromSun(mars)); // Primeira a ser finalizada;
+console.log(planetDistanceFromSun(venus)); // Segunda a ser finalizada;
+console.log(planetDistanceFromSun(jupiter)); // Terceira e última a ser finalizada;
+```
+
+## &#9989; Exercício 02
+- 
+```
+
+```
+- Resposta:
+```
+
+```
+
+## &#9989; Exercício 03
+- 
+```
+
+```
+- Resposta:
+```
+
+```
+
+## &#9989; Exercício 04
+- 
+```
+
+```
+- Resposta:
+```
+
+```
+
+## &#9989; Exercício 05
+- 
+```
+
+```
+- Resposta:
+```
+
+```
+
+## &#9989; Exercício 06
+- 
+```
+
+```
+- Resposta:
+```
+
+```
+
+## &#9989; Exercício 07
+- 
+```
+
+```
+- Resposta:
+```
+
+```
+
+## &#9989; Exercício 08
+- 
+```
+
+```
+- Resposta:
+```
+
+```
+
+## &#9989; Exercício 09
+- 
+```
+
+```
+- Resposta:
+```
+
+```
+
+## &#9989; Exercício 10
+- 
+```
+
+```
+- Resposta:
+```
+
+```
