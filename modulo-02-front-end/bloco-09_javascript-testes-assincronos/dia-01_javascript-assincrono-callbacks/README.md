@@ -377,13 +377,50 @@ getPokemonDetails(filterPokemon, showMessage);
 ```
 
 ## &#9989; Exercício 09
-- 
+- A fim de evitar que futuros treinadores sejam prejudicados, o Professor Carvalho pediu que você o ajude a escrever testes para o sistema que distribui os pokémons. Crie um novo arquivo `.test.js` ou `.spec.js` e copie o código abaixo. Complete os testes para a função `getPokemonDetails` de acordo com as especificações.
 ```
+describe("A função getPokemonDetails", () => {
+  it("retorna erro quando procuramos um pokemon que não existe no banco de dados", () => {
+    // Escreva aqui seu código
+  });
 
+  it("retorna um pokemon que existe no banco de dados", () => {
+    // Escreva aqui seu código
+  });
+});
 ```
 - Resposta:
 ```
-
+describe("A função getPokemonDetails", () => {
+  it("retorna erro quando procuramos um pokemon que não existe no banco de dados", (done) => {
+    const filter  = (pokemon) => pokemon.name === 'Pikachu';
+    const expectedError = new Error('Não temos esse pokémon para você :(');
+    getPokemonDetails(filter, (error, message) => {
+      try {
+        expect(message).toBeNull();
+        expect(error).toEqual(expectedError);
+        done();
+      }
+      catch (error) {
+        done(error);
+      }
+    })
+  });
+  
+  it("retorna um pokemon que existe no banco de dados", (done) => {
+    const filter  = (pokemon) => pokemon.name === 'Charmander';
+    getPokemonDetails(filter, (error, message) => {
+      try {
+        expect(message).toBe('Olá, seu pokémon é o Charmander, o tipo dele é Fire e a habilidade principal dele é Ember');
+        expect(error).toBeNull();
+        done();
+      }
+      catch (error) {
+        done(error);
+      }
+    })
+  });
+});
 ```
 
 ## &#9989; Exercício 10

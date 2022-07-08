@@ -39,7 +39,3 @@ function getPokemonDetails(filter, callback) {
 }
 
 getPokemonDetails(filterPokemon, showMessage);
-
-module.exports = {
-  getPokemonDetails,
-};
