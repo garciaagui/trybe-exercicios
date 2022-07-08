@@ -78,6 +78,55 @@ getUser(userFullName);
 getUser(userNationality);
 ```
 
+3. Adicione uma `callback` e trate o erro retornado.
+- A função `getCountry` abaixo tem **aproximadamente 50% de chance** em obter, com sucesso, um país. Ela utiliza uma `callback` para poder realizar qualquer operação sobre o país retornado.
+```
+const countryName = ({ name }) => console.log(`Returned country is ${name}`);
+const countryCurrency = ({ name, currency }) => console.log(`${name}'s currency is the ${currency}`);
+
+const delay = (maxMilliseconds = 5000) => Math.floor(Math.random() * maxMilliseconds);
+
+const printErrorMessage = (error) => console.log(`Error getting country: ${error}`);
+
+const getCountry = (onSuccess) => {
+  setTimeout(() => {
+    const didOperationSucceed = Math.random() >= 0.5;
+    if(didOperationSucceed) {
+      const country = {
+        name: "Brazil",
+        hdi: 0.759,
+        currency: "Real",
+      };
+      onSuccess(country);
+    } else {
+      const errorMessage = "Country could not be found";
+    }
+  }, delay());
+};
+```
+- Adicione um segundo parâmetro, que deve ser uma `callback`, na função `getCountry`;
+- Retorne essa `callback` na função `getCountry` de forma que **trate a mensagem de erro**.
+```
+const getCountry = (onSuccess, onError) => {
+  setTimeout(() => {
+    const didOperationSucceed = Math.random() >= 0.5;
+    if(didOperationSucceed) {
+      const country = {
+        name: "Brazil",
+        hdi: 0.759,
+        currency: "Real",
+      };
+      onSuccess(country);
+    } else {
+      onError("Country could not be found");
+    }
+  }, delay());
+};
+
+getCountry(countryName, printErrorMessage);
+getCountry(countryCurrency, printErrorMessage);
+```
+
 ## &#9989; Exercício 01
 - Dado o código abaixo, qual a **ordem de finalização** de execução das linhas comentadas?
 ```
