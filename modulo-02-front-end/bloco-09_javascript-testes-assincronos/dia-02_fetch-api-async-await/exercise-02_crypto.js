@@ -2,21 +2,30 @@
 const url = 'https://api.coincap.io/v2/assets';
 const list = document.getElementById('container-list');
 
-const fetchCrypto = () => {
-  fetch(url)
-    .then(response => response.json())
-    .then(info => {
-      list.innerHTML = `<ul> 
-      ${info.data
-        .reduce((htmlList, { rank, symbol, name, priceUsd }) => {
-        if (rank <= 10) {
-          const formattedPrice = parseFloat(priceUsd).toLocaleString('en-US', { minimumFractionDigits: 2, style: 'currency', currency: 'USD' });
-          htmlList += `<li>${name} (${symbol}): ${formattedPrice}</li>`;
-        }
-        return htmlList;
-        }, '')
-      } </ul>`;
-    })
+const formatCurrency = (value) => {
+  const format = { minimumFractionDigits: 2, style: 'currency', currency: 'USD' };
+  return value.toLocaleString('en-US', format);
+}
+
+const createListItems = (content) => {
+  return content.data.reduce((listItems, { rank, symbol, name, priceUsd }) => {
+    if (rank <= 10) {
+      listItems += `<li>${name} (${symbol}): ${formatCurrency(parseFloat(priceUsd))}</li>`;
+    }
+    return listItems;
+  }, '');
+}
+
+const fetchCrypto = async () => {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    list.innerHTML = createListItems(data);
+  }
+  catch(error) {
+    list.style.color = 'red';
+    list.innerHTML = error;
+  }
 }
 
 fetchCrypto();

@@ -14,24 +14,29 @@ const convertUSDtoBRL = async () => {
   } 
 }
 
-const createListItems = (array, currency) => {
-  return array.reduce((listItems, { rank, symbol, name, priceUsd }) => {
+const formatCurrency = (value) => {
+  const format = { minimumFractionDigits: 2, style: 'currency', currency: 'brl' };
+  return value.toLocaleString('pt-BR', format);
+}
+
+const createListItems = (content, currency) => {
+  return content.data.reduce((listItems, { rank, symbol, name, priceUsd }) => {
     if (rank <= 10) {
-      const formattedPrice = parseFloat(priceUsd*currency).toLocaleString('pt-BR', { minimumFractionDigits: 2, style: 'currency', currency: 'brl' });
-      listItems += `<li>${name} (${symbol}): ${formattedPrice}</li>`;
+      listItems += `<li>${name} (${symbol}): ${formatCurrency(parseFloat(priceUsd * currency))}</li>`;
     }
     return listItems;
-    }, '');
+  }, '');
 }
 
 const fetchCrypto = async () => {
   try {
     const brl = await convertUSDtoBRL()
-    await fetch(cryptoUrl)
-      .then(response => response.json())
-      .then(info => list.innerHTML = `<ul> ${createListItems(info.data, brl)} </ul>`);
+    const response = await fetch(cryptoUrl);
+    const data = await response.json();
+    list.innerHTML = createListItems(data, brl);
   }
-  catch (error) {
+  catch(error) {
+    list.style.color = 'red';
     list.innerHTML = error;
   }
 }
