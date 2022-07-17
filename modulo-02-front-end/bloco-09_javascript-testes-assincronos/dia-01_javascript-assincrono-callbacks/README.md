@@ -228,16 +228,14 @@ const getPlanet = () => {
 - Resposta:
 ```
 const getPlanet = () => {
-  setTimeout(() => {
-    const mars = {
-      name: "Mars",
-      distanceFromSun: {
-        value: 227900000,
-        measurementUnit: "kilometers",
-      },
-    };
-    console.log("Returned planet: ", mars);
-  }, 4000);
+  const mars = {
+    name: "Mars",
+    distanceFromSun: {
+      value: 227900000,
+      measurementUnit: "kilometers",
+    },
+  }
+  setTimeout(() => console.log("Returned planet: ", mars), 4000);
 };
 
 getPlanet();
@@ -321,7 +319,7 @@ const handleError = (errorReason) =>
 ```
 const sendMarsTemperature = (sucessCallback, errorCallback) => {
   setTimeout(() => {
-    const successProbability = Math.random() >= 0.6;
+    const successProbability = Math.random() <= 0.6;
     if (successProbability) {
       const temperature = getMarsTemperature();
       return sucessCallback(temperature);
@@ -400,13 +398,6 @@ getPokemonDetails();
 ```
 - Resposta:
 ```
-const filterPokemon = (pokemon) => pokemon.name === 'Charmander';
-
-const showMessage = (error, message) => {
-  if (error) console.log(error);
-  else console.log(message);
-}
-
 function getPokemonDetails(filter, callback) {
   setTimeout(() => {
     if (pokemons.find(filter) === undefined) {
@@ -420,6 +411,13 @@ function getPokemonDetails(filter, callback) {
 
     callback(null, messageFromProfOak);
   }, 2000);
+}
+
+const filterPokemon = (pokemon) => pokemon.name === 'Charmander';
+
+const showMessage = (error, message) => {
+  if (error) console.log(error);
+  else console.log(message);
 }
 
 getPokemonDetails(filterPokemon, showMessage);
@@ -489,12 +487,12 @@ describe('Scoped / Nested block', () => {
 ```
 - Resposta:
 ```
-// '1 - beforeEach' -> Antes do teste fora do describe;
-// '1 - test' -> Durante o teste fora do describe;
-// '1 - afterEach' -> Após o teste fora do describe;
-// '1 - beforeEach' -> Antes do teste dentro do describe;
-// '2 - beforeEach' -> Antes do teste dentro do describe;
-// '2 - test' -> Durante o teste dentro do describe;
-// '2 - afterEach' -> Após o teste dentro do describe;
-// '1 - afterEach' -> Após o teste dentro do describe;
+// '1 - beforeEach' -> Antes do teste FORA do describe;
+// '1 - test' -> Durante o teste FORA do describe;
+// '1 - afterEach' -> Após o teste FORA do describe;
+// '1 - beforeEach' -> Antes do teste DENTRO do describe;
+// '2 - beforeEach' -> Antes do teste DENTRO do describe;
+// '2 - test' -> Durante o teste DENTRO do describe;
+// '2 - afterEach' -> Após o teste DENTRO do describe;
+// '1 - afterEach' -> Após o teste DENTRO do describe;
 ```

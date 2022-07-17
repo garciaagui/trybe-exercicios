@@ -16,13 +16,6 @@ const pokemons = [
   },
 ];
 
-const filterPokemon = (pokemon) => pokemon.name === 'Charmander';
-
-const showMessage = (error, message) => {
-  if (error) console.log(error);
-  else console.log(message);
-}
-
 function getPokemonDetails(filter, callback) {
   setTimeout(() => {
     if (pokemons.find(filter) === undefined) {
@@ -36,6 +29,13 @@ function getPokemonDetails(filter, callback) {
 
     callback(null, messageFromProfOak);
   }, 2000);
+}
+
+const filterPokemon = (pokemon) => pokemon.name === 'Charmander';
+
+const showMessage = (error, message) => {
+  if (error) console.log(error);
+  else console.log(message);
 }
 
 getPokemonDetails(filterPokemon, showMessage);

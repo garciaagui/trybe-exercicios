@@ -18,7 +18,7 @@ const handleError = (errorReason) =>
 
 const sendMarsTemperature = (sucessCallback, errorCallback) => {
   setTimeout(() => {
-    const successProbability = Math.random() >= 0.6;
+    const successProbability = Math.random() <= 0.6;
     if (successProbability) {
       const temperature = getMarsTemperature();
       return sucessCallback(temperature);
