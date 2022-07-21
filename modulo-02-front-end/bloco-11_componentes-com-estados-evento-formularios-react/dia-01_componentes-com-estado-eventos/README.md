@@ -7,10 +7,14 @@
 ```
 import React, { Component } from 'react'
 
+function showMessage() {
+  console.log('Message')
+}
+
 class App extends Component {
   render() {
     return (
-      <button onClick={() => console.log('Message')}>Button</button>
+      <button onClick={showMessage}>Button</button>
     )
   }
 }
@@ -18,17 +22,21 @@ class App extends Component {
 export default App;
 ```
 
-2. Faça com que sua aplicação exiba **três botões** lado a lado com textos diferentes. Cada botão clicado deve acionar um evento diferente, cada um escrevendo algo diferente no console do navegador via console.log().
+2. Faça com que sua aplicação exiba **três botões** lado a lado com textos diferentes. **Cada botão clicado deve acionar um evento diferente**, cada um escrevendo algo diferente no console do navegador via `console.log()`.
 ```
 import React, { Component } from 'react'
+
+function showMessage(message) {
+  console.log(message)
+}
 
 class App extends Component {
   render() {
     return (
       <main>
-        <button onClick={() => console.log('First Message')}>Button 1</button>
-        <button onClick={() => console.log('Second Message')}>Button 2</button>
-        <button onClick={() => console.log('Third Message')}>Button 3</button>
+        <button onClick={() => showMessage('First Message')}>Button 1</button>
+        <button onClick={() => showMessage('Second Message')}>Button 2</button>
+        <button onClick={() => showMessage('Third Message')}>Button 3</button>
       </main> 
     )
   }

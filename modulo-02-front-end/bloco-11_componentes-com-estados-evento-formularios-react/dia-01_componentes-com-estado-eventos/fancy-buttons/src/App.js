@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 
+function showMessage(message) {
+  console.log(message)
+}
+
 class App extends Component {
   render() {
     return (
       <main>
-        <button onClick={() => console.log('First Message')}>Button 1</button>
-        <button onClick={() => console.log('Second Message')}>Button 2</button>
-        <button onClick={() => console.log('Third Message')}>Button 3</button>
+        <button onClick={() => showMessage('First Message')}>Button 1</button>
+        <button onClick={() => showMessage('Second Message')}>Button 2</button>
+        <button onClick={() => showMessage('Third Message')}>Button 3</button>
       </main> 
     )
   }
@@ -15,10 +19,15 @@ class App extends Component {
 export default App;
 
 // Passo 01
+// function showMessage() {
+//   console.log('Message')
+// }
+
 // class App extends Component {
 //   render() {
 //     return (
-//       <button onClick={() => console.log('Message')}>Button</button>
+//       <button onClick={showMessage}>Button</button>
 //     )
 //   }
 // }
+//
