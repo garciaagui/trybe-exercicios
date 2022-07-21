@@ -1,9 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
 const Task = (value) => {
   return (
-    <li>{value}</li>
+    <li key={value}>{value}</li>
   );
 }
 
@@ -14,6 +13,7 @@ function App() {
     <section>
         <h1>Lista de Tarefas</h1>
         <ul>{appointments.map((appointment) => Task(appointment))}</ul>
+        {/* {Task('Finalizar Projeto')} */}
     </section>
   )
 }
