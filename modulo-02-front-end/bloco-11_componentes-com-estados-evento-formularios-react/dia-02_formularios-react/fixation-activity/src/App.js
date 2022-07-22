@@ -1,8 +1,3 @@
-# &#9889; Atividades de Fixação & Exercícios | Bloco 11 - Dia 02
-
-## &#9989; Atividades de Fixação
-1. Crie um formulário com um campo `select`, dois `inputs` de tipo diferente, uma `textarea` e faça de **um deles um componente controlado**, ou seja, elementos do formulário controlados pelo Estado.
-```
 import React, { Component } from 'react'
 import './App.css'
 
@@ -56,4 +51,3 @@ class App extends Component {
 }
 
 export default App;
-```
