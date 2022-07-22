@@ -26,21 +26,98 @@ export default App;
 ```
 import React, { Component } from 'react'
 
-function showMessage(message) {
-  console.log(message)
+function showFirstMessage() {
+  console.log('First Message');
+}
+
+function showSecondMessage() {
+  console.log('Second Message');
+}
+
+function showThirdMessage() {
+  console.log('Third Message');
 }
 
 class App extends Component {
   render() {
     return (
       <main>
-        <button onClick={() => showMessage('First Message')}>Button 1</button>
-        <button onClick={() => showMessage('Second Message')}>Button 2</button>
-        <button onClick={() => showMessage('Third Message')}>Button 3</button>
+        <button onClick={showFirstMessage}>Button 1</button>
+        <button onClick={showSecondMessage}>Button 2</button>
+        <button onClick={showThirdMessage}>Button 3</button>
       </main> 
     )
   }
 }
 
 export default App;
+```
+
+3. Declare **dentro da classe** do seu componente dos exercícios de fixação acima a função que lida com o evento que antes era lidado por uma função do lado de fora da classe.
+```
+import React, { Component } from 'react'
+
+class App extends Component {
+
+  showFirstMessage() {
+    console.log('First Message');
+  }
+
+  showSecondMessage() {
+    console.log('Second Message');
+  }
+
+  showThirdMessage() {
+    console.log('Third Message');
+  }
+
+  render() {
+    return (
+      <main>
+        <button onClick={this.showFirstMessage}>Button 1</button>
+        <button onClick={this.showSecondMessage}>Button 2</button>
+        <button onClick={this.showThirdMessage}>Button 3</button>
+      </main> 
+    )
+  }
+}
+
+export default App;
+```
+
+4. Garanta acesso ao objeto `this` nas funções declaradas.
+```
+import React, { Component } from 'react'
+
+class App extends Component {
+
+  constructor(){
+    super();
+    this.showFirstMessage = this.showFirstMessage.bind(this);
+    this.showSecondMessage = this.showSecondMessage.bind(this);
+    this.showThirdMessage = this.showThirdMessage.bind(this);
+  }
+
+  showFirstMessage() {
+    console.log('First Message', this);
+  }
+
+  showSecondMessage() {
+    console.log('Second Message', this);
+  }
+
+  showThirdMessage() {
+    console.log('Third Message', this);
+  }
+
+  render() {
+    return (
+      <main>
+        <button onClick={this.showFirstMessage}>Button 1</button>
+        <button onClick={this.showSecondMessage}>Button 2</button>
+        <button onClick={this.showThirdMessage}>Button 3</button>
+      </main> 
+    )
+  }
+}
 ```
