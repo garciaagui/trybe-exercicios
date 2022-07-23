@@ -14,6 +14,7 @@
   
   export default App;
 ```
+
 1. Na pasta `src`, crie um arquivo chamado `About.js`. Em seguida, acesse o arquivo `About.js` e crie um componente que retorne um `h1` com o **seu nome** e um parágrafo `p` com uma **breve descrição** sobre você.
 ```
 import React, { Component } from "react";
@@ -31,6 +32,7 @@ class About extends Component {
 
 export default About
 ```
+
 2. Adicione dentro da função `render` do componente `About` o código abaixo. Após isso, faça os passos a seguir.
 - Adicione na array `skills` mais habilidades;
 - Adicione um `h2` com o título "Minhas Habilidades";
@@ -60,6 +62,7 @@ class About extends Component {
 
 export default About
 ```
+
 3. Importe o componente `About.js` em `App.js` de modo que ele seja renderizado na tela quando a aplicação for iniciada.
 ```
 import React from 'react';
@@ -167,14 +170,15 @@ import Header from './Header';
 
 function App() {
   return (
-    <body>
+    <main>
       <Header/>
-    </body>
+    </main>
   );
 }
 
 export default App;
 ```
+
 2. Na pasta `src`, crie um novo arquivo chamado `Content.jsx`, que representará o componente `Content`.
 - Dentro do arquivo `Content.jsx`, crie uma **classe React** chamada `Content`;
 - Ainda no arquivo `Content.jsx`, adicione o seguinte array:
@@ -240,7 +244,7 @@ const conteudos = [
 const showContent = (obj, key) => {
   const { conteudo, bloco, status } = obj;
   return (
-    <section key={key} className="content">
+    <section key={key} className="content-card">
       <span className="subject">O conteúdo é: {conteudo}</span><br/>
       <span>Status: {status}</span><br/>
       <span>Bloco: {bloco}</span>
@@ -266,15 +270,92 @@ import Content from './Content';
 
 function App() {
   return (
-    <body>
+    <main>
       <Header/>
       <Content/>
-    </body>
+    </main>
   );
 }
 
 export default App;
 ```
+
 3. Crie um novo arquivo `Footer.jsx` e, neste arquivo, crie uma **classe** chamada `Footer`.
 - A classe `Footer` deve renderizar uma tag `h1` com o texto "E isso é só o começo...".
-- Importe o componente Footer no app.js
+- Importe e renderize o componente `Footer` no `App.js`.
+```
+// Componente Footer
+import React from "react";
+
+class Footer extends React.Component {
+  render() {
+    return (
+      <h1 className='footer'>E isso é só o começo...</h1>
+    )
+  }
+}
+
+export default Footer
+```
+```
+// Componente App
+import './App.css';
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
+
+function App() {
+  return (
+    <main>
+      <Header/>
+      <Content/>
+      <Footer/>
+    </main>
+  );
+}
+
+export default App;
+```
+
+4. (BÔNUS) Estilize a aplicação. Para isso, adicione **classes** para estilização dos seus componentes de forma que cada conteúdo listado seja um Card.
+```
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 40px 0 0 40px;
+}
+
+.header {
+  color: rgb(0, 0, 46);
+  font-size: 2.5em;
+  margin-bottom: 50px;
+}
+
+.content-card {
+  background-color: grey;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  padding: 10px 0 10px 10px;
+  width: 23.7%;
+}
+
+.subject {
+  font-weight: 800;
+}
+
+.footer {
+  background-color: rgb(0, 0, 46);
+  bottom: 0;
+  color: white;
+  height: 50px;
+  margin: 0;
+  left: 0;
+  padding: 10px 0 0 40px;
+  position: fixed;
+  width: 100%;
+}
+```

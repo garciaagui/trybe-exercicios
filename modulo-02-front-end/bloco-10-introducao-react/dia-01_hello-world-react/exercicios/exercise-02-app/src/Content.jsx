@@ -26,7 +26,7 @@ const conteudos = [
 const showContent = (obj, key) => {
   const { conteudo, bloco, status } = obj;
   return (
-    <section key={key} className="content">
+    <section key={key} className="content-card">
       <span className="subject">O conteúdo é: {conteudo}</span><br/>
       <span>Status: {status}</span><br/>
       <span>Bloco: {bloco}</span>
