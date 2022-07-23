@@ -82,8 +82,7 @@ _"O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda
 - [ ] 9-4: _[Projeto - Carrinho de Compras]()_
 
 ##### Bloco 10: Introdução à React
-
-- [ ] 10-1: _'Hello, world!' no React!_
+- [X] 10-1: _'Hello, world!' no React!_
 - [X] 10-2: _Componentes React_
 - [ ] 10-3: _[Projeto - Sistema Solar]()_
 
