@@ -28,18 +28,22 @@ class App extends Component {
       <main>
         <h1>Formulário - Atividade de Fixação</h1>
         <form>
-          <div>
-            <label htmlFor="userName">
-              Nome do Usuário
-             <input type="text" id="userName" name="userName" value={this.state.userName} onChange={this.handleChange}/>
-            </label>
-          </div>
-          <div>
-            <label htmlFor="userEmail">
-              E-mail do Usuário
-              <input type="email" id="userEmail" name="userEmail" value={this.state.userEmail} onChange={this.handleChange}/>
-            </label>
-          </div>
+
+          <fieldset>
+            <div>
+              <label htmlFor="userName">
+                Nome do Usuário
+              <input type="text" id="userName" name="userName" value={this.state.userName} onChange={this.handleChange}/>
+              </label>
+            </div>
+            <div>
+              <label htmlFor="userEmail">
+                E-mail do Usuário
+                <input type="email" id="userEmail" name="userEmail" value={this.state.userEmail} onChange={this.handleChange}/>
+              </label>
+            </div>
+          </fieldset>
+
           <select name="userRegion" id="userRegion" value={this.state.userRegion} onChange={this.handleChange}>
             <option value="">-- Selecione a região do Brasil onde você mora --</option>
             <option value="Norte">Norte</option>
@@ -48,6 +52,7 @@ class App extends Component {
             <option value="Sudeste">Sudeste</option>
             <option value="Sul">Sul</option>
           </select>
+
           <label>Fale um pouco sobre você :)
             <textarea id="userInfo" name="userInfo" value={this.state.userInfo} onChange={this.handleChange}/>
           </label>
@@ -57,6 +62,14 @@ class App extends Component {
               <input name="userAge" id="userAge" type="checkbox" value={this.state.userInfo} onChange={this.handleChange}/>
             </label>
           </div>
+
+          <div>
+            <label htmlFor="userDoc">
+              Insira um documento de identificação
+              <input type="file" id="userDoc" name="userDoc"/>
+            </label>
+          </div>
+          
         </form>
       </main>
     );
