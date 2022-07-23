@@ -16,7 +16,7 @@ class Image extends React.Component {
 export default Image;
 ```
 1. Qual o nome do componente declarado acima?
-- Resposta: Image.
+- **Resposta**: Componente Image.
 2. Chame o componente `Image` dentro do componente `App`, de forma que seja mostrada [esta imagem](https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg), ou o texto "Cute cat staring", caso a imagem não consiga ser carregada.
 ```
 import React from 'react';
@@ -38,6 +38,7 @@ export default App;
 ## &#9989; Atividade de Fixação 02 - Composição de componentes
 - Considerando os componentes `Order` e `App` abaixo, realize as tarefas a seguir.
 ```
+// Componente Order
 import React from 'react';
 
 class Order extends React.Component {
@@ -55,6 +56,7 @@ class Order extends React.Component {
 export default Order;
 ```
 ```
+// Componente App
 import React from 'react';
 import './App.css';
 import Order from './Order';
@@ -93,7 +95,7 @@ class App extends React.Component {
 export default App;
 ```
 1. O que o componente `App` é em relação a Order?
-- Resposta: Pai.
+- **Resposta**: App é pai de Order.
 2. Complete o código acima de forma que os pedidos referentes aos produtos `headphone` e `energyDrink` sejam filhos de `App`.
 ```
 import React from 'react';
@@ -137,6 +139,7 @@ export default App;
 ## &#9989; Atividade de Fixação 03 - Lista de componentes e chaves
 - Considere os componentes `UserProfile` e `App` abaixo.
 ```
+// Componente UserProfile
 import React from 'react';
 import Image from './Image';
 
@@ -155,6 +158,7 @@ class UserProfile extends React.Component {
 export default UserProfile;
 ```
 ```
+// Componente App
 import React from 'react';
 import './App.css';
 import UserProfile from './UserProfile';
@@ -220,7 +224,7 @@ export default App;
 ```
 
 ## &#9989; Exercício do dia
-- Crie um novo projeto utilizando `npx create-react-app my-pokedex`;
+- Crie o projeto `my-pokedex` utilizando `npx create-react-app my-pokedex`;
 - Para realizar esse exercício, crie um arquivo chamado `data.js` no diretório `.src/` do projeto que você acabou de criar. Copie para esse arquivo o seguinte conteúdo:
 ```
 const pokemons = [
@@ -328,37 +332,39 @@ const pokemons = [
 export default pokemons;
 ```
 - Você vai implementar de forma simplificada uma **Pokedex**. A sua aplicação precisa mostrar todos os pokémons presentes no arquivo `data.js` e precisa ter ao menos dois componentes:
-  1. `Pokedex`: esse componente representa a enciclopédia de pokémons. Esse componente recebe como entrada uma lista de pokémons para serem mostrados na tela. Para cada um desses pokémons recebidos, Pokedex chama o componente citado abaixo (`Pokemon`).
-  2. `Pokemon`: como o próprio nome diz, esse componente representa um pokémon. Esse componente recebe como entrada um objeto que contém informações referentes a um pokémon específico. Esse componente precisa retornar as seguintes informações obrigatórias para serem mostradas para quem usar a aplicação, essas informações devem ser validadas utilizando **PropTypes**:
+  1. `Pokedex`: esse componente representa a enciclopédia de pokémons. Ele recebe como entrada uma lista de pokémons para serem mostrados na tela. Para cada um desses pokémons recebidos, `Pokedex` chama o componente `Pokemon`.
+  2. `Pokemon`: como o próprio nome diz, esse componente representa um pokémon. Ele recebe como entrada um objeto que contém informações referentes a um pokémon específico. Esse componente precisa retornar as seguintes informações obrigatórias para serem mostradas para quem usar a aplicação, todas validadas utilizando **PropTypes**:
       - Nome do pokemon;
       - Tipo do pokemon;
       - Peso médio do pokemon, acompanhado da unidade de medida usada;
       - Imagem do pokemon.
 ### Resposta...
-- Componente `Pokemon`:
 ```
+// Componente Pokemon
 import React from 'react';
 import PropTypes from 'prop-types';
 
 class Pokemon extends React.Component {
   render() {
-    const { value, measurementUnit } = this.props.averageWeight
+    const { pokemon } = this.props
+    const { name, type, averageWeight, image, moreInfo } = pokemon
+    const { value, measurementUnit } = averageWeight
     return (
       <section className='container-pokemon'>
-        <span className='title-pokemon'>{(this.props.name).toUpperCase()}</span>
+        <span className='title-pokemon'>{(name).toUpperCase()}</span>
         <section className='info-pokemon'>
           <span>
-            Type: <span className='value'>{this.props.type}</span>
+            <span className='type-info'>Type: </span>{type}
           </span>
           <span>
-            Average Weight: <span className='value'>{value}{measurementUnit}</span>
+            <span className='type-info'>Average Weight: </span>{value}{measurementUnit}
           </span>
-          <a href={this.props.moreInfo} target='_blank' rel='noreferrer'>
-            <span className='value'>Click for more Info</span>
+          <a href={moreInfo} target='_blank' rel='noreferrer'>
+            Click for more Info
           </a>
         </section>
         <section className='section-image'>
-          <img className='image-pokemon' src={this.props.image} alt={this.props.name} />
+          <img className='image-pokemon' src={image} alt={name} />
         </section>
       </section>
     )
@@ -366,35 +372,31 @@ class Pokemon extends React.Component {
 }
 
 Pokemon.propTypes = {
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  averageWeight: PropTypes.shape({
-    value: PropTypes.number,
-    measurementUnit: PropTypes.string,
-  }).isRequired,
-  image: PropTypes.string.isRequired,
-  moreInfo: PropTypes.string.isRequired,
-}
+  pokemon: PropTypes.shape({
+    name: PropTypes.string,
+    type: PropTypes.string,
+    averageWeight: PropTypes.shape({
+      value: PropTypes.number,
+      measurementUnit: PropTypes.string,
+    }),
+    image: PropTypes.string,
+    moreInfo: PropTypes.string,
+  })
+}.isRequired
 
 export default Pokemon;
 ```
-- Componente `Pokedex`:
 ```
+// Componente Pokedex
 import React from 'react';
 import Pokemon from './Pokemon';
-import data from '../data'
 
 class Pokedex extends React.Component {
   render() {
-    const pokemonsList = data;
+    const { pokemons } = this.props;
     return (
       <section className='container-pokedex'>
-        {pokemonsList.map(pokemon => <Pokemon key={pokemon.id} 
-        name={pokemon.name} 
-        type={pokemon.type} 
-        averageWeight={pokemon.averageWeight}
-        image={pokemon.image}
-        moreInfo={pokemon.moreInfo}/>)}
+        {pokemons.map(pokemon => <Pokemon key={ pokemon.id } pokemon={ pokemon }/>)}
       </section>
     )
   }
@@ -402,18 +404,19 @@ class Pokedex extends React.Component {
 
 export default Pokedex;
 ```
-- Componente `App`:
 ```
+// Componente App
 import React from 'react';
-import Pokedex from './Components/Pokedex'
 import './App.css';
+import pokemons from './data'
+import Pokedex from './components/Pokedex'
 
 class App extends React.Component {
   render() {
     return (
       <main>
         <h1 className='main-title'>POKEDEX</h1>
-        <Pokedex/>
+        <Pokedex pokemons={ pokemons }/>
       </main>
     )
   }
@@ -421,15 +424,18 @@ class App extends React.Component {
 
 export default App;
 ```
-- CSS:
 ```
+/* CSS */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .main-title {
-  text-align: center;
   font-size: 36px;
+  margin: 20px 0;
+  text-align: center;
 }
 
 .container-pokedex {
@@ -439,15 +445,15 @@ export default App;
 }
 
 .container-pokemon {
-  display: flex;
   background-color: white;
-  flex-wrap: wrap;
-  margin: 15px;
-  width: 500px;
-  height: 200px;
-  padding: 0 10px 0px 20px;
-  border-radius: 20px;
   border: 1px solid rgb(201, 201, 201);
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 200px;
+  margin: 15px;
+  padding: 0 10px 0px 20px;
+  width: 500px;
 }
 
 .title-pokemon {
@@ -460,25 +466,29 @@ export default App;
 
 .info-pokemon {
   display: flex;
+  color: rgb(37, 37, 37);
   flex-direction: column;
-  width: 60%;
-  max-height: 100%;
   font-size: 18px;
-  justify-content: space-evenly;
-  height: auto;
-  color: rgb(230, 59, 59);
   font-weight: 800;
+  height: auto;
+  justify-content: space-evenly;
+  max-height: 100%;
+  width: 60%;
 }
 
-.value {
+a {
   color: rgb(37, 37, 37);
 }
 
+.type-info {
+  color: rgb(230, 59, 59);
+}
+
 .section-image {
-  display: flex;
-  width: 40%;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 40%;
 }
 
 .image-pokemon {
