@@ -81,6 +81,14 @@ export default App;
 - Crie um novo projeto utilizando `npx create-react-app`. Após isso, crie uma **lista de tarefas** simples seguindo os passos abaixo.
 1. Insira a função `Task` a seguir **acima** do seu componente `App` dentro do arquivo `App.js`.
 ```
+const Task = (value) => {
+  return (
+    <li>{value}</li>
+  );
+}
+```
+- Resposta:
+```
 import React from 'react';
 
 const Task = (value) => {
@@ -97,7 +105,7 @@ function App() {
 export default App;
 ```
 
-2. Chame a função dentro do seu componente `App`. Insira o valor que você quiser.
+2. Chame a função dentro do seu componente `App` e insira uma tarefa qualquer.
 ```
 import React from 'react';
 
@@ -119,7 +127,7 @@ function App() {
 export default App;
 ```
 
-3. Por fim, crie uma array de compromissos e use a função `map` para que cada item do array apareça, como um **item de lista**, no seu componente `App`.
+3. Por fim, crie uma array de compromissos e use a função `map` para que cada item do array apareça como um **item de lista** no seu componente `App`.
 ```
 import React from 'react'
 
@@ -147,7 +155,7 @@ export default App;
 - Crie um novo projeto utilizando `npx create-react-app`.
 
 1. Na pasta `src`, crie um novo arquivo chamado `Header.jsx`, que representará o componente `Header`;
-- No arquivo `Header.jsx`, crie uma **classe React**, chamada `Header`. Essa classe deve renderizar uma tag `h1` com o texto 'Conteúdos de Front-End';
+- No arquivo `Header.jsx`, crie uma **classe React**, chamada `Header`. Essa classe deve renderizar uma tag `h1` com o texto "Conteúdos de Front-End";
 - Após isso, importe e renderize o componente `Header` no componente `App`.
 ```
 // Componente Header
