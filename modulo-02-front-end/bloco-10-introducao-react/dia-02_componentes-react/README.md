@@ -1,6 +1,6 @@
 # &#9889; Atividades de Fixação & Exercícios | Bloco 10 - Dia 02
 
-- As Atividades de Fixação foram realizadas a partir da aplicação "fixation-exercises-10-2", criada utilizando o comando `npm create-react-app`.
+- As Atividades de Fixação foram realizadas a partir da aplicação `fixation-exercises-10-2`, criada utilizando o comando `npm create-react-app`.
 
 ## &#9989; Atividade de Fixação 01 - Props
 - Crie um arquivo `Image.js` no diretório `src` do projeto e copie o código abaixo. Uma vez feito isso tudo, responda:
@@ -94,7 +94,7 @@ class App extends React.Component {
 
 export default App;
 ```
-1. O que o componente `App` é em relação a Order?
+1. O que o componente `App` é em relação a `Order`?
 - **Resposta**: App é pai de Order.
 2. Complete o código acima de forma que os pedidos referentes aos produtos `headphone` e `energyDrink` sejam filhos de `App`.
 ```
