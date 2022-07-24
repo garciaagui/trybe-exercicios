@@ -190,76 +190,85 @@ class App extends Component {
 
 4. Acrescente no seu formulário um `input` do tipo `file` apropriadamente.
  ```
-import React, { Component } from 'react'
-import './App.css'
+<form>
+  <div>
+    <label htmlFor="userName">
+      Nome do Usuário
+      <input type="text" id="userName" name="userName" value={this.state.userName} onChange={this.handleChange}/>
+    </label>
+  </div>
+  <div>
+    <label htmlFor="userEmail">
+      E-mail do Usuário
+      <input type="email" id="userEmail" name="userEmail" value={this.state.userEmail} onChange={this.handleChange}/>
+    </label>
+  </div>
+  <select name="userRegion" id="userRegion" value={this.state.userRegion} onChange={this.handleChange}>
+    <option value="">-- Selecione a região do Brasil onde você mora --</option>
+    <option value="Norte">Norte</option>
+    <option value="Nordeste">Nordeste</option>
+    <option value="Centro-Oeste">Centro-Oeste</option>
+    <option value="Sudeste">Sudeste</option>
+    <option value="Sul">Sul</option>
+  </select>
+  <label>Fale um pouco sobre você :)
+    <textarea id="userInfo" name="userInfo" value={this.state.userInfo} onChange={this.handleChange}/>
+  </label>
+  <div>
+    <label htmlFor="userAge">
+      Você é maior de 18 anos?
+      <input name="userAge" id="userAge" type="checkbox" value={this.state.userInfo} onChange={this.handleChange}/>
+    </label>
+  </div>
+  <div>
+    <label htmlFor="userDoc">
+      Insira um documento de identificação
+      <input type="file" id="userDoc" name="userDoc"/>
+    </label>
+  </div>
+</form>
+```
 
-class App extends Component {
-  constructor() {
-    super();
+5. Encapsule alguns dos seus campos num `fieldset`.
+```
+<form>
+  <fieldset>
+    <legend>Informações Pessoais</legend>
 
-    this.state = {
-      userName: '',
-      userEmail: '',
-      userRegion: '',
-      userInfo: '',
-      userAge: '',
-    }
-  }
+    <label className="flex-label" htmlFor="userName">
+      Nome
+      <input type="text" id="userName" name="userName" value={this.state.userName} onChange={this.handleChange}/>
+    </label>
 
-  handleChange = ({ target }) => {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value
+    <label className="flex-label" htmlFor="userEmail">
+      E-mail
+      <input type="email" id="userEmail" name="userEmail" value={this.state.userEmail} onChange={this.handleChange}/>
+    </label>
 
-    this.setState({
-      [name]: value
-    })
-  }
+    <select name="userRegion" id="userRegion" value={this.state.userRegion} onChange={this.handleChange}>
+      <option value="">-- Selecione a região do Brasil onde você mora --</option>
+      <option value="Norte">Norte</option>
+      <option value="Nordeste">Nordeste</option>
+      <option value="Centro-Oeste">Centro-Oeste</option>
+      <option value="Sudeste">Sudeste</option>
+      <option value="Sul">Sul</option>
+    </select>
 
-  render() {
-    return(
-      <main>
-        <h1>Formulário - Atividade de Fixação</h1>
-        <form>
-          <div>
-            <label htmlFor="userName">
-              Nome do Usuário
-             <input type="text" id="userName" name="userName" value={this.state.userName} onChange={this.handleChange}/>
-            </label>
-          </div>
-          <div>
-            <label htmlFor="userEmail">
-              E-mail do Usuário
-              <input type="email" id="userEmail" name="userEmail" value={this.state.userEmail} onChange={this.handleChange}/>
-            </label>
-          </div>
-          <select name="userRegion" id="userRegion" value={this.state.userRegion} onChange={this.handleChange}>
-            <option value="">-- Selecione a região do Brasil onde você mora --</option>
-            <option value="Norte">Norte</option>
-            <option value="Nordeste">Nordeste</option>
-            <option value="Centro-Oeste">Centro-Oeste</option>
-            <option value="Sudeste">Sudeste</option>
-            <option value="Sul">Sul</option>
-          </select>
-          <label>Fale um pouco sobre você :)
-            <textarea id="userInfo" name="userInfo" value={this.state.userInfo} onChange={this.handleChange}/>
-          </label>
-          <div>
-            <label htmlFor="userAge">
-              Você é maior de 18 anos?
-              <input name="userAge" id="userAge" type="checkbox" value={this.state.userInfo} onChange={this.handleChange}/>
-            </label>
-          </div>
-          <div>
-            <label htmlFor="userDoc">
-              Insira um documento de identificação
-              <input type="file" id="userDoc" name="userDoc"/>
-            </label>
-          </div>
-        </form>
-      </main>
-    );
-  }
-}
+    <label className="flex-label">
+      Fale um pouco sobre você :)
+      <textarea id="userInfo" name="userInfo" value={this.state.userInfo} onChange={this.handleChange}/>
+    </label>
 
-export default App;
+    <label htmlFor="userAge">
+      Clique no checkbox ao lado se você for maior de 18 anos:
+      <input name="userAge" id="userAge" type="checkbox" value={this.state.userAge} onChange={this.handleChange}/>
+    </label>
+
+    <label className="flex-label" htmlFor="userDoc">
+      Insira um documento de identificação
+      <input type="file" id="userDoc" name="userDoc"/>
+    </label>
+  </fieldset>
+
+</form>
 ```
