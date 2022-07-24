@@ -1,32 +1,46 @@
 import React, { Component } from 'react'
+import "./App.css"
 
 class App extends Component {
   
   constructor(){
     super();
-    this.showFirstMessage = this.showFirstMessage.bind(this);
-    this.showSecondMessage = this.showSecondMessage.bind(this);
-    this.showThirdMessage = this.showThirdMessage.bind(this);
+
+    this.state = {
+      firstBtnClicks: 0,
+      secondBtnClicks: 0,
+      thirdBtnClicks: 0,
+    }
+
+    this.countFirstButtonClicks = this.countFirstButtonClicks.bind(this);
+    this.countSecondButtonClicks = this.countSecondButtonClicks.bind(this);
+    this.countThirdButtonClicks = this.countThirdButtonClicks.bind(this);
   }
 
-  showFirstMessage() {
-    console.log('First Message', this);
+  countFirstButtonClicks() {
+    this.setState((prevState) => ({
+      firstBtnClicks: prevState.firstBtnClicks + 1
+    }))
   }
 
-  showSecondMessage() {
-    console.log('Second Message', this);
+  countSecondButtonClicks() {
+    this.setState((prevState) => ({
+      secondBtnClicks: prevState.secondBtnClicks + 1
+    }))
   }
 
-  showThirdMessage() {
-    console.log('Third Message', this);
+  countThirdButtonClicks() {
+    this.setState((prevState) => ({
+      thirdBtnClicks: prevState.thirdBtnClicks + 1
+    }))
   }
 
   render() {
     return (
       <main>
-        <button onClick={this.showFirstMessage}>Button 1</button>
-        <button onClick={this.showSecondMessage}>Button 2</button>
-        <button onClick={this.showThirdMessage}>Button 3</button>
+        <button onClick={this.countFirstButtonClicks}>Button 1</button>
+        <button onClick={this.countSecondButtonClicks}>Button 2</button>
+        <button onClick={this.countThirdButtonClicks}>Button 3</button>
       </main> 
     )
   }
@@ -34,7 +48,7 @@ class App extends Component {
 
 export default App;
 
-// Passo 01
+// PASSO 01
 // function showMessage() {
 //   console.log('Message')
 // }
@@ -47,7 +61,7 @@ export default App;
 //   }
 // }
 
-// Passo 02
+// PASSO 02
 // function showFirstMessage() {
 //   console.log('First Message');
 // }
@@ -93,4 +107,37 @@ export default App;
 //       <button onClick={this.showThirdMessage}>Button 3</button>
 //     </main> 
 //   )
+// }
+//
+// PASS 04
+// class App extends Component {
+  
+//   constructor(){
+//     super();
+//     this.showFirstMessage = this.showFirstMessage.bind(this);
+//     this.showSecondMessage = this.showSecondMessage.bind(this);
+//     this.showThirdMessage = this.showThirdMessage.bind(this);
+//   }
+
+//   showFirstMessage() {
+//     console.log('First Message', this);
+//   }
+
+//   showSecondMessage() {
+//     console.log('Second Message', this);
+//   }
+
+//   showThirdMessage() {
+//     console.log('Third Message', this);
+//   }
+
+//   render() {
+//     return (
+//       <main>
+//         <button onClick={this.showFirstMessage}>Button 1</button>
+//         <button onClick={this.showSecondMessage}>Button 2</button>
+//         <button onClick={this.showThirdMessage}>Button 3</button>
+//       </main> 
+//     )
+//   }
 // }

@@ -121,3 +121,126 @@ class App extends Component {
   }
 }
 ```
+
+5. Converta a aplicação para uma que **conta o número de cliques dado em cada botão**! Primeiramente, **defina um estado inicial** para a contagem de cada botão.
+```  
+constructor(){
+  super();
+
+  this.state = {
+    firstBtnClicks: 0,
+    secondBtnClicks: 0,
+    thirdBtnClicks: 0,
+  }
+
+  this.countFirstButtonClicks = this.countFirstButtonClicks.bind(this);
+  this.countSecondButtonClicks = this.countSecondButtonClicks.bind(this);
+  this.countThirdButtonClicks = this.countThirdButtonClicks.bind(this);
+}
+```
+
+6. Agora, quando um botão for clicado, altere de forma assíncrona o **estado deste botão de zero para um**.
+```
+import React, { Component } from 'react'
+import "./App.css"
+
+class App extends Component {
+  
+  constructor(){
+    super();
+
+    this.state = {
+      firstBtnClicks: 0,
+      secondBtnClicks: 0,
+      thirdBtnClicks: 0,
+    }
+
+    this.countFirstButtonClicks = this.countFirstButtonClicks.bind(this);
+    this.countSecondButtonClicks = this.countSecondButtonClicks.bind(this);
+    this.countThirdButtonClicks = this.countThirdButtonClicks.bind(this);
+  }
+
+  countFirstButtonClicks() {
+    this.setState((prevState) => ({
+      firstBtnClicks: 1
+    }))
+  }
+
+  countSecondButtonClicks() {
+    this.setState((prevState) => ({
+      secondBtnClicks: 1
+    }))
+  }
+
+  countThirdButtonClicks() {
+    this.setState((prevState) => ({
+      thirdBtnClicks: 1
+    }))
+  }
+
+  render() {
+    return (
+      <main>
+        <button onClick={this.countFirstButtonClicks}>Button 1</button>
+        <button onClick={this.countSecondButtonClicks}>Button 2</button>
+        <button onClick={this.countThirdButtonClicks}>Button 3</button>
+      </main> 
+    )
+  }
+}
+
+export default App;
+```
+
+7. Por fim, baseie-se no estado anterior ao atual para **incrementar a contagem de cliques** cada vez que um botão for clicado!
+```
+import React, { Component } from 'react'
+import "./App.css"
+
+class App extends Component {
+  
+  constructor(){
+    super();
+
+    this.state = {
+      firstBtnClicks: 0,
+      secondBtnClicks: 0,
+      thirdBtnClicks: 0,
+    }
+
+    this.countFirstButtonClicks = this.countFirstButtonClicks.bind(this);
+    this.countSecondButtonClicks = this.countSecondButtonClicks.bind(this);
+    this.countThirdButtonClicks = this.countThirdButtonClicks.bind(this);
+  }
+
+  countFirstButtonClicks() {
+    this.setState((prevState) => ({
+      firstBtnClicks: prevState.firstBtnClicks + 1
+    }))
+  }
+
+  countSecondButtonClicks() {
+    this.setState((prevState) => ({
+      secondBtnClicks: prevState.secondBtnClicks + 1
+    }))
+  }
+
+  countThirdButtonClicks() {
+    this.setState((prevState) => ({
+      thirdBtnClicks: prevState.thirdBtnClicks + 1
+    }))
+  }
+
+  render() {
+    return (
+      <main>
+        <button onClick={this.countFirstButtonClicks}>Button 1</button>
+        <button onClick={this.countSecondButtonClicks}>Button 2</button>
+        <button onClick={this.countThirdButtonClicks}>Button 3</button>
+      </main> 
+    )
+  }
+}
+
+export default App;
+```
