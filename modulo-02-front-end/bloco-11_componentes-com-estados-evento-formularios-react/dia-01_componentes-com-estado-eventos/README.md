@@ -244,3 +244,85 @@ class App extends Component {
 
 export default App;
 ```
+
+8. Defina uma lógica que estabeleça que, quando o número de cliques no botão for par, ele deve ser **verde**.
+```
+import React, { Component } from 'react'
+import "./App.css"
+
+class App extends Component {
+  
+  constructor(){
+    super();
+
+    this.state = {
+      firstBtnClicks: 0,
+      secondBtnClicks: 0,
+      thirdBtnClicks: 0,
+    }
+
+    this.countFirstButtonClicks = this.countFirstButtonClicks.bind(this);
+    this.countSecondButtonClicks = this.countSecondButtonClicks.bind(this);
+    this.countThirdButtonClicks = this.countThirdButtonClicks.bind(this);
+  }
+
+  changeButtonColor = (state, button) => {
+    if(state % 2 === 0) {
+      button.style.backgroundColor = 'green';
+    } else {
+      button.style.backgroundColor = 'white';
+    }
+  }
+
+  countFirstButtonClicks() {
+    this.setState((prevState) => ({
+      firstBtnClicks: prevState.firstBtnClicks + 1
+    }), () => {
+      const firstBtn = document.querySelector('.first-btn');
+      this.changeButtonColor(this.state.firstBtnClicks, firstBtn);
+    })
+  }
+
+  countSecondButtonClicks() {
+    this.setState((prevState) => ({
+      secondBtnClicks: prevState.secondBtnClicks + 1
+    }), () => {
+      const secondBtn = document.querySelector('.second-btn');
+      this.changeButtonColor(this.state.secondBtnClicks, secondBtn);
+    })
+  }
+
+  countThirdButtonClicks() {
+    this.setState((prevState) => ({
+      thirdBtnClicks: prevState.thirdBtnClicks + 1
+    }), () => {
+      const thirdBtn = document.querySelector('.third-btn');
+      this.changeButtonColor(this.state.thirdBtnClicks, thirdBtn);
+    })
+  }
+
+  render() {
+    return (
+      <main>
+        <button className="first-btn" onClick={this.countFirstButtonClicks}>Button 1</button>
+        <button className="second-btn" onClick={this.countSecondButtonClicks}>Button 2</button>
+        <button className="third-btn" onClick={this.countThirdButtonClicks}>Button 3</button>
+      </main> 
+    )
+  }
+}
+
+export default App;
+```
+
+9. A cor atual do botão deve ser impressa num `console.log()` de dentro da função do evento que lida com o clique.
+```
+changeButtonColor = (state, button) => {
+  if(state % 2 === 0) {
+    button.style.backgroundColor = 'green';
+  } else {
+    button.style.backgroundColor = 'white';
+  }
+  return console.log(button.style.backgroundColor);
+}
+```

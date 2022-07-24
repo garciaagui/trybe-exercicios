@@ -17,30 +17,48 @@ class App extends Component {
     this.countThirdButtonClicks = this.countThirdButtonClicks.bind(this);
   }
 
+  changeButtonColor = (state, button) => {
+    if(state % 2 === 0) {
+      button.style.backgroundColor = 'green';
+    } else {
+      button.style.backgroundColor = 'white';
+    }
+    return console.log(button.style.backgroundColor);
+  }
+
   countFirstButtonClicks() {
     this.setState((prevState) => ({
       firstBtnClicks: prevState.firstBtnClicks + 1
-    }))
+    }), () => {
+      const firstBtn = document.querySelector('.first-btn');
+      this.changeButtonColor(this.state.firstBtnClicks, firstBtn);
+    })
   }
 
   countSecondButtonClicks() {
     this.setState((prevState) => ({
       secondBtnClicks: prevState.secondBtnClicks + 1
-    }))
+    }), () => {
+      const secondBtn = document.querySelector('.second-btn');
+      this.changeButtonColor(this.state.secondBtnClicks, secondBtn);
+    })
   }
 
   countThirdButtonClicks() {
     this.setState((prevState) => ({
       thirdBtnClicks: prevState.thirdBtnClicks + 1
-    }))
+    }), () => {
+      const thirdBtn = document.querySelector('.third-btn');
+      this.changeButtonColor(this.state.thirdBtnClicks, thirdBtn);
+    })
   }
 
   render() {
     return (
       <main>
-        <button onClick={this.countFirstButtonClicks}>Button 1</button>
-        <button onClick={this.countSecondButtonClicks}>Button 2</button>
-        <button onClick={this.countThirdButtonClicks}>Button 3</button>
+        <button className="first-btn" onClick={this.countFirstButtonClicks}>Button 1</button>
+        <button className="second-btn" onClick={this.countSecondButtonClicks}>Button 2</button>
+        <button className="third-btn" onClick={this.countThirdButtonClicks}>Button 3</button>
       </main> 
     )
   }
