@@ -30,3 +30,9 @@ input, textarea {
 #userRegion, #userAge {
   margin-bottom: 20px;
 }
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 2px;
+}

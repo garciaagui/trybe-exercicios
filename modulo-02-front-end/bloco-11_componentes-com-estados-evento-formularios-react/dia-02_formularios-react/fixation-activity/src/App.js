@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
+import Select from './components/Select';
+import Textarea from './components/Textarea';
 
 class App extends Component {
   constructor() {
@@ -24,6 +26,9 @@ class App extends Component {
   }
 
   render() {
+
+    const { userName, userEmail, userRegion, userInfo, userAge } = this.state;
+    
     return(
       <main>
         <h1>Formulário - Atividade de Fixação</h1>
@@ -33,31 +38,20 @@ class App extends Component {
 
             <label className="flex-label" htmlFor="userName">
               Nome
-              <input type="text" id="userName" name="userName" value={this.state.userName} onChange={this.handleChange}/>
+              <input type="text" id="userName" name="userName" value={userName} onChange={this.handleChange}/>
             </label>
 
             <label className="flex-label" htmlFor="userEmail">
               E-mail
-              <input type="email" id="userEmail" name="userEmail" value={this.state.userEmail} onChange={this.handleChange}/>
+              <input type="email" id="userEmail" name="userEmail" value={userEmail} onChange={this.handleChange}/>
             </label>
 
-            <select name="userRegion" id="userRegion" value={this.state.userRegion} onChange={this.handleChange}>
-              <option value="">-- Selecione a região do Brasil onde você mora --</option>
-              <option value="Norte">Norte</option>
-              <option value="Nordeste">Nordeste</option>
-              <option value="Centro-Oeste">Centro-Oeste</option>
-              <option value="Sudeste">Sudeste</option>
-              <option value="Sul">Sul</option>
-            </select>
-
-            <label className="flex-label">
-              Fale um pouco sobre você :)
-              <textarea id="userInfo" name="userInfo" value={this.state.userInfo} onChange={this.handleChange}/>
-            </label>
+            <Select stateValue={userRegion} handleFunction={this.handleChange} /> 
+            <Textarea stateValue={userInfo} handleFunction={this.handleChange} />
 
             <label htmlFor="userAge">
               Clique no checkbox ao lado se você for maior de 18 anos:
-              <input name="userAge" id="userAge" type="checkbox" value={this.state.userAge} onChange={this.handleChange}/>
+              <input name="userAge" id="userAge" type="checkbox" value={userAge} onChange={this.handleChange}/>
             </label>
 
             <label className="flex-label" htmlFor="userDoc">
