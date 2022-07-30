@@ -272,3 +272,5 @@ class App extends Component {
 
 </form>
 ```
+
+## &#9989; Exercício do Dia
