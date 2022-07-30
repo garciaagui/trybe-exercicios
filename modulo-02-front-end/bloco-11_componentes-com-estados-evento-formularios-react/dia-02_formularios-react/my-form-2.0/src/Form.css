@@ -1,0 +1,16 @@
+main {
+  margin: auto;
+  width: 70%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
