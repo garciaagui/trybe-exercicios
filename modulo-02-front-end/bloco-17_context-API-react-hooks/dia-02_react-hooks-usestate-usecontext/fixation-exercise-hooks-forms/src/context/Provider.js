@@ -6,6 +6,7 @@ function Provider({ children }) {
   const [age, setAge] = useState('');
   const [city, setCity] = useState('');
   const [module, setModule] = useState('');
+  const [data, setData] = useState([]);
 
   const contextValue = {
     name,
@@ -16,6 +17,8 @@ function Provider({ children }) {
     setCity,
     module,
     setModule,
+    data,
+    setData,
   };
 
   return (

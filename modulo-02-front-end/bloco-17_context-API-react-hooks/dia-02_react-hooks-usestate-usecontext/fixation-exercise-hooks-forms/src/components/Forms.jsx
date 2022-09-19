@@ -11,7 +11,9 @@ function Forms() {
     city,
     setCity,
     module,
-    setModule } = useContext(FormsContext)
+    setModule,
+    data,
+    setData } = useContext(FormsContext)
 
   return (
     <form>
@@ -95,7 +97,19 @@ function Forms() {
         </label>
       </fieldset>
 
-      <button type="submit">Enviar</button>
+      <button 
+        type="submit"
+        onClick={(event) => {
+          event.preventDefault();
+          setData(data.concat({name, age, city, module}))
+          setName('');
+          setAge('');
+          setCity('');
+          setModule('');
+        } }
+      >
+        Enviar
+      </button>
 
     </form>
   );
