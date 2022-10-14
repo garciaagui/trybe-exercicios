@@ -3,9 +3,9 @@
 ## Exercício 01 - Missão Trybe
 
 #### 1. Crie um arquivo HTML chamado `missao_trybe.html` que tenha a estrutura abaixo.
-- Tag <title> com o seguinte texto “Trybe”;
-- Tag <H1> com o seguinte texto “Missão da Trybe”;
-- Tag <p> com o seguinte texto “Gerar oportunidade para pessoas”;
+- Tag `<title>` com o seguinte texto “Trybe”;
+- Tag `<h1>` com o seguinte texto “Missão da Trybe”;
+- Tag `<p>` com o seguinte texto “Gerar oportunidade para pessoas”;
 - Salve o arquivo em qualquer lugar da sua máquina com a extensão html.
 ```
 <!DOCTYPE html>
