@@ -1,21 +1,27 @@
 # &#9889; Atividades de Fixação & Exercícios | Bloco 19 - Dia 02 (Seção 01)
 
-### 1. Crie um Dockerfile utilizando a imagem chuanwen/cowsay.
+### 1. Crie um `Dockerfile` utilizando a imagem chuanwen/cowsay.
 ```
 FROM chuanwen/cowsay
 ```
 
-### 2. Defina um ENTRYPOINT para a execução do comando.
+### 2. Defina um `ENTRYPOINT` para a execução do comando.
 ```
 ENTRYPOINT [ "/usr/games/cowsay" ]
 ```
 
-### 3. Utilize o CMD para definir uma mensagem padrão.
+### 3. Utilize o `CMD` para definir uma mensagem padrão.
 ```
 CMD ["Hello there :)"]
 ```
+- Visão geral do Dockerfile após os exercícios 1, 2 e 3:
+```
+FROM chuanwen/cowsay
+ENTRYPOINT [ "/usr/games/cowsay" ]
+CMD ["Hello there :)"]
+```
 
-### 4. Gere uma build e execute um container baseado em sua imagem sem passar nenhum comando.
+### 4. Gere uma `build` e execute um container baseado em sua imagem sem passar nenhum comando.
 ```
 docker image build -t cowsay-exercise .
 docker container run cowsay-exercise
@@ -31,7 +37,7 @@ docker container run cowsay-exercise
                 ||     ||
 ```
 
-### 5. Execute um novo container passando sua mensagem para testar. Além da mensagem você pode utilizar a opção -l para listar outros personagens disponíveis e então executar algo como docker container run cowsay -f dragon-and-cow "VQV TRYBE", para exibir um dragão junto com a vaquinha.
+### 5. Execute um novo container passando sua mensagem para testar. Além da mensagem você pode utilizar a opção `-l `para listar outros personagens disponíveis e então executar algo como docker container `run cowsay -f dragon-and-cow "VQV TRYBE"`, para exibir um dragão junto com a vaquinha.
 ```
 docker container run cowsay-exercise "Are you good?"
 
