@@ -102,6 +102,8 @@ AND description LIKE "%sumo%";
 ```
 
 ## &#9989; Atividades de Fixação | IN e BETWEEN - Englobando uma faixa de resultados
+### Considerando o banco de dados sakila, encontre as informações a seguir.
+
 #### 1. Mostre o nome, sobrenome e e-mail dos clientes com os seguintes sobrenomes: `hicks`, `crawford`, `henry`, `boyd`, `mason`, `morales` e `kennedy`, ordenados por nome em ordem alfabética.
 ```
 SELECT first_name, last_name, email FROM sakila.customer
@@ -137,4 +139,42 @@ SELECT title, rating FROM sakila.film
 WHERE rating IN ('G', 'PG', 'PG-13')
 ORDER BY title ASC
 LIMIT 500;
+```
+
+## &#9989; Atividades de Fixação | Data e tempo - Lidando com resultados temporais
+### Considerando o banco de dados sakila, encontre as informações a seguir.
+
+#### 1. Quantos pagamentos temos com a data de retorno `2005-05-25`?
+```
+SELECT COUNT(*) AS "Number of Payments" FROM sakila.payment
+WHERE DATE(payment_date) = '2005-05-25';
+
+-- Retorno: 137
+```
+
+#### 2. Quantos pagamentos foram feitos entre `01/07/2005` e `22/08/2005`?
+```
+SELECT COUNT(*) AS "Number of Payments" FROM sakila.payment
+WHERE payment_date BETWEEN '2005-07-01' AND '2005-08-22';
+
+-- Retorno: 11173
+```
+
+#### 3. Usando a tabela rental, extraia `data`, `ano`, `mês`, `dia`, `hora`, `minuto` e `segundo` dos registros com `rental_id = 10330`. Utilize a coluna rental_date para extrair as informações.
+```
+SELECT DATE(rental_date) AS 'Full Date',
+YEAR(rental_date) AS Year,
+MONTH(rental_date) AS Month,
+DAY(rental_date) AS Day,
+HOUR(rental_date) AS Hour,
+MINUTE(rental_date) AS Minute,
+SECOND(rental_date) AS Second FROM sakila.rental
+WHERE rental_id = 10330;
+```
+
+#### 4. Monte uma query que retorne todos os dados do pagamento feito no dia `28/07/2005` a partir das `22 horas`.
+```
+SELECT * FROM sakila.payment
+WHERE DATE(payment_date) = "2005-07-28"
+AND HOUR(payment_date) >= 22;
 ```
