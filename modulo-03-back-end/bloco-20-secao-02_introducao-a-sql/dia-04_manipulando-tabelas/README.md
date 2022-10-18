@@ -80,3 +80,47 @@ SET rental_rate = (
 		ELSE rental_rate
 END);
 ```
+
+## &#9989; Atividades de Fixação | DELETE - Removendo dados de uma tabela
+### Considerando o banco de dados sakila, faça as atividades a seguir.
+
+#### 1. Exclua do banco de dados o ator com o nome de “KARL”.
+```
+DELETE FROM sakila.film_actor
+WHERE actor_id = 12;
+
+DELETE FROM sakila.actor
+WHERE first_name = 'KARL';
+```
+
+#### 2. Exclua do banco de dados os `atores` com o nome de “MATTHEW”.
+```
+DELETE FROM sakila.film_actor
+WHERE actor_id IN (8, 103, 181);
+
+DELETE FROM sakila.actor
+WHERE first_name = 'MATTHEW';
+```
+
+#### 3. Exclua da tabela `film_text` todos os registros que possuem a palavra “saga” em suas descrições.
+```
+DELETE FROM sakila.film_text
+WHERE description LIKE '%saga%';
+```
+
+#### 4. Apague da maneira mais performática possível todos os registros das tabelas `film_actor` e `film_category`.
+```
+TRUNCATE sakila.film_actor;
+TRUNCATE sakila.film_category;
+```
+
+#### 5. Inspecione todas as tabelas do banco de dados sakila e analise quais restrições ON DELETE foram impostas em cada uma. Use o Table Inspector para fazer isso (aba DDL).
+R.: 
+- Tabelas SEM RESTRIÇÕES: actor, category, country, film_text e language;
+- Tabelas com restrição 'ON DELETE RESTRICT ON UPDATE CASCADE': address, city, customer, film, film_actor, film_category, inventory, rental, staff e store;
+- Tabela com restrições 'ON DELETE RESTRICT ON UPDATE CASCADE' e 'ON DELETE SET NULL ON UPDATE CASCADE': payment.
+
+#### 6. Exclua o banco de dados e o recrie (use as instruções no início desta aula).
+R.:
+- Para excluir: Clicar com o botão direito no schema e selecionar a opção "Drop Schema...";
+- Para restaurar: Baixar o arquivo .sql do sakila → Copiar e colar seu conteúdo em uma nova janela de query no MySQL Workbench → Clicar em executar.
