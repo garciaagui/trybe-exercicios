@@ -110,7 +110,6 @@ SELECT TIMEDIFF('10:25:45', '11:00:00');
 ```
 
 ## ✅ Atividades de Fixação | Utilizando as funções de agregação AVG, MIN, MAX, SUM e COUNT
-
 1. Monte um query que exiba:
 - A média de duração dos filmes e dê o nome da coluna de ‘Média de Duração’;
 - A duração mínima dos filmes como ‘Duração Mínima’;
@@ -125,4 +124,68 @@ SELECT
   SUM(length) AS 'Tempo de Exibição Total',
   COUNT(*) AS 'Filmes Registrados'
 FROM sakila.film;
+```
+
+## ✅ Atividades de Fixação | Exibindo e filtrando dados de forma agrupada com GROUP BY e HAVING
+### Praticando GROUP BY
+1. Monte uma query que exiba a quantidade de clientes cadastrados na tabela `sakila.customer` que estão ativos e a quantidade que estão inativos.
+```
+SELECT active, COUNT(*) AS quantity
+FROM sakila.customer
+GROUP by active;
+```
+
+2. Monte uma query para a tabela `sakila.customer` que exiba a quantidade de clientes ativos e inativos por loja. Os resultados devem conter o ID da loja, o status dos clientes (ativos ou inativos) e a quantidade de clientes por status.
+```
+SELECT store_id, active, COUNT(*) AS quantity
+FROM sakila.customer
+GROUP by store_id, active
+ORDER BY store_id, active;
+```
+
+3. Monte uma query que exiba a média de duração de locação por classificação indicativa (rating) dos filmes cadastrados na tabela `sakila.film`. Os resultados devem ser agrupados pela classificação indicativa e ordenados da maior média para a menor.
+```
+SELECT ROUND(AVG(rental_duration),2) AS avg_rental_duration, rating
+FROM sakila.film
+GROUP by rating
+ORDER BY avg_rental_duration DESC;
+```
+
+4. Monte uma query para a tabela `sakila.address` que exiba o nome do distrito e a quantidade de endereços registrados nele. Os resultados devem ser ordenados da maior quantidade para a menor.
+```
+SELECT district, COUNT(*) AS registered_adresses
+FROM sakila.address
+GROUP by district
+ORDER BY registered_adresses DESC;
+```
+
+### Para fixar
+1. Usando a query a seguir, modifique-a de forma que exiba apenas as durações médias que estão entre 115.0 a 121.50. Além disso, dê um alias (apelido) à coluna gerada por `AVG(length)`, de forma que deixe a query mais legível. Finalize ordenando os resultados de forma decrescente.
+```
+SELECT rating, AVG(length)
+FROM sakila.film
+GROUP BY rating;
+```
+- Resposta...:
+```
+SELECT rating, AVG(length) AS avg_length
+FROM sakila.film
+GROUP BY rating
+HAVING avg_length BETWEEN 115.0 AND 121.50
+ORDER BY avg_length DESC;
+```
+
+2. Usando a query a seguir, exiba apenas os valores de total do custo de substituição que estão acima de $3950.50. Dê um alias que faça sentido para `SUM(replacement_cost)`, de forma que deixe a query mais legível. Finalize ordenando os resultados de forma crescente.
+```
+SELECT rating, SUM(replacement_cost)
+FROM sakila.film
+GROUP by rating;
+```
+- Resposta...:
+```
+SELECT rating, SUM(replacement_cost) AS total_replacement_cost
+FROM sakila.film
+GROUP by rating
+HAVING total_replacement_cost > 3950.5
+ORDER BY total_replacement_cost ASC;
 ```
