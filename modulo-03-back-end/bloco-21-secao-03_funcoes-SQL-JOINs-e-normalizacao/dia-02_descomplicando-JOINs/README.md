@@ -67,3 +67,26 @@ ON a.actor_id = fa.actor_id
 INNER JOIN sakila.film AS f
 ON fa.film_id = f.film_id;
 ```
+
+## ✅ Atividades de Fixação | O que é SELF JOIN e quando utilizá-lo
+1. Queremos saber o Nome das pessoas colaboradoras e suas respectivas gerências (`manager`) cujos departamentos (`department`) são diferentes.
+```
+SELECT
+  CONCAT(employee.first_name, " ", employee.last_name) AS employee_name,
+  CONCAT(manager.first_name, " ", manager.last_name) AS manager_name
+FROM hr.employees AS employee
+INNER JOIN hr.employees AS manager
+ON employee.manager_id = manager.employee_id
+WHERE employee.department_id <> manager.department_id;
+```
+
+2. Exiba o Nome e a quantidade de pessoas lideradas de cada pessoa gerente.
+```
+SELECT
+  CONCAT(manager.first_name, " ", manager.last_name) AS manager_name,
+  COUNT(*) AS managed_employees_qty
+FROM hr.employees AS manager
+INNER JOIN hr.employees AS employee
+ON manager.employee_id = employee.manager_id
+GROUP BY manager_name;
+```
