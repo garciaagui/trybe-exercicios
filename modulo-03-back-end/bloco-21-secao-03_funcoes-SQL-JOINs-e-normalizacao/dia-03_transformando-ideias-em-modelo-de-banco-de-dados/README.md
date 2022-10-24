@@ -115,3 +115,89 @@ CREATE TABLE songs(
 	FOREIGN KEY (album_id) REFERENCES albums(album_id)
 )ENGINE=InnoDB;
 ```
+
+## ✅ Exercícios do Dia
+1. Modele o banco de dados a seguir. 
+
+Um zoológico precisa de um banco de dados para armazenar informações sobre os seus animais. As informações a serem armazenadas sobre cada animal são:
+- Nome;
+- Espécie;
+- Sexo;
+- Idade;
+- Localização.
+
+Cada animal também possui vários cuidadores, e cada cuidador pode ser responsável por mais de um animal. Além disso, cada cuidador possui um gerente, sendo que cada gerente pode ser responsável por mais de um cuidador.
+
+✏️ Respostas abaixo...
+
+**Entidades**
+- Animals;
+- Species;
+- Locations;
+- Keepers;
+- Keepers e Animals;
+- Managers.
+
+**Atributos**
+- Animals: animal_id, name, specie_id, sex, age e location_id;
+- Species: specie_id e name;
+- Locations: location_id e name;
+- Keepers: keeper_id, name e manager_id;
+- Keepers e Animals: keeper_id e animal_id;
+- Managers: manager_id e name.
+
+**Relacionamentos**
+
+![Relacionamentos - Resposta Exercício 01](./images/ex-01-answer-01-relationship.png)
+
+**Diagrama**
+
+![Diagrama - Resposta Exercício 01](./images/ex-01-answer-02-diagram.png)
+
+**Criação do Banco de Dados**
+```
+CREATE DATABASE IF NOT EXISTS zoo;
+USE zoo;
+
+CREATE TABLE locations(
+	location_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100) NOT NULL
+)ENGINE=InnoDB;
+
+CREATE TABLE species(
+	specie_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(200) NOT NULL
+)ENGINE=InnoDB;
+
+CREATE TABLE animals(
+  animal_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  specie_id INT NOT NULL,
+  sex VARCHAR(50) NOT NULL,
+  age INT NOT NULL,
+  location_id INT NOT NULL,
+    FOREIGN KEY (specie_id) REFERENCES species(specie_id),
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
+)ENGINE=InnoDB;
+
+CREATE TABLE managers(
+  manager_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
+)ENGINE=InnoDB;
+
+CREATE TABLE keepers(
+  keeper_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  manager_id INT NOT NULL,
+    FOREIGN KEY (manager_id) REFERENCES managers(manager_id)
+)ENGINE=InnoDB;
+
+CREATE TABLE keeper_animal(
+  keeper_id INT NOT NULL,
+  animal_id INT NOT NULL,
+    CONSTRAINT PRIMARY KEY(keeper_id, animal_id),
+    FOREIGN KEY (keeper_id) REFERENCES keepers(keeper_id),
+    FOREIGN KEY (animal_id) REFERENCES animals(animal_id)
+)ENGINE=InnoDB;
+```
+
