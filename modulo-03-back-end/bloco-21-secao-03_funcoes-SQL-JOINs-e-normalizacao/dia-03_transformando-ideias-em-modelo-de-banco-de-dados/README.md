@@ -201,3 +201,37 @@ CREATE TABLE keeper_animal(
 )ENGINE=InnoDB;
 ```
 
+2. Converta a tabela desnormalizada abaixo para a 1ª Forma Normal.
+
+![Tabela Exercício 02](./images/ex-02-question.png)
+
+R.: Para atender a 1ª Forma Normal, deve-se corrigir duas colunas da tabela: `endereco` e `inquilinos`. A coluna `endereco` foi convertida em 4 colunas, cada uma constando uma informação pertinente ao endereço. Já a coluna `inquilino` foi excluída da tabela `residencias` e fora criado uma tabela a partir dela, chamada `inquilinos`. Nessa nova tabela, fora atribuído um id para cada inquilino, além de referenciar seu nome e o id de sua residência.
+
+![Resposta 01 Exercício 02 - Tabela residencias](./images/ex-02-answer-01-table-residencias.png)
+
+![Resposta 02 Exercício 02 - Tabela inquilinos](./images/ex-02-answer-02-table-inquilinos.png)
+
+
+3. Converta a tabela desnormalizada abaixo (que já está nos padrões da 1ª Forma Normal) para a 2ª Forma Normal.
+
+![Tabela Exercício 03](./images/ex-03-question.png)
+
+R.: Para atender a 2ª Forma Normal, as colunas `liga`, `universo`, `criador` e `criador_idade` foram convertidas em tabelas. As duas últimas colunas estão na mesma tabela, conforme as imagens abaixo. 
+
+![Resposta 01 Exercício 03 - Tabela herois](./images/ex-03-answer-01-table-herois.png)
+
+![Resposta 02 Exercício 03 - Tabela ligas](./images/ex-03-answer-02-table-ligas.png)
+
+![Resposta 03 Exercício 03 - Tabela universos](./images/ex-03-answer-03-table-universos.png)
+
+![Resposta 04 Exercício 03 - Tabela criadores](./images/ex-03-answer-04-table-criadores.png)
+
+4. Agora, converta essa outra tabela (que já está nos moldes das duas primeiras formas) para a 3ª Forma Normal.
+
+![Tabela Exercício 04](./images/ex-04-question.png)
+
+R.: Para atender a 3ª Forma Normal, a tabela `generos` foi criada, cujas colunas possuem unicamente informações dos generos de filmes. Dessa forma, foi possível excluir a coluna `genero` da tabela `filmes`, mantendo somente a coluna `genero_id`.
+
+![Resposta 01 Exercício 03 - Tabela herois](./images/ex-04-answer-01-table-filmes.png)
+
+![Resposta 02 Exercício 03 - Tabela ligas](./images/ex-04-answer-02-table-generos.png)
