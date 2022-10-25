@@ -235,3 +235,24 @@ R.: Para atender a 3ª Forma Normal, a tabela `generos` foi criada, cujas coluna
 ![Resposta 01 Exercício 03 - Tabela herois](./images/ex-04-answer-01-table-filmes.png)
 
 ![Resposta 02 Exercício 03 - Tabela ligas](./images/ex-04-answer-02-table-generos.png)
+
+## ✅ (TÓPICO BÔNUS) Atividades de Fixação | DUMPs
+- Obs.: Foi utilizado o banco de dados `northwind` nas atividades a seguir. Além disso, todos os comandos foram executados dentro de uma pasta de backup.
+
+1. Exporte a estrutura e os dados (tabelas, triggers, procedures, functions e o schema) para um dump em formato de arquivo SQL, como foi exibido nas instruções anteriores. Faça o dump através da linha de comando e usando o MySQL Workbench.
+```
+mysqldump -u root -p northwind > northwindBackup.sql
+```
+
+2. Após ter feito isso, abra o arquivo usando algum editor de texto e altere as duas linhas iniciais, mudando o nome do banco a ser criado e do banco a ser usado. Assim seu script vai restaurar um banco novo e não sobrescrever o atual.
+```
+<!-- Foram adicionadas as linhas a seguir no início do arquivo de dump -->
+
+CREATE DATABASE IF NOT EXISTS `northwind2`
+USE `northwind2`;
+```
+
+3. Restaure o backup do banco de dados criado por você.
+```
+mysql -u root -p < northwindBackup.sql
+```
