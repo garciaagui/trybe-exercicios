@@ -30,34 +30,34 @@ CREATE DATABASE IF NOT EXISTS normalization;
 USE normalization;
 
 CREATE TABLE funcionarios(
-	funcionario_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    sobrenome VARCHAR(100) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
-    data_cadastro TIMESTAMP
+  funcionario_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL,
+  sobrenome VARCHAR(100) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  telefone VARCHAR(20) NOT NULL,
+  data_cadastro TIMESTAMP
 )ENGINE=InnoDB;
 
 INSERT INTO funcionarios(funcionario_id, nome, sobrenome, email, telefone, data_cadastro)
 VALUES
-	(12, 'Joseph', 'Rodrigues', 'jo@gmail.com', '(35)998552-1445', '2020-05-05 08:50:25'),
-    (13, 'André', 'Freeman', 'andre1990@gmail.com', '(47)99522-4996', '2020-02-05 00:00:00'),
-    (14, 'Cíntia', 'Duval', 'cindy@outlook.com', '(33)99855-4669', '2020-05-05 10:55:35'),
-    (15, 'Fernanda', 'Mendes', 'fernandamendes@yahoo.com', '(33)99200-1556', '2020-05-05 11:45:40');
+  (12, 'Joseph', 'Rodrigues', 'jo@gmail.com', '(35)998552-1445', '2020-05-05 08:50:25'),
+  (13, 'André', 'Freeman', 'andre1990@gmail.com', '(47)99522-4996', '2020-02-05 00:00:00'),
+  (14, 'Cíntia', 'Duval', 'cindy@outlook.com', '(33)99855-4669', '2020-05-05 10:55:35'),
+  (15, 'Fernanda', 'Mendes', 'fernandamendes@yahoo.com', '(33)99200-1556', '2020-05-05 11:45:40');
 
 
 CREATE TABLE setores(
-	setor_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	nome VARCHAR(100) NOT NULL
+  setor_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL
 )ENGINE=InnoDB;
 
 INSERT INTO setores(setor_id, nome)
 VALUES
-	(1, 'Administração'),
-    (2, 'Vendas'),
-    (3, 'Operacional'),
-    (4, 'Estratégico'),
-    (5, 'Marketing');
+  (1, 'Administração'),
+  (2, 'Vendas'),
+  (3, 'Operacional'),
+  (4, 'Estratégico'),
+  (5, 'Marketing');
 
 
 CREATE TABLE setor_funcionario(
@@ -69,12 +69,12 @@ CREATE TABLE setor_funcionario(
 
 INSERT INTO setor_funcionario(setor_id, funcionario_id)
 VALUES
-	(1, 12),
-    (2, 12),
-    (3, 13),
-    (4, 14),
-    (2, 14),
-    (5, 15);
+  (1, 12),
+  (2, 12),
+  (3, 13),
+  (4, 14),
+  (2, 14),
+  (5, 15);
 ```
 
 4. Refaça o banco de dados `albuns`.
@@ -84,35 +84,35 @@ CREATE DATABASE IF NOT EXISTS albuns;
 USE albuns;
 
 CREATE TABLE genres(
-	genre_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name VARCHAR(100) NOT NULL
+  genre_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
 )ENGINE=InnoDB;
 
 CREATE TABLE artists(
-	artist_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name VARCHAR(100) NOT NULL,
-    genre_id INT NOT NULL,
+  artist_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  genre_id INT NOT NULL,
     FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
 )ENGINE=InnoDB;
 
 CREATE TABLE albums(
-	album_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    artist_id INT NOT NULL,
-    genre_id INT NOT NULL,
-    price DECIMAL(5,2) NOT NULL,
-    release_year INT NOT NULL,
-	FOREIGN KEY (artist_id) REFERENCES artists(artist_id),
-	FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
+  album_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  artist_id INT NOT NULL,
+  genre_id INT NOT NULL,
+  price DECIMAL(5,2) NOT NULL,
+  release_year INT NOT NULL,
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id),
+    FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
 )ENGINE=InnoDB;
 
 CREATE TABLE songs(
-	song_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    artist_id INT NOT NULL,
-    album_id INT NOT NULL,
-	FOREIGN KEY (artist_id) REFERENCES artists(artist_id),
-	FOREIGN KEY (album_id) REFERENCES albums(album_id)
+  song_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  artist_id INT NOT NULL,
+  album_id INT NOT NULL,
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id),
+    FOREIGN KEY (album_id) REFERENCES albums(album_id)
 )ENGINE=InnoDB;
 ```
 
@@ -160,13 +160,13 @@ CREATE DATABASE IF NOT EXISTS zoo;
 USE zoo;
 
 CREATE TABLE locations(
-	location_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name VARCHAR(100) NOT NULL
+  location_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
 )ENGINE=InnoDB;
 
 CREATE TABLE species(
-	specie_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name VARCHAR(200) NOT NULL
+  specie_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(200) NOT NULL
 )ENGINE=InnoDB;
 
 CREATE TABLE animals(
@@ -195,7 +195,7 @@ CREATE TABLE keepers(
 CREATE TABLE keeper_animal(
   keeper_id INT NOT NULL,
   animal_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY(keeper_id, animal_id),
+  CONSTRAINT PRIMARY KEY(keeper_id, animal_id),
     FOREIGN KEY (keeper_id) REFERENCES keepers(keeper_id),
     FOREIGN KEY (animal_id) REFERENCES animals(animal_id)
 )ENGINE=InnoDB;
@@ -261,46 +261,46 @@ mysql -u root -p < northwindBackup.sql
 1. Crie uma view chamada `film_with_categories` utilizando as tabelas `category`, `film_category` e `film` do banco de dados `sakila`. Essa view deve exibir o título do filme, o id da categoria e o nome da categoria. Os resultados devem ser ordenados pelo título do filme.
 ```
 CREATE VIEW film_with_categories AS
-  SELECT
-    f.title AS film_title,
-    fc.category_id,
-    c.name AS category_name
-  FROM sakila.film_category AS fc
-  INNER JOIN sakila.film AS f
-    ON fc.film_id = f.film_id
-  INNER JOIN sakila.category AS c
-    ON fc.category_id = c.category_id
-  ORDER BY film_title;
+SELECT
+  f.title AS film_title,
+  fc.category_id,
+  c.name AS category_name
+FROM sakila.film_category AS fc
+INNER JOIN sakila.film AS f
+  ON fc.film_id = f.film_id
+INNER JOIN sakila.category AS c
+  ON fc.category_id = c.category_id
+ORDER BY film_title;
 ```
 
 2. Crie uma view chamada `film_info` utilizando as tabelas `actor`, `film_actor` e `film` do banco de dados `sakila`. Sua view deve exibir o `actor_id`, o nome completo do ator ou da atriz em uma coluna com o `ALIAS` `actor` e o título dos filmes. Os resultados devem ser ordenados pelos nomes de atores e atrizes.
 ```
 CREATE VIEW film_info AS
-  SELECT
-    a.actor_id,
-    CONCAT(a.first_name, ' ', a.last_name) AS actor,
-    title AS film_title
-  FROM sakila.film_actor AS fa
-  INNER JOIN sakila.actor AS a
-    ON fa.actor_id = a.actor_id
-  INNER JOIN sakila.film AS f
-    ON fa.film_id = f.film_id
-  ORDER BY actor;
+SELECT
+  a.actor_id,
+  CONCAT(a.first_name, ' ', a.last_name) AS actor,
+  title AS film_title
+FROM sakila.film_actor AS fa
+INNER JOIN sakila.actor AS a
+  ON fa.actor_id = a.actor_id
+INNER JOIN sakila.film AS f
+  ON fa.film_id = f.film_id
+ORDER BY actor;
 ```
 
 3. Crie uma view chamada `address_info` que faça uso das tabelas `address` e `city` do banco de dados `sakila`. Sua view deve exibir o `address_id`, o `address`, o `district`, o `city_id` e a `city`. Os resultados devem ser ordenados pelo nome das cidades.
 ```
 CREATE VIEW address_info AS
-  SELECT
-    a.address_id,
-    a.address,
-    a.district,
-    c.city_id,
-    c.city
-  FROM sakila.address AS a 
-    INNER JOIN sakila.city AS c
-    ON a.city_id = c.city_id
-  ORDER BY c.city;
+SELECT
+  a.address_id,
+  a.address,
+  a.district,
+  c.city_id,
+  c.city
+FROM sakila.address AS a 
+  INNER JOIN sakila.city AS c
+  ON a.city_id = c.city_id
+ORDER BY c.city;
 ```
 
 4. Crie uma view chamada `movies_languages`, usando as tabelas `film` e `language` do banco de dados `sakila`. Sua view deve exibir o título do filme, o id do idioma e o idioma do filme.
