@@ -314,3 +314,64 @@ FROM sakila.film AS f
   INNER JOIN sakila.language AS l
   ON f.language_id = l.language_id;
 ```
+
+## ✅ (TÓPICO BÔNUS) Exercícios | INDEX
+1. Verifique o impacto de um `FULLTEXT INDEX` na tabela `category` (banco de dados `sakila`), adicionando-o na coluna `name`. Após ter adicionado o índice, mensure o custo da query utilizando o execution plan. Após ter criado e mensurado o custo da query, exclua o índice e mensure novamente esse custo.
+```
+-- Após ter criado o índice, mensure o custo com a seguinte query:
+SELECT *
+FROM sakila.category
+WHERE MATCH(name) AGAINST('action');
+
+-- Após ter excluído o índice, mensure o custo com a seguinte query:
+SELECT *
+FROM sakila.category
+WHERE name LIKE '%action%';
+```
+
+✏️ Respostas abaixo...
+- Criação do index:
+```
+CREATE FULLTEXT INDEX index_name ON sakila.category(name);
+```
+- Exclusão do index:
+```
+DROP INDEX index_name ON sakila.category;
+```
+- Diferença entre custos das queries: Com o index aplicado, o query cost foi de 0.35, enquanto sem o index o query cost foi de 1.85. Nesta situação, a aplicação do index melhorou a performance da query.
+
+2. Verifique o impacto de um `INDEX` na tabela `address` (banco de dados `sakila`) adicionando-o na coluna `postal_code`. Após ter adicionado o índice, mensure o custo da query utilizando o execution plan. Após ter criado e mensurado o custo da query, exclua o índice e mensure novamente esse custo.
+```
+-- Mensure o custo com a seguinte query:
+SELECT *
+FROM sakila.address
+WHERE postal_code = '36693';
+```
+
+✏️ Respostas abaixo...
+- Criação do index:
+```
+CREATE INDEX index_postal_code ON sakila.address(postal_code);
+```
+- Exclusão do index:
+```
+DROP INDEX index_postal_code ON sakila.address;
+```
+- Diferença entre custos das queries: Com o index aplicado, o query cost foi de 0.35, enquanto sem o index o query cost foi de 61.80. Como no caso anterior, a aplicação do index melhorou a performance da query.
+
+## ✅ (TÓPICO BÔNUS) Exercícios | ALTER TABLE
+- Para os exercícios a seguir, será ultizado o banco de dados `hr`.
+1. Escreva uma query SQL para alterar na tabela `locations` o nome da coluna `street_address` para `address`, mantendo o mesmo tipo e tamanho de dados.
+```
+ALTER TABLE hr.locations RENAME COLUMN street_address TO address;
+```
+
+2. Escreva uma query SQL para alterar na tabela `regions` o nome da coluna `region_name` para `region`, mantendo o mesmo tipo e tamanho de dados.
+```
+ALTER TABLE hr.regions RENAME COLUMN region_name TO region;
+```
+
+3. Escreva uma query SQL para alterar na tabela `countries` o nome da coluna `country_name` para `country`, mantendo o mesmo tipo e tamanho de dados.
+```
+ALTER TABLE hr.countries RENAME COLUMN country_name TO country;
+```
