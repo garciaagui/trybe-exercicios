@@ -167,3 +167,295 @@ INNER JOIN Pixar.BoxOffice AS b
 WHERE m.theater_id IS TRUE
   AND b.rating > 8;
 ```
+
+## ✅ (EXTRAS) Atividades de Fixação | UNION e o UNION ALL
+- Obs.: Para as atividades a seguir, será utilizado o banco de dados `sakila`.
+
+1. Todos os funcionários foram promovidos a atores. Monte uma query que exiba a união da tabela `staff` com a tabela `actor`, exibindo apenas o nome e o sobrenome. Seu resultado **não deve excluir nenhum funcionário ao unir as tabelas**.
+```
+SELECT first_name, last_name FROM sakila.staff
+UNION ALL
+SELECT first_name, last_name FROM sakila.actor;
+```
+
+2. Monte uma query que una os resultados das tabelas `customer` e `actor`, exibindo os nomes que contêm a palavra “tracy” na tabela `customer` e os que contêm “je” na tabela `actor`. Exiba apenas os **resultados únicos**.
+```
+(SELECT first_name FROM sakila.customer
+  WHERE first_name LIKE '%tracy%')
+UNION
+(SELECT first_name FROM sakila.actor
+  WHERE first_name LIKE '%je%');
+```
+
+3. Monte uma query que exiba a união dos cinco últimos nomes da tabela `actor`, o primeiro nome da tabela `staff` e cinco nomes a partir da 15ª posição da tabela `customer`. **Não permita que dados repetidos sejam exibidos**. Ordene os resultados em ordem alfabética.
+```
+(SELECT first_name FROM sakila.actor
+  ORDER BY actor_id DESC
+  LIMIT 5)
+UNION
+(SELECT first_name FROM sakila.staff
+  LIMIT 1)
+UNION
+(SELECT first_name FROM sakila.customer
+  LIMIT 5
+  OFFSET 14)
+ORDER BY first_name ASC;
+```
+
+4. Você quer exibir uma lista paginada com os nomes e sobrenomes de **todos** os clientes e atores do banco de dados, em ordem alfabética. Considere que a paginação está sendo feita de 15 em 15 resultados e que você está na 4ª página. Monte uma query que simule esse cenário.
+```
+(SELECT first_name, last_name FROM sakila.customer )
+UNION ALL
+(SELECT first_name, last_name FROM sakila.actor)
+ORDER BY first_name ASC, last_name ASC
+LIMIT 15 OFFSET 45;
+```
+
+## ✅ (EXTRAS) Atividades de Fixação | STORED PROCEDURES
+- Obs.: Para as atividades a seguir, será utilizado o banco de dados `sakila`.
+
+1. Monte uma procedure que exiba os 10 atores mais populares, baseado em sua quantidade de filmes. Essa procedure não deve receber parâmetros de entrada ou saída e, quando chamada, deve exibir o id do ator ou atriz e a quantidade de filmes em que atuaram.
+```
+USE sakila;
+DELIMITER $$
+
+CREATE PROCEDURE ShowMostPopularActors()
+BEGIN
+  SELECT
+    a.actor_id,
+    COUNT(*) AS movies_qty
+  FROM sakila.actor AS a
+  INNER JOIN sakila.film_actor AS fa
+    ON a.actor_id = fa.actor_id
+  GROUP BY a.actor_id
+  ORDER BY movies_qty DESC
+  LIMIT 10;
+END $$
+
+DELIMITER ;
+
+-- Exemplo de aplicação:
+
+CALL ShowMostPopularActors;
+```
+
+2. Monte uma procedure que receba como parâmetro de entrada o nome da categoria desejada em uma string e que exiba o id do filme, seu titulo, o id de sua categoria e o nome da categoria selecionada. Use as tabelas `film`, `film_category` e `category` para montar essa procedure.
+```
+USE sakila;
+DELIMITER $$
+
+CREATE PROCEDURE ShowMoviesByCategory(IN selected_category VARCHAR(100))
+BEGIN
+  SELECT
+    f.film_id,
+    f.title,
+    c.category_id,
+    c.name
+  FROM sakila.film_category AS fc
+  INNER JOIN sakila.film AS f
+    ON fc.film_id = f.film_id
+  INNER JOIN sakila.category AS c
+    ON fc.category_id = c.category_id
+  WHERE c.name = selected_category;
+END $$
+
+DELIMITER ;
+
+-- Exemplo de aplicação:
+
+CALL ShowMoviesByCategory('Horror');
+```
+
+3. Monte uma procedure que receba o email de um cliente como parâmetro de entrada e diga se o cliente está ou não ativo, através de um parâmetro de saída.
+```
+USE sakila;
+DELIMITER $$
+
+CREATE PROCEDURE CheckByEmailIfCustomerIsActive(
+    IN customer_email VARCHAR(200),
+    OUT is_customer_active VARCHAR(200)
+)
+BEGIN
+	SELECT
+		IF (active = 1, 'Cliente ATIVO', 'Cliente INATIVO') INTO is_customer_active
+    FROM sakila.customer
+    WHERE email = customer_email;
+END $$
+
+-- Exemplo de aplicação:
+
+CALL CheckByEmailIfCustomerIsActive('THEODORE.CULP@sakilacustomer.org', @procedure_response);
+SELECT @procedure_response;
+```
+
+## ✅ (EXTRAS) Atividades de Fixação | STORED FUNCTIONS
+- Obs.: Para as atividades a seguir, será utilizado o banco de dados `sakila`.
+
+1. Utilizando a tabela `sakila.payment`, monte uma function que retorna a quantidade total de pagamentos feitos até o momento por um determinado `customer_id`.
+```
+USE sakila;
+DELIMITER $$
+
+CREATE FUNCTION GetTotalPaymentsByCustomer(id INT)
+RETURNS INT READS SQL DATA
+BEGIN
+    DECLARE total_payments INT;
+    SELECT COUNT(*)
+    FROM sakila.payment
+    WHERE customer_id = id
+    INTO total_payments ;
+    RETURN total_payments;
+END $$
+
+DELIMITER ;
+
+-- Exemplo de aplicação:
+
+SELECT GetTotalPaymentsByCustomer(10);
+```
+
+2. Crie uma function que, dado o parâmetro de entrada `inventory_id`, retorna o nome do filme vinculado ao registro de inventário com esse id.
+```
+USE sakila;
+DELIMITER $$
+
+CREATE FUNCTION GetFilmTitleByInventoryId(id INT)
+RETURNS VARCHAR(200) READS SQL DATA
+BEGIN
+  DECLARE film_title VARCHAR(200);
+	SELECT f.title
+    FROM sakila.film AS f
+    INNER JOIN sakila.inventory AS i
+    ON f.film_id = i.film_id
+    WHERE i.inventory_id = id
+  INTO film_title ;
+  RETURN film_title;
+END $$
+
+DELIMITER ;
+
+-- Exemplo de aplicação:
+
+SELECT GetFilmTitleByInventoryId(99);
+```
+
+3. Crie uma function que receba uma determinada categoria de filme em formato de texto (ex: 'Action', 'Horror') e retorna a quantidade total de filmes registrados nessa categoria.
+```
+USE sakila;
+DELIMITER $$
+
+CREATE FUNCTION GetTotalFilmsByCategory(selected_category VARCHAR(200))
+RETURNS INT READS SQL DATA
+BEGIN
+    DECLARE total_films INT;
+	  SELECT COUNT(*)
+      FROM sakila.film_category AS f
+      INNER JOIN sakila.category AS c
+      ON f.category_id = c.category_id
+      WHERE c.name = selected_category
+    INTO total_films ;
+    RETURN total_films;
+END $$
+
+DELIMITER ;
+
+-- Exemplo de aplicação:
+
+SELECT GetTotalFilmsByCategory('Classics');
+```
+
+## ✅ (EXTRAS) Atividades de Fixação | TRIGGERS
+- Obs.: Para as atividades a seguir, será utilizado o banco de dados `betrybe_automoveis`.
+
+1. Crie um TRIGGER que, a cada nova inserção feita na tabela `carros`, defina o valor da coluna `data_atualizacao` para o momento do ocorrido, a `acao` para 'INSERÇÃO' e a coluna `disponivel_em_estoque` para 1.
+```
+USE betrybe_automoveis;
+
+DELIMITER $$
+CREATE TRIGGER trigger_car_insert
+  BEFORE INSERT ON carros
+  FOR EACH ROW
+BEGIN
+  SET NEW.data_atualizacao = NOW(),
+      NEW.acao = 'INSERÇÃO',
+      NEW.disponivel_em_estoque = 1;
+END $$
+DELIMITER ;
+```
+
+2. Crie um TRIGGER que, a cada atualização feita na tabela `carros`, defina o valor da coluna `data_atualizacao` para o momento do ocorrido e a `acao` para 'ATUALIZAÇÃO'.
+```
+USE betrybe_automoveis;
+
+DELIMITER $$
+CREATE TRIGGER trigger_car_update
+  BEFORE UPDATE ON carros
+  FOR EACH ROW
+BEGIN
+  SET NEW.data_atualizacao = NOW(),
+      NEW.acao = 'ATUALIZAÇÃO';
+END $$
+DELIMITER ;
+```
+
+3. Crie um TRIGGER que, a cada exclusão feita na tabela `carros`, envie para a tabela `log_operacoes` as informações do `tipo_operacao` como 'EXCLUSÃO' e a `data_ocorrido` como o momento da operação.
+```
+USE betrybe_automoveis;
+
+DELIMITER $$
+CREATE TRIGGER trigger_car_delete
+  AFTER DELETE ON carros
+  FOR EACH ROW
+BEGIN
+  INSERT INTO log_operacoes(tipo_operacao, data_ocorrido)
+  VALUES ('EXCLUSÃO', NOW());
+END $$
+DELIMITER ;
+```
+
+## ✅ (EXTRAS) Atividades de Fixação | EXISTS
+- Obs.: Para as atividades a seguir, será utilizado o banco de dados `hotel`.
+
+1. Usando o EXISTS na tabela `Books_lent` e `Books`, exiba o id e título dos livros que ainda não foram emprestados.
+```
+SELECT Id, Title FROM hotel.Books AS b
+WHERE NOT EXISTS (
+	SELECT * FROM hotel.Books_Lent
+  WHERE book_id = b.Id
+);
+```
+
+2. Usando o EXISTS na tabela `Books_lent` e `Books`, exiba o id e título dos livros que estão atualmente emprestados e que contêm a palavra “lost” no título.
+```
+SELECT Id, Title FROM hotel.Books AS b
+WHERE EXISTS (
+	SELECT * FROM hotel.Books_Lent
+    WHERE book_id = b.Id
+		AND returned = 0
+) AND Title LIKE '%lost%';
+```
+
+3. Usando a tabela `CarSales` e `Customers`, exiba apenas o nome dos clientes que ainda não compraram um carro.
+```
+SELECT `Name` FROM hotel.Customers AS c
+WHERE NOT EXISTS (
+	SELECT * FROM hotel.CarSales
+  WHERE CustomerID = c.CustomerID
+);
+```
+
+4. Usando o comando `EXISTS` em conjunto com `JOIN` e as tabelas `Cars`, `Customers` e `CarSales`, exiba o nome do cliente e o modelo do carro de todos os clientes que fizeram compras de carros.
+```
+SELECT
+	customers.Name as client_name,
+  cars.Name as car_model
+FROM hotel.CarSales AS cs
+INNER JOIN hotel.Customers AS customers
+	ON customers.CustomerID = cs.CustomerID
+INNER JOIN hotel.Cars AS cars
+	ON cars.Id = cs.CarID
+WHERE EXISTS (
+	SELECT * FROM hotel.CarSales
+    WHERE CustomerID = customers.CustomerID
+);
+```
