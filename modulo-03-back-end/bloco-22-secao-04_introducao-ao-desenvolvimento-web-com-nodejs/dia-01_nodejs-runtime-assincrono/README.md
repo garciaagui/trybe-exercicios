@@ -202,7 +202,7 @@ Classificação: ${bmiClassif}`);
 main();
 ```
 
-6. Considerando o arquiov `simpsons.json`, realize as atividades abaixo.
+6. Considerando o arquivo `simpsons.json`, realize as atividades abaixo.
 - Obs.: Todas as funções criadas foram adicionadas no arquivo `simpsons.js` e foram chamadas em uma função `main`. Além disso, o arquivo `package.json` foi devidamente alterado para que fosse possível executar o código ao utilizar o comando `node simpsons.js`.
 
 - A - Crie uma função que leia todos os dados do arquivo e imprima cada personagem no formato `id - Nome`. Por exemplo: `1 - Homer Simpson`.
@@ -224,7 +224,7 @@ async function readAllCharactersInfo() {
 }
 ```
 
-- B - Crie uma função que receba o `id` de uma personagem como parâmetro e retorne uma `Promise` que é resolvida com os dados da personagem que possui o `id` informado. Caso não haja uma personagem com o `id` informado, rejeite a Promise com o motivo “`id` não encontrado”.
+- B - Crie uma função que receba o `id` de uma personagem como parâmetro e retorne uma `Promise` que é resolvida com os dados da personagem que possui o `id` informado. Caso não haja uma personagem com o `id` informado, rejeite a `Promise` com o motivo “id não encontrado”.
 ```
 async function readCharactersInfoById(id) {
   console.log('Função B:')
