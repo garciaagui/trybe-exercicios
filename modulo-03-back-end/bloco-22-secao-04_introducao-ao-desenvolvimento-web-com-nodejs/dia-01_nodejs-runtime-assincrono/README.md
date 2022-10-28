@@ -330,3 +330,79 @@ async function changeMuntzToMaggieInFamilyJSON() {
   }
 }
 ```
+
+## ✅ Exercícios Bônus
+1. Crie um código que exiba o valor dos `n` primeiros elementos da sequência de Fibonacci. 
+- A sequência de Fibonacci começa com 0 e 1 e os números seguintes são sempre a soma dos dois números anteriores.
+- Armazene o código no arquivo `fibonacci.js`.
+- Utilize o `readline-sync` para realizar o `input` de dados.
+- O código deve ser acionado através do comando `npm run fibonacci`.
+- Não imprima o valor 0, uma vez que ele não está incluso na sequência.
+- Quando `n = 10`, exatamente 10 elementos devem ser exibidos.
+- Adicione validações para garantir que o valor informado é um inteiro maior que 0.
+```
+const readline = require('readline-sync');
+
+function showFibonacciSequenceElements(n) {
+  const hiddenSequence = [0, 1];
+
+  if (n <= 0 ) throw(new Error("Valor Inválido"));
+  if (n === 1) return console.log(hiddenSequence.slice(1, 2));
+
+  const wantedSequence = [...hiddenSequence];
+
+  for (let i = 2; i <= n; i++) {
+    wantedSequence.push(wantedSequence[i-2] + wantedSequence[i-1]);
+  }
+
+  // Remove o zero da sequência...
+  wantedSequence.splice(0,1);
+  return console.log(wantedSequence);
+}  
+
+function main() {
+  const n = readline.questionInt('Insira um número inteiro positivo: ');
+  console.log(`Os ${n} primeiros elementos da sequência Fibonacci são: \n`)
+  showFibonacciSequenceElements(n);
+}
+
+main();
+```
+
+2. Crie uma função que recebe três parâmetros e retorna uma `Promise`.
+- Caso algum dos parâmetros recebidos não seja um número, rejeite a `Promise` com o motivo **"Informe apenas números"**.
+- Caso todos os parâmetros sejam numéricos, some os dois primeiros e multiplique o resultado pelo terceiro **((a + b) * c)**.
+- Caso o resultado seja menor que 50, rejeite a `Promise` com o motivo **"Valor muito baixo"**.
+- Caso o resultado seja maior que 50, resolva a `Promise` com o valor obtido.
+```
+const readline = require('readline-sync');
+
+async function doMathEquation(n1, n2, n3) {
+  return new Promise((resolve, reject) => {
+    if (typeof n1 !== 'number' || typeof n2 !== 'number' || typeof n3 !== 'number') {
+      reject(new Error("Informe apenas números"));
+    }
+
+    const result = ((n1 + n2) * n3);
+    
+    if (result < 50) {
+      reject(new Error("Valor muito baixo"));
+    }
+    resolve(result)
+  });
+}
+
+async function main() {
+  const n1 = readline.questionInt('Insira o primeiro número: ');
+  const n2 = readline.questionInt('Insira o segundo número: ');
+  const n3 = readline.questionInt('Insira o terceiro número: ');
+  try {
+    const result = await doMathEquation(n1, n2, n3);
+    console.log(result);
+    } catch (error) {
+    console.log(error.message);
+    }
+}
+
+main();
+```
