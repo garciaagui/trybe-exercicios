@@ -201,3 +201,132 @@ Classificação: ${bmiClassif}`);
 
 main();
 ```
+
+6. Considerando o arquiov `simpsons.json`, realize as atividades abaixo.
+- Obs.: Todas as funções criadas foram adicionadas no arquivo `simpsons.js` e foram chamadas em uma função `main`. Além disso, o arquivo `package.json` foi devidamente alterado para que fosse possível executar o código ao utilizar o comando `node simpsons.js`.
+
+- A - Crie uma função que leia todos os dados do arquivo e imprima cada personagem no formato `id - Nome`. Por exemplo: `1 - Homer Simpson`.
+```
+async function readAllCharactersInfo() {
+  console.log('Função A:')
+  try {
+    const data = await fs.readFile(path.resolve(__dirname, 'simpsons.json'), 'utf-8');
+    const characters = JSON.parse(data);
+
+    characters.forEach(({id, name}) => {
+      console.log(`${id} - ${name}`);
+    });
+
+  } catch (error) {
+    console.error(`Erro ao ler o arquivo: ${error.message}`);
+  }
+  console.log('\n')
+}
+```
+
+- B - Crie uma função que receba o `id` de uma personagem como parâmetro e retorne uma `Promise` que é resolvida com os dados da personagem que possui o `id` informado. Caso não haja uma personagem com o `id` informado, rejeite a Promise com o motivo “`id` não encontrado”.
+```
+async function readCharactersInfoById(id) {
+  console.log('Função B:')
+  const data = await fs.readFile(path.resolve(__dirname, 'simpsons.json'), 'utf-8');
+  const characters = JSON.parse(data);
+
+  return new Promise((resolve, reject) => {
+    const foundCharacter = characters.find((char) => char.id == id)
+
+    if (!foundCharacter) {
+      reject(new Error("id não encontrado"));
+    }
+    
+    resolve(foundCharacter)
+    console.log(foundCharacter)
+    console.log('\n')
+  });
+}
+```
+
+- C - Crie uma função que altere o arquivo `simpsons.json` retirando os personagens com `id` 10 e 6.
+```
+async function removeCertainCharacters() {
+  console.log('Função C:')
+  try {
+    const originalData = await fs.readFile(path.resolve(__dirname, 'simpsons.json'), 'utf-8');
+    const characters = JSON.parse(originalData);
+    const newData = characters.filter(({id}) => id !== '6' && id !== '10');
+
+    await fs.writeFile(path.resolve(__dirname, 'simpsons.json'), JSON.stringify(newData));
+    console.log('Arquivo escrito com sucesso! IDs 6 e 10 removidos de simpsons.json.');
+
+  } catch (error) {
+    console.error(`Erro ao escrever o arquivo: ${error.message}`);
+  }
+  console.log('\n')
+}
+```
+
+- D - Crie uma função que leia o arquivo `simpsons.json` e crie um novo arquivo, chamado `simpsonFamily.json`, contendo as personagens com `id` de 1 a 4.
+```
+async function createNewCharactersJSON() {
+  console.log('Função D:')
+  try {
+    const originalData = await fs.readFile(path.resolve(__dirname, 'simpsons.json'), 'utf-8');
+    const characters = JSON.parse(originalData);
+    const newData = characters.filter(({id}) => Number(id) >= 1 && Number(id) <= 4);
+
+    await fs.writeFile(path.resolve(__dirname, 'simpsonFamily.json'), JSON.stringify(newData));
+    console.log('Arquivo escrito com sucesso! IDs 1 ao 4 adicionados em simpsonFamily.json.');
+
+  } catch (error) {
+    console.error(`Erro ao escrever o arquivo: ${error.message}`);
+  }
+  console.log('\n')
+}
+```
+
+- E - Crie uma função que adicione ao arquivo `simpsonFamily.json` o personagem "Nelson Muntz".
+```
+async function addMuntzToFamilyJSON() {
+  console.log('Função E:')
+  try {
+    const originalData = await fs.readFile(path.resolve(__dirname, 'simpsonFamily.json'), 'utf-8');
+    const characters = JSON.parse(originalData);
+    const muntzData = {
+      id: '8',
+      name: 'Nelson Muntz'
+    }
+    const newData = JSON.stringify([...characters, muntzData])
+
+    await fs.writeFile(path.resolve(__dirname, 'simpsonFamily.json'), newData);
+    console.log('Arquivo escrito com sucesso! Nelson Muntz adicionado em simpsonFamily.json.');
+
+  } catch (error) {
+    console.error(`Erro ao escrever o arquivo: ${error.message}`);
+  }
+  console.log('\n')
+}
+```
+
+- F - Crie uma função que substitua o personagem "Nelson Muntz" pela personagem "Maggie Simpson" no arquivo `simpsonFamily.json`.
+```
+async function changeMuntzToMaggieInFamilyJSON() {
+  console.log('Função F:')
+  try {
+    const originalData = await fs.readFile(path.resolve(__dirname, 'simpsonFamily.json'), 'utf-8');
+    const characters = JSON.parse(originalData);
+    const newData = characters.reduce((acc, curr) => {
+      if (curr.name === 'Nelson Muntz') {
+        curr.id = '5';
+        curr.name = 'Maggie Simpson';
+      }
+      acc.push(curr)
+      return acc;
+    }, [])
+    
+    await fs.writeFile(path.resolve(__dirname, 'simpsonFamily.json'), JSON.stringify(newData));
+    console.log('Arquivo escrito com sucesso! Nelson Muntz substituído por Maggie Simpson em simpsonFamily.json.');
+
+  } catch (error) {
+    console.error(`Erro ao escrever o arquivo: ${error.message}`);
+  }
+}
+```
