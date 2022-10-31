@@ -136,4 +136,68 @@ describe('Testando a API Cacau Trybe', function () {
       });
     });
   });
+
+  describe('Usando o método GET em /chocolates/search', function () {
+    it('Retorna os chocolates cujos nomes contenham o termo pesquisado', async function () {
+      const response = await chai
+        .request(app)
+        .get('/chocolates/search?name=Mo');
+
+      expect(response.status).to.be.equal(200);
+      expect(response.body).to.deep.equal([
+        {
+          "id": 3,
+          "name": "Mon Chéri",
+          "brandId": 2
+        },
+        {
+          "id": 4,
+          "name": "Mounds",
+          "brandId": 3
+        }
+      ]);
+    });
+
+    it('Retorna um array vazio quando nenhum chocolate contém em seu nome o termo pesquisado', async function () {
+      const response = await chai
+        .request(app)
+        .get('/chocolates/search?name=ZZZ');
+
+      expect(response.status).to.be.equal(404);
+      expect(response.body).to.deep.equal([]);
+    });
+  });
+
+  describe('Usando o método PUT em /chocolates/:id', function () {
+    sinon.stub(fs.promises, 'writeFile').resolves();
+    it('Atualiza as informações do chocolate de acordo com as informações do body', async function () {
+      const response = await chai
+        .request(app)
+        .put('/chocolates/1').send({
+          name: 'Mint Pretty Good',
+          brandId: 2,
+        })
+      expect(response.status).to.be.equal(200);
+      expect(response.body).to.deep.equal({
+        "chocolate": { 
+          "id": 1,
+          "name": "Mint Pretty Good",
+          "brandId": 2
+        }
+      });
+    });
+    
+    it('Retorna status 404 com a mensagem "Chocolate not found" quando não há chocolate com o id passado', async function () {
+      const response = await chai
+        .request(app)
+        .put('/chocolates/555').send({
+          name: 'Mint Pretty Good',
+          brandId: 2,
+          });
+      expect(response.status).to.be.equal(404);
+      expect(response.body).to.deep.equal({
+        message: "Chocolate not found"
+      });
+    });
+  });
 });
