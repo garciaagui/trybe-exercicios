@@ -1,49 +1,41 @@
 const express = require('express');
-const validateTeam = require('./middlewares/validateTeam');
-const existingId = require('./middlewares/existingId');
+require('express-async-errors');
+const  { resolve } = require('path');
+const morgan = require('morgan');
+const cors = require('cors');
+
+const teamsRouter = require('./routes/teamsRouter');
 
 const app = express();
 
-let nextId = 3;
-const teams = [
-  { id: 1, nome: 'São Paulo Futebol Clube', sigla: 'SPF' },
-  { id: 2, nome: 'Sociedade Esportiva Palmeiras', sigla: 'PAL' },
-];
-
 app.use(express.json());
+app.use('/static', express.static(resolve(__dirname, './images')));
+app.use(cors());
 
-app.get('/teams', (req, res) => res.json(teams));
+// app.use((req, _res, next) => {
+//   console.log('req.method:', req.method);
+//   console.log('req.path:', req.path);
+//   console.log('req.params:', req.params);
+//   console.log('req.query:', req.query);
+//   console.log('req.headers:', req.headers);
+//   console.log('req.body:', req.body);
+//   next();
+// });
 
-app.get('/teams/:id', existingId(teams), (req, res) => {
-  const team = teams.find(t => t.id === Number(req.params.id));
-  res.status(200).json(team);
+app.use(morgan('combined'));
+app.use(express.static('./images'));
+app.use('/teams', teamsRouter);
+
+app.use((req, res) => res.sendStatus(404));
+
+app.use((err, _req, _res, next) => {
+  console.error(err.stack);
+  // passa o erro para o próximo middleware
+  next(err);
 });
 
-app.post('/teams', validateTeam, (req, res) => {
-  const team = { id: nextId, ...req.body };
-  teams.push(team);
-  nextId += 1;
-  res.status(201).json(team);
-});
-
-app.put('/teams/:id', existingId(teams), validateTeam, (req, res) => {
-  const id = Number(req.params.id);
-  const team = teams.find(t => t.id === id);
-
-  const index = teams.indexOf(team);
-  const updated = { id, ...req.body };
-  teams.splice(index, 1, updated);
-  
-  res.status(201).json(updated);
-});
-
-app.delete('/teams/:id', existingId(teams), (req, res) => {
-  const team = teams.find(t => t.id === Number(req.params.id));
-  const index = teams.indexOf(team);
-
-  teams.splice(index, 1);
-
-  res.sendStatus(204);
+app.use((_err, _req, res, _next) => {
+  res.status(500).json({ message: 'Something is wrong' });
 });
 
 module.exports = app;
