@@ -102,6 +102,7 @@ app.put('/teams/:id', existingId(teams), validateTeam, (req, res) => {
 ```
 
 ## ✅ Exercícios do dia
+### PARTE I
 Uma startup de Ecoturismo te procurou para construir uma aplicação back-end que auxilie na criação e compartilhamento de locais ainda não registrados na natureza. O objetivo é valorizar e promover a capacidade turística do Brasil e os principais requisitos da API que essa startup solicitou são:
 
 - Cadastrar novas atividades de ecoturismo com as seguintes informações:
@@ -157,9 +158,9 @@ app.use(express.json());
 3. Crie um endpoint `POST` com a rota `/activities` para adicionar novas atividades. Ela deve:
 - Retornar o status `201` e uma mensagem de sucesso quando a atividade tiver sido inserida (formato `json`);
 
-R.: Embora não tenha sido solicitado no exercício, foi criado a estrutura inicial de rotas em um arquivo à parte - `appRouter.js`, cujo diretório é `/routes`.
+R.: Embora não tenha sido solicitado no exercício, foi criado a estrutura inicial de rotas em um arquivo à parte - `activitiesRouter.js`, cujo diretório é `/routes`.
 ```
-// Arquivo appRouter.js
+// Arquivo activitiesRouter.js
 
 const express = require('express');
 const router = express.Router();
@@ -177,7 +178,7 @@ module.exports = router;
 
 // ...
 
-app.use('/activities', appRouter);
+app.use('/activities', activitiesRouter);
 
 // ...
 ```
@@ -207,7 +208,7 @@ module.exports = (req, res, next) => {
 };
 ```
 ```
-// Arquivo appRouter.js
+// Arquivo activitiesRouter.js
 
 // ...
 
@@ -249,7 +250,7 @@ module.exports = (req, res, next) => {
 };
 ```
 ```
-// Arquivo appRouter.js
+// Arquivo activitiesRouter.js
 
 // ...
 
@@ -291,7 +292,7 @@ module.exports = (req, res, next) => {
 };
 ```
 ```
-// Arquivo appRouter.js
+// Arquivo activitiesRouter.js
 
 // ...
 
@@ -331,7 +332,7 @@ module.exports = (req, res, next) => {
 };
 ```
 ```
-// Arquivo appRouter.js
+// Arquivo activitiesRouter.js
 
 // ...
 
@@ -370,7 +371,7 @@ module.exports = (req, res, next) => {
 };
 ```
 ```
-// Arquivo appRouter.js
+// Arquivo activitiesRouter.js
 
 // ...
 
@@ -413,7 +414,7 @@ module.exports = (req, res, next) => {
 };
 ```
 ```
-// Arquivo appRouter.js
+// Arquivo activitiesRouter.js
 
 // ...
 
@@ -422,6 +423,211 @@ const validateDifficulty = require('../middlewares/validateDifficulty')
 // ...
 
 router.post('/',
+  validateName,
+  validatePrice,
+  validateDescription,
+  validateCreatedAt,
+  validateRating,
+  validateDifficulty, (_req, res) => {
+    res.status(CREATED_CODE).json({ message: 'Atividade cadastrada com sucesso!' });
+  });
+
+// ...
+```
+
+### PARTE II
+Parabéns! Seu cliente ficou muito satisfeito com o trabalho e solicitou mais alguns requisitos para você implementar. Veja abaixo:
+- Cadastrar pessoas usuárias das atividades de ecoturismo com as seguintes informações:
+  - Email;
+  - Senha;
+  - Primeiro nome;
+  - Telefone;
+- Permitir que somente pessoas cadastradas realizem o cadastro de novas atividades de ecoturismo.
+
+Agora, faça os exercícios abaixo:
+
+10. Crie um endpoint `POST` com a rota `/signup` para cadastrar pessoas usuárias. Ela deve:
+- Ter os campos `email`, `password`, `firstName` e `phone` obrigatoriamente;
+- Caso os campos não sejam preenchidos, retornar o status `401 - Unauthorized` e uma mensagem (formato `json`);
+- Gerar um token aleatório válido;
+- Retornar o status `200` e uma mensagem contendo o token (formato `json`).
+
+R.: Primeiramente, foi criada uma rota específica para signup (`signupRouter.js`), garantindo uma estrutura organizada de rotas. Após isso, foram criadas as validações para os campos necessários. Por fim, foi criada e implementada a função que gera um token aleatório, utilizando o módulo crypto do Node.
+
+- Criação e implementação das validações:
+```
+// Arquivo validateUserEmail.js
+
+module.exports = (req, res, next) => {
+  const UNAUTHORIZED_CODE = 401;
+  const { email } = req.body;
+  const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/igm;
+
+  if (!email || !email.length) {
+    res.status(UNAUTHORIZED_CODE).json({
+      message: 'O campo email é obrigatório',
+    });
+  } else if (!email.match(EMAIL_REGEX)) {
+    res.status(UNAUTHORIZED_CODE).json({
+      message: 'O campo email deve ter o formato correto de endereços de email',
+    });
+  } else {
+    next();
+  }
+};
+```
+
+```
+// Arquivo validateUserFirstName.js
+
+module.exports = (req, res, next) => {
+  const UNAUTHORIZED_CODE = 401;
+  const { firstName } = req.body;
+
+  if (!firstName || !firstName.length) {
+    res.status(UNAUTHORIZED_CODE).json({ message: 'O campo firstName é obrigatório' });
+  } else {
+    next();
+  }
+};
+```
+
+```
+// Arquivo validateUserPassword.js
+
+module.exports = (req, res, next) => {
+  const UNAUTHORIZED_CODE = 401;
+  const { password } = req.body;
+
+  if (!password || !password.length) {
+    res.status(UNAUTHORIZED_CODE).json({ message: 'O campo password é obrigatório' });
+  } else {
+    next();
+  }
+};
+```
+
+```
+// Arquivo validateUserPhone.js
+
+module.exports = (req, res, next) => {
+  const UNAUTHORIZED_CODE = 401;
+  const { phone } = req.body;
+  const PHONE_REGEX = /\(\d{2,}\) \d{4,}-\d{4}/g;
+
+  if (!phone || !phone.length) {
+    res.status(UNAUTHORIZED_CODE).json({ message: 'O campo phone é obrigatório' });
+  } else if (!phone.match(PHONE_REGEX)) {
+    res.status(UNAUTHORIZED_CODE).json({
+      message: 'O campo phone deve ser composto por números e deve ter o formato \'(XX) XXXX-XXX\'',
+    });
+  } else {
+    next();
+  }
+};
+```
+
+```
+// Arquivo signupRouter.js
+
+const express = require('express');
+const validateUserEmail = require('../middlewares/validateUserEmail');
+const validateUserFirstName = require('../middlewares/validateUserFirstName');
+const validateUserPassword = require('../middlewares/validateUserPassword');
+const validateUserPhone = require('../middlewares/validateUserPhone');
+
+const router = express.Router();
+
+const CREATED_CODE = 201;
+
+router.post('/',
+  validateUserEmail,
+  validateUserFirstName,
+  validateUserPassword,
+  validateUserPhone, (_req, res) => {
+    res.status(CREATED_CODE).json({ message: 'Usuário cadastrado com sucesso!' });
+  });
+
+module.exports = router;
+```
+```
+// Arquivo app.js
+
+// ...
+
+const signupRouter = require('./routes/signupRouter');
+
+// ...
+```
+
+- Criação e implementação da função que gera um token aleatório:
+```
+// Arquivo utils/generateToken.js
+
+const crypto = require('crypto');
+
+function generateToken() {
+  return crypto.randomBytes(8).toString('hex');
+}
+
+module.exports = generateToken;
+```
+
+```
+// Arquivo signupRouter.js
+
+// ...
+const generateToken = require('../utils/generateToken');
+
+// ...
+
+router.post('/',
+  validateUserEmail,
+  validateUserFirstName,
+  validateUserPassword,
+  validateUserPhone, (_req, res) => {
+    token = generateToken();
+    res.status(OK).json({
+      message: 'Usuário cadastrado com sucesso!',
+      token
+    });
+  });
+
+// ...
+```
+
+11. Crie um middleware de autenticação ao endpoint `POST` com a rota `/activities`. Ela deve:
+- Ser validada por meio do token que foi gerado ao realizar o signup;
+- Ser encontrada pelo header `Authorization`;
+- Ter exatamente 16 caracteres;
+- Caso o token seja inválido ou inexistente, retornar o status `401 - Unauthorized` e uma mensagem (formato json).
+
+R.: Primeiramente, foi criada um middleware (`auth.js`) para validação do token. Após isso, esse middleware foi inserido no `POST` da rota `/activities`.
+
+```
+// Arquivo auth.js
+
+module.exports = (req, res, next) => {
+  const UNAUTHORIZED_CODE = 401;
+  const { authorization } = req.headers;
+
+  if (!authorization || authorization.length !== 16) {
+    return res.status(UNAUTHORIZED_CODE).json({ message: 'Token inválido!' });
+  }
+  next();
+};
+```
+```
+// Arquivo activitiesRouter.js
+
+// ...
+
+const auth = require('../middlewares/auth')
+
+// ...
+
+router.post('/',
+  auth,
   validateName,
   validatePrice,
   validateDescription,
