@@ -1,4 +1,5 @@
 const express = require('express');
+const auth = require('../middlewares/auth')
 const validateName = require('../middlewares/validateName');
 const validatePrice = require('../middlewares/validatePrice');
 const validateDescription = require('../middlewares/validateDescription');
@@ -11,6 +12,7 @@ const router = express.Router();
 const CREATED_CODE = 201;
 
 router.post('/',
+  auth,
   validateName,
   validatePrice,
   validateDescription,
