@@ -189,6 +189,7 @@ app.use('/activities', activitiesRouter);
 - Ter mais de 4 caracteres;
 - Retornar o status `400` e uma mensagem em formato `json` caso ele não tenha mais de 4 caracteres.
 
+Observação: Todos os middlewares estarão em `/src/middlewares`.
 ```
 // Arquivo validateTeam.js
 
@@ -267,7 +268,7 @@ router.post('/', validateName, validatePrice, (_req, res) => {
 
 6. Crie um middleware de validação para a chave `description` que possui as chaves `createdAt`, `rating` e `difficulty`. Ela deve:
 - Ter todas as chaves obrigatórias;
-- Retornar o status 400 para todas e uma mensagem em formato json caso suas chaves não sejam preenchidas;
+- Retornar o status 400 para todas e uma mensagem em formato json caso suas chaves não sejam preenchidas.
 ```
 // Arquivo validateDescription.js
 
@@ -441,7 +442,7 @@ Parabéns! Seu cliente ficou muito satisfeito com o trabalho e solicitou mais al
   - Email;
   - Senha;
   - Primeiro nome;
-  - Telefone;
+  - Telefone.
 - Permitir que somente pessoas cadastradas realizem o cadastro de novas atividades de ecoturismo.
 
 Agora, faça os exercícios abaixo:
@@ -600,9 +601,9 @@ router.post('/',
 - Ser validada por meio do token que foi gerado ao realizar o signup;
 - Ser encontrada pelo header `Authorization`;
 - Ter exatamente 16 caracteres;
-- Caso o token seja inválido ou inexistente, retornar o status `401 - Unauthorized` e uma mensagem (formato json).
+- Caso o token seja inválido ou inexistente, retornar o status `401 - Unauthorized` e uma mensagem (formato `json`).
 
-R.: Primeiramente, foi criada um middleware (`auth.js`) para validação do token. Após isso, esse middleware foi inserido no `POST` da rota `/activities`.
+R.: Primeiramente, foi criada um middleware (`auth.js`) para validação do token. Após isso, esse middleware foi inserido no endpoint `POST` da rota `/activities`.
 
 ```
 // Arquivo auth.js
