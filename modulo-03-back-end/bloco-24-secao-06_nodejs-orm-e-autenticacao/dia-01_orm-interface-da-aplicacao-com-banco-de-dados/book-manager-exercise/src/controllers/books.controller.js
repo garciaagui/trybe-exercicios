@@ -2,9 +2,19 @@ const BookService = require('../services/books.service');
 
 const error500Message = 'Something went wrong...';
 
-const getAll = async (_req, res) => {
+const getAll = async (req, res) => {
   try {
-    const books = await BookService.getAll();
+    const { author } = req.query;
+    let books
+
+    if (author) {
+      books = await BookService.getByAuthor(author);
+      console.log(books)
+      if (!books.length) return res.status(404).json({ message: 'No books found ' });
+      return res.status(200).json(books);
+    }
+
+    books = await BookService.getAll();
     return res.status(200).json(books);
   } catch (e) {
     console.log(e.message);
@@ -28,8 +38,8 @@ const getById = async (req, res) => {
 
 const createBook = async (req, res) => {
   try {
-    const { title, author, pageQuantity } = req.body;
-    const newBook = await BookService.createBook(title, author, pageQuantity);
+    const { title, author, pageQuantity, publisher } = req.body;
+    const newBook = await BookService.createBook(title, author, pageQuantity, publisher);
 
     return res.status(201).json(newBook);
   } catch (e) {
@@ -40,9 +50,9 @@ const createBook = async (req, res) => {
 
 const updateBook = async (req, res) => {
   try {
-    const { title, author, pageQuantity } = req.body;
+    const { title, author, pageQuantity, publisher } = req.body;
     const { id } = req.params;
-    const updatedBook = await BookService.updateBook(id, title, author, pageQuantity);
+    const updatedBook = await BookService.updateBook(id, title, author, pageQuantity, publisher);
 
     if (!updatedBook) return res.status(404).json({ message: 'Book not found' });
 
