@@ -136,7 +136,7 @@ module.exports = app;
 ```
 // src/services/books.service.js
 
-//...
+// ...
 
 const getById = async (id) => {
   const book = await Book.findByPk(id);
@@ -191,7 +191,7 @@ app.get('/books/:id', Book.getById);
 ```
 // src/services/books.service.js
 
-//...
+// ...
 
 const createBook = async (title, author, pageQuantity) => {
   const newBook = await Book.create({ title, author, pageQuantity });
@@ -246,7 +246,7 @@ app.post('/books', Book.createBook);
 ```
 // src/services/books.service.js
 
-//...
+// ...
 
 const updateBook = async (id, title, author, pageQuantity) => {
   const [updatedBook] = await Book.update(
@@ -309,7 +309,7 @@ app.put('/books/:id', Book.updateBook);
 ```
 // src/services/books.service.js
 
-//...
+// ...
 
 const deleteBook = async (id) => {
   const book = await Book.destroy(
@@ -366,4 +366,225 @@ module.exports = {
 app.delete('/books/:id', Book.deleteBook);
 
 // ...
+```
+
+
+## ✅ Exercícios bônus
+1. Crie um `seeder` usando o `Sequelize-CLI`, populando a sua base com pelo menos um livro.
+```
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Books',
+    [
+      {
+        title: 'Fire and Blood',
+        author: 'George R.R. Martin',
+        pageQuantity: 736,
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
+      {
+        title: 'The Silmarillion',
+        author: 'J. R. R. Tolkien',
+        pageQuantity: 416,
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
+      {
+        title: 'Watchmen',
+        author: 'Alan Moore',
+        pageQuantity: 448,
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
+    ], {}),
+
+  down: async (queryInterface) => queryInterface.bulkDelete('Books', null, {}),
+};
+```
+
+2. Crie um método `getByAuthor` em `BooksService` para buscar uma lista de livros por author.
+```
+// src/services/books.service.js
+
+// ...
+
+const getByAuthor = async (author) => {
+  const books = await Book.findAll({ where: { author } });
+
+  return books;
+};
+
+// ...
+
+module.exports = {
+  getAll,
+  getById,
+  getByAuthor,
+  createBook,
+  updateBook,
+  deleteBook,
+};
+```
+
+3. Refatore o método `getAll` de forma que ser for enviado uma `query string author` ele seja capaz de pegar a lista usando o método `getByAuthor` de `BooksService`;
+```
+// src/controllers/books.controller.js
+
+// ...
+
+const getAll = async (req, res) => {
+  try {
+    const { author } = req.query;
+    let books
+
+    if (author) {
+      books = await BookService.getByAuthor(author);
+      console.log(books)
+      if (!books.length) return res.status(404).json({ message: 'No books found ' });
+      return res.status(200).json(books);
+    }
+
+    books = await BookService.getAll();
+    return res.status(200).json(books);
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message: error500Message });
+  }
+};
+
+// ...
+```
+
+4. Refatore os métodos `getAll` e `getByAuthor` para que a lista de livros seja ordenada pelo título em ordem alfabética;
+```
+// src/services/books.service.js
+
+// ...
+
+const getAll = async () => {
+  const books = await Book.findAll({
+    order: [['title', 'ASC']],
+  });
+
+  return books;
+};
+
+// ...
+
+const getByAuthor = async (author) => {
+  const books = await Book.findAll({
+    where: { author },
+    order: [['title', 'ASC']],
+  });
+
+  return books;
+};
+
+// ...
+```
+
+5. Crie uma migration para adicionar a coluna publisher (editora) na tabela `Books`. Modifique as camadas de serviço para que esse campo seja utilizado no cadastro e na edição;
+```
+// Nova migration - add-column-publisher
+
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.addColumn('Books', 'publisher', {
+      allowNull: false,
+      type: Sequelize.STRING,
+    });
+  },
+
+  down: async (queryInterface, _Sequelize) => {
+    await queryInterface.removeColumn('Books', 'publisher');
+  }
+};
+```
+```
+// src/models/books.model.js
+
+const BookModel = (sequelize, DataTypes) => {
+  const Book = sequelize.define('Book', {
+    title: DataTypes.STRING,
+    author: DataTypes.STRING,
+    pageQuantity: DataTypes.INTEGER,
+    publisher: DataTypes.STRING,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
+  });
+
+  return Book;
+};
+
+module.exports = BookModel;
+```
+```
+// src/services/books.service.js
+
+// ...
+
+const createBook = async (title, author, pageQuantity, publisher) => {
+  const newBook = await Book.create({ title, author, pageQuantity, publisher });
+
+  return newBook;
+};
+
+const updateBook = async (id, title, author, pageQuantity, publisher) => {
+  const [updatedBook] = await Book.update(
+    { title, author, pageQuantity, publisher },
+    { where: { id } },
+  );
+
+  return updatedBook;
+};
+
+// ...
+```
+```
+// src/controllers/books.controller.js
+
+// ...
+
+const createBook = async (req, res) => {
+  try {
+    const { title, author, pageQuantity, publisher } = req.body;
+    const newBook = await BookService.createBook(title, author, pageQuantity, publisher);
+
+    return res.status(201).json(newBook);
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message: error500Message });
+  }
+};
+
+const updateBook = async (req, res) => {
+  try {
+    const { title, author, pageQuantity, publisher } = req.body;
+    const { id } = req.params;
+    const updatedBook = await BookService.updateBook(id, title, author, pageQuantity, publisher);
+
+    if (!updatedBook) return res.status(404).json({ message: 'Book not found' });
+
+    return res.status(200).json({ message: 'Book updated!' });
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message: error500Message });
+  }
+};
+
+// ...
+```
+
+6. Escreva testes unitários para o model;
+```
+
+```
+
+7. Escreva testes unitários para o service criado, isolando a camada de models.
+```
+
 ```
