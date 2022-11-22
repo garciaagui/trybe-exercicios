@@ -16,7 +16,7 @@ Obs: o método `down` da migration deve ser capaz de remover a tabela.
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('books', {
+    await queryInterface.createTable('Books', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -47,7 +47,7 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('books');
+    await queryInterface.dropTable('Books');
   }
 };
 ```
@@ -366,5 +366,4 @@ module.exports = {
 app.delete('/books/:id', Book.deleteBook);
 
 // ...
-
 ```
