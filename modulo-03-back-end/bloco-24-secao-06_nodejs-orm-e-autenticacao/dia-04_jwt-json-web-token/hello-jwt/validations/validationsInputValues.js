@@ -1,6 +1,6 @@
 const schemas = require('./schemas');
 
-const validateLogin = async (username, password) => {
+const validateUserInfo = async (username, password) => {
   const { error } = schemas.loginSchema.validate({ username, password });
   if (error) return { type: 'INVALID_VALUE', message: error.message };
 
@@ -8,5 +8,5 @@ const validateLogin = async (username, password) => {
 }
 
 module.exports = {
-  validateLogin,
+  validateUserInfo,
 };

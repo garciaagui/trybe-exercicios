@@ -2,6 +2,7 @@ require('dotenv/config');
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = process.env;
 const { validateUserInfo } = require('../validations/validationsInputValues');
+const generateAdminStatus = require('../utils/generateAdminStatus');
 const { checkUser, signupUser } = require('../utils/handleJSON');
 
 module.exports = async (req, res) => {
@@ -11,11 +12,12 @@ module.exports = async (req, res) => {
     const error = await validateUserInfo(username, password);
     if (error.type) return res.status(422).json(error);
 
-    const user = await checkUser(username);
+    const doesUserExist = await checkUser(username);
+    if (doesUserExist) return res.status(409).json({ error: { "message": "user already exists" } });
 
-    if (!user || user.password !== password) {
-      return res.status(401).json({ message: 'User does not exist or password is invalid' });
-    }
+    const adminStatus = generateAdminStatus();
+
+    await signupUser({ username, password, admin: adminStatus })
 
     const jwtConfig = {
       expiresIn: '1h',
@@ -24,7 +26,7 @@ module.exports = async (req, res) => {
 
     const payload = {
       username,
-      admin: user.admin,
+      admin: adminStatus,
     }
 
     const token = jwt.sign(payload, JWT_SECRET, jwtConfig);

@@ -7,7 +7,6 @@ const { PORT } = process.env;
 
 const controllers = require('./controllers');
 const middlewares = require('./middlewares');
-const validateJWT = require('./auth/validateJWT');
 
 const app = express();
 
@@ -26,9 +25,11 @@ app.get('/ping', controllers.ping);
 
 app.post('/login', controllers.login);
 
-app.get('/users/me', validateJWT, controllers.user);
+app.post('/signup', controllers.signup);
 
-app.get('/top-secret', validateJWT, middlewares.admin, controllers.secret);
+app.get('/users/me', middlewares.auth, controllers.user);
+
+app.get('/top-secret', middlewares.auth, middlewares.admin, controllers.secret);
 
 app.use(middlewares.error);
 
