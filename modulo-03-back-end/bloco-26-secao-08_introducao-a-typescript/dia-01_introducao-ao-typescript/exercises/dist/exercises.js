@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.triangleCheck = exports.getPolygonPerimeter = exports.getTriangleArea = exports.getRectangleArea = exports.getSquareArea = void 0;
+exports.getCircleArea = exports.getTrapezeArea = exports.getDiamondArea = exports.triangleCheck = exports.getPolygonPerimeter = exports.getTriangleArea = exports.getRectangleArea = exports.getSquareArea = void 0;
 function getSquareArea(side) {
     return side ** 2;
 }
@@ -24,3 +24,16 @@ function triangleCheck(sideA, sideB, sideC) {
     return checkSideA && checkSideB && checkSideC;
 }
 exports.triangleCheck = triangleCheck;
+function getDiamondArea(largerDiagonal, smallerDiagonal) {
+    return (largerDiagonal * smallerDiagonal) / 2;
+}
+exports.getDiamondArea = getDiamondArea;
+function getTrapezeArea(largerBase, smallerBase, height) {
+    return ((largerBase + smallerBase) * height) / 2;
+}
+exports.getTrapezeArea = getTrapezeArea;
+function getCircleArea(radius) {
+    const result = (Math.PI * (radius ** 2)).toFixed(2);
+    return parseFloat(result);
+}
+exports.getCircleArea = getCircleArea;

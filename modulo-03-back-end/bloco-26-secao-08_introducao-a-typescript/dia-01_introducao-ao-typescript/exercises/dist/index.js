@@ -34,6 +34,15 @@ console.log(`- Retângulo de base 200cm e altura 100cm: ${Ex.getRectangleArea(20
 console.log(`- Triângulo de base 10cm e altura 25cm: ${Ex.getTriangleArea(10, 25)}cm²`);
 console.log(`- Triângulo de base 5cm e altura 30cm: ${Ex.getTriangleArea(5, 30)}cm²`);
 console.log(`- Triângulo de base 100cm e altura 200cm: ${Ex.getTriangleArea(100, 200)}cm²`);
+console.log(`- Losango de diagonal maior 32cm e diagonal menor 18cm: ${Ex.getDiamondArea(32, 18)}cm²`);
+console.log(`- Losango de diagonal maior 200cm e diagonal menor 50cm: ${Ex.getDiamondArea(200, 50)}cm²`);
+console.log(`- Losango de diagonal maior 75cm e diagonal menor tem 25cm: ${Ex.getDiamondArea(75, 25)}cm²`);
+console.log(`- Trapézio de base maior 100cm, base menor 70cm e altura 50cm: ${Ex.getTrapezeArea(100, 70, 50)}cm²`);
+console.log(`- Trapézio de base maior 75cm, base menor 50cm e altura 35cm: ${Ex.getTrapezeArea(75, 50, 35)}cm²`);
+console.log(`- Trapézio de base maior 150cm, base menor 120cm e altura 80cm: ${Ex.getTrapezeArea(150, 120, 80)}cm²`);
+console.log(`- Círculo de raio 25cm: ${Ex.getCircleArea(25)}cm²`);
+console.log(`- Círculo de raio 100cm: ${Ex.getCircleArea(100)}cm²`);
+console.log(`- Círculo de raio 12,5cm: ${Ex.getCircleArea(12.5)}cm²`);
 console.log("\nO PERÍMETRO DE UM:");
 console.log(`- Quadrado de lado 10cm: ${Ex.getPolygonPerimeter([10, 10, 10, 10])}cm`);
 console.log(`- Retângulo de base 10cm e altura 25cm: ${Ex.getPolygonPerimeter([10, 25, 10, 25])}cm`);
