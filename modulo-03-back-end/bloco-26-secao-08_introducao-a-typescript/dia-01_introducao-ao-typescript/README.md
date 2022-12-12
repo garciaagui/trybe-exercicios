@@ -88,3 +88,245 @@ console.log(`- Círculo de raio 12,5cm: ${Ex.getCircleArea(12.5)}cm²`);
 
 //...
 ```
+
+## ✅ Exercícios do dia
+
+1. Temos um array characters que agrupa dados de jogadores em um MMORPG (“Jogo de representação de papéis online, multijogador em massa”) usado para manter o registro de uma guilda (grupo de jogadores) no acompanhamento da evolução do grupo. Esses dados foram adicionados sem se atentar para sua correta tipagem, o que pode ocasionar um bug no futuro. Faça a correta tipagem do array por meio do tipo Character e da função usada para imprimir as informações básicas de todos os jogadores.
+```
+type Character = any;
+
+const characters: any = [
+  {
+    nickname: 'xKillerx',
+    class: 'warrior',
+    stats: { agi: 50, str: 100, int: 25, hp: 1000, mp: 300 },
+    createdAt: new Date('2003-10-1'),
+  },
+  {
+    nickname: 'jainaProud',
+    class: 'mage',
+    stats: { agi: 80, str: 40, int: 150, hp: 630, mp: 1100 },
+    createdAt: new Date('2003-10-2'),
+  },
+  {
+    nickname: 'catIn',
+    class: 'hunter',
+    stats: { agi: 150, str: 90, int: 80, hp: 800, mp: 600 },
+    createdAt: new Date('2003-10-15'),
+  },
+];
+
+function printCharacter(character: any, index: number) {
+  const { nickname, class: cls, createdAt } = character;
+
+  console.log(`\n\n===== Character: ${index + 1} ========`);
+  console.log(`nickname: ${nickname}
+class: ${cls}
+createdAt: ${createdAt}`);
+}
+
+characters.forEach(printCharacter);
+```
+- Resposta...
+```
+// scripts/rpg.ts
+
+type Character = {
+  nickname: string,
+  class: string,
+  stats: {
+    agi: number,
+    str: number,
+    int: number,
+    hp: number,
+    mp: number,
+  }
+  createdAt: Date,
+};
+
+const characters: Character[] = [
+  {
+    nickname: 'xKillerx',
+    class: 'warrior',
+    stats: { agi: 50, str: 100, int: 25, hp: 1000, mp: 300 },
+    createdAt: new Date('2003-10-1')
+  },
+  {
+    nickname: 'jainaProud',
+    class: 'mage',
+    stats: { agi: 80, str: 40, int: 150, hp: 630, mp: 1100 },
+    createdAt: new Date('2003-10-2')
+  },
+  {
+    nickname: 'catIn',
+    class: 'hunter',
+    stats: { agi: 150, str: 90, int: 80, hp: 800, mp: 600 },
+    createdAt: new Date('2003-10-15')
+  },
+]
+
+function printCharacter(character: Character, index: number) {
+  const { nickname, class: cls, createdAt } = character;
+
+  console.log(`\n\n===== Character: ${index + 1} ========`);
+  console.log(`nickname: ${nickname}
+class: ${cls}
+createdAt: ${createdAt}`);
+}
+
+characters.forEach(printCharacter);
+```
+
+2. Crie um script para converter unidades de medida de comprimento:
+- Esse script deverá se chamar `length.ts`;
+- Ele deverá possuir uma função chamada `convert` que recebe como parâmetro:
+  - valor - number
+  - unidade base - string
+  - unidade para a conversão - string
+```
+// scripts/length.ts
+
+const units = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
+
+export function convert(value: number, baseUnit: string, convertUnit: string): number {
+  const expoent = (units.indexOf(convertUnit)) - (units.indexOf(baseUnit));
+  return value * (10 ** expoent);
+}
+```
+
+3. Crie um script para converter unidades de medida de massa:
+- Esse script deverá se chamar `mass.ts`;
+- Ele deverá possuir uma função chamada `convert` que recebe como parâmetro:
+  - valor - number
+  - unidade base - string
+  - unidade para a conversão - string
+```
+// scripts/mass.ts
+
+const units = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'gg'];
+
+export function convert(value: number, baseUnit: string, convertUnit: string): number {
+  const expoent = (units.indexOf(convertUnit)) - (units.indexOf(baseUnit));
+  return value * (10 ** expoent);
+}
+```
+
+4. Crie um script para converter unidades de medida de capacidade:
+- Esse script deverá se chamar `capacity.ts`;
+- Ele deverá possuir uma função chamada `convert` que recebe como parâmetro:
+  - valor - number
+  - unidade base - string
+  - unidade para a conversão - string
+```
+// scripts/capacity.ts
+
+const units = ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml'];
+
+export function convert(value: number, baseUnit: string, convertUnit: string): number {
+  const expoent = (units.indexOf(convertUnit)) - (units.indexOf(baseUnit));
+  return value * (10 ** expoent);
+}
+```
+
+5. Crie um script para converter unidades de medida de área:
+- Esse script deverá se chamar `area.ts`;
+- Ele deverá possuir uma função chamada `convert` que recebe como parâmetro:
+  - valor - number
+  - unidade base - string
+  - unidade para a conversão - string
+```
+// scripts/area.ts
+
+const units = ['km2', 'hm2', 'dam2', 'm2', 'dm2', 'cm2', 'mm2'];
+
+export function convert(value: number, baseUnit: string, convertUnit: string): number {
+  const expoent = ((units.indexOf(convertUnit)) - (units.indexOf(baseUnit))) * 2;
+  return value * (10 ** expoent);
+}
+```
+
+6. Crie um script para converter unidades de medida de volume:
+- Esse script deverá se chamar `volume.ts`;
+- Ele deverá possuir uma função chamada `convert` que recebe como parâmetro:
+  - valor - number
+  - unidade base - string
+  - unidade para a conversão - string
+```
+// scripts/volume.ts
+
+const units = ['km3', 'hm3', 'dam3', 'm3', 'dm3', 'cm3', 'mm3'];
+
+export function convert(value: number, baseUnit: string, convertUnit: string): number {
+  const expoent = ((units.indexOf(convertUnit)) - (units.indexOf(baseUnit))) * 3;
+  return value * (10 ** expoent);
+}
+```
+
+7. Utilize o pacote `readline-sync` e torne os scripts mais interativos. Em cada script, crie uma função chamada `exec q`ue:
+- Capta as entradas da pessoa usuária via terminal;
+- Chama a função de conversão passando as entradas da pessoa usuária como parâmetro;
+- Exibe uma mensagem com o resultado. Ex: “1km é igual a 1000m.”;
+- Não se esqueça de chamar a função `exec()`; ao final do script.
+
+OBS.: A adaptação abaixo foi implementada em todos os outros scripts criados.
+```
+// scripts/length.ts
+
+import readline from 'readline-sync';
+const units = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
+
+export function convert(value: number, baseUnit: string, convertUnit: string): number {
+  const expoent = (units.indexOf(convertUnit)) - (units.indexOf(baseUnit));
+  return value * (10 ** expoent);
+}
+
+export function exec() {
+  const valueToConvert = readline
+    .questionFloat('Insira um valor a ser convertido: ');
+
+  const fromUnit = readline
+    .keyInSelect(units, 'Das unidades de medida disponíveis, qual é a unidade desse valor? ');
+
+  const toUnit = readline
+    .keyInSelect(units, 'Das unidades de medida disponíveis, deseja que o valor seja convertido para qual delas? ');
+
+  const baseUnit = units[fromUnit];
+  const convertUnit = units[toUnit];
+
+  if (!baseUnit || !convertUnit) {
+    console.log('Operação cancelada.');
+    return null;
+  }
+
+  const valueConverted = convert(valueToConvert, baseUnit, convertUnit);
+
+  console.log(`${valueToConvert}${baseUnit} é igual a ${valueConverted}${convertUnit}`);
+}
+
+exec();
+```
+
+8. Crie um arquivo `index.ts` que pergunta qual conversão a pessoa usuária deseja realizar, e chama o script correspondente:
+- O script deve ser acionado por meio do comando `npm start` no `package.json`;
+- Utilize o `readline-sync` para realizar o input de dados;
+- Quando executado, o script deve exibir uma lista numerada dos scripts disponíveis;
+- Você pode utilizar o `require` para executar o script em questão.
+```
+// scripts/index.ts
+
+import readline from "readline-sync";
+
+const scripts = [
+  { name: "Converter comprimento", script: "./length" },
+  { name: "Converter massa", script: "./mass" },
+  { name: "Converter capacidade", script: "./capacity" },
+  { name: "Converter área", script: "./area" },
+  { name: "Converter volume", script: "./volume" }
+];
+
+const scriptNames = scripts.map(item => item.name);
+
+const choice = readline.keyInSelect(scriptNames, "Escolha um número para executar o script de conversão de unidade");
+
+require(scripts[choice].script);
+```
