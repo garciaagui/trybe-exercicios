@@ -12,14 +12,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const AuthorModel_1 = __importDefault(require("./database/models/AuthorModel"));
 const BookModel_1 = __importDefault(require("./database/models/BookModel"));
-const CommentModel_1 = __importDefault(require("./database/models/CommentModel"));
+const sequelize_1 = __importDefault(require("sequelize"));
 (() => __awaiter(void 0, void 0, void 0, function* () {
-    const books = yield BookModel_1.default.findAll({ raw: true });
-    console.table(books);
-    const comments = yield CommentModel_1.default.findAll({ raw: true });
-    console.table(comments);
-    const booksWithComments = yield BookModel_1.default.findAll({ raw: true, include: ['comments'] });
-    console.table(booksWithComments);
+    const data = yield AuthorModel_1.default.findAll({
+        include: {
+            model: BookModel_1.default,
+            attributes: [],
+        },
+        attributes: [
+            ['name', 'author'],
+            [sequelize_1.default.fn('COUNT', sequelize_1.default.col('books.id')), 'totalBooks'],
+        ],
+        group: 'author',
+        // order: [['totalBooks', 'DESC']],
+        raw: true,
+    });
+    console.log(data);
     process.exit(0);
 }))();
