@@ -1,6 +1,10 @@
 import CepService from './CepService';
+// import FooCepAPI from './FooCepAPI'
+// import MockCepAPI from './MockCepAPI'
 
 async function main() {
+  // const cepSvc = new CepService(new FooCepAPI());
+  // const cepSvc = new CepService(new MockCepAPI());
   const cepSvc = new CepService();
 
   console.log(
