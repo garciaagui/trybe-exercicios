@@ -16,6 +16,7 @@
   "parserOptions": {
     "ecmaVersion": 2019,
     "sourceType": "module",
+    "tsconfigRootDir": "./",
     "project": "./tsconfig.json"
   },
   "plugins": [
