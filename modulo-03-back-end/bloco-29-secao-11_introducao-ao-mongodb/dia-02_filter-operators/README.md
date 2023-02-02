@@ -106,12 +106,12 @@ db.superheroes.find( { $and: [
 )
 ```
 
-16. Retorne o total de documentos que não contêm o campo race.
+16. Retorne o total de documentos que **não** contêm o campo `race`.
 ```
 db.superheroes.countDocuments( { race: { $exists: false } })
 ```
 
-17. Retorne o total de documentos que contêm o campo hairColor.
+17. Retorne o total de documentos que contêm o campo `hairColor`.
 ```
 db.superheroes.countDocuments( { "aspects.hairColor": { $exists: true } })
 ```
