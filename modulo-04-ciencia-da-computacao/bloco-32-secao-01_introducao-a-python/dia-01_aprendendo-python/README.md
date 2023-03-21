@@ -66,3 +66,74 @@ totalCost = round(unitsCost, 2) + transportCost
 # Resultado final
 totalCost # Saída: 918.45
 ```
+
+## ✅ Atividades de Fixação - Tipos de dados embutidos
+
+- ℹ️ A lista abaixo será utilizada nas atividades 6 e 7:
+
+```
+trybe_course = ["Introdução", "Front-end", "Back-end"]
+```
+
+5. Adicione o elemento “Ciência da Computação” à lista.
+
+```
+trybe_course.append("Ciência da Computação")
+
+trybe_course # Saída: ["Introdução", "Front-end", "Back-end", "Ciência da Computação"]
+```
+
+6. Acesse e altere o primeiro elemento da lista para “Fundamentos”.
+
+```
+trybe_course[0] = "Fundamentos"
+
+trybe_course # Saída: ["Fundamentos", "Front-end", "Back-end", "Ciência da Computação"]
+```
+
+7. Um conjunto ou set pode ser inicializado utilizando-se também o método `set()`. Inicialize uma variável com essa função `var = set()` e adicione seu nome ao conjunto utilizando um dos métodos vistos. Depois, imprima a variável e confira se o retorno é: `{‘seu_nome’}`.
+
+```
+var = set()
+var.add("Guilherme")
+
+# Resultado
+var # Saída: {'Guilherme'}
+```
+
+- ℹ️ O código abaixo será utilizado nas atividades 8 e 9:
+
+```
+info = {
+  "personagem": "Margarida",
+  "origem": "Pato Donald",
+  "nota": "Namorada do personagem principal nos quadrinhos do Pato Donald",
+}
+```
+
+8. Insira no objeto uma nova propriedade com o nome de chave “recorrente” e o valor “Sim”. Em seguida, imprima o objeto no console.
+
+```
+info["recorrente"] = "Sim"
+
+# Impressão
+info # Saída: {'personagem': 'Margarida', 'origem': 'Pato Donald', 'nota': 'Namorada do personagem principal nos quadrinhos do Pato Donald', 'recorrente': 'Sim'}
+```
+
+9. Remova a propriedade cuja chave é “origem” e imprima o objeto no console.
+
+```
+del info["origem"]
+
+# Impressão
+info # Saída: {'personagem': 'Margarida', 'nota': 'Namorada do personagem principal nos quadrinhos do Pato Donald', 'recorrente': 'Sim'}
+
+```
+
+10. Após uma consulta do banco de dados, temos linhas que contém nome, sobrenome e idade como: `"Thiago", "Nobre", 29`. Que estrutura vista anteriormente seria recomendada dado que após esta consulta somente exibimos estes valores?
+
+- **Resposta**: Tupla (tuple).
+
+11. Realizar a contagem de quantas vezes cada elemento aparece em uma sequência é uma técnica muito útil na solução de alguns problemas. Qual é a estrutura mais recomendada para o armazenamento desta contagem?
+
+- **Resposta**: Dict.
