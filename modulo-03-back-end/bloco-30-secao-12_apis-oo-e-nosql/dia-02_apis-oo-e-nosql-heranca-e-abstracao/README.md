@@ -1,4 +1,4 @@
-# ⚡ Atividades de Fixação & Exercícios | Bloco 30 - Dia 01 (Seção 12)
+# ⚡ Atividades de Fixação & Exercícios | Bloco 30 - Dia 02 (Seção 12)
 
 ## ✅ Exercícios do dia
 
@@ -35,3 +35,124 @@ Podemos categorizar os padrões em três famílias: Padrões criacionais, estrut
 `Observer`: Imagine que agora o cliente, dono do e-commerce, chegou reclamando que os e-mails de ofertas disparados estão sendo bloqueados e dados como spam. A pessoa proprietária também diz que uma das dores que ela mais observa é o fato de o e-commerce não ter a possibilidade de favoritar produtos, impossibilitando assim seus compradores de observar o status dos produtos desejados. Daí surge o padrão denominado Observer, que permite que você defina um mecanismo de assinatura para notificar múltiplos objetos sobre quaisquer eventos que aconteçam com o objeto que eles estão observando.
 
 <br/>
+
+- Obs: Os exercícios a seguir baseiam-se na aplicação vista no conteúdo do dia - TRIX. [Aqui é possível acessar o PR](https://github.com/garciaagui/trybe-poo-trix/pull/2).
+
+5. Agora incremente a aplicação TRIX e adicione mais uma possibilidade de chave para o usuário final. Esta deve possibilitar que o usuário faça transações com uma chave randômica de 36 caracteres (como esta, por exemplo: 123e4567-e12b-12d1-a456-426655440000). Veja que os quatro primeiros conjuntos são formados por letras e números, porém o último conjunto é formado por números.
+
+- Criação dos testes (`tests/unit/services/keyRegister.test.ts`):
+
+```
+/ ...
+
+it('Criando chave de tipo Random com SUCESSO', async function () {
+  // Arrange
+  const keyInput: IKey = {
+    value: '123e4567-e12b-12d1-a456-426655440000', // Quatro primeiros conjuntos são formados por letras e números, porém o último conjunto é formado por números.
+    owner: 'Jack C.',
+    type: 'random',
+  };
+  const keyOutput: Key = new Key(
+    '123e4567-e12b-12d1-a456-426655440000',
+    'Jack C.',
+    'random',
+    '633ec9fa3df977e30e993492',
+  );
+  // sinon.stub(Model, 'create').resolves(keyOutput);
+
+  // Act
+  const service = new KeyService();
+  const result = await service.register(keyInput);
+
+  // Assert
+  expect(result).to.be.deep.equal(keyOutput);
+});
+
+it('Criando chave de tipo Random é inválida', async function () {
+  // Arrange
+  const keyInput: IKey = {
+    value: '123e4567-e12b-12d1-a456-42665544abcd',
+    owner: 'Jack C.',
+    type: 'random',
+  };
+  // sinon.stub(Model, 'create').resolves({});
+
+  // Act
+  try {
+    const service = new KeyService();
+    await service.register(keyInput);
+  } catch (error) {
+    // Assert
+    expect((error as Error).message).to.be.equal(RESULT_ERROR);
+  }
+});
+
+/ ...
+```
+
+- Adição de mais um tipo ao enum `KeyTypes` (`src/utils/KeyTypes.ts`):
+
+```
+enum KeyTypes {
+  CPF = 'cpf',
+  PHONE_NUMBER = 'phonenumber',
+  RANDOM = 'random', // Novo tipo adicionado...
+}
+
+export default KeyTypes;
+```
+
+- Criação de uma nova classe de domínio (`src/Domain/Key/Random.ts`):
+
+```
+import IKey from '../../Interfaces/IKey';
+import IValid from '../../Interfaces/IValid';
+import KeyTypes from '../../utils/KeyTypes';
+
+class Random implements IKey, IValid {
+  readonly value: string;
+  readonly owner: string;
+  readonly type: string;
+
+  constructor(value: string, owner: string) {
+    if (!this.isValid(value)) throw Error('Invalid Key');
+    this.value = value;
+    this.owner = owner;
+    this.type = KeyTypes.RANDOM;
+  }
+
+  isValid(value: string): boolean {
+    const regex = /^\w{8}-\w{4}-\w{4}-\w{4}-\d{12}$/;
+    return regex.test(value);
+  }
+}
+
+export default Random;
+```
+
+- Adição de mais um if à `keyFactory`, que instancia classe `Random` (`src/Domain/Key/KeyFactory.ts`):
+
+```
+//...
+
+import Random from './Random';
+
+class KeyFactory {
+  public static create(key: IKey): IKey & IValid {
+    if (key.type === KeyTypes.CPF) {
+      return new CPF(key.value, key.owner);
+    }
+    if (key.type === KeyTypes.PHONE_NUMBER) {
+      return new PhoneNumber(key.value, key.owner);
+    }
+    if (key.type === KeyTypes.RANDOM) {
+      return new Random(key.value, key.owner); // Novo if adicionado...
+    }
+    throw new Error('Invalid Key Type!');
+  }
+}
+
+// ...
+```
+
+6. Ainda na aplicação TRIX, crie um novo endpoint para retornar todas as chaves de uma pessoa proprietária (owner):
