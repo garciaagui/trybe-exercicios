@@ -137,3 +137,50 @@ info # Saída: {'personagem': 'Margarida', 'nota': 'Namorada do personagem princ
 11. Realizar a contagem de quantas vezes cada elemento aparece em uma sequência é uma técnica muito útil na solução de alguns problemas. Qual é a estrutura mais recomendada para o armazenamento desta contagem?
 
 - **Resposta**: Dict.
+
+## ✅ Atividades de Fixação - Estruturas de repetição
+
+12. O Fatorial de um número inteiro é representado pela multiplicação de todos os números predecessores maiores que 0. Escreva um código que calcule o fatorial de um número inteiro.
+
+```
+num = 5
+result = 1
+
+for counter in range(1, (num + 1)):
+     result *= counter;
+     print(result);
+
+# Saída:
+1
+2
+6
+24
+120
+
+```
+
+13. Um sistema de avaliações registra valores de 0 a 10 para cada avaliação. Após algumas mudanças estes valores precisam ser ajustados para avaliações de 0 a 100. Dado uma sequência de avaliações ratings = [6, 8, 5, 9, 10]. Escreva um código capaz de gerar as avaliações após a mudança. Neste caso o resultado deveria ser [60, 80, 50, 90, 100].
+
+```
+ratings = [6, 8, 5, 9, 10]
+
+new_ratings = [
+    rating * 10
+    for rating in ratings
+]
+
+new_ratings # Saída: [60, 80, 50, 90, 100]
+```
+
+14. Percorra a lista do exercício 13 e imprima “Múltiplo de 3” se o elemento for divisível por 3.
+
+```
+for rating in ratings:
+    if (rating % 3) == 0:
+            print(f'{rating} é múltiplo de 3!');
+
+# Saída:
+6 é múltiplo de 3!
+9 é múltiplo de 3!
+
+```
