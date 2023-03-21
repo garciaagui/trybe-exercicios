@@ -184,3 +184,91 @@ for rating in ratings:
 9 é múltiplo de 3!
 
 ```
+
+## ✅ Exercícios do dia
+
+1. Crie uma função que receba dois números e retorne o maior deles.
+
+```
+def get_greatest_number(num1, num2):
+    if num1 > num2:
+        return num1
+    else:
+        return num2
+```
+
+2. Calcule a média aritmética dos valores contidos em uma lista.
+
+```
+def calculate_arithmetic_average(num_list):
+    sum = 0
+    for num in num_list:
+        sum += num
+
+    return sum / len(num_list)
+```
+
+3. Faça um programa que, dado um valor n qualquer, tal que `n > 1`, imprima na tela um quadrado feito de asteriscos de lado de tamanho n. Por exemplo:
+
+```
+n = 5
+
+*****
+*****
+*****
+*****
+*****
+```
+
+- **Resposta...**
+
+```
+def print_square(num):
+    for row in range(1, (num + 1)):
+        print(num * "*")
+```
+
+4. Crie uma função que receba uma lista de nomes e retorne o nome com a maior quantidade de caracteres.
+
+```
+def get_longest_name(name_list):
+    longest_name = name_list[0]
+
+    for name in name_list:
+        if len(longest_name) < len(name):
+            longest_name = name
+
+    return longest_name
+```
+
+5. Considere que a cobertura da tinta é de 1 litro para cada 3 metros quadrados e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00. Crie uma função que retorne dois valores em uma tupla contendo a quantidade de latas de tinta a serem compradas e o preço total a partir do tamanho de uma parede (em m²).
+
+```
+def get_paint_cans_and_price_per_square_meters(square_meters):
+    square_meters_per_liter = 3
+    can_liter_capacity = 18
+    can_brl_price = 80
+
+    required_liters = square_meters / square_meters_per_liter
+    required_cans = ceil(required_liters / can_liter_capacity)
+    price = required_cans * can_brl_price
+
+    return (required_cans, price)
+```
+
+6. Crie uma função que receba os três lado de um triângulo e informe qual o tipo de triângulo formado ou "não é triangulo", caso não seja possível formar um triângulo.
+
+```
+def get_triangle_type(s1, s2, s3):
+    if ((s1 + s2) < s3) or ((s1 + s3) < s2) or ((s2 + s3) < s1):
+        return "Não é um triângulo!"
+
+    elif s1 == s2 == s3:
+        return "Triângulo Equilátero"
+
+    elif s1 == s2 or s1 == s3 or s2 == s3:
+        return "Triângulo Isósceles"
+
+    else:
+        return "Triângulo Escaleno"
+```
