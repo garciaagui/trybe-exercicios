@@ -68,3 +68,120 @@ def generate_unapproved_students_arch():
         file.writelines(unapproved_list)
         print(unapproved_list)
 ```
+
+## ✅ Exercícios do dia
+
+1. Faça um programa que receba um nome e imprima o mesmo na vertical em escada invertida. Exemplo:
+
+```
+PEDRO
+PEDR
+PED
+PE
+P
+```
+
+- **Resposta...**
+
+```
+def print_name_vertically():
+    name = input("Insira o seu nome: ")
+
+    while len(name) >= 1:
+        print(name)
+        name = name[:-1]
+```
+
+2. Desenvolva um jogo em que a pessoa usuária tenha que adivinhar uma palavra que será mostrada com as letras embaralhadas. O programa terá uma lista de palavras e escolherá uma aleatoriamente. O jogador terá três tentativas para adivinhar a palavra. Ao final, a palavra deve ser mostrada na tela, informando se a pessoa ganhou ou perdeu o jogo.
+
+```
+import random
+
+def guess_the_scrambled_word_1():
+    word_list = ["Playstation", "Retângulo", "Dicionário"]
+    random_word = random.choice(word_list)
+    scrambled_word = "".join(random.sample(random_word, len(random_word)))
+    counter = 1
+
+    print(f"Descubra a palavra embaralhada: {scrambled_word}\n")
+
+    while counter <= 3:
+        guess = input(f"Palpite {counter}: ")
+        if guess == random_word:
+            return print("Parabéns, você acertou!")
+        counter += 1
+
+    return print("Este foi o seu último palpite. Tente novamente...")
+```
+
+3. Modifique o exercício anterior para que as palavras sejam lidas de um arquivo (`./exercises/words.json`). Considere que o arquivo terá cada palavra em uma linha.
+
+```
+import random
+
+def guess_the_scrambled_word_2():
+    with open("words.json") as file:
+        word_list = json.load(file)["words"]
+
+    random_word = random.choice(word_list)
+    scrambled_word = "".join(random.sample(random_word, len(random_word)))
+    counter = 1
+
+    print(f"Descubra a palavra embaralhada: {scrambled_word}\n")
+
+    while counter <= 3:
+        guess = input(f"Palpite {counter}: ")
+        if guess == random_word:
+            return print("Parabéns, você acertou!")
+        counter += 1
+
+    return print("Este foi o seu último palpite. Tente novamente...")
+```
+
+4. Dado o arquivo `books.json` disponível em `./exercises`, calcule a porcentagem de livros em cada categoria em relação ao número total de livros. O resultado deve ser escrito em um arquivo no formato CSV como o exemplo abaixo.
+
+```
+categoria,porcentagem
+Python,0.23201856148491878
+Java,0.23201856148491878
+PHP,0.23201856148491878
+```
+
+- **Resposta...**
+
+```
+import json
+import csv
+
+def filter_books_by_category():
+    with open("books.json") as file:
+        books_list = json.load(file)
+
+    books_pct_by_category = {}
+
+    for book in books_list:
+        categories = book["categories"]
+
+        for category in categories:
+            if category not in books_pct_by_category:
+                books_pct_by_category[category] = 0
+            books_pct_by_category[category] += 1 / len(books_list) * 100
+
+    return books_pct_by_category
+
+
+def generate_books_report():
+    books_pct_by_category = filter_books_by_category()
+
+    with open(
+        "books_pct_by_category_report.csv", "w", encoding="utf-8"
+    ) as file:
+        headers = ["Categoria", "Porcentagem"]
+
+        writer = csv.DictWriter(file, fieldnames=headers)
+        writer.writeheader()
+
+        for category, pct in books_pct_by_category.items():
+            row = {"Categoria": category, "Porcentagem": round(pct, 2)}
+            writer.writerow(row)
+```
