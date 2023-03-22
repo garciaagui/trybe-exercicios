@@ -6,8 +6,6 @@ def print_name_vertically():
 
 
 # Atividade 02
-
-
 def sum_natural_numbers():
     sum = 0
     numbers = input(
@@ -26,4 +24,4 @@ def sum_natural_numbers():
 
 
 # print_name_vertically()
-print(sum_natural_numbers())
+# print(sum_natural_numbers())
