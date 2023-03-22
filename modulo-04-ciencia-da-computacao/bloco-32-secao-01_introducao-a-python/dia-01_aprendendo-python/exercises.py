@@ -65,7 +65,7 @@ def get_triangle_type(s1, s2, s3):
 
 # print(get_greatest_number(4, 2))
 # print(calculate_arithmetic_average([1, 10, 25]))
-# print(print_square(5))
+# print_square(5)
 # print(get_longest_name(["José", "Lucas", "Nádia", "Fernanda", "Cairo"]))
 # print(get_paint_cans_and_price_per_square_meters(150))
 # print(get_triangle_type(1, 2, 4))
