@@ -272,3 +272,90 @@ def get_triangle_type(s1, s2, s3):
     else:
         return "Triângulo Escaleno"
 ```
+
+## ✅ Exercícios Bônus
+
+1. Dada uma lista, descubra o menor elemento.
+
+```
+# Opção 01
+def get_smallest_number(num_list):
+    smallest_num = num_list[0]
+
+    for num in num_list:
+        if smallest_num > num:
+            smallest_num = num
+
+    return smallest_num
+
+
+# Opção 02
+def get_smallest_number(num_list):
+   return min(num_list)
+```
+
+2. Faça um programa que, dado um valor n qualquer, tal que `n > 1`, imprima na tela um triângulo retângulo com n asteriscos de base. Por exemplo, para n = 5 o triângulo terá 5 asteriscos na base:
+
+```
+n = 5
+
+*
+**
+***
+****
+*****
+```
+
+- **Resposta...**
+
+```
+def print_triangle(num):
+    for row in range(0, (num + 1)):
+        print(row * "*")
+
+```
+
+3. Crie uma função que receba um número inteiro `N` e retorne o somatório de todos os números de 1 até `N`.
+
+```
+def get_summation(num):
+    sum = 0
+    for counter in range(1, (num + 1)):
+        sum += counter
+
+    return sum
+
+```
+
+4. Um posto está vendendo combustíveis com a seguinte tabela de descontos:
+
+```
+  Álcool:
+    - Até 20 litros, desconto de 3% por litro;
+    - Acima de 20 litros, desconto de 5% por litro.
+  Gasolina:
+    - Até 20 litros, desconto de 4% por litro;
+    - Acima de 20 litros, desconto de 6% por litro.
+```
+
+- **Resposta...**
+
+```
+def calculate_fuel_price(liters, fuel):
+    type = ()
+    discounted_price = 0
+
+    if fuel == "A":
+        type = (0.03, 0.05, 1.90)
+    elif fuel == "G":
+        type = (0.04, 0.06, 2.50)
+    else:
+        return "Invalid Fuel"
+
+    if liters <= 20:
+        discounted_price = (1 - type[0]) * type[2]
+    else:
+        discounted_price = (1 - type[1]) * type[2]
+
+    return round((discounted_price * liters), 2)
+```
