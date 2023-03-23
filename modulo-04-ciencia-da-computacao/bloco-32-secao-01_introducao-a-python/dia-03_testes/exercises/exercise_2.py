@@ -46,4 +46,5 @@ def generate_phone_number(expression: str) -> str:
     return phone_number
 
 
-print(generate_phone_number("MY-MISERABLE-JOB-1"))
+if __name__ == "__main__":
+    print(generate_phone_number("MY-MISERABLE-JOB-1"))
