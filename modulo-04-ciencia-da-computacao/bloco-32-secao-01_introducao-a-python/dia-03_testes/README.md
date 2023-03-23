@@ -168,3 +168,123 @@ def test_should_raise_exception_for_invalid_format():
     ):
         assert generate_phone_number("invalid_format")
 ```
+
+3. Faça uma função que valide um e-mail, lançando uma exceção quando o valor for inválido. Endereços de e-mail válidos devem seguir as seguintes regras:
+
+- O nome de usuário deve conter somente letras, dígitos, traços e underscores (\_);
+- O nome de usuário deve iniciar com uma letra;
+- O nome do website deve conter somente letras e dígitos;
+- O tamanho máximo da extensão é de 3 caracteres.
+
+> Formato correto: `nomeusuario@nomewebsite.extensao`
+
+- `exercise_3.py`
+
+```
+def validate_user(username: str):
+    if not username[0].isalpha():
+        raise ValueError(
+            "Formato inválido! \n"
+            "O nome de usuário deve iniciar com uma letra."
+        )
+
+    for character in username:
+        if character.isnumeric():
+            raise ValueError(
+                "Formato inválido! O nome de usuário deve conter: \n"
+                "Letras, dígitos, traços e underscores (_)."
+            )
+
+
+def validate_website(website: str):
+    for character in website:
+        if character.isnumeric():
+            raise ValueError(
+                "Formato inválido! \n"
+                "O nome do website deve conter somente letras e dígitos."
+            )
+
+
+def validate_extension(extension: str):
+    if len(extension) < 1 or len(extension) > 3:
+        raise ValueError(
+            "Formato inválido! \n"
+            "O tamanho da extensão é de um a três caracteres."
+        )
+
+    for character in extension:
+        if not character.isalpha():
+            raise ValueError(
+                "Formato inválido! \n"
+                "O nome da extensão deve conter somente letras."
+            )
+
+
+def validate_email(email: str) -> str:
+    splitted_email = email.replace(".", "@").split("@")
+    validate_user(splitted_email[0])
+    validate_website(splitted_email[1])
+    validate_extension(splitted_email[2])
+
+    return True
+```
+
+- `test_exercise_3.py`
+
+```
+import pytest
+
+from exercise_3 import validate_email
+
+
+def test_valid_email_should_return_true():
+    assert validate_email("valid@mail.com") is True
+
+
+def test_invalid_initial_char_username_should_raise_an_exception():
+    with pytest.raises(
+        ValueError, match="O nome de usuário deve iniciar com uma letra."
+    ):
+        assert validate_email("1nvalid@mail.com")
+
+
+def test_invalid_chars_username_should_raise_an_exception():
+    with pytest.raises(
+        ValueError,
+        match="O nome de usuário deve conter:",
+    ):
+        assert validate_email("inv4l1d@mail.com")
+
+
+def test_invalid_chars_website_should_raise_an_exception():
+    with pytest.raises(
+        ValueError,
+        match="O nome do website deve conter somente letras e dígitos.",
+    ):
+        assert validate_email("valid@1nv4lid.com")
+
+
+def test_0_char_extension_should_raise_an_exception():
+    with pytest.raises(
+        ValueError,
+        match="O tamanho da extensão é de um a três caracteres.",
+    ):
+        assert validate_email("valid@mail.")
+
+
+def test_more_than_3_char_extension_should_raise_an_exception():
+    with pytest.raises(
+        ValueError,
+        match="O tamanho da extensão é de um a três caracteres.",
+    ):
+        assert validate_email("valid@mail.comm")
+
+
+def test_invalid_chars_extension_should_raise_an_exception():
+    with pytest.raises(
+        ValueError,
+        match="O nome da extensão deve conter somente letras.",
+    ):
+        assert validate_email("valid@mail.1-")
+
+```
