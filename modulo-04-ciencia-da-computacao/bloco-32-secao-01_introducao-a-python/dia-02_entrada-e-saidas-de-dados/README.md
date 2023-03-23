@@ -227,7 +227,4 @@ def guess_the_pokemon():
         counter += 1
 
     return print(f"Você perdeu. O pokémon era: {random_pokemon}")
-
-
-guess_the_pokemon()
 ```
