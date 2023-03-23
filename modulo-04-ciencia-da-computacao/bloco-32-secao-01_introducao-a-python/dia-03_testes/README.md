@@ -288,3 +288,85 @@ def test_invalid_chars_extension_should_raise_an_exception():
         assert validate_email("valid@mail.1-")
 
 ```
+
+4. Baseado no exercício anterior, escreva uma função que, dado uma lista de emails, deve retornar somente os emails válidos. Caso uma exceção ocorra, apenas a escreva na tela.
+
+> Exemplo: `["valid@mail.com", "1nvalid@mail.com", "valid@domain.com"]` -> `["valid@mail.com", "valid@domain.com"]`
+
+- `exercise_4.py`
+
+```
+from exercise_3 import validate_email
+
+
+def filter_valid_emails(emails):
+    valid_emails = []
+
+    for email in emails:
+        try:
+            validate_email(email)
+            valid_emails.append(email)
+        except Exception as e:
+            print(f"Email '{email}' não adicionado - {e}\n")
+
+    return valid_emails
+```
+
+- `test_exercise_4.py`
+
+```
+from exercise_4 import filter_valid_emails
+
+
+def test_only_valid_emails_are_filtered():
+    input = ["valid@mail.com", "1nvalid@mail.com", "valid@domain.com"]
+    output = ["valid@mail.com", "valid@domain.com"]
+
+    assert filter_valid_emails(input) == output
+
+
+def test_invalid_emails_group_results_an_empty_list():
+    input = ["1nvalid@mail.com", "invalid@mail."]
+    output = []
+
+    assert filter_valid_emails(input) == output
+
+
+def test_invalid_username_email_should_print_error_message(capsys):
+    input = ["valid@mail.com", "1nvalid@mail.com", "valid@domain.com"]
+
+    assert filter_valid_emails(input)
+
+    captured = capsys.readouterr()
+
+    assert (
+        "Email '1nvalid@mail.com' não adicionado - Formato inválido!"
+        in captured.out
+    )
+
+
+def test_invalid_website_email_should_print_error_message(capsys):
+    input = ["valid@mail.com", "invalid@123.com", "valid@domain.com"]
+
+    assert filter_valid_emails(input)
+
+    captured = capsys.readouterr()
+
+    assert (
+        "Email 'invalid@123.com' não adicionado - Formato inválido!"
+        in captured.out
+    )
+
+
+def test_invalid_extension_email_should_print_error_message(capsys):
+    input = ["valid@mail.com", "invalid@mail.", "valid@domain.com"]
+
+    assert filter_valid_emails(input)
+
+    captured = capsys.readouterr()
+
+    assert (
+        "Email 'invalid@mail.' não adicionado - Formato inválido!"
+        in captured.out
+    )
+```
