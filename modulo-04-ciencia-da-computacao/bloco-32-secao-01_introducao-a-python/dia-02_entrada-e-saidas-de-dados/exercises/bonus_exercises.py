@@ -13,18 +13,25 @@ def generate_random_pokemon():
 
 def guess_the_pokemon():
     random_pokemon = generate_random_pokemon()
-    counter = 1
+    counter = 0
 
     print("Adivinhe o Pokémon!\n")
 
     while counter < len(random_pokemon):
-        print(f"Dica: {random_pokemon[0:counter]}")
-        guess = input(f"Palpite {counter}: ")
+        print(
+            (f"Dica: { random_pokemon[0:counter]}")
+            if counter > 0
+            else "Primeiramente, tente adivinhar sem dica :)"
+        )
+
+        guess = input(f"Palpite {counter + 1}: ")
+
         if guess == random_pokemon:
             return print(f"Parabéns, você acertou! Pokémon: {random_pokemon}")
+
         counter += 1
 
     return print(f"Você perdeu. O pokémon era: {random_pokemon}")
 
 
-# guess_the_pokemon()
+guess_the_pokemon()
