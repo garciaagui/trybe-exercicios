@@ -185,3 +185,49 @@ def generate_books_report():
             row = {"Categoria": category, "Porcentagem": round(pct, 2)}
             writer.writerow(row)
 ```
+
+## ✅ Exercício Bônus
+
+5. Utilizando o arquivo `pokemons.json` disponível em `./exercises`, escreva um programa que sorteie um pokemon aleatoriamente. O programa deve perguntar à pessoa usuária “Quem é esse pokemon?” até que ela o acerte. A cada erro, apresente um número de letras do nome daquele pokemon igual ao número de erros.
+
+- Exemplo: O pokemon sorteado pelo programa é `butterfree`; a pessoa usuária chuta "charizard"; o programa deve exibir `b`. Em seguida, a pessoa chuta "blastoise"; o programa deve exibir `bu`; e assim por diante até a pessoa acertar.
+
+```
+import json
+import random
+
+
+def generate_random_pokemon():
+    with open("pokemons.json") as file:
+        pokemons_list = json.load(file)["results"]
+
+    random_pokemon = random.choice(pokemons_list)
+
+    return random_pokemon["name"]
+
+
+def guess_the_pokemon():
+    random_pokemon = generate_random_pokemon()
+    counter = 0
+
+    print("Adivinhe o Pokémon!\n")
+
+    while counter < len(random_pokemon):
+        print(
+            (f"Dica: { random_pokemon[0:counter]}")
+            if counter > 0
+            else "Primeiramente, tente adivinhar sem dica :)"
+        )
+
+        guess = input(f"Palpite {counter + 1}: ")
+
+        if guess == random_pokemon:
+            return print(f"Parabéns, você acertou! Pokémon: {random_pokemon}")
+
+        counter += 1
+
+    return print(f"Você perdeu. O pokémon era: {random_pokemon}")
+
+
+guess_the_pokemon()
+```
