@@ -138,3 +138,75 @@ print(batedeira)
 print(maquina_de_lavar)
 
 ```
+
+## ✅ Exercícios do dia
+
+1. Implemente a classe `TV` conforme as especificações abaixo.
+
+- Atributos:
+
+  - `volume` - será inicializado com um valor de 50 e só pode estar entre 0 e 99;
+  - `canal` - será inicializado com um valor de 1 e só pode estar entre 1 e 99;
+  - `tamanho` - será inicializado com o valor do parâmetro;
+  - `ligada` - será inicializado com o valor de False, pois está inicialmente desligado.
+  - Todos eles devem ser **privados**.
+
+- Métodos:
+  - `aumentar_volume` - aumenta o volume de 1 em 1 até o máximo de 99;
+  - `diminuir_volume` - diminui o volume de 1 em 1 até o mínimo de 0;
+  - `modificar_canal` - altera o canal de acordo com o parâmetro recebido e deve lançar uma exceção (`ValueError`) caso o valor esteja fora dos limites;
+  - `ligar_desligar` - alterna o estado da TV entre ligado e desligado (True/False).
+
+```
+class TV:
+    def __init__(self, tamanho: int):
+        self.__volume = 50
+        self.__canal = 1
+        self.__tamanho = tamanho
+        self.__ligada = False
+
+    def __esta_ligada(self):
+        if self.__ligada is False:
+            raise ValueError("A TV está desligada!")
+
+    def aumentar_volume(self):
+        self.__esta_ligada()
+        if self.__volume == 99:
+            print("A TV já está no seu volume máximo de 99.")
+        else:
+            self.__volume += 1
+            print(f"Volume aumentado para {self.__volume}.")
+
+    def diminuir_volume(self):
+        self.__esta_ligada()
+        if self.__volume == 0:
+            print("A TV já está no seu volume mínimo de 0.")
+        else:
+            self.__volume -= 1
+            print(f"Volume diminuido para {self.__volume}")
+
+    def modificar_canal(self, novo_canal):
+        self.__esta_ligada()
+        if novo_canal < 0 or novo_canal > 99:
+            raise ValueError("Canal inválido! Canais válidos vão de 1 a 99.")
+        else:
+            self.__canal = novo_canal
+            print(f"Canal alterado para {self.__canal}.")
+
+    def ligar_desligar(self):
+        if self.__ligada is False:
+            self.__ligada = True
+            print("Ligando TV...")
+        else:
+            self.__ligada = False
+            print("Desligando TV...")
+
+    def __str__(self):
+        return f"""
+        Informações da TV:
+        - Tamanho: {self.__tamanho} polegadas;
+        - Ligada: {"Sim" if self.__ligada else "Não"};
+        - Volume atual: {self.__volume if self.__ligada else "TV desligada"};
+        - Canal atual: {self.__canal if self.__ligada else "TV desligada"}.
+        """
+```
