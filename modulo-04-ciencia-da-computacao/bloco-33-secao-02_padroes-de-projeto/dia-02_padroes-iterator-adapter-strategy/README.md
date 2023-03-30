@@ -150,7 +150,7 @@ class Baralho(Iterable):
         return f"{[carta for carta in self]}"
 ```
 
-3. Com o baralho tradicional pronto, implemente uma subclasse de `Baralho` chamada `BaralhoInverso`, que produz um iterador para fornecer as cartas na ordem inversa. Ou seja, sem embaralhar, a primeira carta deve ser o` <K de paus>` em vez do `<A de copas>`, como acontece na implementação atual.
+3. Com o baralho tradicional pronto, implemente uma subclasse de `Baralho` chamada `BaralhoInverso`, que produz um iterador para fornecer as cartas na ordem inversa. Ou seja, sem embaralhar, a primeira carta deve ser o `<K de paus>` em vez do `<A de copas>`, como acontece na implementação atual.
 
 ```
 from exercise_02 import Baralho
@@ -176,10 +176,6 @@ class OrdemInversaDasCartas(Iterator):
 class BaralhoInverso(Baralho):
     def __iter__(self):
         return OrdemInversaDasCartas(self._cartas)
-
-
-if __name__ == "__main__":
-    print(BaralhoInverso())
 
 ```
 
@@ -261,10 +257,6 @@ class Baralho(Iterable):
     def __str__(self) -> str:
         return f"{[carta for carta in self]}"
 
-
-if __name__ == "__main__":
-    print(Baralho(EstrategiaReversa))
-
 ```
 
 5. Você tem a implementação de uma classe capaz de renderizar imagens através de uma interface que utiliza o método `draw`. Porém, no momento ela só suporta formato PNG e você também precisa ser capaz de renderizar imagens em SVG. Altere o código, sem modificar a classe `SvgImage`, para que isso seja possível.
@@ -334,11 +326,6 @@ class SvgImageAdapter(PngInterface):
     def draw(self):
         print(f"Drawing {self.svg.get_image()}")
 
-
-if __name__ == "__main__":
-    png = SvgImageAdapter(SvgImage("path"))
-    png.draw()
-
 ```
 
 6. Você está trabalhando em um sistema de orçamentos que faz cálculos de impostos e precisa ser refatorado para adicionar novos, que no caso são o `PIS` (0,65%) e o `COFINS` (3%). Mas durante a refatoração, você se depara com uma má prática de código. Encontre essa má prática e a solucione em conjunto com a refatoração
@@ -404,15 +391,5 @@ class COFINS(EstrategiaImposto):
 class Orcamento:
     def calcular_imposto(self, imposto, valor):
         return imposto.calcular(valor)
-
-
-if __name__ == "__main__":
-    o = Orcamento()
-    valor = 1000
-
-    print(o.calcular_imposto(ISS, valor))
-    print(o.calcular_imposto(ICMS, valor))
-    print(o.calcular_imposto(PIS, valor))
-    print(o.calcular_imposto(COFINS, valor))
 
 ```
