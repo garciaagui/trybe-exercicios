@@ -1,4 +1,4 @@
-# ⚡ Atividades de Fixação & Exercícios | Bloco 33 - Dia 02 (Seção 02 - CS)
+# ⚡ Atividades de Fixação & Exercícios | Bloco 34 - Dia 01 (Seção 03 - CS)
 
 ## ✅ Exercícios do dia
 
@@ -12,7 +12,7 @@ response = requests.get("https://httpbin.org/encoding/utf8")
 print(response.text)
 ```
 
-2. Faça uma requisição ao recurso usuários da API do Github (h`ttps://api.github.com/users`), exibindo o **username** e **url** de todos os usuários retornados, conforme o exemplo abaixo.
+2. Faça uma requisição ao recurso usuários da API do Github (`https://api.github.com/users`), exibindo o **username** e **url** de todos os usuários retornados, conforme o exemplo abaixo.
 
 ```
 mojombo https://api.github.com/users/mojombo
