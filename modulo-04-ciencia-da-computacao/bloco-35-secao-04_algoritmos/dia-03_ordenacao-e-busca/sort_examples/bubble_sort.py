@@ -1,6 +1,6 @@
-def bubble_sort(numbers):
+def bubble_sort(elements):
     # Quantidade de elementos na lista
-    n = len(numbers)
+    n = len(elements)
 
     # Precisamos ordenar n-1 elementos
     for ordered_elements in range(n - 1):
@@ -8,15 +8,11 @@ def bubble_sort(numbers):
         stop = n - 1 - ordered_elements
         for item in range(0, stop):
             # se um elemento for maior, flutuamos ele para cima
-            if numbers[item] > numbers[item + 1]:
-                current_element = numbers[item]
-                numbers[item] = numbers[item + 1]
-                numbers[item + 1] = current_element
+            if elements[item] > elements[item + 1]:
+                current_element = elements[item]
+                elements[item] = elements[item + 1]
+                elements[item + 1] = current_element
 
                 # Lembra da troca com desempacotamento?
-                # numbers[item], numbers[item + 1] = numbers[item + 1], numbers[item]
-    return numbers
-
-
-numbers = [7, 5, 9, 2, 6, 8]
-print(bubble_sort(numbers))
+                # elements[item], elements[item + 1] = elements[item + 1], elements[item]
+    return elements

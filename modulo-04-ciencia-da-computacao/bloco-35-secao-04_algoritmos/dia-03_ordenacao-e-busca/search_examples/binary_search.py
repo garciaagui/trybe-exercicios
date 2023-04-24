@@ -20,10 +20,3 @@ def binary_search(numbers, target):
             start = mid + 1
 
     return -1  # Não encontrou? Retorna -1
-
-
-numbers = [2, 3, 4, 10, 40]
-target = 40
-
-result = binary_search(numbers, target)
-print(f"Elemento encontrado na posição: {result}")

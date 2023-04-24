@@ -20,7 +20,3 @@ def insertion_sort(numbers):
         numbers[new_position + 1] = key
 
     return numbers
-
-
-numbers = [7, 5, 9, 2, 6, 8]
-print(insertion_sort(numbers))

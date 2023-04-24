@@ -7,7 +7,3 @@ def linear_search(numbers, target):
             return index
 
     return -1  # Não encontrou? Retorne -1
-
-
-print(linear_search([1, 2, 3], 2))  # saída: 1
-print(linear_search([1, 2, 3], 4))  # saída: -1
