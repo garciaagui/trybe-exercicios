@@ -190,7 +190,7 @@ print(
 )
 ```
 
-4. Faça um script (`memory_per_sec.py`) que, a cada intervalo de segundo, mostre no console a memória utilizada do sistema operacional vs a memória total (ambos em megabytes - MB). Lembre-se que você pode se basear no script do exercício anterior.
+4. Faça um script (`memory_per_sec.py`) que, a cada intervalo de segundo, mostre no console a memória utilizada do sistema operacional vs a memória total (ambos em megabytes - MB).
 
 ```
 from subprocess import check_output
@@ -213,7 +213,6 @@ while True:
         f"Memória utilizada: {used_memory:.0f}MB"
     )
     sleep(1)
-
 ```
 
 5. Faça um script (`process_id.py`) que exibe o seu respectivo `process id` utilizando o módulo `os` do Python e então fique em execução por um determinado tempo. Agora utilizando os comandos de monitoramento visto no conteúdo, exiba os processos em execução e então identifique o seu processo.
@@ -225,7 +224,6 @@ from os import getpid
 
 print(getpid())
 sleep(20)
-
 ```
 
 ```
